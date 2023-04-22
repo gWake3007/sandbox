@@ -5,12 +5,6 @@ ul li {
   list-style-type: none;
 }
 
-.footer-list {
-  text-decoration: none;
-  list-style: none;
-}
-
-.link-list {
-  text-decoration: none;
-  list-style: none;
+ul a{
+    text-decoration: none;
 }
