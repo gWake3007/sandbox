@@ -1,4 +1,53 @@
 :root {
+  /* ========== Pink ========== */
+  --light-coral:#f08080;
+  /* ========== Green_Sea ========== */
+  --medium-sea-green:#3cb371;
+  /* ========== Light_Pink ========== */
+  --light-pink:#ffb6c1;
+  /* ========== Aqua_Green ========== */
+  --aqua:#00ffff;
+  /* ========== Sun ========== */
+  --yellow:#ffff00;
+  /* ========== Sky ========== */
+  --blue:#3939ea;
+  /* ========== Navy_Blue ========== */
+  --navy:#000080;
+  /* ========== Violet ========== */
+  --dark-violet:#9400d3;
+  /* ========== Bisque_White ========== */
+  --bisque:#ffe4c4;
+  /* ========== WHITE ========== */
+  --white:#ffffff;
+  /* ========== Lipstick_Color ========== */
+  --brown:#a52a2a;
+  /* ========== Dark ========== */
+  --dark:#000000;
+  /* ========== Slate ========== */
+  --text:#434455;
+  /* ========== Navy_dark ========== */
+  --background-dark:#2e2f42;
+  /*  Transition Duration + Temporary-Function  */
+  --cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body{
+  font-family: 'Zen Old Mincho', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  font-weight: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+p, h1, h2, h3, h4, h5, h6{
+  margin: 0;
+}
+
+ul{
+  padding-left: 0;
+  margin: 0;
 }
 
 ul li {
@@ -7,4 +56,50 @@ ul li {
 
 ul a{
     text-decoration: none;
+}
+
+button{
+  cursor: pointer;
+}
+
+address{
+  font-style: normal;
+}
+
+img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.icon{
+  height: 16px;
+  width: 16px;
+  fill: #000000;
+  color: #000080;
+}
+
+.header-lyrics{
+  padding: 25px 0;
+}
+
+.header-link-list{
+  display: flex;
+}
+
+.header-link{
+  margin-left: 24px;
+}
+
+.text-lyric-conteiner{
+  max-width: 300px;
+  padding-left: 40px;
+}
+
+.couplet-lyric:not(:last-child){
+  margin-bottom: 20px;
+}
+
+.name-lyric{
+  text-align: center;
 }
