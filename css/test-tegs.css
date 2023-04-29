@@ -130,3 +130,24 @@ section {
 .button-li > button:visited {
   color: var(--aqua);
 }
+
+/* ========== CSS-Variables(var,Before,After) ========== */
+
+.section-variables{
+  border: 1px solid var(--dark);
+  border-radius: 4px;
+  background-color: var(--light-coral);
+}
+
+.title{
+  content:'';
+  font-size: 36px;
+  font-weight: 1.5;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: var(--text);
+}
+
+.title::before{
+  
+}
