@@ -148,6 +148,10 @@ section {
   color: var(--text);
 }
 
-.title::before{
-  
-}
+/* не работает! Почему ?
+ */
+
+/* .title::before{
+  background-image: url(../icons/icons_lyrics.svg#icon-email);
+  fill:var(--dark);
+} */
