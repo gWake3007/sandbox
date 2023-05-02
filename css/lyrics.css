@@ -100,6 +100,22 @@ img{
   margin-bottom: 20px;
 }
 
+/* Псевдо класс (меняем первую букву каждого абзаца) */
+/* (Change first letter each paragraph) */
+
+.couplet-lyric::first-letter{
+  font-weight: 500;
+  font-size: 24px;
+  font-weight: 1.5;
+  color: var(--brown);
+}
+
+/* Пример тени текста(Example shadow word) */
+
+.shadow{
+  text-shadow: 2px 2px 4px var(--blue);
+}
+
 .name-lyric{
   text-align: center;
 }
