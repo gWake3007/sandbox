@@ -119,3 +119,27 @@ img{
 .name-lyric{
   text-align: center;
 }
+
+
+/* помнить  */
+img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+.dodik{
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: var(--dark-violet);
+}
+
+.hover{
+  color: var(--aqua);
+}
+
+.hover:hover,
+.hover:focus{
+  color: var(--dark);
+}
