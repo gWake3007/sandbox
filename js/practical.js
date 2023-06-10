@@ -9,10 +9,10 @@
 // "Get rid of sPaM emails. Our book in on sale!" - true
 
 // function checkString(str){
-    
+
 //     let isSpam;
 //     str = str.toLowerCase();
-    
+
 //     if(str.includes("spam") || str.includes("sale")){
 //         isSpam = true
 //     }
@@ -25,10 +25,10 @@
 // checkString("Amazing SalE, only tonight!")
 
 // function checkString(str){
-    
+
 //     let isSpam = false;
 //     str = str.toLowerCase();
-    
+
 //     if(str.includes("spam") || str.includes("sale")){
 //         isSpam = true
 //     }
@@ -37,14 +37,13 @@
 // checkString("Latest technology news")
 // checkString("Amazing SalE, only tonight!")
 
-
-function checkString(str){
-    str = str.toLowerCase();
-    let isSpam = str.includes("spam") || str.includes("sale");
-    console.log(isSpam);
-}
-checkString("Latest technology news")
-checkString("Amazing SalE, only tonight!")
+// function checkString(str){
+//     str = str.toLowerCase();
+//     let isSpam = str.includes("spam") || str.includes("sale");
+//     console.log(isSpam);
+// }
+// checkString("Latest technology news")
+// checkString("Amazing SalE, only tonight!")
 
 // подивитись і цей зназок
 
@@ -53,3 +52,18 @@ checkString("Amazing SalE, only tonight!")
 //       str.toLowerCase().includes("spam") ||
 //       str.toLowerCase().includes("sale");
 //   }
+
+const available = 100;
+const ordered = 50;
+function checkStorage(available, ordered) {
+  let message;
+  // Change code below this line
+  if (available < ordered) {
+    console.log = `Not enough goods in stock!`;
+  } else {
+    console.log = `Order is processed, our manager will contact you.`;
+  }
+  // Change code above this line
+  return message;
+}
+checkStorage;
