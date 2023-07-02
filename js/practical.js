@@ -53,17 +53,18 @@
 //       str.toLowerCase().includes("sale");
 //   }
 
-const available = 100;
-const ordered = 50;
-function checkStorage(available, ordered) {
-  let message;
-  // Change code below this line
-  if (available < ordered) {
-    console.log = `Not enough goods in stock!`;
-  } else {
-    console.log = `Order is processed, our manager will contact you.`;
-  }
-  // Change code above this line
-  return message;
-}
-checkStorage;
+// const available = 100;
+// const ordered = 50;
+// function checkStorage(available, ordered) {
+//   let message;
+//   // Change code below this line
+//   if (available < ordered) {
+//     console.log = `Not enough goods in stock!`;
+//   } else {
+//     console.log = `Order is processed, our manager will contact you.`;
+//   }
+//   // Change code above this line
+//   return message;
+// }
+// checkStorage;
+
