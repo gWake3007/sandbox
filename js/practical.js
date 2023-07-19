@@ -68,17 +68,80 @@
 // }
 // checkStorage;
 
-// Change code below this line
-function calculateTotalPrice(orderedItems) {
-  let totalPrice = 0;
+// // Change code below this line
+// function calculateTotalPrice(orderedItems) {
+//   let totalPrice = 0;
 
-  orderedItems.forEach((orderedItems, item) => {
-    totalPrice += orderedItems;
-  });
-  // orderedItems.forEach(function (item) {
-  //   totalPrice += item;
-  // });
+//   orderedItems.forEach((orderedItems, item) => {
+//     totalPrice += orderedItems;
+//   });
+//   // orderedItems.forEach(function (item) {
+//   //   totalPrice += item;
+//   // });
 
-  return totalPrice;
-}
-// Change code above this line
+//   return totalPrice;
+// }
+// // Change code above this line
+
+
+
+// разница между методами
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     genres: ["adventure", "history"],
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     genres: ["fiction"],
+//   },
+//   {
+//     title: "Redder Than Blood",
+//     author: "Tanith Lee",
+//     genres: ["horror", "mysticism"],
+//   },
+// ];
+// // Change code below this line
+
+// const genres = books.flatMap(book => book.genres);
+
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   },
+//   { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+//   { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+// ];
+// // Change code below this line
+
+// const titles = books.map(book => book.title);
+
+
+
+const players = [
+    { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+    { name: "Poly", playtime: 469, gamesPlayed: 2 },
+    { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+    { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+  ];
+  // Change code below this line
+  
+  const totalAveragePlaytimePerGame = players.reduce((time, player) => {
+    return time + player.playtime;
+  }, 0);
