@@ -134,14 +134,33 @@
 
 
 
-const players = [
-    { name: "Mango", playtime: 1270, gamesPlayed: 4 },
-    { name: "Poly", playtime: 469, gamesPlayed: 2 },
-    { name: "Ajax", playtime: 690, gamesPlayed: 3 },
-    { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
-  ];
-  // Change code below this line
+// const players = [
+//     { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+//     { name: "Poly", playtime: 469, gamesPlayed: 2 },
+//     { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+//     { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+//   ];
+//   // Change code below this line
   
-  const totalAveragePlaytimePerGame = players.reduce((time, player) => {
-    return time + player.playtime;
-  }, 0);
+//   const totalAveragePlaytimePerGame = players.reduce((time, player) => {
+//     return time + player.playtime;
+//   }, 0);
+
+// // Налаштування
+// let myStr = "Jello World";
+
+// // Змініть код лише під цим рядком
+// myStr = "Hello world"; // Змініть цей рядок
+// // Змініть код лише над цим рядком
+// console.log(myStr);
+
+
+const myNoun = "dog";
+const myAdjective = "big";
+const myVerb = "ran";
+const myAdverb = "quickly";
+
+// Змініть код лише під цим рядком
+const wordBlanks = myAdjective + myNoun + myVerb + myAdverb; // Змініть цей рядок
+// Змініть код лише над цим рядком
+console.log(wordBlanks);
