@@ -155,12 +155,80 @@
 // console.log(myStr);
 
 
-const myNoun = "dog";
-const myAdjective = "big";
-const myVerb = "ran";
-const myAdverb = "quickly";
+// const myNoun = "dog";
+// const myAdjective = "big";
+// const myVerb = "ran";
+// const myAdverb = "quickly";
 
-// Змініть код лише під цим рядком
-const wordBlanks = myAdjective + myNoun + myVerb + myAdverb; // Змініть цей рядок
-// Змініть код лише над цим рядком
-console.log(wordBlanks);
+// // Змініть код лише під цим рядком
+// const wordBlanks = myAdjective + myNoun + myVerb + myAdverb; // Змініть цей рядок
+// // Змініть код лише над цим рядком
+// console.log(wordBlanks);
+
+
+
+// const varMas = 10
+// console.log(Math.random() * varMas);
+
+// console.log(Math.floor(Math.random() * varMas));
+
+// console.log(Math.max (3, 9, 8, varMas));
+
+// alert(Math.pow(2,2));
+
+// function repetFunction (func, repet){
+//     for (let i = 0; i < repet; i++){
+//         func();
+//     }
+// }
+
+// function geometricProgresion (a, b) {
+//         return console.log(Math.pow(2,2));
+// }
+
+// repetFunction(geometricProgresion, 5);
+
+// console.log(repetFunction(geometricProgresion, 5));
+
+
+
+
+
+
+
+// function geometricProgression(a, r, n) {
+//     if (n === 1) {
+//       return a;
+//     } else if (n === 0) {
+//       return 1; // Возврат 1, так как нулевой член геометрической прогрессии всегда равен 1
+//     } else {
+//       return a * geometricProgression(a * r, r, n - 1);
+//     }
+//   }
+  
+//   // Пример использования функции
+//   const firstTerm = 2; // Первый член прогрессии
+//   const commonRatio = 2; // Знаменатель прогрессии
+//   const termNumber = 5; // Номер члена прогрессии, который нужно найти
+  
+//   const result = geometricProgression(firstTerm, commonRatio, termNumber);
+//   console.log(`Член геометрической прогрессии ${termNumber} равен ${result}`);
+
+
+
+// function nextInLine(arr, item) {
+//     // Змініть код лише під цим рядком
+//     arr.push(item);
+//     const removed = arr.shift();
+//     return removed;
+    
+//     // Змініть код лише над цим рядком
+//   }
+  
+//   // Налаштування
+//   let testArr = [1, 2, 3, 4, 5];
+  
+//   // Відобразити код
+//   console.log("Before: " + JSON.stringify(testArr));
+//   console.log(nextInLine(testArr, 6));
+//   console.log("After: " + JSON.stringify(testArr));
