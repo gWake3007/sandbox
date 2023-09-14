@@ -361,25 +361,63 @@
 
 // -------------------------------------- Функції --------------------------------------------
 
-let count = 0;
+//----------------First Example-------------------------
+// let count = 0;
 
-function cc(card) {
-  // Змініть код лише під цим рядком
-if(card === 2 || card === 3 || card === 4 || card === 5 || card === 6) {
-  count += 1;
-  return `${count} Bet`;
-}else if(card === 10 || card === 'J' || card === 'Q' || card === 'K' || card === 'A') {
-  count -= 1;
-  return `${count} Hold`;
-}else if(card === 7 || card === 8 || card === 9){
-  count = 0;
-  return `${count} Hold`;
-}
+// function cc(card) {
+//   // Змініть код лише під цим рядком
+// if(card === 2 || card === 3 || card === 4 || card === 5 || card === 6) {
+//   count += 1;
+//   // return `${count} Bet`;
+// }else if(card === 10 || card === 'J' || card === 'Q' || card === 'K' || card === 'A') {
+//   count -= 1;
+//   // return `${count} Hold`;
+// }else if(card === 7 || card === 8 || card === 9){
+//   count;
+//   // return `${count} Hold`;
+// }
 
-  return "Change Me";
-  // Змініть код лише над цим рядком
-}
+// if(count <= 0){
+//   return `${count} Hold`;
+// }
+// return `${count} Bet`;
+
+//   // Змініть код лише над цим рядком
+// }
+
+// console.log(cc(2,3,7,'K','A'));
+// console.log(cc(2),cc(3),cc(7),cc('K'),cc('A'));
 
 // cc(2); cc(3); cc(7); cc('K'); cc('A');
 
-console.log(cc(2),cc(2),cc(10));
+
+//----------------------------Second Example------------------------------------
+
+// let count = 0;
+
+// function cc(card) {
+//   // Змініть код лише під цим рядком
+
+// // Змінна hightCard використовується для РЕГУЛЯРНОГО ВИРАЗУ (RegExp) (Потрібен для порівняня кожного елементу массиву зі значенням)
+//   const hightCard = /[JQKA]/;
+
+// if(card > 1 && 7 > card) {
+//   count ++;
+// }else if(card === 10 || hightCard.test(card)) {
+//   count --;
+// }
+// if(count > 0){
+//   return `${count} Bet`;
+// }
+// return `${count} Hold`;
+
+//   // Змініть код лише над цим рядком
+// }
+
+// cc(2); cc(3); cc(7); cc('K'); cc('A');
+
+// console.log(cc(2,3,7,'K','A'));
+// console.log(cc(2),cc(3),cc(7),cc('K'),cc('A'));
+
+//-------------------------------------Third Example (Swith - Case Function) --------------------------------------
+
