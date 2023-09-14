@@ -336,7 +336,6 @@
 
 // chainToSwitch(7);
 
-
 //------------------------------ Влаштовані класи Math працюють і в комбінаціях -------------------------
 
 // console.log(Math.round(Math.sqrt(77)));
@@ -346,13 +345,12 @@
 //   if(a < 0 || b < 0) {
 //     return undefined;
 //   }
-  
-  
+
 //     // Змініть код лише над цим рядком
-  
+
 //     return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
 //   }
-  
+
 //   console.log(abTest(2,2));
 
 // console.log(Math.pow(Math.sqrt(2) + Math.sqrt(2), 2));
@@ -390,7 +388,6 @@
 
 // cc(2); cc(3); cc(7); cc('K'); cc('A');
 
-
 //----------------------------Second Example------------------------------------
 
 // let count = 0;
@@ -419,5 +416,44 @@
 // console.log(cc(2,3,7,'K','A'));
 // console.log(cc(2),cc(3),cc(7),cc('K'),cc('A'));
 
-//-------------------------------------Third Example (Swith - Case Function) --------------------------------------
+//-------------------------------------Third Example (Switch - Case Function) --------------------------------------
+
+// let count = 0;
+
+// function cc(card) {
+//   // Змініть код лише під цим рядком
+//   switch (card) {
+//     case 2:
+//     case 3:
+//     case 4:
+//     case 5:
+//     case 6:
+//       count++;
+//       break;
+//     case 10:
+//     case "J":
+//     case "Q":
+//     case "K":
+//     case "A":
+//       count--;
+//       break;
+//   }
+
+//   if (count > 0) {
+//     return count + " Bet";
+//   } else {
+//     return count + " Hold";
+//   }
+//   // Змініть код лише над цим рядком
+// }
+
+// cc(2);
+// cc(3);
+// cc(7);
+// cc("K");
+// cc("A");
+
+// console.log(cc(2, 3, 7, "K", "A"));
+// console.log(cc(2), cc(3), cc(7), cc("K"), cc("A"));
+
 
