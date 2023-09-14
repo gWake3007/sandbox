@@ -336,3 +336,50 @@
 
 // chainToSwitch(7);
 
+
+//------------------------------ Влаштовані класи Math працюють і в комбінаціях -------------------------
+
+// console.log(Math.round(Math.sqrt(77)));
+
+// function abTest(a, b) {
+//     // Змініть код лише під цим рядком
+//   if(a < 0 || b < 0) {
+//     return undefined;
+//   }
+  
+  
+//     // Змініть код лише над цим рядком
+  
+//     return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
+//   }
+  
+//   console.log(abTest(2,2));
+
+// console.log(Math.pow(Math.sqrt(2) + Math.sqrt(2), 2));
+
+// console.log(Math.sqrt(2));
+
+// -------------------------------------- Функції --------------------------------------------
+
+let count = 0;
+
+function cc(card) {
+  // Змініть код лише під цим рядком
+if(card === 2 || card === 3 || card === 4 || card === 5 || card === 6) {
+  count += 1;
+  return `${count} Bet`;
+}else if(card === 10 || card === 'J' || card === 'Q' || card === 'K' || card === 'A') {
+  count -= 1;
+  return `${count} Hold`;
+}else if(card === 7 || card === 8 || card === 9){
+  count = 0;
+  return `${count} Hold`;
+}
+
+  return "Change Me";
+  // Змініть код лише над цим рядком
+}
+
+// cc(2); cc(3); cc(7); cc('K'); cc('A');
+
+console.log(cc(2),cc(2),cc(10));
