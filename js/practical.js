@@ -513,3 +513,25 @@
 
 //   console.log(checkObj({gift: "pony", pet: "kitten", bed: "sleigh"}, "gift"));
 
+// const myPlants = [
+//     {
+//       type: "flowers",
+//       list: [
+//         "rose",
+//         "tulip",
+//         "dandelion"
+//       ]
+//     },
+//     {
+//       type: "trees",
+//       list: [
+//         "fir",
+//         "pine",
+//         "birch"
+//       ]
+//     }
+//   ];
+  
+//   const secondTree = myPlants[1].list[1];
+//   console.log(secondTree);
+
