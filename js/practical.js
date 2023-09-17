@@ -456,4 +456,60 @@
 // console.log(cc(2, 3, 7, "K", "A"));
 // console.log(cc(2), cc(3), cc(7), cc("K"), cc("A"));
 
+// ---------------------------------------------Refacting Function-----------------------------------------------------
+
+// // Налаштування
+// function phoneticLookup(val) {
+//     let result = "";
+  
+//     // Змініть код лише під цим рядком
+//     // switch(val) {
+//     //   case "alpha":
+//     //     result = "Adams";
+//     //     break;
+//     //   case "bravo":
+//     //     result = "Boston";
+//     //     break;
+//     //   case "charlie":
+//     //     result = "Chicago";
+//     //     break;
+//     //   case "delta":
+//     //     result = "Denver";
+//     //     break;
+//     //   case "echo":
+//     //     result = "Easy";
+//     //     break;
+//     //   case "foxtrot":
+//     //     result = "Frank";
+//     // }
+//     const lookup = {
+//       alpha: "Adams",
+//       bravo: "Boston",
+//       charlie: "Chicago",
+//       delta: "Denver",
+//       echo: "Easy",
+//       foxtrot: "Frank"
+//     };
+  
+//   result = lookup[val];
+  
+//     // Змініть код лише над цим рядком
+//     return result;
+//   }
+  
+//   phoneticLookup("charlie");
+
+
+// ----------------------------------------Objects Metod-----------------------------------------
+
+// function checkObj(obj, checkProp) {
+//     // Змініть код лише під цим рядком
+//     if(obj.hasOwnProperty(checkProp)){
+//   return obj[checkProp];
+//     }
+//     return "Not Found";
+//     // Змініть код лише над цим рядком
+//   }
+
+//   console.log(checkObj({gift: "pony", pet: "kitten", bed: "sleigh"}, "gift"));
 
