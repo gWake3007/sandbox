@@ -50,3 +50,37 @@
 // const allTextAndFruitsQuantity = `${text} you should ${apples + cherry} fruits!`;
 // console.log(allTextAndFruitsQuantity);
 
+// //=============== Example (Method Replace)
+// let height = "1.78";
+// let weight = "73,2";
+
+// weight = weight.replace(",", ".");
+// const bmi = weight / height;
+
+// console.log(Number(height), weight);
+// console.log(height, weight);
+// console.log(bmi);
+
+// let myName = "#Serui#///";
+// myName = myName.replaceAll("/", "");
+// console.log(myName);
+
+// let userName = "Jhon Davinchi11111";
+// console.log(userName.replaceAll("1", ""));
+
+// // ========= Example (exponentiation) - піднесення до степенння
+// let summ = 32;
+// summ = summ * summ;
+// summ = summ ** 2;
+// summ = Math.pow(summ, 2);
+
+// console.log(summ);
+
+// //============ Example (CharCode) Спеціальний код кожного символу
+// console.log("Serui" .charCodeAt(1));
+// console.log("Serui" .charCodeAt(5));
+
+// console.log("s" .charCodeAt(0));
+// console.log("S" .charCodeAt(0));
+// console.log("s" > "S");     // Порівняння строк відбувається за юні кодом!
+
