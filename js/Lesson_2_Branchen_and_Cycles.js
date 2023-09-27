@@ -9,7 +9,6 @@
 //     message = "Admin is not user!";
 // }
 
-
 // if(userStatus === true) {
 //     message = "Admin is user!";
 // } else {
@@ -54,10 +53,10 @@
 //     console.log(i);
 // }
 
-// ==================================== Example ( if else branches) ==========================
-const CORRECT_ANSWER = "ECMAScript";
+// // ==================================== Example ( if else branches) ==========================
+// const CORRECT_ANSWER = "ECMAScript";
 
-const userAndwer = prompt("Яка офіційна назва JavaScript?");
+// const userAndwer = prompt("Яка офіційна назва JavaScript?");
 
 // if(CORRECT_ANSWER === userAndwer){
 //     alert("Правильно");
@@ -65,8 +64,12 @@ const userAndwer = prompt("Яка офіційна назва JavaScript?");
 //     alert("Не знаєте? ECMASript!");
 // }
 
-if(CORRECT_ANSWER.toLowerCase === userAndwer.toLowerCase){
-    alert("Правильно");
-} else{
-    alert("Не знаєте? ECMASript!");
-}
+// if (CORRECT_ANSWER.toLocaleLowerCase() === userAndwer.toLocaleLowerCase()) {
+//                                      //Итак, разница между ними заключается в учете локальных настроек и специфических 
+//                                      //символов для языка при использовании .toLocaleLowerCase(), в то время как .toLowerCase() 
+//                                      //просто выполняет преобразование в нижний регистр с учетом основного алфавита JavaScript.
+//   alert("Правильно");
+// } else {
+//   alert("Не знаєте? ECMASript!");
+// }
+
