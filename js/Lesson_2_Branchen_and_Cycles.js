@@ -65,11 +65,57 @@
 // }
 
 // if (CORRECT_ANSWER.toLocaleLowerCase() === userAndwer.toLocaleLowerCase()) {
-//                                      //Итак, разница между ними заключается в учете локальных настроек и специфических 
-//                                      //символов для языка при использовании .toLocaleLowerCase(), в то время как .toLowerCase() 
+//                                      //Итак, разница между ними заключается в учете локальных настроек и специфических
+//                                      //символов для языка при использовании .toLocaleLowerCase(), в то время как .toLowerCase()
 //                                      //просто выполняет преобразование в нижний регистр с учетом основного алфавита JavaScript.
 //   alert("Правильно");
 // } else {
 //   alert("Не знаєте? ECMASript!");
 // }
 
+// const positiveNumber = 1;
+// const negativeNumber = -1;
+// const answerNumber = Number(prompt("Введіть сюди свій номер!"));
+
+// if(positiveNumber <= answerNumber) {
+//     alert("Позитивне число!");
+// } else if(negativeNumber >= answerNumber) {
+//     alert("Негативне число");
+// } else {
+//     alert("Нульове значення");
+// }
+
+// if(1 <= answerNumber) {
+//     alert("Позитивне число!");
+// } else if(-1 >= answerNumber) {
+//     alert("Негативне число");
+// } else if(0 === answerNumber){
+//     alert("Нульове значення");
+// } else {
+//     alert("Це не число!");
+// }
+
+// if (Number.isNaN(answerNumber)) {
+//   alert("Ви ввели не число");
+// } else {
+//   if (1 <= answerNumber) {
+//     alert("Позитивне число!");
+//   } else if (-1 >= answerNumber) {
+//     alert("Негативне число");
+//   } else {
+//     alert("Нульове значення");
+//   }
+// }
+
+const a = 90;
+const b = 1;
+
+if(a > 100 && b > 100){
+    if(a > b){
+        console.log(a);
+    }else{
+        console.log(b);
+    }
+} else {
+    console.log(b + 512);
+}
