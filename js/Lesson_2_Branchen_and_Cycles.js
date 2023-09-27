@@ -35,8 +35,38 @@
 //     console.log(i);
 // }
 
-for(let i = 1; i <= 10; i += 1){                     // Цикл в циклі
-    for(let k = 1; k <= 5; k +=1){
-        console.log(`i: ${i} | k ${k}`);
-    }
+// for(let i = 1; i <= 10; i += 1){                     // Цикл в циклі
+//     for(let k = 1; k <= 5; k +=1){
+//         console.log(`i: ${i} | k ${k}`);
+//     }
+// }
+
+// for(let i = 1; i <= 10; i +=1){
+//     if(i % 2 === 0){                              //  Умова всі числа що діляться на 2 без остачі
+//         console.log(i);
+//     }
+// }
+
+// for(let i = 1; i <= 10; i +=1) {
+//     if(i % 2 === 0){
+//         continue;                             // Оператор який переводить цикл на наступню ітерацію як тільки ми його зустрічаєм
+//     }
+//     console.log(i);
+// }
+
+// ==================================== Example ( if else branches) ==========================
+const CORRECT_ANSWER = "ECMAScript";
+
+const userAndwer = prompt("Яка офіційна назва JavaScript?");
+
+// if(CORRECT_ANSWER === userAndwer){
+//     alert("Правильно");
+// } else{
+//     alert("Не знаєте? ECMASript!");
+// }
+
+if(CORRECT_ANSWER.toLowerCase === userAndwer.toLowerCase){
+    alert("Правильно");
+} else{
+    alert("Не знаєте? ECMASript!");
 }
