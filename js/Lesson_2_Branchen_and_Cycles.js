@@ -133,4 +133,25 @@
 // console.log(result);
 
 //================================ Example (switch case method) ======================
+//============================= Refactoring function ===========================
+const daysUntilDeadlibe = 0;
 
+// if(daysUntilDeadlibe === 0){
+//     console.log("Сьогодні.");
+// } else if (daysUntilDeadlibe === 1){
+//     console.log("Завтра.");
+// }else if (daysUntilDeadlibe === 2){
+//     console.log("Післязавтра.");
+// } else {
+//     console.log("Дата у майбутньому.");
+// }
+
+switch(daysUntilDeadlibe){
+    case 0: console.log("Сьогодні.");
+    break;
+    case 1: console.log("Завтра.");
+    break;
+    case 2: console.log("Післязавтра.");
+    break;
+    default: console.log("Дата у майбутньому.");
+}
