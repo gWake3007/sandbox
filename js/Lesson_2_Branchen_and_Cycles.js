@@ -107,15 +107,30 @@
 //   }
 // }
 
-const a = 90;
-const b = 1;
+// // ======================= New example!================
 
-if(a > 100 && b > 100){
-    if(a > b){
-        console.log(a);
-    }else{
-        console.log(b);
-    }
-} else {
-    console.log(b + 512);
-}
+// const a = 100;
+// const b = 140;
+
+// if(a > 100 && b > 100){
+//     if(a > b){
+//         console.log(a);
+//     }else{
+//         console.log(b);
+//     }
+// } else {
+//     console.log(b + 512);
+// }
+
+// if(a > 100 && b > 100) {
+//     console.log(Math.max(a, b));
+// } else {
+//     console.log(b + 512);
+// }
+
+// const result = a > 100 && b > 100 ? Math.max(a, b) : b + 512;         //Тернарний оператор
+
+// console.log(result);
+
+//================================ Example (switch case method) ======================
+
