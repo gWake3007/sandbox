@@ -1,4 +1,4 @@
-// //  Example (if , else branch and Ternary Operator (Тернальний оператор -коротка функція з поверненням двух результатів true або false))
+//! //  Example (if , else branch and Ternary Operator (Тернальний оператор -коротка функція з поверненням двух результатів true або false))
 // let message = "";
 
 // let userStatus = false;
@@ -21,7 +21,7 @@
 
 // console.log(message);
 
-// //  ================================= Example (Cycle for)===================================================
+//! //  ================================= Example (Cycle for)===================================================
 // for(let i = 0; i <= 10; i++){                  //i++  спочатку повертає значення а потім збільшує
 //     console.log(i);
 // }
@@ -53,7 +53,7 @@
 //     console.log(i);
 // }
 
-// // ==================================== Example ( if else branches) ==========================
+//! // ==================================== Example ( if else branches) ==========================
 // const CORRECT_ANSWER = "ECMAScript";
 
 // const userAndwer = prompt("Яка офіційна назва JavaScript?");
@@ -65,9 +65,9 @@
 // }
 
 // if (CORRECT_ANSWER.toLocaleLowerCase() === userAndwer.toLocaleLowerCase()) {
-//                                      //Итак, разница между ними заключается в учете локальных настроек и специфических
-//                                      //символов для языка при использовании .toLocaleLowerCase(), в то время как .toLowerCase()
-//                                      //просто выполняет преобразование в нижний регистр с учетом основного алфавита JavaScript.
+//!                                      //Итак, разница между ними заключается в учете локальных настроек и специфических
+//!                                      //символов для языка при использовании .toLocaleLowerCase(), в то время как .toLowerCase()
+//!                                      //просто выполняет преобразование в нижний регистр с учетом основного алфавита JavaScript.
 //   alert("Правильно");
 // } else {
 //   alert("Не знаєте? ECMASript!");
@@ -107,7 +107,7 @@
 //   }
 // }
 
-// // ======================= New example!================
+//! // ======================= New example!================
 
 // const a = 100;
 // const b = 140;
@@ -132,9 +132,9 @@
 
 // console.log(result);
 
-//================================ Example (switch case method) ======================
-//============================= Refactoring function ===========================
-const daysUntilDeadlibe = 0;
+//! //================================ Example (switch case method) ======================
+//! //============================= Refactoring function ===========================
+// const daysUntilDeadlibe = 0;
 
 // if(daysUntilDeadlibe === 0){
 //     console.log("Сьогодні.");
@@ -146,12 +146,41 @@ const daysUntilDeadlibe = 0;
 //     console.log("Дата у майбутньому.");
 // }
 
-switch(daysUntilDeadlibe){
-    case 0: console.log("Сьогодні.");
-    break;
-    case 1: console.log("Завтра.");
-    break;
-    case 2: console.log("Післязавтра.");
-    break;
-    default: console.log("Дата у майбутньому.");
-}
+// switch(daysUntilDeadlibe){
+//     case 0: console.log("Сьогодні.");
+//     break;
+//     case 1: console.log("Завтра.");
+//     break;
+//     case 2: console.log("Післязавтра.");
+//     break;
+//     default: console.log("Дата у майбутньому.");
+// }
+
+//! //================================== Example (cycle for)=====================
+// const max = 100;
+// const min = 20;
+
+// for(let i = min; i <= max; i += 5){                     // Тут тільки якщо мін і макс кратне 5 буде працювати
+//     console.log(i);
+// }
+
+// for(let i = min; i <= max; i +=1){                       // Виведення числа кратного 5 від мінімального до максимального
+//     if(i % 5 === 0){
+//         console.log(i);
+//     }
+// }
+
+// for(let i = max; i >= min; i -=1){                       // Виведення числа кратного 5 від  максимального до мінімального
+//     if(i % 5 === 0){
+//         console.log(i);
+//     }
+// }
+
+//!==================================Example scripts=================================
+
+const answerAdmin = prompt("Введіть своє ім'я");
+
+const adminName = "AdminSerui";
+
+if()
+
