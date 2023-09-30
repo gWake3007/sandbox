@@ -176,19 +176,23 @@
 //     }
 // }
 
-//!==================================Example scripts=================================
+// //!==================================Example scripts=================================
 
-const answerAdmin = prompt("Введіть своє ім'я");
-console.log("🚀 ~ file: Lesson_2_Branchen_and_Cycles.js:182 ~ answerAdmin:", answerAdmin)         //ctrl + alt + L(it is works: Extension App.)
-
-const adminName = "AdminSerui";
+// const answerAdmin = prompt("Введіть своє ім'я");
+// console.log("🚀 ~ file: Lesson_2_Branchen_and_Cycles.js:182 ~ answerAdmin:", answerAdmin)
+// const adminName = "AdminSerui";
 
 // if(answerAdmin === adminName){
-//     console.log("Вітаю Адміне");
-// } else if (answerAdmin === String("")){
-//     console.log("Я вас не знаю");
-// } else {
+//     const adminPass = prompt("Введіть свій пароль");      //Admin name
+//     if(adminPass === "I am admin"){
+//         console.log("Пароль вірний");             // Password
+//     } else{
+//         console.log("Пароль не вірний");    //Wrong password
+//     }
+// } else if (answerAdmin === ""){            // Canceled and nothing text
 //     console.log("Скасовано!");
+// } else {
+//     console.log("Я вас не знаю");         //Wrong Login
 // }
 
 
