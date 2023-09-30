@@ -179,8 +179,17 @@
 //!==================================Example scripts=================================
 
 const answerAdmin = prompt("Введіть своє ім'я");
+console.log("🚀 ~ file: Lesson_2_Branchen_and_Cycles.js:182 ~ answerAdmin:", answerAdmin)         //ctrl + alt + L(it is works: Extension App.)
 
 const adminName = "AdminSerui";
 
-if()
+// if(answerAdmin === adminName){
+//     console.log("Вітаю Адміне");
+// } else if (answerAdmin === String("")){
+//     console.log("Я вас не знаю");
+// } else {
+//     console.log("Скасовано!");
+// }
+
+
 
