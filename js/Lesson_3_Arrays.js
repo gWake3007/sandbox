@@ -8,15 +8,61 @@
 // console.log(genres.shift());      //Вирізання першого елемента масиву 
 // console.log(genres.unshift("Country", "Reggae"));   //Додавання елемента(тів) в початок масиву
 
-const values = "8 10";
-const arr = values.split(" ");     //Метод розбивающий елементи масиву на окремі
-console.log(values);
-console.log(arr);
-const a = Number(arr[0]);              // Але для кращого розуміння ми їх перетворюємо в Number (числа)
-const b = arr[1];                    // Білий колір строка ( String ) а синій число ( Number )
-console.log(a);
-console.log(b);
-console.log(a * b);           // У всіх випадках окрім додавання JS сам перетворюватиме їх в Number
-console.log(a + b);          // Тут строка ( String ) позначенна білим кольором тому що b це також строка ( А в додаванні JS не змінює її на число)
+// const values = "8 10";
+// const arr = values.split(" ");     //Метод розбивающий елементи масиву на окремі
+// console.log(values);
+// console.log(arr);
+// const a = Number(arr[0]);              // Але для кращого розуміння ми їх перетворюємо в Number (числа)
+// const b = arr[1];                    // Білий колір строка ( String ) а синій число ( Number )
+// console.log(a);
+// console.log(b);
+// console.log(a * b);           // У всіх випадках окрім додавання JS сам перетворюватиме їх в Number
+// console.log(a + b);          // Тут строка ( String ) позначенна білим кольором тому що b це також строка ( А в додаванні JS не змінює її на число)
 
-//!================================Example
+// const str = "1234567894321";
+// const varMass = str.split("");
+// console.log(varMass);
+// console.log(str);
+
+//!================================Example (Cycle for) ==========================
+// const fruits = ["apple", "lemon", "orange", "avocado", "grapefruit"];
+
+// console.log(fruits.length);
+// for(let i = 0; i < fruits.length; i += 1) {              // Перебір фруктів циклом for 
+//     console.log(fruits[i]);
+//     console.log(i);
+// }
+
+// for(let i = 0; i <= fruits.length -1; i += 1) {              // Перебір фруктів циклом for другий спосіб
+//     console.log(fruits[i]);
+//     console.log(i);
+// }
+
+// for(let i = 0; i <= fruits.length -1; i += 1) {              
+//     console.log(`${i + 1}: ${fruits[i]}`);                    // Цикл який робить перебір фруктів починаючи с 1 до 5 а не ( з 0 до 4 )
+// }
+
+//!================================= Example (Cycle for of ) =====================================
+// const fruits = ["apple", "lemon", "orange", "avocado", "grapefruit"];
+
+// for(const fruit of fruits) {
+//     console.log(fruit);                           // Перебирає тільки значення і зберігає їх в const(в данному випадку fruit)
+// }
+
+//!=========================== Example (Cycle for in ) ==========================================
+// const fruits = ["apple", "lemon", "orange", "avocado", "grapefruit"];
+
+// // for(const i in fruits){
+// //     console.log(typeof(i));             //і Індекс це строка! ЗАПАМ'ЯТАЙ!
+// //     console.log(i);                         //Перебирає тільки індекси елемента і зберігає їх в const(в данному випадку i)
+// // }
+
+// for(const i in fruits) {
+//     console.log(`${Number(i) + 1}: ${fruits[i]}`)        // Як через for in зробити перелік фруктів від 1 до 5
+// }
+
+// for(let i in fruits) {
+//     i = Number(i);                                  // Алтернатива попереднього скрипта (але i не const a let, і переводимо в Number раніше)
+//     console.log(`${i + 1}: ${fruits[i]}`);
+// }
+
