@@ -52,10 +52,10 @@
 //!=========================== Example (Cycle for in ) ==========================================
 // const fruits = ["apple", "lemon", "orange", "avocado", "grapefruit"];
 
-// // for(const i in fruits){
-// //     console.log(typeof(i));             //і Індекс це строка! ЗАПАМ'ЯТАЙ!
-// //     console.log(i);                         //Перебирає тільки індекси елемента і зберігає їх в const(в данному випадку i)
-// // }
+// for(const i in fruits){
+//     console.log(typeof(i));             //і Індекс це строка! ЗАПАМ'ЯТАЙ!
+//     console.log(i);                         //Перебирає тільки індекси елемента і зберігає їх в const(в данному випадку i)
+// }
 
 // for(const i in fruits) {
 //     console.log(`${Number(i) + 1}: ${fruits[i]}`)        // Як через for in зробити перелік фруктів від 1 до 5
@@ -66,3 +66,24 @@
 //     console.log(`${i + 1}: ${fruits[i]}`);
 // }
 
+//!================================ Example (Cycle for in + Method array split) ================================
+const names = "John,Max,Jacob,William";
+const phones = "566355123,765478960,980657436,743657385";
+
+const namesArr = names.split(",");              // Тут ми методом split розділюємо массив на окремі частини
+const phonesArr = phones.split(",");
+
+console.log(namesArr);
+console.log(phonesArr);
+console.log(names);
+console.log(phones);
+
+for(const i in namesArr) {
+    console.log(`${namesArr[i]}: ${phonesArr[i]}`);                 //По індексам виводимо разом номер та ім'я 
+}
+
+//!=========================== Example (Method trim) ============================
+
+const myName = "         Serhii        Reshetniak        ";
+console.log(myName.trim());                    // Прибирає зайві пробіли с початку і в кінці. НЕ МІЖ СЛОВАМИ!!!
+console.log(myName);
