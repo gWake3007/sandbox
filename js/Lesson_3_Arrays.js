@@ -92,5 +92,33 @@
 // console.log(myName.trim());                    // Прибирає зайві пробіли с початку і в кінці. НЕ МІЖ СЛОВАМИ!!!
 // console.log(myName);
 
-//!=============================== Example
+//!=============================== Example (Method Arr) ==================================
 
+// const string = "         Welcom to the future         ";
+
+// console.log(string);
+
+// const wordArr = string.trim().split(" ");       //trim прибирає зайві пробіли с початку і вкінці а split розділює на різні массиви
+
+
+// wordArr.splice(0, 1);
+// wordArr.splice(-1, 1);     //Видалення першого і останнього елементів двума splice!
+
+// console.log(wordArr);
+// console.log(wordArr.join(" "));                 //Повернення з масиву в строку елементів
+
+// wordArr.shift();         //Вирізання першого елемента 
+// wordArr.pop();          //Вирізання останнього елемента 
+
+// console.log(wordArr);
+// console.log(wordArr.join(" "));
+
+//!=========================== Example (Method reverse) ==============================
+
+// const string = "Welcom to the future";
+
+// const reversedString = string.split("").reverse().join("");   //Строку перетворили на масив, перевернули літери, та повернули в строку
+
+// console.log(reversedString);         //Метод reverse працює тільки для массиву. Для того і робимо з методами split and join!!!
+
+//!============================= Example 
