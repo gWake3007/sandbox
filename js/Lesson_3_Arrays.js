@@ -67,23 +67,30 @@
 // }
 
 //!================================ Example (Cycle for in + Method array split) ================================
-const names = "John,Max,Jacob,William";
-const phones = "566355123,765478960,980657436,743657385";
+// const names = "John,Max,Jacob,William";
+// const phones = "566355123,765478960,980657436,743657385";
 
-const namesArr = names.split(",");              // Тут ми методом split розділюємо массив на окремі частини
-const phonesArr = phones.split(",");
+// const namesArr = names.split(",");              // Тут ми методом split розділюємо массив на окремі частини
+// const phonesArr = phones.split(",");
 
-console.log(namesArr);
-console.log(phonesArr);
-console.log(names);
-console.log(phones);
+// console.log(namesArr);
+// console.log(phonesArr);
+// console.log(names);
+// console.log(phones);
 
-for(const i in namesArr) {
-    console.log(`${namesArr[i]}: ${phonesArr[i]}`);                 //По індексам виводимо разом номер та ім'я 
-}
+// for(const i in namesArr) {                          //Також якщо тут поставити phoneArr то нічого не зміниться
+//     console.log(`${namesArr[i]}: ${phonesArr[i]}`);                 //По індексам виводимо разом номер та ім'я 
+// }                          // Перебираємо масив namesArr а в шаблонній вписуємо інжекс(i) з обох масивів так як у них однакові індекси
+
+// for(let i = 0; i < namesArr.length; i +=1){
+//     console.log(`${namesArr[i]}: ${phonesArr[i]}`);           //Такий самий перебір тільки через цикл for
+// }
 
 //!=========================== Example (Method trim) ============================
 
-const myName = "         Serhii        Reshetniak        ";
-console.log(myName.trim());                    // Прибирає зайві пробіли с початку і в кінці. НЕ МІЖ СЛОВАМИ!!!
-console.log(myName);
+// const myName = "         Serhii        Reshetniak        ";
+// console.log(myName.trim());                    // Прибирає зайві пробіли с початку і в кінці. НЕ МІЖ СЛОВАМИ!!!
+// console.log(myName);
+
+//!=============================== Example
+
