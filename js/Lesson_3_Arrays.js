@@ -121,4 +121,17 @@
 
 // console.log(reversedString);         //Метод reverse працює тільки для массиву. Для того і робимо з методами split and join!!!
 
+//!============================= Example (Search min numberd in Array (Cycle for)) ===========================
+
+// const numbers = [3,111,66,1,15,17,19,643];
+// let min = numbers[0];
+
+// for(const number of numbers){
+//     if(number < min){                  //Умова для постійного оновлення числа з масива на меньше число поки цикл не знайде найменьше
+//         min = number;
+//     }
+// }
+// console.log(min);
+
 //!============================= Example 
+
