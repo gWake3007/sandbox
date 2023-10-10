@@ -58,5 +58,20 @@
 
 // console.log(getRectArea("8 11"));
 
-//!============================= Example 
+//!============================= Example (Interesting functions - middle number!) ========================
 
+console.log(calAvarage(1, 13, 55));
+console.log(calAvarage(3, 77, 45, 65));
+console.log(calAvarage(2, 44, 11, 67, 86));
+
+function calAvarage () {                    //Те ж саме що і одне слово аргумент
+    console.log(arguments);                 //arguments це псевдомасиви в java script
+    const length = arguments.length;
+    let total = 0;
+    for(const num of arguments) {
+        total += num;
+        console.log(total);                 //Консоль на кожній ітерації циклу(кожному додаванні)
+    }
+    console.log(total);                     //Одразу загальна сума
+    return total / length;            //Середне значення сумми всіх чисел
+}
