@@ -1,4 +1,4 @@
-// //! ========================= Example ( Arrays and Method arrays) ===================
+// //! ========================= Example (Arrays and Method arrays) ===================
 // const genres = ["Jazz", "Blues"];
 // genres.push("Rock N Roll");         //Додавання елемента в кінець масива
 

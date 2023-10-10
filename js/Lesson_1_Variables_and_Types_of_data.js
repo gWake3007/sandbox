@@ -1,9 +1,9 @@
-//! //============Example (indexOf)
+//! //====================Example (indexOf)
 // const userName = "serui";
 // console.log(userName.indexOf("u"));
 // console.log("serui".indexOf("u"));
 
-//! //=============Example (Math.abs)
+//! //====================Example (Math.abs)
 // const apple = 49;
 // const lemon = 147;
 
