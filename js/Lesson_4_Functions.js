@@ -78,11 +78,29 @@
 
 //!============================ Example (Function Timer) =============================
 
-console.log(formatTime(70));
-console.log(formatTime(450));
-console.log(formatTime(1441));
+// console.log(formatTime(70));
+// console.log(formatTime(450));
+// console.log(formatTime(1441));
 
-function formatTime(totalMinutes) {
-    const hours = totalMinutes / 60;
-    const minutes = totalMinutes / 60;
-}
+// function formatTime(totalMinutes) {
+//     const hours = Math.floor(totalMinutes / 60);      //Методом Math.floor робимо так щоб ділення було без остачі
+//     const minutes = totalMinutes % 60;               // % Оператор який залишає остачу від ділення 
+//     const formatedHours = String(hours).padStart(2, 0);
+//     const formatedMinutes = String(minutes).padStart(2, 0);  // Дві константи з методами створили для того щоб перевести результат в шаблон
+//     console.log(String(hours).padStart(2, 0), String(minutes).padStart(2, 0)); //В цей консоль виведенний результат(Але без двокрапки)
+//     return `${formatedHours}:${formatedMinutes}`;
+// }
+//!============================ Example (Method padStart and padEnd) ==================================
+// const padStarted = "1";
+// const padStartedTwo = "11";
+// console.log(padStarted.padStart(2, 0));            //Принцип роботи метода padStart перше число це кількість знаків яких має бути
+// console.log(padStartedTwo.padStart(2, 0));//А друга цифра це той елемент що додається якщо не вистачає знаків(в іншому випадку нічого не відбувається)
+// console.log(padStarted.padStart(2, "a"));//Можна додавати будь який елемент(Також слід пам'ятати що цей метод правює тільки на string!!!)
+
+// const padEnded = "1";
+// const padEndedTwo = "11";
+// console.log(padEnded.padEnd(2, "b"));
+// console.log(padEnded.padEnd(2, 0));
+// console.log(padEndedTwo.padEnd(2, 0)); //Так само як і у padStart тільки навпаки. Додає в кінці string!!!!!!!!!!
+
+//!================================ Example 
