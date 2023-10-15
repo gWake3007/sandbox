@@ -104,3 +104,18 @@
 // console.log(padEndedTwo.padEnd(2, 0)); //Так само як і у padStart тільки навпаки. Додає в кінці string!!!!!!!!!!
 
 //!================================ Example 
+
+const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
+
+addCourse('Express');
+console.log(courses);
+addCourse('CSS');
+
+function addCourse(course) {
+    if(courses.includes(course)){
+        console.log(`Ви вже маєте ${course} курс`);
+    }
+    else{
+        courses.push(course);
+    }
+}
