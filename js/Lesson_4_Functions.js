@@ -103,19 +103,65 @@
 // console.log(padEnded.padEnd(2, 0));
 // console.log(padEndedTwo.padEnd(2, 0)); //Так само як і у padStart тільки навпаки. Додає в кінці string!!!!!!!!!!
 
-//!================================ Example 
+//!================================ Example (Functions - three tasks) =============================================
 
-const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
+// //? addCourse(name) - Додає курс до кінця колекції
+// //? removeCourse(name) - Видаляє курс із колекції
+// //? updateCourse(oldName, newName) - Змінює ім'я курсу
 
-addCourse('Express');
-console.log(courses);
-addCourse('CSS');
 
-function addCourse(course) {
-    if(courses.includes(course)){
-        console.log(`Ви вже маєте ${course} курс`);
-    }
-    else{
-        courses.push(course);
-    }
-}
+// const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
+
+// addCourse('Express');
+// console.log(courses);
+// addCourse('CSS');
+
+// function addCourse(course) {
+//     if(courses.includes(course)){
+//         console.log(`Ви вже маєте ${course} курс`);
+//     }
+//     else{
+//         courses.push(course);
+//     }
+// }
+
+// removeCourse('React');
+// console.log(courses);
+// removeCourse('Vue');
+
+// //!========================== First Example Function ========================================
+// function removeCourse(course) {
+//     if(!courses.includes(course)) {               //Умова навпаки. Якщо course не має в масиві то виконується перва умова!
+//         console.log(`Курсу ${course} не існує`);
+//     }
+//     else {
+//         const index = courses.indexOf(course);  //Метод indexOf робимо для виявлення індексу елемента що треба вирізати методом splice.
+//         courses.splice(index, 1);    //Перший аргумент це індекс того елемента що треба вирізати, а другий це скільки елементів вирізати.
+//     }
+// }
+
+// //!=============================== Second Example Function ==================================================
+// function removeCourse(course) {
+//     const index = courses.indexOf(course);    //Якщо метод indexOf не знаходить елемент то він завжди повертає -1!!!
+//     if(index === -1){
+//         console.log(`Курсу ${course} не існує`);
+//     } else {
+//         courses.splice(index, 1);
+//     } 
+// }
+
+// updateCourse("Express", "NestJS");
+// console.log(courses);
+// updateCourse("Vue", "Angular");
+
+// function updateCourse(oldCourse, newCourse) {
+//     const index = courses.indexOf(oldCourse);
+//     if(index === -1){
+//         console.log(`Курсу ${oldCourse} не існує`);
+//     } else {
+//         courses.splice(index, 1, newCourse);   //Зміна назви елементу спрайсом!
+//         // courses[index] = newCourse;// Зміна назви елементу через присвоєння (courses - массив, index - індекс елемента, newCourse - нова назва)
+//     } 
+// }
+
+//!======================================= Example 
