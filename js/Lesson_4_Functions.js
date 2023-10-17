@@ -165,3 +165,19 @@
 // }
 
 //!======================================= Example 
+const numbers = [1,11,16,44,89];
+
+returnNumbers(5);
+console.log(numbers);
+// returnNumbers(11);
+
+function returnNumbers (numbers, value) {
+    const result = [];
+    for(const number of numbers){
+        if(number > value){
+             result += number;
+        }
+    }
+    return result;
+}
+
