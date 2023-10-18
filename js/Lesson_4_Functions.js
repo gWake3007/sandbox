@@ -164,20 +164,86 @@
 //     } 
 // }
 
-//!======================================= Example 
-const numbers = [1,11,16,44,89];
+//!======================================= Example (Filter Numbers) ========================================
+// const numbers = [1,11,16,44,89];
+// const value = 5;
 
-returnNumbers(5);
-console.log(numbers);
-// returnNumbers(11);
+// console.log(numbers.filter((itm) => itm > value));//Приклад роботи методу filter!!! itm(може бути любою назвою)Метод нагадує Тернарний оператор
 
-function returnNumbers (numbers, value) {
-    const result = [];
-    for(const number of numbers){
-        if(number > value){
-             result += number;
+// console.log(returnNumbers(numbers, 5));
+// console.log(numbers);
+// console.log(returnNumbers(numbers, 11));
+
+// function returnNumbers (numbers, value) {         //Функція перебору чисел!!!!
+//     const result = [];
+//     for(const number of numbers){
+//         if(number > value) result.push(number);
+//     }
+//     return result;
+// }
+
+//!======================================== Example (Two decision(вирішення) cycle for of and cycle for) ===========================
+// const prides = [11,12,66,456,742];
+
+// function calculateTotalPrideMethodForOf(orders) {
+//     let total = 0;
+//     for(const order of orders) {
+//         total += order;
+//     }
+//     return total;
+// }
+
+// console.log(calculateTotalPrideMethodForOf(prides));
+
+// function calculateTotalPrideMethodFor(orders) {
+//     let total = 0;
+//     for(let i = 0; i < orders.length; i += 1) {//Заміна циклу for of який проходить по кожному елементу масиву і додає їх в змінну total
+//         total += orders[i];
+//     }
+//     return total;
+// }
+
+// console.log(calculateTotalPrideMethodFor(prides));
+
+//!================================= Example (min Numbers in arr) ===================================================
+const numbers = [1,43,12,564353,345,764,0,-1454645];
+
+function minNumbers(number) {
+    let min = numbers[0];
+    for(let i = 0; i <= number.length; i += 1) {
+        if(i > number[i]){
+            min = number[i];
         }
     }
-    return result;
+    return min;
 }
 
+console.log(minNumbers(numbers));
+
+function minNumbersCycleForOf(number) {
+    let min = number[0];
+    for(const arr of number) {    //number в циклі приймає массив numbers. arr в циклі це один елемент массиву numbers.
+        if(arr < min){
+            min = arr;
+        }
+    }
+    return min;
+}
+
+console.log(minNumbersCycleForOf(numbers));
+
+//!=============================== Example (min Numbers an arr within an arr ) =============================================
+const numberss = [[1,2,3],[4534353,222,566],[[[[[[[5]]]]]]],[[[3,[[[5]]]]]]];
+
+function minNumbersArrWithinArr(number) {
+    number = number.flat(Infinity);//В методі flat в дужках пишеться скільки рівнів вкладеності треба зробити в 1 массив(Infiniti - безкінечність)
+    let min = number[0];//Обовязково слід пам'ятати тут ми беремо перший елемент number(тому що в функції можуть бути інші массиви чи аргументи)
+    for(const arr of number) { 
+        if(arr < min){
+            min = arr;
+        }
+    }
+    return min;
+}
+
+console.log(minNumbersArrWithinArr(numberss));
