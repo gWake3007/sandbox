@@ -206,44 +206,80 @@
 // console.log(calculateTotalPrideMethodFor(prides));
 
 //!================================= Example (min Numbers in arr) ===================================================
-const numbers = [1,43,12,564353,345,764,0,-1454645];
+// const numbers = [1,43,12,564353,345,764,0,-1454645];
 
-function minNumbers(number) {
-    let min = numbers[0];
-    for(let i = 0; i <= number.length; i += 1) {
-        if(i > number[i]){
-            min = number[i];
-        }
-    }
-    return min;
-}
+// function minNumbers(number) {
+//     let min = numbers[0];
+//     for(let i = 0; i <= number.length; i += 1) {
+//         if(i > number[i]){
+//             min = number[i];
+//         }
+//     }
+//     return min;
+// }
 
-console.log(minNumbers(numbers));
+// console.log(minNumbers(numbers));
 
-function minNumbersCycleForOf(number) {
-    let min = number[0];
-    for(const arr of number) {    //number в циклі приймає массив numbers. arr в циклі це один елемент массиву numbers.
-        if(arr < min){
-            min = arr;
-        }
-    }
-    return min;
-}
+// function minNumbersCycleForOf(number) {
+//     let min = number[0];
+//     for(const arr of number) {    //number в циклі приймає массив numbers. arr в циклі це один елемент массиву numbers.
+//         if(arr < min){
+//             min = arr;
+//         }
+//     }
+//     return min;
+// }
 
-console.log(minNumbersCycleForOf(numbers));
+// console.log(minNumbersCycleForOf(numbers));
 
 //!=============================== Example (min Numbers an arr within an arr ) =============================================
-const numberss = [[1,2,3],[4534353,222,566],[[[[[[[5]]]]]]],[[[3,[[[5]]]]]]];
+// const numberss = [[1,2,3],[4534353,222,566],[[[[[[[5]]]]]]],[[[3,[[[5]]]]]]];
+// console.log(numberss);
+// function minNumbersArrWithinArr(number) {
+//     number = number.flat(Infinity);//В методі flat в дужках пишеться скільки рівнів вкладеності треба зробити в 1 массив(Infiniti - безкінечність)
+//     console.log(number); //Принцип роботи методу flat
+//     let min = number[0];//Обовязково слід пам'ятати тут ми беремо перший елемент number(тому що в функції можуть бути інші массиви чи аргументи)
+//     for(const arr of number) { 
+//         if(arr < min){
+//             min = arr;
+//         }
+//     }
+//     return min;
+// }
 
-function minNumbersArrWithinArr(number) {
-    number = number.flat(Infinity);//В методі flat в дужках пишеться скільки рівнів вкладеності треба зробити в 1 массив(Infiniti - безкінечність)
-    let min = number[0];//Обовязково слід пам'ятати тут ми беремо перший елемент number(тому що в функції можуть бути інші массиви чи аргументи)
-    for(const arr of number) { 
-        if(arr < min){
-            min = arr;
+// console.log(minNumbersArrWithinArr(numberss));
+
+//!================================ First Interesting Example ===========================================
+// let str = "";
+
+// for (let i = 0; i < 4; i += 1){            //Перші два цикли відповідають за перші 4 рядки зірочок від меньшого до більшого
+//     for(let k = 0; k < i + 1; k += 1){     //Перший цикл це кількість рядків а другий це кількість зірок
+//         str += "*";
+//     }
+//     str += "\n";
+// }
+
+// for (let i = 3; i >= 0; i -= 1){          //Другий цикл відповідає за зменьшення кількості зірок від більшого до меньшого
+//     for(let k = 0; k < i + 1; k += 1){
+//         str += "*";
+//     }
+//     str += "\n"; // це перехід на інший рядок на кожній ітерації циклу(щоб всі зірки не були в один рядок - це кінець першого циклу!!!)
+// }
+
+// console.log(str);
+
+//!=============================== Second Interesting Example ============================================
+let row = "";
+
+for(let i = 0; i < 10; i += 1) {
+    for(let j = 0; j < 10; j += 1){
+        if(j === i || j + i == 9 || j === 0 || i == 0 || j === 9 || i === 9){
+            row += "#";
+        }
+        else {
+            row += " ";
         }
     }
-    return min;
+    console.log(row);
+    row = "";
 }
-
-console.log(minNumbersArrWithinArr(numberss));
