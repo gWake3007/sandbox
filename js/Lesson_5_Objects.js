@@ -31,23 +31,39 @@
 // console.log(allSalaries);
 // let sum = 0;
 
-// for(const salarie of allSalaries){           //Значення найлегше перебирати циулом for of. Так як він для цього зроблений.
+// for(const salarie of allSalaries){           //Значення найлегше перебирати циклом for of. Так як він для цього зроблений.
 //     sum += salarie;
 // }
 
 // console.log(sum);
 
 //!================================== Example (Array objects) ============================
-const stones = [
-    {name: "Смарагд", price: 1300, quantity: 4},
-    {name: "Діамант", price: 2700, quantity: 3},
-    {name: "Сапфір", price: 400, quantity: 7},
-    {name: "Щебінь", price: 200, quantity: 2},
-];
+// const stones = [
+//     {name: "Смарагд", price: 1300, quantity: 4},
+//     {name: "Діамант", price: 2700, quantity: 3},
+//     {name: "Сапфір", price: 400, quantity: 7},
+//     {name: "Щебінь", price: 200, quantity: 2},
+// ];
 
+// function calcTotalPrice(stones, stoneName){      //Function all prices stones.
+//     for(const stone of stones){
+//         console.log(stone);
+//         if(stone.name === stoneName){        //Скрипт зробленний так щоб він робив доки не знайде камінь або до кінця.
+//            return stone.price * stone.quantity;
+//         }
+//     }
+//     return 0;
+// };
 
-function calcTotalPrice(stones, stoneName){
+// console.log(calcTotalPrice(stones, "Щебінь"));
 
+//!================================= Example 
+const Transaction = {
+    DEPOSIT: 'deposit',
+    WITHDRAW: 'withdraw',
+};
+
+const account = {
+    balance: 0,
+    transactions: [],
 }
-
-console.log(calcTotalPrice(stones, "Смарагд"));
