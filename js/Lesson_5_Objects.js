@@ -64,6 +64,32 @@ const TRANSACTIONS = {
 };
 
 const account = {
+    //Поточний баланс рахунку
     balance: 0,
+
+    //Історія транзакцій
     transactions: [],
+
+    //Метод створює та повертає об'єкт транзакції. Приймає суму та тип транзакції.
+    createTransaction(amount, type){
+        return {                       //Раннє повернення тому що більш ніяких дій не відбувається окрім створення!!!   
+            amount,
+            type,
+            id: this.transactions.length,
+        };
+    },
+
+    //Метод що відповідає за додавання сумми до балансу. Приймає суму транзакції. 
+    //Викликає createTransaction для створення об'єкта транзакції.
+    //Після чого додає його до історії транзакції.
+    deposit(amount){
+        this.balance += amount;
+        const transaction = this.createTransaction(amount, TRANSACTIONS.DEPOSIT);  //В параметрах цієї функції другим є тип транзакції.
+        this.transactions.push(transaction);     //До історії транзнакції додаємо нашу транзакцію.
+    },
+
 };
+
+console.log(account);
+account.deposit(500);        //this це об'єкт який викликає функцію.
+console.log(account);
