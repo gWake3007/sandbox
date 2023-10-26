@@ -58,7 +58,7 @@
 // console.log(calcTotalPrice(stones, "Щебінь"));
 
 //!================================= Example 
-const Transaction = {
+const TRANSACTIONS = {
     DEPOSIT: 'deposit',
     WITHDRAW: 'withdraw',
 };
@@ -66,4 +66,4 @@ const Transaction = {
 const account = {
     balance: 0,
     transactions: [],
-}
+};
