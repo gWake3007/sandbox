@@ -57,7 +57,7 @@
 
 // console.log(calcTotalPrice(stones, "Щебінь"));
 
-//!================================= Example 
+//!================================= Example (Methods works in the Objects and use methods .this!!!) ==============
 const TRANSACTIONS = {
     DEPOSIT: 'deposit',
     WITHDRAW: 'withdraw',
@@ -76,6 +76,7 @@ const account = {
             amount,
             type,
             id: this.transactions.length,
+            currentBalance: this.balance,
         };
     },
 
@@ -88,8 +89,46 @@ const account = {
         this.transactions.push(transaction);     //До історії транзнакції додаємо нашу транзакцію.
     },
 
+    //Метод що відповідає за знаття сумми з балансу. - Приймає суму транзакції.
+    //Викликає createTransaction для створення об'єкта транзакції. - Після чого додає його до історії транзакції.
+    //Якщо amount більше ніж поточний баланс, виводить повідомлення про те, що вивід такої сумми не можливий,
+    //Не достатньо коштів.
+    withdraw(amount) {
+        const balanceAlert = Math.abs(this.balance - amount); //За допомогою Math.abs перетворюємо відємне значення на звичайне для alert.
+        if(this.balance >= amount){
+            this.balance -= amount;
+            const transaction = this.createTransaction(amount, TRANSACTIONS.WITHDRAW);
+            this.transactions.push(transaction);
+        }else{
+            alert(`Не достатньо коштів. Не достатньо ${balanceAlert}`);
+        }
+    },
+
+    //Метод повертає поточний баланс.
+    getBalance(){
+        return this.balance;
+    },
+
+    //Метод шукає та повертає об'єкт транзакції по id.
+    getTransactionDetails(id){               //В циклі for of перебираємо массиви транзакцій щоб далі порівняти їх по id.
+        for(const transaction of this.transactions){
+            if(transaction.id === id){
+                return transaction;        //Якщо id співпадає то повертається об'єкт поточної транзакції.
+            }
+        }
+        return {};  //Тут return на виході з циклу з пустим об'єктом для того якщо не має об'єкта с таким id то повертаємо пустий.
+    },
+    //Метод повертає кількість коштів. Певного типу транзакції з усією історією транзакцій.
+    getTransactionTotal(type){
+        let sumTrasactions = 0;
+
+    },
 };
 
 console.log(account);
-account.deposit(500);        //this це об'єкт який викликає функцію.
+account.deposit(1500);        //this це об'єкт який викликає функцію.account стає this в середині метожу deposit!!!ВАЖЛИВО!!!
+console.log(account);        // В момент виклику this отримує своє значення!!!
+
+account.withdraw(1000);
 console.log(account);
+console.log(account.getBalance(account));     //Виклик та повернення поточного балансу.
