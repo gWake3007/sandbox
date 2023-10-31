@@ -50,21 +50,50 @@
 // console.log(checkStringShortCode("sale"));
 
 //!============================================ Fourth Task ( Cycle While ) =============================
-function calcDays(depth) {
-    const speedDay = 7;
-    const speedNight = 2;
-    let totalDistance = 0;
-    let days = 0;
-    while(totalDistance < depth){     //Цикл while працює до тих пір поки не виконаються умова. По виконанню виходить з нього.
-        totalDistance += speedDay;
-        days += 1;
-        if(totalDistance < depth){
-            totalDistance -= speedNight;
-        }
+// function calcDays(depth) {
+//     const speedDay = 7;
+//     const speedNight = 2;
+//     let totalDistance = 0;
+//     let days = 0;
+//     while(totalDistance < depth){     //Цикл while працює до тих пір поки не виконаються умова. По виконанню виходить з нього.
+//         totalDistance += speedDay;
+//         days += 1;
+//         if(totalDistance < depth){
+//             totalDistance -= speedNight;
+//         }
+//     }
+//     console.log(days);
+// }
+
+// calcDays(42);
+// calcDays(17);
+// calcDays(18);
+
+//!========================================= Fifth Task ( Swith Case ) ======================================================
+// let trafficLight = prompt("Введіть будь ласка колір світлофора.");
+
+// switch(trafficLight) {           //swith case тільки порівнює строгим порівнянням числа с числами і строки з строками!!!
+//     case "green": console.log("GO!");
+//     break;
+//     case "yellow": console.log("READY!");
+//     break;
+//     case "red": console.log("STOP!");
+//     break;
+//     default: console.log("BE CAREFUL!");
+// }
+
+//!====================================== Sixth Task ( Cycle for ) ===============================
+const min = 0;
+const max = 50;
+let total = 0;
+
+function caclNumbers(min, max) {
+  for (let i = min; i <= max; i += 1) {
+    if (i % 2 === 0) {
+      total += i;
     }
-    console.log(days);
+  }
+  return total;
 }
 
-calcDays(42);
-calcDays(17);
-calcDays(18);
+console.log(caclNumbers(min, max));
