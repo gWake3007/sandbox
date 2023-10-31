@@ -83,17 +83,30 @@
 // }
 
 //!====================================== Sixth Task ( Cycle for ) ===============================
-const min = 0;
-const max = 50;
-let total = 0;
+// const min = 0;
+// const max = 50;
+// let total = 0;
 
-function caclNumbers(min, max) {
-  for (let i = min; i <= max; i += 1) {
-    if (i % 2 === 0) {
-      total += i;
-    }
-  }
-  return total;
-}
+// function calcEvenNumbers(min, max) {          //Функція сумує парні числа від 0 до 50!
+//   for (let i = min; i <= max; i += 1) {
+//     if (i % 2 === 0) {
+//       total += i;
+//       console.log(total);
+//     }
+//   }
+//   return total;
+// }
 
-console.log(caclNumbers(min, max));
+// console.log(calcEvenNumbers(min, max));
+
+// function calcOddNumbers(min, max) {
+//     for (let i = min; i <= max; i += 1) {
+//         if (i % 2 !== 0) {
+//             total += i;
+//             console.log(total);
+//         }
+//     }
+//     return total;
+// }
+
+// console.log(calcOddNumbers(min, max)); 
