@@ -81,24 +81,52 @@
 // const name = user.userName;
 // console.log(name);
 //! ======================================= Example (Destructorization and spread operators ) ======================================
-function createContacts(partialContacts) {
-    return {list: "dafault",
-        ...partialContacts,  //... це spread оператор який розбиває об'єкт в параметрі на окремі частини. 
-    id: generateId(),
-    createdAt: new Date(),   //Функція для роботи з датами в Java Script.
-    };
+// function createContacts(partialContacts) {
+//     return {list: "dafault",
+//         ...partialContacts,  //... це spread оператор який розбиває об'єкт в параметрі на окремі частини.
+//     id: generateId(),
+//     createdAt: new Date(),   //Функція для роботи з датами в Java Script.
+//     };
+// }
+
+// console.log(
+//   createContacts({
+//     name: "Serhii",
+//     email: "gWake30071991@gmail.com",
+//     list: "friends",
+//   })
+// );
+
+// console.log(createContacts({ name: "Mango", email: "mango@mango.com" }));
+
+// function generateId( ) {
+//     return "_" + Math.random().toString(36).substr(2, 9);    //Функція для рандомного створення id.
+// }
+
+//!=================== Example ( Changed firsName and lastName for helped spread and rest operators) ==================================
+// function transformUsername({ firstName, lastName, ...restProps }) {
+//   //Тут ...restProps є rest збирає об'єкт в нову колекцію.
+//   console.log(restProps); //Виводить в консоль об'єкт тільки без властивостей fistName and lastName!!!
+//   return {
+//     fullName: `${firstName} ${lastName}`,
+//     ...restProps, //Тут параметр ...restProps стає уже spred оператором тому що він розподіляє колекцію елементів в другий об'єкт!!!ВАЖЛИВО!!!
+//   };
+// }
+
+// console.log(
+//   transformUsername({
+//     id: 1,
+//     firstName: "Serhii",
+//     lastName: "Reshetniak",
+//     email: "gWkae30071991@gmail.com",
+//     friendCount: 40,
+//   })
+// );
+
+//!============================== Example (Comparison array for argymenst: Cycle for and includes methods) ===================
+function findMathes(arr, ...arg) {
+    console.log(arr);
+    console.log(arg);
 }
 
-console.log(
-  createContacts({
-    name: "Serhii",
-    email: "gWake30071991@gmail.com",
-    list: "friends",
-  })
-);
-
-console.log(createContacts({ name: "Mango", email: "mango@mango.com" }));
-
-function generateId( ) {
-    return "_" + Math.random().toString(36).substr(2, 9);
-}
+console.log(findMathes([1,2,3,4,5], 1,8,11,26,117,4));
