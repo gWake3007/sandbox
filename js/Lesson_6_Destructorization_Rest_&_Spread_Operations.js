@@ -80,4 +80,25 @@
 
 // const name = user.userName;
 // console.log(name);
-//! ======================================= Example (Destructorization  ) ======================================
+//! ======================================= Example (Destructorization and spread operators ) ======================================
+function createContacts(partialContacts) {
+    return {list: "dafault",
+        ...partialContacts,  //... це spread оператор який розбиває об'єкт в параметрі на окремі частини. 
+    id: generateId(),
+    createdAt: new Date(),   //Функція для роботи з датами в Java Script.
+    };
+}
+
+console.log(
+  createContacts({
+    name: "Serhii",
+    email: "gWake30071991@gmail.com",
+    list: "friends",
+  })
+);
+
+console.log(createContacts({ name: "Mango", email: "mango@mango.com" }));
+
+function generateId( ) {
+    return "_" + Math.random().toString(36).substr(2, 9);
+}
