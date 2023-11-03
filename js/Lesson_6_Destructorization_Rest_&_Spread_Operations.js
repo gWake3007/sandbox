@@ -118,15 +118,22 @@
 //     id: 1,
 //     firstName: "Serhii",
 //     lastName: "Reshetniak",
-//     email: "gWkae30071991@gmail.com",
+//     email: "gWake30071991@gmail.com",
 //     friendCount: 40,
 //   })
 // );
 
 //!============================== Example (Comparison array for argymenst: Cycle for and includes methods) ===================
-function findMathes(arr, ...arg) {
-    console.log(arr);
-    console.log(arg);
+function findMathes(arr, ...arg) { //Цикл for of що перебирає значення з масиву з дрегими значеннями які даються тут як rest оператор. 
+  console.log(arr);
+  console.log(arg);
+  const result = [];
+  for (const num of arg) {
+    if (arr.includes(num)) {
+      result.push(num);
+    }
+  }
+  return result;
 }
 
-console.log(findMathes([1,2,3,4,5], 1,8,11,26,117,4));
+console.log(findMathes([1, 2, 3, 4, 5], 1, 8, 11, 26, 117, 4));
