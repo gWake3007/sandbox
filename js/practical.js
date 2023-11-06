@@ -535,70 +535,71 @@
 //   const secondTree = myPlants[1].list[1];
 //   console.log(secondTree);
 
+//!============================ Three intresting example decision task ====================================
 
-// const recordCollection = {
-//     2548: {
-//       albumTitle: 'Slippery When Wet',
-//       artist: 'Bon Jovi',
-//       tracks: ['Let It Rock', 'You Give Love a Bad Name']
-//     },
-//     2468: {
-//       albumTitle: '1999',
-//       artist: 'Prince',
-//       tracks: ['1999', 'Little Red Corvette']
-//     },
-//     1245: {
-//       artist: 'Robert Palmer',
-//       tracks: []
-//     },
-//     5439: {
-//       albumTitle: 'ABBA Gold'
-//     }
-//   };
-  
-//   // Змініть код лише під цим рядком
-//   function updateRecords(records, id, prop, value) {
-//     if(value === ""){
-//       return records.id.slice(prop);
-//     }else if(prop != records.id.prop(tracks) && value != ""){
-//       return records.id.prop + value;
-//     }else if(prop === records.id["tracks"] && value != ""){
-//       return records.id["tracks"] + value;
-//     }else if(records.hasOwnProperty("tracks")){
-//       return records.id["tracks"] + value;
-//     }
-    
-//     return records;
+// const recordCollection = {           //? Об'єкт з об'єктами і масивами в середині!!!
+//   2548: {
+//     albumTitle: 'Slippery When Wet',
+//     artist: 'Bon Jovi',
+//     tracks: ['Let It Rock', 'You Give Love a Bad Name']
+//   },
+//   2468: {
+//     albumTitle: '1999',
+//     artist: 'Prince',
+//     tracks: ['1999', 'Little Red Corvette']
+//   },
+//   1245: {
+//     artist: 'Robert Palmer',
+//     tracks: []
+//   },
+//   5439: {
+//     albumTitle: 'ABBA Gold'
 //   }
-  
-//   updateRecords(recordCollection, 5439, 'artist', 'ABBA');
+// };
 
-// // Налаштування
-const recordCollection = {
-  2548: {
-    albumTitle: 'Slippery When Wet',
-    artist: 'Bon Jovi',
-    tracks: ['Let It Rock', 'You Give Love a Bad Name']
-  },
-  2468: {
-    albumTitle: '1999',
-    artist: 'Prince',
-    tracks: ['1999', 'Little Red Corvette']
-  },
-  1245: {
-    artist: 'Robert Palmer',
-    tracks: []
-  },
-  5439: {
-    albumTitle: 'ABBA Gold'
-  }
-};
 
-// Змініть код лише під цим рядком
-function updateRecords(records, id, prop, value) {
-  for(const record of records) {
-    console.log(record);  }
-  // return records;
-}
+// function updateRecords(records, id, prop, value) {//?В функції добираємось до властивостей об'єктів через квадратні дужки бо ми не  
+//   if(value === ""){                               //?знаємо точно який саме об'єкт буде!!!
+//     delete records[id][prop]; 
+//   }else if (prop !== "tracks" && value !== ""){
+//     records[id][prop] = value;
+//   } else if(prop === "tracks" && value !== ""){
+//     if(records[id].hasOwnProperty("tracks") === false){
+//       records[id][prop] = [];
+//     }
+//     records[id][prop].push(value);
+//   }
+//   return records;
+// }
 
-updateRecords(recordCollection, 5439, 'artist', 'ABBA');
+// console.log(updateRecords(recordCollection, 5439, 'artist', 'ABBA'));
+
+// function updateRecords(records, id, prop, value) {
+//   if (value === '') {
+//     delete records[id][prop];
+//   } else if (prop === "tracks") {
+//     records[id][prop] = records[id][prop] || []; // shortcircuit evaluation
+//     records[id][prop].push(value);
+//   } else {
+//     records[id][prop] = value;
+//   }
+//   return records;
+// }
+
+// function updateRecords(records, id, prop, value) {
+//   // Access target album in record collection
+//   const album = records[id];
+//   // Update the album
+//   if (value === "") {
+//     delete album[prop];
+//   } else if (prop !== "tracks") {
+//     album[prop] = value;
+//   } else {
+//     album["tracks"] = album["tracks"] || [];
+//     album["tracks"].push(value);
+//   }
+//   // Return the full collection
+//   return records;
+// }
+
+//!============================== Example 
