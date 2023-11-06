@@ -62,7 +62,7 @@
 // }
 
 // for(let i in fruits) {
-//     i = Number(i);                                  // Алтернатива попереднього скрипта (але i не const a let, і переводимо в Number раніше)
+//     i = Number(i);                      //? Альтернатива попереднього скрипта (але i не const a let, і переводимо в Number раніше)
 //     console.log(`${i + 1}: ${fruits[i]}`);
 // }
 
