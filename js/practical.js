@@ -461,7 +461,7 @@
 // // Налаштування
 // function phoneticLookup(val) {
 //     let result = "";
-  
+
 //     // Змініть код лише під цим рядком
 //     // switch(val) {
 //     //   case "alpha":
@@ -490,15 +490,14 @@
 //       echo: "Easy",
 //       foxtrot: "Frank"
 //     };
-  
+
 //   result = lookup[val];
-  
+
 //     // Змініть код лише над цим рядком
 //     return result;
 //   }
-  
-//   phoneticLookup("charlie");
 
+//   phoneticLookup("charlie");
 
 // ----------------------------------------Objects Metod-----------------------------------------
 
@@ -531,7 +530,7 @@
 //       ]
 //     }
 //   ];
-  
+
 //   const secondTree = myPlants[1].list[1];
 //   console.log(secondTree);
 
@@ -557,10 +556,9 @@
 //   }
 // };
 
-
-// function updateRecords(records, id, prop, value) {//?В функції добираємось до властивостей об'єктів через квадратні дужки бо ми не  
+// function updateRecords(records, id, prop, value) {//?В функції добираємось до властивостей об'єктів через квадратні дужки бо ми не
 //   if(value === ""){                               //?знаємо точно який саме об'єкт буде!!!
-//     delete records[id][prop]; 
+//     delete records[id][prop];
 //   }else if (prop !== "tracks" && value !== ""){
 //     records[id][prop] = value;
 //   } else if(prop === "tracks" && value !== ""){
@@ -602,4 +600,206 @@
 //   return records;
 // }
 
-//!============================== Example 
+//!======================================== Example Task ====================================
+// const arr = [
+//   [1, 2], [3, 4], [5, 6]
+// ];
+
+// for (let i = 0; i < arr.length; i++) {
+//   for (let j = 0; j < arr[i].length; j++) {
+//     console.log(arr[i][j]);
+//   }
+// }
+
+// function multiplyAll(arr) {
+//   let product = 1;
+//   // Змініть код лише під цим рядком
+// for(let i = 0; i < arr.length; i++){    //?Множення всіх елементів массиву!!!
+//   for(let k = 0; k < arr[i].length; k++){
+//     console.log(arr[i][k]);
+//     product = product * arr[i][k];
+//   }
+// }
+//   // Змініть код лише над цим рядком
+//   return product;
+// }
+
+// console.log(multiplyAll([[1, 2], [3, 4], [5, 6, 7]]));
+
+//!================================================ Example (Recursive function) ==========================================
+// function sum(arr, n) {
+//   if (n <= 0) {
+//     return 1;
+//   } else {
+//     return sum(arr, n - 1) + arr[n - 1];
+//   }
+// }
+
+// console.log(sum([1], 0));
+
+//!============================================= Three example task ===========================================
+// // Налаштування
+// const contacts = [
+//   {
+//     firstName: "Akira",
+//     lastName: "Laine",
+//     number: "0543236543",
+//     likes: ["Pizza", "Coding", "Brownie Points"],
+//   },
+//   {
+//     firstName: "Harry",
+//     lastName: "Potter",
+//     number: "0994372684",
+//     likes: ["Hogwarts", "Magic", "Hagrid"],
+//   },
+//   {
+//     firstName: "Sherlock",
+//     lastName: "Holmes",
+//     number: "0487345643",
+//     likes: ["Intriguing Cases", "Violin"],
+//   },
+//   {
+//     firstName: "Kristian",
+//     lastName: "Vos",
+//     number: "unknown",
+//     likes: ["JavaScript", "Gaming", "Foxes"],
+//   },
+// ];
+
+// //!=========================================== Example (Cycle for of and method .hasOwnProperty) ======================
+// function lookUpProfile(name, prop) {
+//   // Змініть код лише під цим рядком
+// for(const contact of contacts){
+//   if(contact.firstName === name){
+//     if(contact.hasOwnProperty(prop)){
+//       return contact[prop];
+//     } else{
+//       return "No such property";
+//     }
+//   }
+// }
+// return "No such contact";
+//   // Змініть код лише над цим рядком
+// }
+
+// console.log(lookUpProfile("Akira", "likes"));
+
+// console.log(lookUpProfile("Kristian", "lastName"));
+// console.log(lookUpProfile("Sherlock", "likes"));
+// console.log(lookUpProfile("Harry", "likes"));
+
+// //!======================================== Example (Cycle for and method .hasOwnProperty) =================================
+// function lookUpProfile(name, prop) {
+//   for (let x = 0; x < contacts.length; x++) {
+//     if (contacts[x].firstName === name) {
+//       if (contacts[x].hasOwnProperty(prop)) {
+//         return contacts[x][prop];
+//       } else {
+//         return "No such property";
+//       }
+//     }
+//   }
+//   return "No such contact";
+// }
+
+// //!=========================================== Example (Cycle for and method in) ========================
+// function lookUpProfile(name, prop) {
+//   for (let i = 0; i < contacts.length; i++) {
+//     if (contacts[i].firstName === name) {
+//       if (prop in contacts[i]) {
+//         return contacts[i][prop];
+//       } else {
+//         return "No such property";
+//       }
+//     }
+//   }
+//   return "No such contact";
+// }
+
+//!============================================ Example (Math methods) ===========================
+// function randomRange(myMin, myMax) {
+//   let random = Math.random() * (myMax - myMin + 1) + myMin;
+//   return Math.floor(random);
+// }
+
+// console.log(randomRange(1,10));
+
+//!========================================== Example (Myltiple ternary operators) ===============================
+// function checkSign(num) {     //?Функція з подвійним тернарним оператором яка перевіряє число відємне чи додатнє або 0.
+//   return (num === 0) ? "zero"
+//   : (num > 0) ? "positive"
+//   : "negative";
+//   }
+  
+//   console.log(checkSign(10));
+
+//!======================================= Example (Recursive function) =====================================
+// function countup(n) {  //?Рекурсія від меньшо до більшого.
+//   if (n < 1) {
+//     return [];
+//   } else {
+//     const countArray = countup(n - 1);
+//     countArray.push(n);
+//     return countArray;
+//   }
+// }
+// console.log(countup(5));
+
+// //? ================================ Example 
+//     function countdown(n){      //?Рекурсія від більшого до меньшого.Чотири методи як додавати елементи в масив в зворотньому порядку!!!
+//     if (n < 1) {
+//       return [];
+//     } else {
+//       const arr = countdown(n - 1);
+//       arr.unshift(n);
+//       return arr;
+//     }
+//   }
+
+// console.log(countdown(5));
+
+// function countdown(n) {
+//   if (n < 1) {
+//     return [];
+//   } else {
+//     const arr = countdown(n - 1);
+//     arr.splice(0, 0, n);
+//     return arr;
+//   }
+// }
+
+// function countdown(n){
+//   return n < 1 ? [] : [n].concat(countdown(n - 1));
+// }
+
+// function countdown(n){
+//   return n < 1 ? [] : [n, ...countdown(n - 1)];
+// }
+
+//!================================= First example (Recursive function) =======================================
+// function rangeOfNumbers(startNum, endNum) {  //?Числа в массив від мінімального до максимального(рекурсія)!!!
+//   if (endNum < startNum) {
+//     return [];
+//   } else {
+//     const numbers = rangeOfNumbers(startNum, endNum - 1);
+//     numbers.push(endNum);
+//     return numbers;
+//   }
+// }
+
+// console.log(rangeOfNumbers(1,10));
+
+// //? ========================== Second example ============================
+// function rangeOfNumbers(startNum, endNum) {
+//   return endNum < startNum
+//     ? []
+//     : rangeOfNumbers(startNum, endNum - 1).concat(endNum);
+// }
+
+// //? ===================== Third example ====================================
+// function rangeOfNumbers(startNum, endNum) {
+//   return endNum < startNum
+//     ? []
+//     : [...rangeOfNumbers(startNum, endNum - 1), endNum];
+// }
+
