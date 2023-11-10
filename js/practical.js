@@ -803,3 +803,18 @@
 //     : [...rangeOfNumbers(startNum, endNum - 1), endNum];
 // }
 
+//!============================================== Example (Object freze) ========================================== 
+// let obj = {
+//   name:"FreeCodeCamp",
+//   review:"Awesome"
+// };
+// Object.freeze(obj);   //? .freeze() команда яка не дає можливість перезаписувати любі об'єкти.
+// obj.review = "bad";
+// obj.newProp = "Test";
+// console.log(obj); 
+
+//!====================================== Example ( Pointer function ) =================================================
+// const increment = (number, value = 1) => number + value; //?Приклад стрілочної функції з одним параметром за замовчуванням
+// //?Якщо одного параметру немає то за замовчуванням там буде 1.
+// console.log(increment(5, 2)); // returns 7
+// console.log(increment(5)); // returns 6
