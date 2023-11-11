@@ -125,6 +125,38 @@
 // console.log(sum / array.length); //?В консолі ми одразу знаходимо середнє число масиву поділивши сумму на довжину масиву.
 
 //!============================================ Example (two callbacks) ====================================================
-const pizzaPalace = {
-    
-}
+// const pizzaPalace = {         //?Функція в середині об'єкта з подвійним коллбеком.
+//   pizzas: ["Ultrachese", "Smoked", "Four meats"],
+//   order(pizzaName, onSuccess, onError) {
+//     if (!this.pizzas.includes(pizzaName)) {
+//       return onError(
+//         `There is no pizza with a name ${pizzaName} in the assortment.`
+//       );
+//     } else {
+//       return onSuccess(`${pizzaName}`);
+//     }
+//   },
+// };
+
+// function makePizza(pizzaName) {
+//     return `Your order is accepted. Cooking pizza ${pizzaName}.`;  //?Тут передається строка та назва піци яка є.
+// }
+
+// function onOrderError(error) {
+//     return `Error! ${error}`;        //?Тут передається строка та описання onError в функції вищого порядку з назвою піци якої немає!
+// }
+
+// console.log(pizzaPalace.order("Four meats", makePizza, onOrderError)); 
+// console.log(pizzaPalace.order("Gavaiska", makePizza, onOrderError));
+
+//!============================================== Example (Method Object.assign) ===============================================
+// const arr1 = {a: 1, b: 2};
+// const arr2 = {b: 3, d: 4};
+
+// const allArr = Object.assign(arr1, arr2);
+// console.log(arr1);
+// console.log(arr2);
+// console.log(allArr);   //?Тут властивість b перезаписалася на 3.
+// console.log(allArr === arr1);  //! ВАЖЛИВО!!! Тут true тому що цей метод повертає той же самий об'єкт.
+// console.log(allArr === arr2); //! Тут false тому що allArr це об'єкт arr1 який взяв собі властивості arr2!!!
+
