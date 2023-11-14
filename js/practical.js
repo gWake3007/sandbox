@@ -730,7 +730,7 @@
 //   : (num > 0) ? "positive"
 //   : "negative";
 //   }
-  
+
 //   console.log(checkSign(10));
 
 //!======================================= Example (Recursive function) =====================================
@@ -745,7 +745,7 @@
 // }
 // console.log(countup(5));
 
-// //? ================================ Example 
+// //? ================================ Example
 //     function countdown(n){      //?Рекурсія від більшого до меньшого.Чотири методи як додавати елементи в масив в зворотньому порядку!!!
 //     if (n < 1) {
 //       return [];
@@ -803,7 +803,7 @@
 //     : [...rangeOfNumbers(startNum, endNum - 1), endNum];
 // }
 
-//!============================================== Example (Object freze) ========================================== 
+//!============================================== Example (Object freze) ==========================================
 // let obj = {
 //   name:"FreeCodeCamp",
 //   review:"Awesome"
@@ -811,7 +811,7 @@
 // Object.freeze(obj);   //? .freeze() команда яка не дає можливість перезаписувати любі об'єкти.
 // obj.review = "bad";
 // obj.newProp = "Test";
-// console.log(obj); 
+// console.log(obj);
 
 //!====================================== Example ( Pointer function ) =================================================
 // const increment = (number, value = 1) => number + value; //?Приклад стрілочної функції з одним параметром за замовчуванням
@@ -856,4 +856,83 @@
 // const halfDesctruct = ({max, min}) => (max + min) / 2.0; //?Після дестоукторизації (Залишаємо тільки самі назви значеннь об'єкта).
 // console.log(halfDesctruct(stats));
 
-//!========================================= Example () =====================================================
+//!========================================= Example (.class and method constructor) =====================================================
+// //?Create objects!!!
+// // Explicit constructor
+// class SpaceShuttle {
+//   constructor(targetPlanet) {
+//     this.targetPlanet = targetPlanet;
+//   }
+//   takeOff() {
+//     console.log("To " + this.targetPlanet + "!");
+//   }
+// }
+
+// // Implicit constructor
+// class Rocket {
+//   launch() {
+//     console.log("To the moon!");
+//   }
+// }
+
+// const zeus = new SpaceShuttle('Jupiter');
+// // prints To Jupiter! in console
+// zeus.takeOff();
+
+// const atlas = new Rocket();
+// // prints To the moon! in console
+// atlas.launch();
+
+//!============================================ Example (Test) ================================================
+// //?Вирішенне завдання (Потім розібрати)
+// // Змініть код лише під цим рядком
+// class Vegetable {
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   names() {
+//     return this.name;
+//   }
+// }
+// // Змініть код лише над цим рядком
+
+// const carrot = new Vegetable('carrot');
+// console.log(carrot.name); // Повинно показувати 'carrot'
+
+//!=========================================== Example () =================================================
+// const arr = [1, 2, 3, 4, 5];
+
+// const resultFilter = arr.filter((item) => item > 3);
+// console.log(resultFilter);
+
+// const resultFind = arr.find((item) => item > 1); //?Повертає перший елемент в масиві що підходить по умові або undefined!!!
+// console.log(resultFind);
+// const resultFind1 = arr.find((item) => item === 6);
+// console.log(resultFind1);
+
+// const mass = [1, 2, 3, 4, 5];
+// const resultMap = mass.map((item) => item * item);
+// console.log(resultMap);
+// console.log(mass);
+//!=============================
+// const object = [
+//   { name: "Sergey", status: "Admin" },
+//   { name: "Mavrodiy", status: "user" },
+//   { name: "Vadim", status: "user" },
+//   { name: "Olia", status: "Admin" },
+// ];
+
+// const adminUser = object.find(user => user.status === "Admin");  //?Знаходить та повертає ПЕРШИЙ елемент чи об'єкт чи масив що підходить!
+// console.log(adminUser);
+
+// const adminIndex = object.findIndex(user => user.status === "Admin");  //?Знаходить та повертає ПЕРШИЙ index чи об'єкт чи масив що підходить!
+// console.log(adminIndex);  //?Якщо такого елемента не буде то поверне -1 !!! ВАЖЛИВО!!!
+//!=============================
+const arr = [5,15,55,155,180];
+
+const checkEvery = arr.every(item => item / 5 === 0);  //?Якщо ділиться на 5 без остачі(УМОВА!!!) Повертає true або false!(Всі елементи)
+console.log(checkEvery);
+
+const mass = [5,10,11,643,6456,734];
+const checkSome = mass.some(item => item / 5 === 0);  //?Якщо ділиться на 5 без остачі(УМОВА!!!) Повертає true або false!(Хоча б один елемент)
+console.log(checkSome);
