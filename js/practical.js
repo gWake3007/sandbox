@@ -885,7 +885,7 @@
 
 //!============================================ Example (Test) ================================================
 // //?Вирішенне завдання (Потім розібрати)
-// // Змініть код лише під цим рядком
+
 // class Vegetable {
 //   constructor(name) {
 //     this.name = name;
@@ -894,45 +894,50 @@
 //     return this.name;
 //   }
 // }
-// // Змініть код лише над цим рядком
 
 // const carrot = new Vegetable('carrot');
 // console.log(carrot.name); // Повинно показувати 'carrot'
 
-//!=========================================== Example () =================================================
-// const arr = [1, 2, 3, 4, 5];
 
-// const resultFilter = arr.filter((item) => item > 3);
-// console.log(resultFilter);
+//!=================================== Example ( ) ===================================
+// class Book {
+//   constructor(author) {
+//     this._author = author;
+//   }
+//   // getter
+//   get writer() {
+//     return this._author;
+//   }
+//   // setter
+//   set writer(updatedAuthor) {
+//     this._author = updatedAuthor;
+//   }
+// }
+// const novel = new Book('anonymous');
+// console.log(novel.writer);
+// novel.writer = 'newAuthor';
+// console.log(novel.writer);
 
-// const resultFind = arr.find((item) => item > 1); //?Повертає перший елемент в масиві що підходить по умові або undefined!!!
-// console.log(resultFind);
-// const resultFind1 = arr.find((item) => item === 6);
-// console.log(resultFind1);
+//!================================================== Example
+// // Змініть код лише під цим рядком
+// class Thermostat {
+//   constructor(thermos) {
+//     this._thermos = thermos;
+//   }
+//   get temperature() {
+//     return this._thermos;
+//   }
+//   set temperature(updateThermos) {
+//     updateThermos = (5/9 * (this._thermos - 32));
+//   }
+// }
+// // Змініть код лише над цим рядком
 
-// const mass = [1, 2, 3, 4, 5];
-// const resultMap = mass.map((item) => item * item);
-// console.log(resultMap);
-// console.log(mass);
-//!=============================
-// const object = [
-//   { name: "Sergey", status: "Admin" },
-//   { name: "Mavrodiy", status: "user" },
-//   { name: "Vadim", status: "user" },
-//   { name: "Olia", status: "Admin" },
-// ];
+// const thermos = new Thermostat(76); // Налаштування у шкалі Фаренгейта
+// let temp = thermos.temperature; // 24.44 градусів за Цельсієм
+// thermos.temperature = 26;
+// temp = thermos.temperature; // 26 градусів за Цельсієм
 
-// const adminUser = object.find(user => user.status === "Admin");  //?Знаходить та повертає ПЕРШИЙ елемент чи об'єкт чи масив що підходить!
-// console.log(adminUser);
+// console.log(thermos.temperature);
+// console.log(temp);
 
-// const adminIndex = object.findIndex(user => user.status === "Admin");  //?Знаходить та повертає ПЕРШИЙ index чи об'єкт чи масив що підходить!
-// console.log(adminIndex);  //?Якщо такого елемента не буде то поверне -1 !!! ВАЖЛИВО!!!
-//!=============================
-const arr = [5,15,55,155,180];
-
-const checkEvery = arr.every(item => item / 5 === 0);  //?Якщо ділиться на 5 без остачі(УМОВА!!!) Повертає true або false!(Всі елементи)
-console.log(checkEvery);
-
-const mass = [5,10,11,643,6456,734];
-const checkSome = mass.some(item => item / 5 === 0);  //?Якщо ділиться на 5 без остачі(УМОВА!!!) Повертає true або false!(Хоча б один елемент)
-console.log(checkSome);
