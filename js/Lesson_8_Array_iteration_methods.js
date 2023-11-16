@@ -63,7 +63,7 @@
 // //?Першу ітерацію ми тут пропустили ( Але значення в данному випадку таке ж як і в попередньому прикладі )
 // console.log(summ1);
 
-//!=================================== Example( ) ===================================
+//!=========================================== Example( Method Map )  ===================================================================
 cars = [
   {
     make: "Honda",
@@ -147,3 +147,55 @@ cars = [
   },
 ];
 
+// const getModels = cars => cars.map((car) => car.model);   //?Приклад працювання методу map!!!
+// console.log(getModels(cars));
+
+// const getModelsDestructorization = cars => cars.map(({model}) => model); //? Деструкторизація!!!
+// console.table(getModelsDestructorization(cars));      //?Виведення в консоль таблиці!!!
+
+// const makeCarsWithDiscount = (cars, discount) => cars.map((car) => ({ ...car, price: car.price - (car.price * discount) }));
+// console.table(makeCarsWithDiscount(cars, 0.2));
+// console.table(makeCarsWithDiscount(cars, 0.4));  //?Рахуємо скидку в %
+// console.table(cars);  //?Перевірка чи метод не мутував массив!!!
+
+//!=========================================== Example (Method filter) ====================================================
+// const getCarsWithType = (cars, type) => cars.filter((car) => car.type === type);
+// console.log(getCarsWithType(cars, "suv"));
+// console.log(getCarsWithType(cars, "sedan"));
+
+//!========================================= Example ( Method find ) ================================================
+// const getCarsByModel = (cars, model) => cars.find((car) => car.model === model);  //?Повертає перший елемент який знайде!
+// console.log(getCarsByModel(cars, "F-150"));  //?Знаходить конкретну модель машини і повертає об'єкт з нею!!!
+// console.log(getCarsByModel(cars, "CX-9"));
+
+//!===================================== Example ( Method sort and localeCompare and Switch case) ============================================
+// const sortByDescendingPrice = cars => [...cars].sort((carFirst, carSecond) => carSecond.price - carFirst.price);
+// console.table(sortByDescendingPrice(cars)); //?Метод sort мутує масив. Для того і використовуємо перед методос spred оператор(копіюємо!)
+
+// const sortByModel = (cars, order) =>  //?Сортування назв моделей по алфавіту і в зворотньому порядку!
+//   [...cars].sort((a, b) =>
+//     order === "asc"
+//       : a.model.localeCompare(b.model)       //?За допомогою тернарного оператору перевіряємо в якому порядку сортувати назви!!!
+//       ? b.model.localeCompare(a.model)
+//   );
+
+// console.table(sortByModel(cars, "asc"));
+// console.table(sortByModel(cars, "desc"));
+
+// const sortByModelSwitch = (cars, order) =>   //?Та ж сама функція зі switch case!
+//   [...cars].sort((a, b) => {
+//     switch (order) {
+//       case "asc":
+//         return b.model.localeCompare(a.model);
+//       case "desc":
+//         return a.model.localeCompare(b.model);
+//     }
+//   });
+
+// console.table(sortByModelSwitch(cars, "asc"));
+// console.table(sortByModelSwitch(cars, "desc"));
+
+//!=================================================== Exanple ( Method reduce) ===========================================
+const getTotalAmount = cars => cars.reduce((car) => car + car.amount);
+
+console.log(getTotalAmount(cars));
