@@ -195,7 +195,16 @@ cars = [
 // console.table(sortByModelSwitch(cars, "asc"));
 // console.table(sortByModelSwitch(cars, "desc"));
 
-//!=================================================== Exanple ( Method reduce) ===========================================
-const getTotalAmount = cars => cars.reduce((car) => car + car.amount);
+//!=================================================== Exanple ( Method reduce ) ===========================================
+// const getTotalAmount = cars => cars.reduce((acc,car) => acc + car.amount, 0);
 
-console.log(getTotalAmount(cars));
+// console.log(getTotalAmount(cars));
+//!============================================== Example ( Fiter and map  ) =====================================
+// const getModelsOnSale = cars => cars.filter(car => car.onSale).map(car => car.model); //?filter проходить по тих авто що на розпродажі
+//?А map виводить масив назв тих авто!!!
+// console.table(getModelsOnSale(cars));
+//!========================================== Example (filter and sort) ===========================================
+// const getSorterCarsOnSale = cars => cars.filter(car => car.onSale).sort((a, b) => a.price - b.price);//?Для sort не треба робити копію
+// //? масиву тому що fiter робить копію!!!
+// console.table(getSorterCarsOnSale(cars));
+//!============================================= Example (  ) ==================================
