@@ -197,14 +197,25 @@ cars = [
 
 //!=================================================== Exanple ( Method reduce ) ===========================================
 // const getTotalAmount = cars => cars.reduce((acc,car) => acc + car.amount, 0);
-
 // console.log(getTotalAmount(cars));
+
 //!============================================== Example ( Fiter and map  ) =====================================
 // const getModelsOnSale = cars => cars.filter(car => car.onSale).map(car => car.model); //?filter проходить по тих авто що на розпродажі
 //?А map виводить масив назв тих авто!!!
 // console.table(getModelsOnSale(cars));
+
 //!========================================== Example (filter and sort) ===========================================
 // const getSorterCarsOnSale = cars => cars.filter(car => car.onSale).sort((a, b) => a.price - b.price);//?Для sort не треба робити копію
 // //? масиву тому що fiter робить копію!!!
 // console.table(getSorterCarsOnSale(cars));
-//!============================================= Example (  ) ==================================
+
+//!============================================= Example ( Method filter and indefOf ) ==================================
+// const friends = ["Sharon pace", "Briana Decker", "Sharon pace"];
+// const uniqueFriends = friends.filter((friend, index, array) => array.indexOf(friend) === index);
+// //?friend - один елемент масиву; index - індекс елементу масиву; array - масив friends;Виконуємо на кожному елементі масиву перевірку
+// //? та повертаємо УНІКАЛЬНІ ЕЛЕМЕНТИ МАСИВУ(ті що не повторюються!)
+// console.log(uniqueFriends);
+
+//!============================================ Example (Method frat) =========================================
+const courses = [[["Фізика", "Математика"]], ["Біологія"], "Зарубіжна література", "Хімія"];
+console.log(courses.flat(1));
