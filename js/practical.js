@@ -942,18 +942,88 @@
 // console.log(temp);
 
 //!================================= Example 
-const customer = {
-  firstName: "Jacob",
-  lastName: "Mercer",
-  getFullName() {
-    return `${this.firstName} ${this.lastName}`;
-  },
-};
+// const customer = {
+//   firstName: "Jacob",
+//   lastName: "Mercer",
+//   getFullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+// };
 
-function makeMessage(callback) {
-  // callback() - це виклик методу getFullName без об'єкта
-  console.log(`Обробляємо заявку від ${callback()}.`);
-}
+// function makeMessage(callback) {
+//   // callback() - це виклик методу getFullName без об'єкта
+//   console.log(`Обробляємо заявку від ${callback()}.`);
+// }
 
-makeMessage(customer.getFullName);
-makeMessage(customer.getFullName.bind(customer)); // Буде помилка у виклику функції
+// makeMessage(customer.getFullName);
+// makeMessage(customer.getFullName.bind(customer)); // Буде помилка у виклику функції
+
+
+//!========================================== Example 
+// Змініть код лише під цим рядком
+// class Thermostat {
+//   constructor(temperature) {
+//     this.temperature = temperature;
+//   }
+//   get thermos() {
+//     return this.temperature;
+//   }
+//   set thermos(temp) {
+//     this.temperature =  5/9 * (this.temperature - 32);
+//   }
+// }
+
+//!==================================== Example 
+// class Thermostat {
+//   constructor(fahrenheit) {
+//     this._fahrenheit = fahrenheit;
+//   }
+  
+//   get temperature() {
+//     return (5 / 9) * (this._fahrenheit - 32);
+//   }
+  
+//   set temperature(celsius) {
+//     return this._fahrenheit = (celsius * 9.0) / 5 + 32;
+//   }
+// }
+// // Змініть код лише над цим рядком
+
+// const thermos = new Thermostat(76); // Налаштування у шкалі Фаренгейта
+// let temp = thermos.temperature; // 24.44 градусів за Цельсієм
+// console.log(temp);
+// thermos.temperature = 26;
+// temp = thermos.temperature; // 26 градусів за Цельсієм
+
+//!======================================= Example ( Method Then and Promise ) ===============================
+// const makeServerRequest = new Promise((resolve, reject) => {
+//   // responseFromServer налаштований правильно, щоб відобразити позитивну відповідь сервера
+//   let responseFromServer = true;
+
+//   if(responseFromServer) {
+//     resolve("We got the data");
+//   } else {  
+//     reject("Data not received");
+//   }
+//   makeServerRequest.then(result => {
+//     console.log(result);
+//   }) 
+// });
+
+//!============================================== Example ( Method test() ) ============================================
+// let myString = "Hello, World!";
+// let myRegex = /Hello/;
+// let result = myRegex.test(myString);  //?Повертає true or false. Знаходить сбіг чи ні.
+// console.log(result);
+//!================================================ Example(Method match) ===================================================
+// let extractStr = "Extract the word 'coding' from this string.";
+// let codingRegex = /coding/;
+// let result = extractStr.match(codingRegex); 
+// console.log(result);
+// //? Метод для вилучення частинки строки що в душках після .match !!!
+//!============================================= Example 
+// let quoteSample = "Beware of bugs in the above code; I have only proved it correct, not tried it.";
+// let vowelRegex = /[aeiou]/gi; 
+// let result = quoteSample.match(vowelRegex); 
+// console.log(result);
+//!============================================= Example 
