@@ -973,7 +973,7 @@
 //   }
 // }
 
-//!==================================== Example 
+//!==================================== First Example !!!!!!!!!!!!!!!!!!!!!
 // class Thermostat {
 //   constructor(fahrenheit) {
 //     this._fahrenheit = fahrenheit;
@@ -994,6 +994,35 @@
 // console.log(temp);
 // thermos.temperature = 26;
 // temp = thermos.temperature; // 26 градусів за Цельсієм
+
+//?======================================= Second Example !!!!!!!!!!!!!!
+// class Thermostat {
+//   constructor(fahrenheit) {
+//     this._celsius = (5 / 9) * (fahrenheit - 32);
+//   }
+  
+//   get temperature() {
+//     return this._celsius;
+//   }
+  
+//   set temperature(celsius) {
+//     return this._celsius = celsius;
+//   }
+// }
+//?================================================= Third Example !!!!!!!!!!!!!!!!!!!!!
+// class Thermostat {
+//   constructor(fahrenheit) {
+//     this._kelvin = (5 / 9) * (fahrenheit - 32) + 273.15;
+//   }
+  
+//   get temperature() {
+//     return this._kelvin - 273.15;
+//   }
+  
+//   set temperature(celsius) {
+//     return this._kelvin = celsius + 273.15;
+//   }
+// }
 
 //!======================================= Example ( Method Then and Promise ) ===============================
 // const makeServerRequest = new Promise((resolve, reject) => {
@@ -1027,3 +1056,8 @@
 // let result = quoteSample.match(vowelRegex); 
 // console.log(result);
 //!============================================= Example 
+// let quoteSample = "3 blind mice.";
+// let myRegex = /[^aeiou^0-9]/gi; // Change this line
+// let result = quoteSample.match(myRegex); // Change this line
+// console.log(result);
+//!================================================== Example 
