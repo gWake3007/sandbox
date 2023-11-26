@@ -1096,4 +1096,33 @@
 //? $ - end of input
 //? i - ignore case of input
 
-//!===================================================
+//!=================================================== Example
+let myString = "Eleanor Roosevelt";
+let myRegex = /(Franklin|Eleanor) (([A-Z]\.?|[A-Z][a-z]+) )?Roosevelt/; // Змініть цей рядок
+let result = myRegex.test(myString); // Змініть цей рядок
+// Після проходження завдання поекспериментуйте з myString, щоб поглянути як працює групування
+console.log(result);
+
+Пройдено:Регулярний вираз myRegex має повернути true для рядка Franklin D. Roosevelt
+Пройдено:Регулярний вираз myRegex має повернути true для рядка Eleanor Roosevelt
+Пройдено:Регулярний вираз myRegex має повернути false для рядка Franklin Rosevelt
+Пройдено:Регулярний вираз myRegex має повернути false для рядка Frank Roosevelt
+Пройдено:Регулярний вираз myRegex має повернути false для рядка FranklinRoosevelt
+Пройдено:Регулярний вираз myRegex має повернути false для рядка EleanorRoosevelt
+Пройдено:Використайте .test(), щоб протестувати регулярний вираз.
+Пройдено:Результат має повернути true.
+
+//!============================================= Example 
+Пройдено:Використайте .replace() для пошуку та заміни.
+Пройдено:Ваш регулярний вираз має замінити рядок one two three на рядок three two one
+Пройдено:Не змінюйте останній рядок.
+Пройдено:fixRegex має використати принаймні три групи захоплення.
+Пройдено:replaceText має використати підрядки в дужках (тобто n-ний підрядок $n відповідає n-ній групі захоплення).
+
+let str = "one two three";
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/; // Change this line
+let replaceText = "$3 $2 $1"; // Change this line
+let result = str.replace(fixRegex, replaceText);
+console.log(result);
+
+//!============================================ Example 
