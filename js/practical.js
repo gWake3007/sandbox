@@ -1126,3 +1126,40 @@ let result = str.replace(fixRegex, replaceText);
 console.log(result);
 
 //!============================================ Example 
+function zeroArray(m, n) {
+  let newArray = [];
+  for (let i = 0; i < m; i++) {
+    let row = []; /* <-----  row has been declared inside the outer loop. 
+     Now a new row will be initialised during each iteration of the outer loop allowing 
+     for the desired matrix. */
+    for (let j = 0; j < n; j++) {
+      row.push(0);
+    }
+    newArray.push(row);
+  }
+  return newArray;
+}
+let matrix = zeroArray(3, 2);
+console.log(matrix);
+
+
+
+function zeroArray(m, n) {
+  // Створіть 2-D масив із m-рядків m та n-стовпчиків нулів
+  let newArray = [];
+  let row = [];
+  for (let i = 0; i < m; i++) {
+    // Додайте m-ий рядок до newArray
+
+    for (let j = 0; j < n; j++) {
+      // Додає n нулів до поточного рядка, щоб створити стовпчики
+      row.push(0);
+    }
+    // Штовхає поточний рядок, який тепер містить n нулів, до масиву
+    newArray.push(row);
+  }
+  return newArray;
+}
+
+let matrix = zeroArray(3, 2);
+console.log(matrix);
