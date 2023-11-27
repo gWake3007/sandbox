@@ -1096,70 +1096,103 @@
 //? $ - end of input
 //? i - ignore case of input
 
-//!=================================================== Example
-let myString = "Eleanor Roosevelt";
-let myRegex = /(Franklin|Eleanor) (([A-Z]\.?|[A-Z][a-z]+) )?Roosevelt/; // Змініть цей рядок
-let result = myRegex.test(myString); // Змініть цей рядок
-// Після проходження завдання поекспериментуйте з myString, щоб поглянути як працює групування
-console.log(result);
+//!=================================================== Example проверить отсюда!!!!!!!!!!
+// let myString = "Eleanor Roosevelt";
+// let myRegex = /(Franklin|Eleanor) (([A-Z]\.?|[A-Z][a-z]+) )?Roosevelt/; // Змініть цей рядок
+// let result = myRegex.test(myString); // Змініть цей рядок
+// // Після проходження завдання поекспериментуйте з myString, щоб поглянути як працює групування
+// console.log(result);
 
-Пройдено:Регулярний вираз myRegex має повернути true для рядка Franklin D. Roosevelt
-Пройдено:Регулярний вираз myRegex має повернути true для рядка Eleanor Roosevelt
-Пройдено:Регулярний вираз myRegex має повернути false для рядка Franklin Rosevelt
-Пройдено:Регулярний вираз myRegex має повернути false для рядка Frank Roosevelt
-Пройдено:Регулярний вираз myRegex має повернути false для рядка FranklinRoosevelt
-Пройдено:Регулярний вираз myRegex має повернути false для рядка EleanorRoosevelt
-Пройдено:Використайте .test(), щоб протестувати регулярний вираз.
-Пройдено:Результат має повернути true.
+// Пройдено:Регулярний вираз myRegex має повернути true для рядка Franklin D. Roosevelt
+// Пройдено:Регулярний вираз myRegex має повернути true для рядка Eleanor Roosevelt
+// Пройдено:Регулярний вираз myRegex має повернути false для рядка Franklin Rosevelt
+// Пройдено:Регулярний вираз myRegex має повернути false для рядка Frank Roosevelt
+// Пройдено:Регулярний вираз myRegex має повернути false для рядка FranklinRoosevelt
+// Пройдено:Регулярний вираз myRegex має повернути false для рядка EleanorRoosevelt
+// Пройдено:Використайте .test(), щоб протестувати регулярний вираз.
+// Пройдено:Результат має повернути true.
 
-//!============================================= Example 
-Пройдено:Використайте .replace() для пошуку та заміни.
-Пройдено:Ваш регулярний вираз має замінити рядок one two three на рядок three two one
-Пройдено:Не змінюйте останній рядок.
-Пройдено:fixRegex має використати принаймні три групи захоплення.
-Пройдено:replaceText має використати підрядки в дужках (тобто n-ний підрядок $n відповідає n-ній групі захоплення).
+// //!============================================= Example 
+// Пройдено:Використайте .replace() для пошуку та заміни.
+// Пройдено:Ваш регулярний вираз має замінити рядок one two three на рядок three two one
+// Пройдено:Не змінюйте останній рядок.
+// Пройдено:fixRegex має використати принаймні три групи захоплення.
+// Пройдено:replaceText має використати підрядки в дужках (тобто n-ний підрядок $n відповідає n-ній групі захоплення).
 
-let str = "one two three";
-let fixRegex = /(\w+)\s(\w+)\s(\w+)/; // Change this line
-let replaceText = "$3 $2 $1"; // Change this line
-let result = str.replace(fixRegex, replaceText);
-console.log(result);
+// let str = "one two three";
+// let fixRegex = /(\w+)\s(\w+)\s(\w+)/; // Change this line
+// let replaceText = "$3 $2 $1"; // Change this line
+// let result = str.replace(fixRegex, replaceText);
+// console.log(result);
 
 //!============================================ Example 
-function zeroArray(m, n) {
-  let newArray = [];
-  for (let i = 0; i < m; i++) {
-    let row = []; /* <-----  row has been declared inside the outer loop. 
-     Now a new row will be initialised during each iteration of the outer loop allowing 
-     for the desired matrix. */
-    for (let j = 0; j < n; j++) {
-      row.push(0);
-    }
-    newArray.push(row);
-  }
-  return newArray;
+// function zeroArray(m, n) {
+//   let newArray = [];
+//   for (let i = 0; i < m; i++) {
+//     let row = []; /* <-----  row has been declared inside the outer loop. 
+//      Now a new row will be initialised during each iteration of the outer loop allowing 
+//      for the desired matrix. */
+//     for (let j = 0; j < n; j++) {
+//       row.push(0);
+//     }
+//     newArray.push(row);
+//   }
+//   return newArray;
+// }
+// let matrix = zeroArray(3, 2);
+// console.log(matrix);
+
+
+
+// function zeroArray(m, n) {
+//   // Створіть 2-D масив із m-рядків m та n-стовпчиків нулів
+//   let newArray = [];
+//   let row = [];
+//   for (let i = 0; i < m; i++) {
+//     // Додайте m-ий рядок до newArray
+
+//     for (let j = 0; j < n; j++) {
+//       // Додає n нулів до поточного рядка, щоб створити стовпчики
+//       row.push(0);
+//     }
+//     // Штовхає поточний рядок, який тепер містить n нулів, до масиву
+//     newArray.push(row);
+//   }
+//   return newArray;
+// }
+
+// let matrix = zeroArray(3, 2);
+// console.log(matrix);
+
+
+
+//!========================================== Example 
+// //? Як то працює??
+// function copyMachine(arr, num) {
+//   let newArr = [];
+//   while (num >= 1) {
+//     // Змініть код лише під цим рядком
+// newArr.splice(0,0,[...arr])
+//     // Змініть код лише над цим рядком
+//     num--;
+//   }
+//   return newArr;
+// }
+
+// console.log(copyMachine([true, false, true], 2));
+
+// //?Чому два рази додається масив??? ПОДИВИСЬ!!!
+
+//!================================================ Example
+
+function quickCheck(arr, elem) {
+  // Змініть код лише під цим рядком
+if(!arr.indexOf(elem)){
+  return true;
+} else {
+  return false;
 }
-let matrix = zeroArray(3, 2);
-console.log(matrix);
-
-
-
-function zeroArray(m, n) {
-  // Створіть 2-D масив із m-рядків m та n-стовпчиків нулів
-  let newArray = [];
-  let row = [];
-  for (let i = 0; i < m; i++) {
-    // Додайте m-ий рядок до newArray
-
-    for (let j = 0; j < n; j++) {
-      // Додає n нулів до поточного рядка, щоб створити стовпчики
-      row.push(0);
-    }
-    // Штовхає поточний рядок, який тепер містить n нулів, до масиву
-    newArray.push(row);
-  }
-  return newArray;
+  // Змініть код лише над цим рядком
 }
 
-let matrix = zeroArray(3, 2);
-console.log(matrix);
+console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
