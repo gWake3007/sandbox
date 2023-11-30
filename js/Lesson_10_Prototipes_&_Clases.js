@@ -27,6 +27,19 @@ class Rectangle {     //! Назва классу завжди з ВЕЛИКОЇ
         this.#angelNumber = newAngelNumber;  //? Тут можна додати додаткові умови if else щоб якщо є не потрібний варіант щоб не перезаписувати
     }
 }
+//!======================================== Follow (Наслідування) =============================================
+class Square extends Rectangle{               //? extends команда для наслідування классів.
+    constructor(length, color = "white"){
+        super(length,length,color);  //? super команда для доступу до конструктора наслідування классу.В дужках властивості конструктора.
+        //! ВАЖЛИВО! ПЕРШИЙ legnth це height другий length це weight.
+        this.name = "Square";      //?Переіменовуємо ім'я об'єкта наслідуємого классу.
+    }
+}
+
+const square = new Square(10, "purple");
+console.log(square);
+square.sayHello();      //? Тут ми викликаємо функцію sayHello яка наслідується з класу Rectangle та використовує вже ім'я Square!
+console.log(square.calculateArea());
 
 const rectangle = new Rectangle(5,10, "blue");//?Екземпляр класу Rectangle. new для створення пустого об'єкта а Rectangle для передачі аргументів
 //? в конструкторі new буде this!!! 

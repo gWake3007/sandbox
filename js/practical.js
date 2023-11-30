@@ -1187,12 +1187,13 @@
 
 function quickCheck(arr, elem) {
   // Змініть код лише під цим рядком
-if(!arr.indexOf(elem)){
-  return true;
-} else {
+if(arr.indexOf(elem) === -1){
   return false;
+} else {
+  return true;
 }
   // Змініть код лише над цим рядком
 }
 
 console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
+console.log(quickCheck([3, 5, 9, 125, 45, 2], 125))
