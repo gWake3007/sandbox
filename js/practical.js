@@ -1185,15 +1185,32 @@
 
 //!================================================ Example
 
-function quickCheck(arr, elem) {
+// function quickCheck(arr, elem) {
+//   // Змініть код лише під цим рядком
+// if(arr.indexOf(elem) === -1){
+//   return false;
+// } else {
+//   return true;
+// }
+//   // Змініть код лише над цим рядком
+// }
+
+// console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
+// console.log(quickCheck([3, 5, 9, 125, 45, 2], 125))
+
+//!================================================= Example (cycle for) =================================================
+//? Скрипт має повертати новий масив з масиваит в яких немає elem!!!
+function filteredArray(arr, elem) {
+  let newArr = [];
   // Змініть код лише під цим рядком
-if(arr.indexOf(elem) === -1){
-  return false;
-} else {
-  return true;
-}
+  for(let i = 0; i < arr.length; i++) {
+    if(!arr[i].includes(elem)) {
+      newArr.push(arr[i]);
+    }
+  }
   // Змініть код лише над цим рядком
+  return newArr;
 }
 
-console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
-console.log(quickCheck([3, 5, 9, 125, 45, 2], 125))
+console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
+console.log(filteredArray([[10, 8, 3], [14, 6, 23], [3, 18, 6]], 18));
