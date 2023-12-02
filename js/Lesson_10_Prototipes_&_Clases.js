@@ -42,7 +42,7 @@
 // console.log(square.calculateArea());
 
 // const rectangle = new Rectangle(5,10, "blue");//?Екземпляр класу Rectangle. new для створення пустого об'єкта а Rectangle для передачі аргументів
-// //? в конструкторі new буде this!!! 
+// //? в конструкторі new буде this!!!
 // console.log(rectangle);  //?В консолі видно що rectangle екземпляр класу Rectangle!!!
 
 // rectangle.sayHello();
@@ -64,32 +64,56 @@
 // console.log(rectangle.angelNumber);  //?Тут ми вже читаємо приватну властивість!!! Тут 77 - бо перезаписана.
 
 //!===================================== Example ( method class (isOpen (true or false))) ===================================
-class Toggle {
-    constructor({isOpen} = {isOpen: false}) {//?Тут ми деструктуризовали значення щоб він приймав об'єкт та значення замовчуванням false. 
-        this.on = isOpen;
-    }
-    // constructor({isOpen}){          //?конструктор з деструкторизацією. Але спрощенною!!!
-    //     this.on = isOpen || false;
-    // }
-    // constructor(settings) {             //?Альтернативний приклад конструктора .
-    //     this.on = settings?.isOpen || false;//? Оператор ?. знаходить властивість isOpen і за замовчуванням повертає false.Якщо ні то undefined
-    // }
+// class Toggle {
+//     constructor({isOpen} = {isOpen: false}) {//?Тут ми деструктуризовали значення щоб він приймав об'єкт та значення замовчуванням false.
+//         this.on = isOpen;
+//     }
+//     // constructor(settings) {             //?Альтернативний приклад конструктора .
+//     //     this.on = settings?.isOpen || false;//? Оператор ?. знаходить властивість isOpen і за замовчуванням повертає false.Якщо ні то undefined
+//     // }
 
-    toggle(){
-        this.on = !this.on   //?Умова для змінни isOpen false на true або true на false!!!
+//     toggle(){
+//         this.on = !this.on   //?Умова для змінни isOpen false на true або true на false!!!
+//     }
+// }
+
+// const firstToggle = new Toggle({isOpen: true});
+// console.group("firstToggle");
+// console.log(firstToggle.on);
+// firstToggle.toggle();
+// console.log(firstToggle.on);
+// console.groupEnd("firstToggle");
+
+// const secondToggle = new Toggle();
+// console.group("secondToggle");
+// console.log(secondToggle.on);
+// secondToggle.toggle();
+// console.log(secondToggle.on);
+// console.groupEnd("secondToggle");
+
+//!================================================ Example (Destructorization) ===========================================
+// function sayHello({ name, lastName, age }) {  //?Різниця деструкторизації функції в тому що тут параметр звертається до назви.
+//   console.log(name);      //?Якщо без деструкторизації то до місця розтащування!!!Важливо!!!Для цього і потрібен об'єкт параметрів!
+
+//   sayHello({
+//     lastName: "Reshetniak",
+//     age: 32,
+//     name: "Serhii",
+//   });
+// }
+
+//!=================================================== Example (classes) ===========================
+class User {
+    constructor ({name, lastName, age, familyStatus, language, hobbyes}){
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+        this.familyStatus = familyStatus;
+        this.language = language;
+        this.hobbyes = hobbyes;
     }
 }
 
-const firstToggle = new Toggle({isOpen: true});
-console.group("firstToggle");
-console.log(firstToggle.on);
-firstToggle.toggle();
-console.log(firstToggle.on);
-console.groupEnd("firstToggle");
-
-const secondToggle = new Toggle();
-console.group("secondToggle");
-console.log(secondToggle.on);
-secondToggle.toggle();
-console.log(secondToggle.on);
-console.groupEnd("secondToggle");
+const user =  new User({name:"Serhii", lastName:"Reshetniak", age:32, familyStatus:"free", language:"Ukrainian", hobbyes:"IT"});
+console.log(user);
+console.log(User);
