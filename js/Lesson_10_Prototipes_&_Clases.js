@@ -113,7 +113,7 @@ class User {
         this.hobbyes = hobbyes;
     }
 }
-
+//?Принцип деструкторизації в тому що ми до властивості звертаємося по її назві а не по індексу(тобто де вона розташована)
 const user =  new User({name:"Serhii", lastName:"Reshetniak", age:32, familyStatus:"free", language:"Ukrainian", hobbyes:"IT"});
 console.log(user);
 console.log(User);

@@ -1199,18 +1199,200 @@
 // console.log(quickCheck([3, 5, 9, 125, 45, 2], 125))
 
 //!================================================= Example (cycle for) =================================================
-//? Скрипт має повертати новий масив з масиваит в яких немає elem!!!
-function filteredArray(arr, elem) {
-  let newArr = [];
-  // Змініть код лише під цим рядком
-  for(let i = 0; i < arr.length; i++) {
-    if(!arr[i].includes(elem)) {
-      newArr.push(arr[i]);
+// //? Скрипт має повертати новий масив з масиваит в яких немає elem!!!
+// function filteredArray(arr, elem) {
+//   let newArr = [];
+//   // Змініть код лише під цим рядком
+//   for(let i = 0; i < arr.length; i++) {
+//     if(!arr[i].includes(elem)) {
+//       newArr.push(arr[i]);
+//     }
+//   }
+//   // Змініть код лише над цим рядком
+//   return newArr;
+// }
+
+// console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
+// console.log(filteredArray([[10, 8, 3], [14, 6, 23], [3, 18, 6]], 18));
+
+//!=============================================== Example (Object methods) =========================================
+// const foods = {
+//   apples: 25,
+//   oranges: 32,
+//   plums: 28
+// };
+// //?Додавання властивостей до об'єкта !
+// // Змініть код лише під цим рядком
+// foods.bananas = 13;
+// foods['grapes'] = 35;
+// const straw = 'strawberries';
+// foods[straw] = 27
+// // Змініть код лише над цим рядком
+
+// console.log(foods);
+
+//!===================================== Example ( Object methods .hasOwnProperty() & in ) ==============
+// let users = {
+//   Alan: {
+//     age: 27,
+//     online: true
+//   },
+//   Jeff: {
+//     age: 32,
+//     online: true
+//   },
+//   Sarah: {
+//     age: 48,
+//     online: true
+//   },
+//   Ryan: {
+//     age: 19,
+//     online: true
+//   }
+// };
+
+// function isEveryoneHere(userObj) {
+//   // Змініть код лише під цим рядком
+//   // let result = "Alan" in userObj && "Jeff" in userObj   //? Method in
+//   // && "Sarah" in userObj && "Ryan" in userObj;
+// let result = userObj.hasOwnProperty("Alan") && userObj.hasOwnProperty("Jeff") //? Method .hasOwnProperty
+//  && userObj.hasOwnProperty("Sarah") && userObj.hasOwnProperty("Ryan");
+//  return result;
+//   // Змініть код лише над цим рядком
+// }
+
+// console.log(isEveryoneHere(users));
+//!================================================ Example (Objects and Cycle for in) ====================================
+// const users = {
+//   Alan: {
+//     online: false
+//   },
+//   Jeff: {
+//     online: true
+//   },
+//   Sarah: {
+//     online: false
+//   }
+// }
+
+// function countOnline(allUsers) {
+//   // Змініть код лише під цим рядком
+// let summTrue = 0;
+// for(const user in allUsers) {
+//   // console.log(allUsers[user].online);
+//   if(allUsers[user].online === true){
+//     summTrue += 1;
+//   }
+// }
+// return summTrue;
+//   // Змініть код лише над цим рядком
+// }
+
+// console.log(countOnline(users));
+//!============================================================= Example ( Method Object.keys() ) ==============
+// let users = {
+//   Alan: {
+//     age: 27,
+//     online: false
+//   },
+//   Jeff: {
+//     age: 32,
+//     online: true
+//   },
+//   Sarah: {
+//     age: 48,
+//     online: false
+//   },
+//   Ryan: {
+//     age: 19,
+//     online: true
+//   }
+// };
+
+// function getArrayOfUsers(obj) {
+//   // Змініть код лише під цим рядком
+// return Object.keys(obj);
+//   // Змініть код лише над цим рядком
+// }
+
+// console.log(getArrayOfUsers(users));
+//!=========================================================== Example (Push item for Object) =================================
+// let user = {
+//   name: 'Kenneth',
+//   age: 28,
+//   data: {
+//     username: 'kennethCodesAllDay',
+//     joinDate: 'March 26, 2016',
+//     organization: 'freeCodeCamp',
+//     friends: [
+//       'Sam',
+//       'Kira',
+//       'Tomo'
+//     ],
+//     location: {
+//       city: 'San Francisco',
+//       state: 'CA',
+//       country: 'USA'
+//     }
+//   }
+// };
+
+// function addFriend(userObj, friend) {
+//   // Змініть код лише під цим рядком
+// userObj.data.friends.push(friend);
+// return userObj.data.friends;
+//   // Змініть код лише над цим рядком
+// }
+
+// console.log(addFriend(user, 'Pete'));
+//!================================================== Example ====================================
+//?Метод reverse() працює лише на масивах для того ми строку спочатку розбиваємо , потім перевертаємо і знову об'єднуємо.
+// function reverseString(str) {
+//   return str.split("").reverse().join("");
+// }
+
+// console.log(reverseString("hello"));
+//!=================================================== Example ( Factorial ) =======================================================
+// function factorialize(num) {
+//   if(num === 0 || num === 1){
+//     return 1;
+//   }else {
+//     return num * factorialize(num -1);
+//   }
+// }
+
+// console.log(factorialize(5));
+// //? Факторіал це добуток всіх чисел від найменьшого до данного. Тобто: 1*2*3*4*5 = 120
+//!======================================================== Example (Method split and Cycle for) =============================
+//?Функція для виводу кількості букв в найдовшому слові в реченні
+// function findLongestWordLength(str) {
+//   let maxLength = 0;
+//   const words = str.split(" ");
+//   for(let i = 0; i < words.length; i++){
+//     console.log(words[i]);
+//     if(words[i].length > maxLength){
+//       maxLength = words[i].length;
+//     }
+//   }
+//   return maxLength;
+// }
+
+// console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+//!=================================================== Example (Cycle for) ============================
+//?Тут ми повертаємо масив з самою великою цифрою(костильний метод але працює!!!)
+function largestOfFour(arr) {
+  let result = 0;
+  let resultt = [];
+  for(let i = 0; arr.length > i; i++) {
+    for(let k = 0; arr[i].length > k; k++) {
+      console.log(arr[i][k]);
+      if(result < arr[i][k]){
+        resultt.pop(arr[i]);
+        resultt.push(arr[i]);
+      }
     }
   }
-  // Змініть код лише над цим рядком
-  return newArr;
+  return resultt;
 }
 
-console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
-console.log(filteredArray([[10, 8, 3], [14, 6, 23], [3, 18, 6]], 18));
+console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
