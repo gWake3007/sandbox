@@ -5,6 +5,7 @@ class User {
     constructor(name, surname){
         this.#name = name;
         this.#surname = surname;
+        this.city = city;
     }
     getFullName(){
         console.log(`${this.#name} ${this.#surname}`);
