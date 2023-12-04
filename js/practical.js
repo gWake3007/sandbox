@@ -1380,19 +1380,37 @@
 // console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
 //!=================================================== Example (Cycle for) ============================
 //?Тут ми повертаємо масив з самою великою цифрою(костильний метод але працює!!!)
+// function largestOfFour(arr) {
+//   let result = 0;
+//   let resultt = [];
+//   for(let i = 0; arr.length > i; i++) {
+//     for(let k = 0; arr[i].length > k; k++) {
+//       console.log(arr[i][k]);
+//       if(result < arr[i][k]){
+//         resultt.pop(arr[i]);
+//         resultt.push(arr[i]);
+//       }
+//     }
+//   }
+//   return resultt;
+// }
+
+// console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+
+//!======================================= Example 
+
 function largestOfFour(arr) {
-  let result = 0;
-  let resultt = [];
+  let result = [];
   for(let i = 0; arr.length > i; i++) {
     for(let k = 0; arr[i].length > k; k++) {
-      console.log(arr[i][k]);
-      if(result < arr[i][k]){
-        resultt.pop(arr[i]);
-        resultt.push(arr[i]);
+      if(arr[i][k] < arr[i][k]+1){
+        console.log(arr[i][k]);
+        result.pop(arr[i][k]);
+        result.push(arr[i][k]);
       }
     }
   }
-  return resultt;
+  return result;
 }
 
 console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
