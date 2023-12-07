@@ -42,7 +42,7 @@
 //         } else {
 //             console.log("Студен є випускником.");
 //         }
-        
+
 //     }
 // }
 
@@ -62,15 +62,35 @@
 // console.log(currentYear);
 
 //!================================================== Example (Cycle for) ================================================
-const data = [1,2,3,4,5,6,7,8];  //Треба щоб массив виглядав так [[1,2],[3,4],[5,6],[7,8]]
-function foo(arr, size) {
-    const dataSort = [];
-    for(let i = 0; i < arr.length; i += size) {
-        const copy = arr.slice(i, i + size);
-        console.log(copy);
-        dataSort.push(copy);
+// const data = [1,2,3,4,5,6,7,8];  //Треба щоб массив виглядав так [[1,2],[3,4],[5,6],[7,8]]
+// function foo(arr, size) {
+//     const dataSort = [];
+//     for(let i = 0; i < arr.length; i += size) {   //?Додаємо довжину як крок циклу щоб не переберати зайвий раз.
+//         const copy = arr.slice(i, i + size); //? Вирізаємо від початкового індексу ітерації до цього індексу + довжика(тобто від 0 до 4 не включно)
+//         console.log(copy);
+//         dataSort.push(copy);
+//     }
+//     return dataSort;
+// }
+
+// console.log(foo(data, 3));
+//!================================================= Example (Method filter and Cycle for) =============================
+// function fooFilter(arr) {   //?Функція для виведення повторювальних елементів в массиві(Для унікальних елементів змінюємо умову на ===)
+//     const newArr = arr.filter((item, index) => arr.indexOf(item) !== index);
+//     return newArr;
+// }
+
+const mass = [1, 2, 3, 4, 5, 6, 6, 7, 8];
+// console.log(fooFilter(mass));
+
+function fooFor(arr) {
+  const uniqueElement = [];
+  for (let i = 0; i < arr.length; i++) {
+    const currentElement = arr[i];
+    if (uniqueElement[currentElement] !== currentElement) {
+      console.log(uniqueElement);
     }
-    console.log(dataSort);
+  }
 }
 
-foo(data, 3);
+console.log(fooFor(mass));
