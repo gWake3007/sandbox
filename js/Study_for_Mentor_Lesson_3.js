@@ -85,12 +85,16 @@ const mass = [1, 2, 3, 4, 5, 6, 6, 7, 8];
 
 function fooFor(arr) {
   const uniqueElement = [];
-  for (let i = 0; i < arr.length; i++) {
-    const currentElement = arr[i];
-    if (uniqueElement[currentElement] !== currentElement) {
-      console.log(uniqueElement);
+  for (let i = 1; i < arr.length; i++) {
+    let currentElement = arr[0];
+    if(currentElement === arr[i] ) {
+        uniqueElement.push(arr[i]);
+    } else {
+        currentElement = arr[i + 1];
     }
+    
   }
+  return uniqueElement;
 }
 
 console.log(fooFor(mass));

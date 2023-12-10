@@ -1403,9 +1403,10 @@ function largestOfFour(arr) {
   let result = [];
   for(let i = 0; arr.length > i; i++) {
     for(let k = 0; arr[i].length > k; k++) {
-      if(arr[i][k] < arr[i][k]+1){
-        console.log(arr[i][k]);
-        result.pop(arr[i][k]);
+      const currentElement = arr[i][k];
+      console.log(currentElement);
+      console.log(arr[i][k]);
+      if(currentElement < arr[i][k - 1]){
         result.push(arr[i][k]);
       }
     }
