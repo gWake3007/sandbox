@@ -1397,21 +1397,71 @@
 
 // console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
 
-//!======================================= Example 
+//!=================================== First Example (Double cycle for and meyhod push) ===========================
+// function largestOfFour(arr) {
+//   let result = [];
+//   for(let i = 0; arr.length > i; i++) {
+//     let currentElement = arr[i][0];        //? Змінні створюємо завжди перед циклами чи розгалудженнями де їх будемо використовувати
+//     for(let k = 0; arr[i].length > k; k++) {
+//       if(currentElement < arr[i][k]){
+//         currentElement = arr[i][k];
+//         console.log(currentElement);     //? Запитати чому тут 6 цифр виводиться в консолі
+//       }
+//     }
+//     result[i] =  currentElement;    //? Ініціазація найбільшої цифри з кожного насиву
+//   }
+//   return result;
+// }
 
-function largestOfFour(arr) {
-  let result = [];
-  for(let i = 0; arr.length > i; i++) {
-    for(let k = 0; arr[i].length > k; k++) {
-      const currentElement = arr[i][k];
-      console.log(currentElement);
-      console.log(arr[i][k]);
-      if(currentElement < arr[i][k - 1]){
-        result.push(arr[i][k]);
-      }
-    }
-  }
-  return result;
-}
+// console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+// console.log(largestOfFour([[4, 9, 1, 3], [13, 35, 18, 26], [32, 35, 97, 39], [1000000, 1001, 857, 1]]));
 
-console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+//?1.Створіть змінну для зберігання результатів у вигляді масиву.
+//?2.Створіть зовнішній цикл для перебору зовнішнього масиву.
+//?3.Створіть другу змінну, яка міститиме найбільше число, і ініціалізуйте її першим числом.
+//? Це має бути поза внутрішнім циклом, тому його не буде перепризначено, доки ми не знайдемо більше число.
+//?4.Створіть зазначений внутрішній цикл для роботи з підмасивами.
+//?5.Перевірте, чи є елемент підмасиву більшим за поточне найбільше число, що зберігається. Якщо так, то оновіть число в змінній.
+//?6.Після внутрішнього циклу збережіть найбільше число у відповідній позиції всередині масиву результатів.
+//?7.І, нарешті, повертаємо зазначений масив.
+//!================================== Second Example (Methods map , reduce and Ternary operator) ============================
+// function largestOfFour(arr) {
+//   return arr.map(function(group) {  //?Методом map масив масивів розбиваємо на частини. На масиви.
+//     // console.log(group);
+//     return group.reduce(function(prev, current) {   //? prev попереднє значення. current поточне значення
+//       // console.log(prev);
+//       // console.log(current);
+//       return current > prev ? current : prev;    //?Порівняння попереднього значення з поточним.
+//     });
+//   });
+// }
+//!================================== Third Example ()
+// function largestOfFour(arr) {
+//   return arr.map(Function.apply.bind(Math.max, null));
+// }
+// //!================================== Fourth Example ()
+// function largestOfFour(arr, finalArr = []) {
+//   return !arr.length
+//     ? finalArr
+//     : largestOfFour(arr.slice(1), finalArr.concat(Math.max(...arr[0])))
+// }
+
+// //! Ці два приклади розібрати!!!!!!!!!!!!!
+
+//!=================================== Example ( Method slice or method endsWith() ) ===============================
+// function confirmEnding(str, target) {
+// const result = str.slice(-target.length) === target;
+//   return result;
+// }
+//?Функція для порівняння строки і таргету чи останні елементи співпадають
+// console.log(confirmEnding("Bastian", "n"));
+// console.log(confirmEnding("Walking on water and developing software from a specification are easy if both are frozen", "specification"));
+// console.log(confirmEnding("Connor", "n"));
+// console.log(confirmEnding("Congratulation", "on"));
+
+// function confirmEnding(str, target) {
+//   const result = str.endsWith(target);
+//   return result;
+// }
+
+//!========================================= Example 
