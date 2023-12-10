@@ -1464,4 +1464,26 @@
 //   return result;
 // }
 
+//!========================================= Example (Methods repeat() or Cycle for or newArray + join) ==================
+// function repeatStringNumTimes(str, num) {
+//   return str.repeat(num);
+// }
+
+// console.log(repeatStringNumTimes("abc", 3));
+
+// function repeatStringNumTimes(str, num) {
+//   let result = "";
+//   for(let i = 0; i < num; i++) {//? Повторюємо цикл for стільки разів скільки у нас вказано в num. За кожним разом додаємо цілу str
+//     console.log(str[i]);
+//     result += str;
+//   }
+//   return result;
+// }
+
+// function repeatStringNumTimes(str, num) {
+//   let result = new Array(num + 1).join(str);   //?Створюємо новий масив. Далі в дужках до num додаємо 1 для того щоб був ундекс 3.
+//   //? Так як в нас починає лічити з 0. Далі 3 рази перетворюємо новий масив з str в строку. Та повертаємо результат.
+//   return result;
+// }
+
 //!========================================= Example 
