@@ -80,21 +80,21 @@
 //     return newArr;
 // }
 
-const mass = [1, 2, 3, 4, 5, 6, 6, 7, 8];
-// console.log(fooFilter(mass));
+// const mass = [1, 2, 3, 4, 5, 6, 6, 7, 8];
+// // console.log(fooFilter(mass));
 
-function fooFor(arr) {
-  const uniqueElement = [];
-  for (let i = 1; i < arr.length; i++) {
-    let currentElement = arr[0];
-    if(currentElement === arr[i] ) {
-        uniqueElement.push(arr[i]);
-    } else {
-        currentElement = arr[i + 1];
-    }
+// function fooFor(arr) {
+//   const uniqueElement = [];
+//   for (let i = 1; i < arr.length; i++) {
+//     let currentElement = arr[0];
+//     if(currentElement === arr[i] ) {
+//         uniqueElement.push(arr[i]);
+//     } else {
+//         currentElement = arr[i + 1];
+//     }
     
-  }
-  return uniqueElement;
-}
+//   }
+//   return uniqueElement;
+// }
 
-console.log(fooFor(mass));
+// console.log(fooFor(mass));

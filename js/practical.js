@@ -1487,3 +1487,88 @@
 // }
 
 //!========================================= Example 
+// function truncateString(str, num) {     //?Дуже костильний варіант але працює(Перемудрив) ТАК НЕ ПИСАТИ!!!
+//   if(str.length > num) {
+//     let result = str.split("").slice(0, num);
+//     result.push("...");
+//     return console.log(result.join(""));
+//   } else {
+//     return console.log(result = str);
+//   }
+// }
+//? Задача була якщо num меньше ніж довжина str то скорочуємо запис і додаємо вкінці три крапки. Якщо ні то виводимо цілий рядок.
+// truncateString("A-tisket a-tasket A green and yellow basket", 8);
+// truncateString("Peter Piper picked a peck of pickled peppers", 11);
+// truncateString("A-", 1);
+// truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length + 2);
+// truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length);
+
+// function truncateString(str, num) {   //?Звичайна функція з порівнянням
+//   let result = "";
+//   if(str.length > num) {
+//     result = str.slice(0, num) + "...";
+//   } else {
+//     result = str;
+//   }
+//   return console.log(result);
+// }
+
+// function truncateString(str, num) {    //?Вирішення тернарним оператором
+//   return str.length > num ? str.slice(0, num) + "..." : str;
+// }
+
+//!====================================== Example (Cycle for and if or method find() or if else and slice) =======================
+// function findElement(arr, func) {
+//   let num = 0;
+//   for(let i = 0; i < arr.length; i++) {
+//     num = arr[i];
+//     if(func(num)) {
+//       return num;
+//     }
+//   }
+//   return undefined;
+// }
+
+// console.log(findElement([1, 2, 3, 4], num => num % 2 === 0));//?Якщо стрілочна функція повертає true то повертає той num з масиву який підходить
+
+// function findElement(arr, func) {   //? Метод find() повертає перший елемент що підходить за критеріями
+//   return arr.find(func);
+// }
+
+// function findElement(arr, func) {   
+//     console.log(arr[0]);  //?Консоль виводить всі елементи з масиву до того поки не знайде підходящий
+//   if (arr.length > 0 && !func(arr[0])) {//? В умові вказано якщо довжина масиву більша за 0(тобто 1 елемент) і якщо перший елемент не true
+//     return findElement(arr.slice(1), func); //?То повертаємо всі масиви по 1 елементу і порівнюємо їх
+//   } else {
+//     return arr[0];   //? Якщо ні то поверне undefined як результат вкладеної функції
+//   }
+// }
+
+//!============================================== Example (check boolean) =================================
+// function booWho(bool) {
+//     if(bool === true || bool === false) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+//   }
+  
+//   console.log(booWho(null));
+//   console.log(booWho(true));
+
+//   function booWho(bool) {
+//     if(typeof bool === "boolean") {    //?Метод typeof - перевірка типу данних!
+//         return true;
+//     } else {
+//         return false;
+//     }
+//   }
+
+//!========================================= Example (Callback methods split("") && .map() && toUpperCase() && join(""))
+function titleCase(str) {
+    return result = str.split(" ").map(item => item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()).join(" ");
+  }
+  
+  console.log(titleCase("I'm a little tea pot"));
+  console.log(titleCase("HERE IS MY HANDLE HERE IS MY SPOUT"));
+  console.log(titleCase("sHoRt AnD sToUt"));
