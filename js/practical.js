@@ -1606,9 +1606,16 @@
 //   function frankenSplice(arr1, arr2, n) {   //?Приклад зі spread оператором(копіями масивів) Дуже спрощений!!
 //     return [...arr2.slice(0, n), ...arr1, ...arr2.slice(n)];
 //   }
-//!================================================== Example 
-function bouncer(arr) {
-    const boolArr = [...arr].map(item => !!item);
+//!================================================== Example (Cyvle for or callback filter()) ===============================
+// function bouncer(arr) {
+//     const filteredArr = [];
+//     for (let i = 0; i < arr.length; i++) {
+//       if (arr[i]) filteredArr.push(arr[i]);
+//     }
+//     return filteredArr;
+//   }
+  console.log(bouncer([7, "ate", "", false, 9]));
+
+  function bouncer(arr) {    //?Фільтер перевіряє чи кожний елемент булевий та повертає ті елементи що true.
+    return arr.filter(Boolean);
   }
-  
-  bouncer([7, "ate", "", false, 9]);
