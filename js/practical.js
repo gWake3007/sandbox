@@ -1565,10 +1565,50 @@
 //   }
 
 //!========================================= Example (Callback methods split("") && .map() && toUpperCase() && join(""))
-function titleCase(str) {
-    return result = str.split(" ").map(item => item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()).join(" ");
+// function titleCase(str) {
+//     return result = str.split(" ").map(item => item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()).join(" ");
+//   }
+  
+//   console.log(titleCase("I'm a little tea pot"));
+//   console.log(titleCase("HERE IS MY HANDLE HERE IS MY SPOUT"));
+//   console.log(titleCase("sHoRt AnD sToUt"));
+
+//!========================= Example (Cycle for in && split("") && join(" ") && slice() && toUpperCase() && toLowerCase())=======
+// function titleCase(str) {   //?Методом split(" ") перетворює строку в масив розбиваючи його роздільником всередині методу.
+//   const newTitle = str.split(" ");
+//   const updatedTitle = [];
+//   for (let st in newTitle) {   //? Циклом for in добираємось до індексів кожного слова.Далі слово з нулевим індексом робимо з великої літери.
+//     updatedTitle[st] = newTitle[st][0].toUpperCase() + newTitle[st].slice(1).toLowerCase(); //?А всі інші слова вирізаємо методом slice(1)
+//   }           //?Та робимо з малої букви.
+//   return updatedTitle.join(" "); //?Вкінці все повертаємо назад у рядом з розділювачем мотодом join("")
+// }
+//!================= Example (Methods map() and replace() and others...) ==================================
+// function titleCase(str) {
+//     return str
+//       .toLowerCase()
+//       .split(" ")
+//       .map(val => val.replace(val.charAt(0), val.charAt(0).toUpperCase()))  //?replace() метод з рядками для їхньої заміни
+//       .join(" ");
+//   }
+//!================================================== Example (splice and slice) ==================================
+// function frankenSplice(arr1, arr2, n) {
+//     const newArr1 = arr1.slice();
+//     const newArr2 = arr2.slice();
+//     newArr2.splice(n,0, ...newArr1);     //?Перший елемент це n - індекс з якого починає вставляти newArr1,другий 0 каже що нічого видаляти
+//     console.log(newArr2);        //?не потрібно.А третій це копія масиву для того щоб був один масив а не масив в масиві!!!
+//   }
+  
+//   frankenSplice([1, 2, 3], [4, 5, 6], 1);
+//   frankenSplice([1, 2, 3], [4, 5], 1);
+//   frankenSplice([1, 2], ["a", "b"], 1);
+//   frankenSplice([1, 2, 3, 4], [], 0);
+
+//   function frankenSplice(arr1, arr2, n) {   //?Приклад зі spread оператором(копіями масивів) Дуже спрощений!!
+//     return [...arr2.slice(0, n), ...arr1, ...arr2.slice(n)];
+//   }
+//!================================================== Example 
+function bouncer(arr) {
+    const boolArr = [...arr].map(item => !!item);
   }
   
-  console.log(titleCase("I'm a little tea pot"));
-  console.log(titleCase("HERE IS MY HANDLE HERE IS MY SPOUT"));
-  console.log(titleCase("sHoRt AnD sToUt"));
+  bouncer([7, "ate", "", false, 9]);
