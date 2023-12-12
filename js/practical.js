@@ -1614,8 +1614,10 @@
 //     }
 //     return filteredArr;
 //   }
-  console.log(bouncer([7, "ate", "", false, 9]));
 
-  function bouncer(arr) {    //?Фільтер перевіряє чи кожний елемент булевий та повертає ті елементи що true.
-    return arr.filter(Boolean);
-  }
+  // console.log(bouncer([7, "ate", "", false, 9]));
+
+  // function bouncer(arr) {    //?Фільтер перевіряє чи кожний елемент булевий та повертає ті елементи що true.
+  //   return arr.filter(Boolean);
+  // }
+  //!========================================== Example 
