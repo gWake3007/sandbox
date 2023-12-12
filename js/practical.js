@@ -1621,3 +1621,14 @@
   //   return arr.filter(Boolean);
   // }
   //!========================================== Example 
+  function getIndexToIns(arr, num) {
+    arr.push(num);
+    arr.sort(function(a, b){
+      return a - b;
+    });
+    return arr.indexOf(num);
+  }
+  
+  console.log(getIndexToIns([40, 60], 50));
+  console.log(getIndexToIns([], 1));
+  console.log(getIndexToIns([2, 20, 10], 19));
