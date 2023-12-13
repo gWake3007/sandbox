@@ -1620,15 +1620,40 @@
   // function bouncer(arr) {    //?Фільтер перевіряє чи кожний елемент булевий та повертає ті елементи що true.
   //   return arr.filter(Boolean);
   // }
-  //!========================================== Example 
-  function getIndexToIns(arr, num) {
-    arr.push(num);
-    arr.sort(function(a, b){
-      return a - b;
-    });
-    return arr.indexOf(num);
-  }
+  //!========================================== First Example ( push() && sort() && indexOf()) ==================================
+  // function getIndexToIns(arr, num) {
+  //   arr.push(num);           //?Тут до масиву пушимо аргумент num щоб пізніше дізнатися його місце в масиві.
+  //   arr.sort(function(a, b){       //?Потрібен return a - b щоб сортувати цифри не 1 12 22 3 а як мають бути від найменьшого до найбільшого.
+  //     return a - b;
+  //   });
+  //   return arr.indexOf(num);       //? Індексом дізнаємося його місце в масиві.
+  // }
   
-  console.log(getIndexToIns([40, 60], 50));
-  console.log(getIndexToIns([], 1));
-  console.log(getIndexToIns([2, 20, 10], 19));
+  // console.log(getIndexToIns([40, 60], 50));
+  // console.log(getIndexToIns([], 1));
+  // console.log(getIndexToIns([2, 20, 10], 19));
+//!======================================= Second Example (Cycle for(BubleSort) && push() && indexOf() ) =====================
+// function getIndexToIns(arr, num) {
+//   arr.push(num);
+//   for(let i = 0; i < arr.length - 1; i++) {
+//     for(let k = 0; k < arr.length - 1 - i; k++) {
+//       if(arr[k] > arr[k + 1]) {
+//         const temp = arr[k];    //? Змінна для тимчасового збереження значення. Для циклу щоб не втрачати значення та замінювати його.
+//         arr[k] = arr[k + 1];
+//         arr[k + 1] = temp;
+//       }
+//     }
+//   }
+//   return arr.indexOf(num);
+// }
+//!============================================= Example 
+// function mutation(arr) {
+//   return arr;
+// }
+
+// mutation(["hello", "hey"]);
+
+// const arr = ["tdgdtgd", "Fhfhfg"];
+// const mass = arr.join(" ").toLowerCase().split(" ");
+// console.log(mass);
+
