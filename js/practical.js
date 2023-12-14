@@ -1646,14 +1646,45 @@
 //   }
 //   return arr.indexOf(num);
 // }
-//!============================================= Example 
+//!============================================= My Example (Methods join(" ") && toLowerCase() && split() and Cycle for) ==============
+//?Перевіряємо чи всі букви з першого слова масиву є в другому слові масиву.
+function mutation(arr) {
+  const mass = arr.join(" ").toLowerCase().split(" ");
+  const firstWord = mass[0];
+  const secondWord = mass[1];
+  for(const itemWord of secondWord) {
+    if(!firstWord.includes(itemWord)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// console.log(mutation(["zyxwvutsrqponmlkjihgfedcba", "qrstu"]));
+// console.log(mutation(["Alien", "line"]));
+// console.log(mutation(["floor", "for"]));
+// console.log(mutation(["ate", "date"]));
+// console.log(mutation(["Noel", "Ole"]));
+
+//!======================================== Another First Example (Cycle for) =================================================
+// //? Тут дуже спрощенно ми одразу в змінні зберігаємо значення в нижньому регісті. Так само перебираємо друге слово циклом.
 // function mutation(arr) {
-//   return arr;
+//   const test = arr[1].toLowerCase();
+//   const target = arr[0].toLowerCase();
+//   for (let i = 0; i < test.length; i++) {
+//     if (target.indexOf(test[i]) < 0) return false;   //?Тут така умова тому що якщо indexOf не знаходить значення то повертає -1
+//   }
+//   return true;
 // }
-
-// mutation(["hello", "hey"]);
-
-// const arr = ["tdgdtgd", "Fhfhfg"];
-// const mass = arr.join(" ").toLowerCase().split(" ");
-// console.log(mass);
-
+//!==================================== Another Second Example ( ) ========================================================
+// //?Тут ми також одразу беремо значення по індексам без змінних і переводимо в нижній регістр а також використовуємо split("")
+// //? Для з'єднання в масив для колл бек функції every() що працює з масивами та перевіряє всі його елементи на співпадіння(true or false)
+// function mutation(arr) {
+//   return arr[1]
+//     .toLowerCase()
+//     .split("")
+//     .every(function(letter) {
+//       return arr[0].toLowerCase().indexOf(letter) !== -1; //?Тут ми перший елемент масиву виводимо в нижній регістр та перевіряємо
+//     }); //? з другим елементом який вже входить як аргумент letter . Та якщо не дорівнює результат -1 то true.
+// }
+//!===================================== Example ( ) ===========================================
