@@ -1688,3 +1688,8 @@ function mutation(arr) {
 //     }); //? з другим елементом який вже входить як аргумент letter . Та якщо не дорівнює результат -1 то true.
 // }
 //!===================================== Example ( ) ===========================================
+function chunkArrayInGroups(arr, size) {
+  return arr;
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
