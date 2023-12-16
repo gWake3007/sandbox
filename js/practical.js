@@ -1647,18 +1647,18 @@
 //   return arr.indexOf(num);
 // }
 //!============================================= My Example (Methods join(" ") && toLowerCase() && split() and Cycle for) ==============
-//?Перевіряємо чи всі букви з першого слова масиву є в другому слові масиву.
-function mutation(arr) {
-  const mass = arr.join(" ").toLowerCase().split(" ");
-  const firstWord = mass[0];
-  const secondWord = mass[1];
-  for(const itemWord of secondWord) {
-    if(!firstWord.includes(itemWord)) {
-      return false;
-    }
-  }
-  return true;
-}
+// //?Перевіряємо чи всі букви з першого слова масиву є в другому слові масиву.
+// function mutation(arr) {
+//   const mass = arr.join(" ").toLowerCase().split(" ");
+//   const firstWord = mass[0];
+//   const secondWord = mass[1];
+//   for(const itemWord of secondWord) {
+//     if(!firstWord.includes(itemWord)) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
 
 // console.log(mutation(["zyxwvutsrqponmlkjihgfedcba", "qrstu"]));
 // console.log(mutation(["Alien", "line"]));
@@ -1687,9 +1687,22 @@ function mutation(arr) {
 //       return arr[0].toLowerCase().indexOf(letter) !== -1; //?Тут ми перший елемент масиву виводимо в нижній регістр та перевіряємо
 //     }); //? з другим елементом який вже входить як аргумент letter . Та якщо не дорівнює результат -1 то true.
 // }
-//!===================================== Example ( ) ===========================================
-function chunkArrayInGroups(arr, size) {
-  return arr;
-}
+//!================================ First Example (Cycle for and Method slice() ) ===========================================
+// function chunkArrayInGroups(arr, size) {
+//   const result = [];
+//   for(let i = 0;i < arr.length; i += size) {
+//     result.push(arr.slice(i, i+size));
+//   }
+//   return result;
+// }
 
-chunkArrayInGroups(["a", "b", "c", "d"], 2);
+console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+
+//? ======================================= Second Example ( Cycle while and Method Splice() ) ==============================
+function chunkArrayInGroups(arr, size) {
+  result = [];
+  while(arr.length > 0) {
+    result.push(arr.splice(0, size));
+  }
+  return result;
+}
