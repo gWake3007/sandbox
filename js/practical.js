@@ -1696,13 +1696,15 @@
 //   return result;
 // }
 
-console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+// console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
 
 //? ======================================= Second Example ( Cycle while and Method Splice() ) ==============================
-function chunkArrayInGroups(arr, size) {
-  result = [];
-  while(arr.length > 0) {
-    result.push(arr.splice(0, size));
-  }
-  return result;
-}
+// function chunkArrayInGroups(arr, size) {
+//   result = [];
+//   while(arr.length > 0) {
+//     result.push(arr.splice(0, size));
+//   }
+//   return result;
+// }
+
+//!======================================
