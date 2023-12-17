@@ -1707,4 +1707,51 @@
 //   return result;
 // }
 
-//!======================================
+//!====================================== (Cycle for in and Method Push() && hasOwnProperty() ) =========================================
+//?Ця функція це class і нижче написаний метод який додає властивості нового об'єкта с конструктора в масив.
+// function Bird(name) {
+//   this.name = name;
+//   this.numLegs = 2;
+// }
+
+// let duck = new Bird("Donald");
+// let canary = new Bird("Tweety");
+
+// let ownProps = [];
+
+// for (let property in duck) {
+//   if(duck.hasOwnProperty(property)) {
+//     ownProps.push(property);
+//   }
+// }
+// console.log(ownProps);
+//!=================================================== Example (class && prototype ) ========================================
+// function Dog(name) {
+//   this.name = name;
+// }
+// Dog.prototype.numLegs = 2;   //?Звертаємося до prototype классу Dog щоб додати туди властивість. Яка автоматично переходить і до beagle!
+// let beagle = new Dog("Snoopy");
+// console.log(beagle);          //?В цьому випадку показує тільки ім'я пса.
+// console.log(beagle.numLegs);  //?Тут ми отримуємо доступ до властивості numLegs!
+//!================================================== Example ()
+function Bird(name) {
+  this.name = name;  //own property
+}
+
+Bird.prototype.numLegs = 2; // prototype property
+
+let duck = new Bird("Donald");
+
+let ownProps = [];
+let prototypeProps = [];
+
+for (let property in duck) {
+  if(duck.hasOwnProperty(property)) {
+    ownProps.push(property);
+  } else {
+    prototypeProps.push(property);
+  }
+}
+
+console.log(ownProps);
+console.log(prototypeProps);
