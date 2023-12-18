@@ -1763,4 +1763,89 @@
 //?Метод для того щоб перевірити чи beagle є прототипом від Dog
 // let beagle = new Dog("Snoopy");
 // console.log(Dog.prototype.isPrototypeOf(beagle));
-//!============================================== Example ( ) ===========================================
+//!============================================== Example (Class prototype && instanceof) ===========================================
+// function Cat(name) {
+//   this.name = name;
+// }
+
+// Cat.prototype = {
+//   constructor: Cat,
+// };
+
+// function Bear(name) {
+//   this.name = name;
+// }
+
+// Bear.prototype = {
+//   constructor: Bear,
+// };
+
+// function Animal() { }
+
+// Animal.prototype = {
+//   constructor: Animal,
+//   eat: function() {
+//     console.log("nom nom nom");
+//   }
+// };
+// Bear.prototype = Object.create(Animal.prototype);   //?Тут прототип Bear успадковує властивості Animal.prototype !!!
+// Animal.prototype.eat();
+// let cat = Object.create(Animal.prototype); //?Тут ми створюємо прототипи звірів які беруть всі властивості Animal.prototype(Не Cat & Bear)!!
+// let dog = Bear("Baddy");          //? Цей прототип іде від классу Bear!!!
+// let bear = new Bear("Barry");
+// bear.eat();
+// cat.eat();
+// console.log(bear instanceof Animal);    //? Ці два приклади будуть true тому що вонм ідуть від прототипа Animal.prototype !!!!
+// console.log(cat instanceof Animal);
+// console.log(dog instanceof Animal); //?Тут false тому що він іде від классу Bear.
+
+// console.log(bear);
+// console.log(Bear.prototype);
+// Bear.prototype.constructor = Bear;   //?Перевірка хто чий прототип. Різниця в консолях вище і нижче!!!
+// console.log(Bear.prototype);
+//!=================================== Example (Changing the inheriting method) ===================================
+//?Зміна успадковуючого метода!!!
+
+// function Bird() { }
+
+// Bird.prototype.fly = function() { return "I am flying!"; };
+
+// function Penguin() { }
+// Penguin.prototype = Object.create(Bird.prototype);
+// Penguin.prototype.constructor = Penguin;
+
+// // Змініть код лише під цим рядком
+// Penguin.prototype.fly = function() {
+//   return "Alas, this is a flightless bird.";
+// }
+
+
+// // Змініть код лише над цим рядком
+
+// let penguin = new Penguin();
+// console.log(penguin.fly());   //?Замість I am flying! Виводить Alas, this is a flightless bird. Тому що penguin одразу шукає метод у Penguin
+// //? А потім тільки у Bird!
+//!============================================ Example (Method Mixine) ==============================
+//?Метод який дозволяє наслідувати другим об'єктам чи классам функції чи додаткові обробники тощо...
+let bird = {
+  name: "Donald",
+  numLegs: 2
+};
+
+let boat = {
+  name: "Warrior",
+  type: "race-boat"
+};
+
+// Змініть код лише під цим рядком
+const glideMixin = function(obj) {
+  obj.glide = function() {
+    console.log("Move smoothly");
+  }
+};
+glideMixin(bird);
+glideMixin(boat);
+
+bird.glide();
+boat.glide();
+//!============================================== Example 
