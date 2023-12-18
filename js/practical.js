@@ -1808,12 +1808,9 @@
 // Penguin.prototype = Object.create(Bird.prototype);
 // Penguin.prototype.constructor = Penguin;
 
-// // Змініть код лише під цим рядком
 // Penguin.prototype.fly = function() {
 //   return "Alas, this is a flightless bird.";
 // }
-
-// // Змініть код лише над цим рядком
 
 // let penguin = new Penguin();
 // console.log(penguin.fly());   //?Замість I am flying! Виводить Alas, this is a flightless bird. Тому що penguin одразу шукає метод у Penguin
@@ -1842,13 +1839,52 @@
 // boat.glide();
 //!===================================== Example ( Private property ) ==============================================
 //?Приватна властивість. Альтернатива оголшенню приватної властивості через знак #
-function Bird() {
-  let weight = 15;
+// function Bird() {
+//   let weight = 15;
 
-  this.getWeight = function () {
-    return weight;
-  };
-}
+//   this.getWeight = function () {
+//     return weight;
+//   };
+// }
 
-let bird = new Bird();
-bird.getWeight();
+// let bird = new Bird();
+// bird.getWeight();
+//!============================= Example ( IIFE - The expression of an immediately called function ) ======================================
+//?(Вираз негайно викликаної функції). Позначається двома дужками в кінці а огортається дужками функція.
+// (function () {
+//   console.log("A cozy nest is ready");
+// })();
+
+// function message () {        //?Це звичайна функція з назвою.
+//   console.log("a cozy nest is ready");
+// }
+// message();       //?Тут ми її викликаємо.
+
+//!============================================== Example (IIFE two Mixines) ======================================================
+//?Два міксина. Та нижче негайне їх поєднання.
+// let isCuteMixin = function(obj) {
+//   obj.isCute = function() {
+//     return true;
+//   };
+// };
+// let singMixin = function(obj) {
+//   obj.sing = function() {
+//     console.log("Singing to an awesome tune");
+//   };
+// };
+//?Вираз негайного поєднання міксинів.
+// let funModule = (function () {
+//   return {
+//     isCuteMixin: function(obj) {
+//       obj.isCute = function() {
+//         return true;
+//       };
+//     },
+//     singMixin: function(obj) {
+//       obj.sing = function() {
+//         console.log("Singing to an awesome tune");
+//       };
+//     }
+//   }
+// })();
+//!=================================================== Example ( ) ========================================
