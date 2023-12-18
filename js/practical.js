@@ -1733,25 +1733,34 @@
 // let beagle = new Dog("Snoopy");
 // console.log(beagle);          //?В цьому випадку показує тільки ім'я пса.
 // console.log(beagle.numLegs);  //?Тут ми отримуємо доступ до властивості numLegs!
-//!================================================== Example ()
-function Bird(name) {
-  this.name = name;  //own property
-}
+//!================================================== Example (Class and take property) =======================================
+// //?Ця функція додає загальні властивості в ownProps та властивості prototype в prototypeProps!
+// function Bird(name) {
+//   this.name = name;  //own property
+// }
 
-Bird.prototype.numLegs = 2; // prototype property
+// Bird.prototype.numLegs = 2; // prototype property
 
-let duck = new Bird("Donald");
+// let duck = new Bird("Donald");
 
-let ownProps = [];
-let prototypeProps = [];
+// let ownProps = [];
+// let prototypeProps = [];
 
-for (let property in duck) {
-  if(duck.hasOwnProperty(property)) {
-    ownProps.push(property);
-  } else {
-    prototypeProps.push(property);
-  }
-}
+// for (let property in duck) {
+//   if(duck.hasOwnProperty(property)) {
+//     ownProps.push(property);
+//   } else {
+//     prototypeProps.push(property);
+//   }
+// }
 
-console.log(ownProps);
-console.log(prototypeProps);
+// console.log(ownProps);
+// console.log(prototypeProps);
+//!================================================== Example (Method isPrototypeOf() ) ======================================
+// function Dog(name) {
+//   this.name = name;
+// }
+//?Метод для того щоб перевірити чи beagle є прототипом від Dog
+// let beagle = new Dog("Snoopy");
+// console.log(Dog.prototype.isPrototypeOf(beagle));
+//!============================================== Example ( ) ===========================================
