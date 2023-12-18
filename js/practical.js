@@ -1888,3 +1888,46 @@
 //   }
 // })();
 //!=================================================== Example ( ) ========================================
+// вкладки – це масив заголовків до кожного сайту, відкритого у вікні
+const Window = function(tabs) {
+  this.tabs = tabs; // Ми зберігаємо записи про масив всередині об'єкта
+};
+
+// Коли ви об'єднуєте два вікна в одне
+Window.prototype.join = function(otherWindow) {
+  this.tabs = this.tabs.concat(otherWindow.tabs);
+  return this;
+};
+
+// Коли ви відкриєте нову вкладку в кінці
+Window.prototype.tabOpen = function(tab) {
+  this.tabs.push('new tab'); // Давайте поки відкриємо нову вкладку
+  return this;
+};
+
+// Коли ви закриєте вкладку
+Window.prototype.tabClose = function(index) {
+
+  // Змініть код лише під цим рядком
+
+  const tabsBeforeIndex = this.tabs.splice(0, index); // Отримайте вкладки перед вкладкою
+  const tabsAfterIndex = this.tabs.splice(index + 1); // Отримайте вкладки після вкладки
+
+  this.tabs = tabsBeforeIndex.concat(tabsAfterIndex); // З'єднайте їх разом
+
+  // Змініть код лише над цим рядком
+
+  return this;
+ };
+
+// Давайте створимо три вікна браузера
+const workWindow = new Window(['GMail', 'Inbox', 'Work mail', 'Docs', 'freeCodeCamp']); // Ваша поштова скринька, диск та інші робочі сторінки
+const socialWindow = new Window(['FB', 'Gitter', 'Reddit', 'Twitter', 'Medium']); // Соціальні сторінки
+const videoWindow = new Window(['Netflix', 'YouTube', 'Vimeo', 'Vine']); // Розважальні сайти
+
+// Тепер виконайте закриття, відкриття вкладки та інші операції
+const finalTabs = socialWindow
+  .tabOpen() // Відкрийте нову вкладку для мемів з котами
+  .join(videoWindow.tabClose(2)) // Закрийте третю вкладку у вікні відео та приєднайтеся
+  .join(workWindow.tabClose(1).tabOpen());
+console.log(finalTabs.tabs);
