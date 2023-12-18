@@ -898,7 +898,6 @@
 // const carrot = new Vegetable('carrot');
 // console.log(carrot.name); // Повинно показувати 'carrot'
 
-
 //!=================================== Example ( ) ===================================
 // class Book {
 //   constructor(author) {
@@ -941,7 +940,7 @@
 // console.log(thermos.temperature);
 // console.log(temp);
 
-//!================================= Example 
+//!================================= Example
 // const customer = {
 //   firstName: "Jacob",
 //   lastName: "Mercer",
@@ -958,8 +957,7 @@
 // makeMessage(customer.getFullName);
 // makeMessage(customer.getFullName.bind(customer)); // Буде помилка у виклику функції
 
-
-//!========================================== Example 
+//!========================================== Example
 // Змініть код лише під цим рядком
 // class Thermostat {
 //   constructor(temperature) {
@@ -978,11 +976,11 @@
 //   constructor(fahrenheit) {
 //     this._fahrenheit = fahrenheit;
 //   }
-  
+
 //   get temperature() {
 //     return (5 / 9) * (this._fahrenheit - 32);
 //   }
-  
+
 //   set temperature(celsius) {
 //     return this._fahrenheit = (celsius * 9.0) / 5 + 32;
 //   }
@@ -1000,11 +998,11 @@
 //   constructor(fahrenheit) {
 //     this._celsius = (5 / 9) * (fahrenheit - 32);
 //   }
-  
+
 //   get temperature() {
 //     return this._celsius;
 //   }
-  
+
 //   set temperature(celsius) {
 //     return this._celsius = celsius;
 //   }
@@ -1014,11 +1012,11 @@
 //   constructor(fahrenheit) {
 //     this._kelvin = (5 / 9) * (fahrenheit - 32) + 273.15;
 //   }
-  
+
 //   get temperature() {
 //     return this._kelvin - 273.15;
 //   }
-  
+
 //   set temperature(celsius) {
 //     return this._kelvin = celsius + 273.15;
 //   }
@@ -1031,12 +1029,12 @@
 
 //   if(responseFromServer) {
 //     resolve("We got the data");
-//   } else {  
+//   } else {
 //     reject("Data not received");
 //   }
 //   makeServerRequest.then(result => {
 //     console.log(result);
-//   }) 
+//   })
 // });
 
 //!============================================== Example ( Method test() ) ============================================
@@ -1047,15 +1045,15 @@
 //!================================================ Example(Method match) ===================================================
 // let extractStr = "Extract the word 'coding' from this string.";
 // let codingRegex = /coding/;
-// let result = extractStr.match(codingRegex); 
+// let result = extractStr.match(codingRegex);
 // console.log(result);
 // //? Метод для вилучення частинки строки що в душках після .match !!!
-//!============================================= Example 
+//!============================================= Example
 // let quoteSample = "Beware of bugs in the above code; I have only proved it correct, not tried it.";
-// let vowelRegex = /[aeiou]/gi; 
-// let result = quoteSample.match(vowelRegex); 
+// let vowelRegex = /[aeiou]/gi;
+// let result = quoteSample.match(vowelRegex);
 // console.log(result);
-//!============================================= Example 
+//!============================================= Example
 // let quoteSample = "3 blind mice.";
 // let myRegex = /[^aeiou^0-9]/gi; // Change this line
 // let result = quoteSample.match(myRegex); // Change this line
@@ -1112,7 +1110,7 @@
 // Пройдено:Використайте .test(), щоб протестувати регулярний вираз.
 // Пройдено:Результат має повернути true.
 
-// //!============================================= Example 
+// //!============================================= Example
 // Пройдено:Використайте .replace() для пошуку та заміни.
 // Пройдено:Ваш регулярний вираз має замінити рядок one two three на рядок three two one
 // Пройдено:Не змінюйте останній рядок.
@@ -1125,12 +1123,12 @@
 // let result = str.replace(fixRegex, replaceText);
 // console.log(result);
 
-//!============================================ Example 
+//!============================================ Example
 // function zeroArray(m, n) {
 //   let newArray = [];
 //   for (let i = 0; i < m; i++) {
-//     let row = []; /* <-----  row has been declared inside the outer loop. 
-//      Now a new row will be initialised during each iteration of the outer loop allowing 
+//     let row = []; /* <-----  row has been declared inside the outer loop.
+//      Now a new row will be initialised during each iteration of the outer loop allowing
 //      for the desired matrix. */
 //     for (let j = 0; j < n; j++) {
 //       row.push(0);
@@ -1141,8 +1139,6 @@
 // }
 // let matrix = zeroArray(3, 2);
 // console.log(matrix);
-
-
 
 // function zeroArray(m, n) {
 //   // Створіть 2-D масив із m-рядків m та n-стовпчиків нулів
@@ -1164,9 +1160,7 @@
 // let matrix = zeroArray(3, 2);
 // console.log(matrix);
 
-
-
-//!========================================== Example 
+//!========================================== Example
 // //? Як то працює??
 // function copyMachine(arr, num) {
 //   let newArr = [];
@@ -1486,7 +1480,7 @@
 //   return result;
 // }
 
-//!========================================= Example 
+//!========================================= Example
 // function truncateString(str, num) {     //?Дуже костильний варіант але працює(Перемудрив) ТАК НЕ ПИСАТИ!!!
 //   if(str.length > num) {
 //     let result = str.split("").slice(0, num);
@@ -1535,7 +1529,7 @@
 //   return arr.find(func);
 // }
 
-// function findElement(arr, func) {   
+// function findElement(arr, func) {
 //     console.log(arr[0]);  //?Консоль виводить всі елементи з масиву до того поки не знайде підходящий
 //   if (arr.length > 0 && !func(arr[0])) {//? В умові вказано якщо довжина масиву більша за 0(тобто 1 елемент) і якщо перший елемент не true
 //     return findElement(arr.slice(1), func); //?То повертаємо всі масиви по 1 елементу і порівнюємо їх
@@ -1552,7 +1546,7 @@
 //         return false;
 //     }
 //   }
-  
+
 //   console.log(booWho(null));
 //   console.log(booWho(true));
 
@@ -1568,7 +1562,7 @@
 // function titleCase(str) {
 //     return result = str.split(" ").map(item => item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()).join(" ");
 //   }
-  
+
 //   console.log(titleCase("I'm a little tea pot"));
 //   console.log(titleCase("HERE IS MY HANDLE HERE IS MY SPOUT"));
 //   console.log(titleCase("sHoRt AnD sToUt"));
@@ -1597,7 +1591,7 @@
 //     newArr2.splice(n,0, ...newArr1);     //?Перший елемент це n - індекс з якого починає вставляти newArr1,другий 0 каже що нічого видаляти
 //     console.log(newArr2);        //?не потрібно.А третій це копія масиву для того щоб був один масив а не масив в масиві!!!
 //   }
-  
+
 //   frankenSplice([1, 2, 3], [4, 5, 6], 1);
 //   frankenSplice([1, 2, 3], [4, 5], 1);
 //   frankenSplice([1, 2], ["a", "b"], 1);
@@ -1615,23 +1609,23 @@
 //     return filteredArr;
 //   }
 
-  // console.log(bouncer([7, "ate", "", false, 9]));
+// console.log(bouncer([7, "ate", "", false, 9]));
 
-  // function bouncer(arr) {    //?Фільтер перевіряє чи кожний елемент булевий та повертає ті елементи що true.
-  //   return arr.filter(Boolean);
-  // }
-  //!========================================== First Example ( push() && sort() && indexOf()) ==================================
-  // function getIndexToIns(arr, num) {
-  //   arr.push(num);           //?Тут до масиву пушимо аргумент num щоб пізніше дізнатися його місце в масиві.
-  //   arr.sort(function(a, b){       //?Потрібен return a - b щоб сортувати цифри не 1 12 22 3 а як мають бути від найменьшого до найбільшого.
-  //     return a - b;
-  //   });
-  //   return arr.indexOf(num);       //? Індексом дізнаємося його місце в масиві.
-  // }
-  
-  // console.log(getIndexToIns([40, 60], 50));
-  // console.log(getIndexToIns([], 1));
-  // console.log(getIndexToIns([2, 20, 10], 19));
+// function bouncer(arr) {    //?Фільтер перевіряє чи кожний елемент булевий та повертає ті елементи що true.
+//   return arr.filter(Boolean);
+// }
+//!========================================== First Example ( push() && sort() && indexOf()) ==================================
+// function getIndexToIns(arr, num) {
+//   arr.push(num);           //?Тут до масиву пушимо аргумент num щоб пізніше дізнатися його місце в масиві.
+//   arr.sort(function(a, b){       //?Потрібен return a - b щоб сортувати цифри не 1 12 22 3 а як мають бути від найменьшого до найбільшого.
+//     return a - b;
+//   });
+//   return arr.indexOf(num);       //? Індексом дізнаємося його місце в масиві.
+// }
+
+// console.log(getIndexToIns([40, 60], 50));
+// console.log(getIndexToIns([], 1));
+// console.log(getIndexToIns([2, 20, 10], 19));
 //!======================================= Second Example (Cycle for(BubleSort) && push() && indexOf() ) =====================
 // function getIndexToIns(arr, num) {
 //   arr.push(num);
@@ -1819,7 +1813,6 @@
 //   return "Alas, this is a flightless bird.";
 // }
 
-
 // // Змініть код лише над цим рядком
 
 // let penguin = new Penguin();
@@ -1827,25 +1820,35 @@
 // //? А потім тільки у Bird!
 //!============================================ Example (Method Mixine) ==============================
 //?Метод який дозволяє наслідувати другим об'єктам чи классам функції чи додаткові обробники тощо...
-let bird = {
-  name: "Donald",
-  numLegs: 2
-};
+// let bird = {
+//   name: "Donald",
+//   numLegs: 2
+// };
 
-let boat = {
-  name: "Warrior",
-  type: "race-boat"
-};
+// let boat = {
+//   name: "Warrior",
+//   type: "race-boat"
+// };
 
-// Змініть код лише під цим рядком
-const glideMixin = function(obj) {
-  obj.glide = function() {
-    console.log("Move smoothly");
-  }
-};
-glideMixin(bird);
-glideMixin(boat);
+// const glideMixin = function(obj) {
+//   obj.glide = function() {
+//     console.log("Move smoothly");
+//   }
+// };
+// glideMixin(bird);
+// glideMixin(boat);
 
-bird.glide();
-boat.glide();
-//!============================================== Example 
+// bird.glide();
+// boat.glide();
+//!===================================== Example ( Private property ) ==============================================
+//?Приватна властивість. Альтернатива оголшенню приватної властивості через знак #
+function Bird() {
+  let weight = 15;
+
+  this.getWeight = function () {
+    return weight;
+  };
+}
+
+let bird = new Bird();
+bird.getWeight();
