@@ -1967,7 +1967,7 @@
 // console.log(remove(bookList, "On The Electrodynamics of Moving Bodies"));
 // console.log(remove(add(bookList, "A Brief History of Time"), "On The Electrodynamics of Moving Bodies"));
 // console.log(bookList);  //?Тут ми бачимо що основний масив не мутується.
-//!========================================== Example (Cycle for and callback map() && filter() ) =========================================
+//!===================================== Example (Cycle for and callback map() && filter() && reduce() ) =====================================
 //?Переробимо функцію з циклу for 
 // const watchList = [
 //   {
@@ -2081,6 +2081,25 @@
 //     "Response": "True"
 //   }
 // ];
+// //? 
+// function getRating(watchList) {
+//   const filteredWatchList = watchList.filter(item => (item.Director) === "Christopher Nolan").map(item => {
+//     return Number(item.imdbRating);
+//   });
+//   let averageRating = filteredWatchList.reduce((accum, item, index, array) => { //? reduce - накопичує рейтинги.
+//     accum += item;
+//     return accum;
+//   }, 0);
+// averageRating = averageRating / filteredWatchList.length;   //? Тут ми ділимо загальну сумму рейтингу на довжину всіх елементів рейтингу.
+//   return averageRating;                //? Та отримуємо середній рейтинг.
+// }
+// console.log(getRating(watchList));
+
+
+  // const filteredWatchList = watchList.filter(item => (item.Director) === "Christopher Nolan").map(item => {
+  //   return Number(item.imdbRating);
+  // });
+  // console.log(filteredWatchList);   //?Для перевірки що повертає ця змінна. Масив рейтингім з Christopher Nolan!!!
 //?Метод filter() щоб дістати ті ж самі елементи тільки вже з рейтингом 8.0 або вище!А методом map() вже виводимо потрібні поля об'єктів
 // const filteredList = watchList.filter(item => Number(item.imdbRating) >= 8).map(item => {
 //   return {title:item.Title, rating:item.imdbRating};
@@ -2132,16 +2151,73 @@
 //   }
 //   return newArray;
 // };
+//! ЦЕ ТРЕБА ДОПИСАТИ!!!!!!!!!!!!ЯКЩО Є СПОСОБИ
 //?Альтернатива методу filter() методом forEach.
-Array.prototype.myFilter = function(callback) {
-  const newArray = [];
-  this.forEach((item, index, array) => {
- callback(item, index, array) ?
-  newArray.push(item)
-});
-  return newArray;
-};
+// Array.prototype.myFilter = function(callback) {
+//   const newArray = [];
+//   this.forEach((item, index, array) => {
+//  callback(item, index, array) ?
+//   newArray.push(item)
+// });
+//   return newArray;
+// };
 
-console.log([23, 65, 98, 5, 13].myFilter(item => item % 2));
-console.log(["naomi", "quincy", "camperbot"].myFilter(element => element === "naomi"));
-console.log([1, 1, 2, 5, 2].myFilter((element, index, array) => array.indexOf(element) === index));
+// console.log([23, 65, 98, 5, 13].myFilter(item => item % 2));
+// console.log(["naomi", "quincy", "camperbot"].myFilter(element => element === "naomi"));
+// console.log([1, 1, 2, 5, 2].myFilter((element, index, array) => array.indexOf(element) === index));
+//!============================================== Example (Method splice function) =================================================
+//?Розбір методу slice в функції. Повертає копію масиву не змінюючи оригінал. Та бере елементи від першого індексу до другого НЕ ВКЛЮЧНО!!!
+// function sliceArray(anim, beginSlice, endSlice) {
+// const newArray = anim.slice(beginSlice, endSlice);
+// return newArray;
+// }
+
+// const inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
+// console.log(sliceArray(inputAnim, 1, 3));
+//!============================================ Example (Method concat) ========================================================
+//?Склеювання двух масивів без мутації оригинальниї маствів(без їхньої зміни)
+// function nonMutatingConcat(original, attach) {
+// const newArr = original.concat(attach);
+// return newArr;
+// }
+// const first = [1, 2, 3];
+// const second = [4, 5];
+// console.log(nonMutatingConcat(first, second));
+//!=============================================== Example ( reduce() ) =============================================================
+// const users = [
+//   { name: 'John', age: 34 },
+//   { name: 'Amy', age: 20 },
+//   { name: 'camperCat', age: 10 }
+// ];
+//?В цьому прикладі ми рахуємо загальну кількість віку. sum - це акумулятор куди додаються числа(його початкове значення в кінці 0)
+//? user - це кожен об'єкт масиву. user.age - це значення поля age в кожному об'єкті тобто вік(число яке додається на кожній ітерації)
+// const sumOfAges = users.reduce((sum, user) => sum + user.age, 0);
+// console.log(sumOfAges);
+//? obj - це значення акумулятора який вказано вкінці як пустий об'єкт {}.obj[user.name] - це значення ім'я юзерів поставленне замість назви.
+//? user.age - це значення age. Тобто виходить John: 34 і так далі.
+// const usersObj = users.reduce((obj, user) => {
+//   obj[user.name] = user.age;
+//   return obj;
+// }, {});
+// console.log(usersObj);
+
+//!=============================================== Example ( map() && filter() || reduce() ) ===================================
+//? Методи filter() та map()
+// const squareList = arr => {
+//   const result = arr.filter(item => item > 0 && Number.isInteger(item)).map(item => {//?Number.isInteger() перевіряє чи це ціле число
+//     return item * item;
+//   })
+//   return result;
+// };
+//? Метод reduce()
+// const squareList = arr => {
+//   return arr.reduce((accum, item) => {
+//     return Number.isInteger(item) && item > 0  //?Тернарний оператор фільтрує дві умови.
+//     ? accum.concat(item * item)              //?Якщо так то виводить до акумулятора(тобто масива) це число в квадраті(методом concat() додає)
+//     : accum;                                //? Якщо ні то просто акумулятор не змінюється.
+//   }, []);
+// };
+
+// const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+// console.log(squaredIntegers);
+//! ================================================ Example ( ) ======================================
