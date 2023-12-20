@@ -1968,7 +1968,7 @@
 // console.log(remove(add(bookList, "A Brief History of Time"), "On The Electrodynamics of Moving Bodies"));
 // console.log(bookList);  //?Тут ми бачимо що основний масив не мутується.
 //!===================================== Example (Cycle for and callback map() && filter() && reduce() ) =====================================
-//?Переробимо функцію з циклу for 
+//?Переробимо функцію з циклу for
 // const watchList = [
 //   {
 //     "Title": "Inception",
@@ -2081,7 +2081,7 @@
 //     "Response": "True"
 //   }
 // ];
-// //? 
+// //?
 // function getRating(watchList) {
 //   const filteredWatchList = watchList.filter(item => (item.Director) === "Christopher Nolan").map(item => {
 //     return Number(item.imdbRating);
@@ -2095,11 +2095,10 @@
 // }
 // console.log(getRating(watchList));
 
-
-  // const filteredWatchList = watchList.filter(item => (item.Director) === "Christopher Nolan").map(item => {
-  //   return Number(item.imdbRating);
-  // });
-  // console.log(filteredWatchList);   //?Для перевірки що повертає ця змінна. Масив рейтингім з Christopher Nolan!!!
+// const filteredWatchList = watchList.filter(item => (item.Director) === "Christopher Nolan").map(item => {
+//   return Number(item.imdbRating);
+// });
+// console.log(filteredWatchList);   //?Для перевірки що повертає ця змінна. Масив рейтингім з Christopher Nolan!!!
 //?Метод filter() щоб дістати ті ж самі елементи тільки вже з рейтингом 8.0 або вище!А методом map() вже виводимо потрібні поля об'єктів
 // const filteredList = watchList.filter(item => Number(item.imdbRating) >= 8).map(item => {
 //   return {title:item.Title, rating:item.imdbRating};
@@ -2220,4 +2219,77 @@
 
 // const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
 // console.log(squaredIntegers);
-//! ================================================ Example ( ) ======================================
+//! ================================================ Example ( sort() ) ======================================
+// function reverseAlpha(arr) {
+//   return arr.sort(function(a, b) {
+//     return a === b ? 0 : a > b ? 1 : -1;     //? Метод sort() та подвійний тернарний оператор. Якщо умова a < b то сортування буде навпаки.
+//   });
+// }
+
+// function reverseAlpha(arr) {
+//   return arr.sort(function(a, b) {
+//     return a.localeCompare(b); //?Новіший метод через localeCompare(). Якщо навпаки поставити в умові a та b то буде сортування навпаки.
+//   });
+// }
+
+// console.log(reverseAlpha(['l', 'h', 'z', 'b', 's']));
+
+//!======================================== Example ( sort() & [...arr] || concat() || slice() ) ============================================
+// const globalArray = [5, 6, 3, 2, 9];
+
+// function nonMutatingSort(arr) {    //? [...arr] - Спред оператор щоб не змінювати оригінальний масив методом sort()
+// return [...arr].sort((a,b) => a - b);
+// }
+
+// function nonMutatingSort(arr) {
+//   return arr.slice().sort((a,b) => a - b);     //? Метод slice() щоб зробити копію масиву і також не змінювати оригінальний масив.
+//   }
+
+// function nonMutatingSort(arr) {
+//   return arr.concat().sort((a,b) => a - b);     //? Метод concat() щоб зробити копію масиву і також не змінювати оригінальний масив.
+//   }
+// console.log(nonMutatingSort(globalArray));
+// console.log(globalArray);
+//!======================================= Example ( split() && replace() || replaceAll() ) ============================================
+//? Робота методу replace() - замінює перший елемент з вказаному в аргументі на інший або всі якщо це replaceAll(). Працює на РЯДКАХ!!!
+// const names = "It's, test!string!have.extra&punctuation%marks*"
+// console.log(names.replaceAll(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ' '));//?Тут обидва приклади працюють однаково тому що g - глобальний знак.
+// console.log(names.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ' ')); //?Замінює всі елементи глобально!!!
+
+// const itLanguage = "HTML.html, CSS.html, JS.html";
+// console.log(itLanguage.replaceAll("html", "js")); //? Тут замінює всі елементи на вказаний.
+// console.log(itLanguage.replace("html", "js"));    //? Тут тільки перший елемент!!!
+//? Функція для заміни всіх розділових знаків пробілами та переробки str в массив.
+// function splitify(str) {
+//   return str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, " ").split(" ");
+// }
+//? Більш проста альтернатива з одним методом.
+// function splitify(str) {
+//   return str.split(/\W/);
+// }
+
+// console.log(splitify("Hello World,I-am code"));
+//!================================================== Example ( join() ) =========================================================
+//? Завдання без методу replace() - замість знаків пунктуації (в данному випадку - ) поставити пробіли.
+// function sentensify(str) {
+// return str.split(/\W/).join(" ");//? Переводимо str в масив і прибираємо знаки пунктуації ставлячи замість них пробіли.І повертаємо в str  
+// }
+
+// console.log(sentensify("May-the-force-be-with-you"));
+//!============================================== Example ( ) ========================================
+// Змініть код лише під цим рядком
+function urlSlug(title) {
+  const splitReduce =  title.split("").reduce((accum, item, index, array) => {
+    return item !== " " ? accum.concat(item) 
+    : index[0] === " " || index[-1] === " " ? accum
+    : item === " " || item === "  " ? accum.concat("-")
+    : accum;
+  }, []);
+  return splitReduce.join("").toLowerCase();
+}
+// Змініть код лише над цим рядком
+console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone"));
+console.log(urlSlug(" Winter Is  Coming"));
+
+
+

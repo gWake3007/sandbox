@@ -81,7 +81,7 @@
 // }
 
 // const mass = [1, 2, 3, 4, 5, 6, 6, 7, 8];
-// // console.log(fooFilter(mass));
+// console.log(fooFilter(mass));
 
 // function fooFor(arr) {
 //   const uniqueElement = [];
