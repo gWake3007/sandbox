@@ -2276,20 +2276,41 @@
 // }
 
 // console.log(sentensify("May-the-force-be-with-you"));
-//!============================================== Example ( ) ========================================
-// Змініть код лише під цим рядком
-function urlSlug(title) {
-  const splitReduce =  title.split("").reduce((accum, item, index, array) => {
-    return item !== " " ? accum.concat(item) 
-    : index[0] === " " || index[-1] === " " ? accum
-    : item === " " || item === "  " ? accum.concat("-")
-    : accum;
-  }, []);
-  return splitReduce.join("").toLowerCase();
-}
-// Змініть код лише над цим рядком
-console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone"));
-console.log(urlSlug(" Winter Is  Coming"));
+//!========================= Example ( split() && join() && toLowerCase() && trim() && filter() && reduce() ) ==============================
+//?В задачі треба замість пробілів між словами зробити - але на початку і в кінці не повинно бути пробілів та не повинно бути замість
+//? двох пробілів двух тире(МАЄ БУТИ ОДНЕ!!!) і всі слова в нижньому регістрі.
 
+//?Перший спосіб.Розділяємо пробілом і робимо масив.reduce() - фильтрує та повертає елементи БЕЗ ПРОБІЛУ!
+//?Повертаємо str та ставимо між словами розділювач ("-"). Переводимо в нижній регістр.
+// function urlSlug(title) {
+//   const splitReduce =  title.split(" ").reduce((accum, item) => {
+//     return item !== "" ? accum.concat(item) : accum;
+//   }, []);
+//   return splitReduce.join("-").toLowerCase();
+// }
+
+//?Переводимо в нижній регістр.trim() - прибирає всі пробіли с початку і вкінці.
+//?split() - з знаками прибирає всі пробіли розділювачі пробіли. А join("-") - додає між словами тире та повертає з масиву в str.
+// function urlSlug(title) {
+//   return title
+//     .toLowerCase()
+//     .trim()
+//     .split(/\s+/)
+//     .join("-");
+// }
+
+//?split(" ") розділяє пробілом всі елементи та переводить в масив.filter() - відфільтровує пробіли (в массиві вони позначаються так "")
+//?join("-") додає між словами розділювач тире та переводимо в str.Та в кінці переводимо всі слова в нижній регістр.
+// function urlSlug(title) {
+//   return title
+//     .split(" ")
+//     .filter(substr => substr !== "")
+//     .join("-")
+//     .toLowerCase();
+// }
+// console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone"));
+// console.log(urlSlug(" Winter Is  Coming"));
+
+//!=============================================== Example 
 
 
