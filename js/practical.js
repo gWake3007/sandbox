@@ -1908,15 +1908,12 @@
 // // Коли ви закриєте вкладку
 // Window.prototype.tabClose = function(index) {
 
-//   // Змініть код лише під цим рядком
-
 //   const tabsBeforeIndex = this.tabs.splice(0, index); // Отримайте вкладки перед вкладкою
 //   const tabsAfterIndex = this.tabs.splice(1); // Отримайте вкладки після вкладки
 // console.log(tabsBeforeIndex);
 // console.log(tabsAfterIndex);
 //   this.tabs = tabsBeforeIndex.concat(tabsAfterIndex); // З'єднайте їх разом
 // // console.log(this.tabs);
-//   // Змініть код лише над цим рядком
 
 //   return this;
 //  };
@@ -2325,7 +2322,7 @@
 // console.log(checkPositiveSome([1, 2, 3, -4, 5]));
 
 //!================================================ Example ( Currying function ) ====================================================
-//?Найпростіший приклад каррінгу в функції. Корисна для того якщо ми не можемо отримати всі аргументи одночасно. 
+//?Найпростіший приклад каррінгу в функції. Корисна для того якщо ми не можемо отримати всі аргументи одночасно.
 //?Наприклад коли якісь аргументи не доступні зараз. А будуть доступні пізніше. Можна виклик функції зберегти в змінній.
 // function add(x) {
 //   return function (y) {
@@ -2337,4 +2334,97 @@
 
 // const add = x => y => z => x + y + z;
 // console.log(add(10)(20)(30));
-//!============================================= Example 
+//!================================= Example (Math.min && max && abs && Cycle for && sort() && ternarnui operator) =======================
+//? Функція для підрахунку суми всіх чисел в діапазоні тих що надається в масиві.
+//?Вирішення через Math та цикл for.
+// function sumAll(arr) {
+//   let max = Math.max(arr[0], arr[1]);//?Дві змінні яким надається значення обох значень і за домогою Math дізнаємося мінімальне та максимальне.
+//   let min = Math.min(arr[0], arr[1]);
+//   let sumBetween = 0;                //?Накопичувач результату.
+//   for (let i = min; i <= max; i++) { //?Цикл для підсумування результату.
+//     sumBetween += i;
+//   }
+//   return sumBetween;
+// }
+
+//?Метод з використанням Math.abs() - відстань між. Значення відємне чи додатнє до 0.
+// const sumAll = arr => {
+//   const startNum = arr[0];
+//   const endNum = arr[1];
+
+//   const numCount = Math.abs(startNum - endNum) + 1;
+// //?За допомогою формули дізнаємось сумму чисел в цьому діапазоні.
+//   const sum = ((startNum + endNum) * numCount) / 2;
+//   return sum;
+// };
+
+//?Такий же метод як і найперший але коротший без двух лишніх змінних!
+// function sumAll(arr) {
+//   let sumBetween = 0;
+//   for (let i = Math.min(...arr); i <= Math.max(...arr); i++) {
+//     sumBetween += i;
+//   }
+//   return sumBetween;
+// }
+
+//?За допомогою метода sort() та тернарного оператора.
+// function sumAll(arr) {
+//   const [first, last] = [...arr].sort((a, b) => a - b);//?sort() на кожній ітерації додає меньшому елементу + 1 та додає елемент в результат
+//   return first !== last
+//     ? first + sumAll([first + 1, last])
+//     : first;
+// }
+// console.log(sumAll([1, 4]));
+//!========== Example (Cycle for & Methods indexOf() & includes() & concat() & filter() & forEach() & new Set(add,delete,has)) ==============
+//?Задача в якій треба вивести унікальні елементи (не повторювальні) з обох масивів(порівняти масиви)
+//?Робимо функцію в функції щоб викликати її з першим масивом на другий і навпаки(якщо перший масив довший чи другий щоб працювала корректно)
+// function diffArray(arr1, arr2) {
+//   const newArr = [];
+//   function onlyInFirst(first, second) {
+//     for (let i = 0; i < first.length; i++) {
+//       if (second.indexOf(first[i]) === -1) {  //?Тут indexOf перевіряє чи є елемент в другому масиві якщо ні (-1) то пушимо унікальний елемент
+//         newArr.push(first[i]);
+//       }
+//     }
+//   }
+//   onlyInFirst(arr1, arr2);
+//   onlyInFirst(arr2, arr1);
+//   return newArr;
+// }
+
+//?Методи concat() - для об'єднання масивів в один, filter() - для фільтрації унікальних елементів і повернення їх в масив колбеком.
+// function diffArray(arr1, arr2) {
+//   return arr1
+//     .concat(arr2)
+//     .filter(item => !arr1.includes(item) || !arr2.includes(item));
+// }
+
+//?Метод new Set має свої методи has для перевірки че є цей елемент в масиві, delete для видалення та add для додавання до масиву в forEach
+// function diffArray(arr1, arr2) {
+//   const difference = new Set(arr1);
+//   arr2.forEach((ele) =>
+//     difference.has(ele) ? difference.delete(ele) : difference.add(ele)
+//   );
+//   return Array.from(difference);
+// }
+
+function diffArray(arr1, arr2) {
+  return arr1.concat(arr2).reduce((accum, item) => {
+    return !arr1.includes(item) || !arr2.includes(item)
+      ? accum.push(item)
+      : accum;
+  }, []);
+}
+console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+//!============================================= Example
+// function destroyer({arr, ...arr1}) {
+//   const newArr = [];
+//   for(let i = 0; i < arr.length; i ++) {
+//     if(![...arr1].indexOf(arr[i])){
+//       newArr.push(arr[i]);
+//     }
+//   }
+//   return newArr;
+// }
+
+// console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
