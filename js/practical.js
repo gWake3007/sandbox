@@ -1429,7 +1429,7 @@
 //     });
 //   });
 // }
-//!================================== Third Example ()
+//!================================== Third Example (map() && bind() ) ========================================================
 // function largestOfFour(arr) {
 //   return arr.map(Function.apply.bind(Math.max, null));
 // }
@@ -1600,7 +1600,7 @@
 //   function frankenSplice(arr1, arr2, n) {   //?Приклад зі spread оператором(копіями масивів) Дуже спрощений!!
 //     return [...arr2.slice(0, n), ...arr1, ...arr2.slice(n)];
 //   }
-//!================================================== Example (Cyvle for or callback filter()) ===============================
+//!================================================== Example (Cycle for or callback filter()) ===============================
 // function bouncer(arr) {
 //     const filteredArr = [];
 //     for (let i = 0; i < arr.length; i++) {
@@ -2147,7 +2147,9 @@
 //   }
 //   return newArray;
 // };
-//! ЦЕ ТРЕБА ДОПИСАТИ!!!!!!!!!!!!ЯКЩО Є СПОСОБИ
+
+//! ЦЕ ТРЕБА ДОПИСАТИ!!!!!!!!!!!!ЯКЩО Є СПОСОБИ111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+
 //?Альтернатива методу filter() методом forEach.
 // Array.prototype.myFilter = function(callback) {
 //   const newArray = [];
@@ -2407,20 +2409,22 @@
 //   );
 //   return Array.from(difference);
 // }
-
-function diffArray(arr1, arr2) {
-  return arr1.concat(arr2).reduce((accum, item) => {
-    return !arr1.includes(item) || !arr2.includes(item)
-      ? accum.push(item)
-      : accum;
-  }, []);
-}
-console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
-//!============================================= Example
-// function destroyer({arr, ...arr1}) {
+//!ВАЖЛИВО!!! При методі reduce() якщо з умовою(тернарним оператором то push() не працює треба використовувати concat() ПАМ'ЯТАЙ!!!)
+// function diffArray(arr1, arr2) {
+//   return arr1.concat(arr2).reduce((accum, item) => {
+//     return !arr1.includes(item) || !arr2.includes(item)
+//       ? accum.concat(item)
+//       : accum;
+//   }, []);
+// }
+// console.log(diffArray([1,2,3,4,5,6],[7,8,9]));
+// console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+//!============================== Example (Cycle for && speed operator [...arr] && Methods includes() && push() ) ==========================
+//? Завдання в якому треба повернути новий масив з тими елементами яких в масиві яких немає в аргументах.
+// function destroyer(arr, ...arr1) {
 //   const newArr = [];
 //   for(let i = 0; i < arr.length; i ++) {
-//     if(![...arr1].indexOf(arr[i])){
+//     if(!arr1.includes(arr[i])){
 //       newArr.push(arr[i]);
 //     }
 //   }
@@ -2428,3 +2432,18 @@ console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
 // }
 
 // console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+//!============================= Example
+function whatIsInAName(collection, source) {
+   collection.map(item => item);
+}
+
+
+
+console.log(whatIsInAName(
+  [
+    { first: "Romeo", last: "Montague" },
+    { first: "Mercutio", last: null },
+    { first: "Tybalt", last: "Capulet" },
+  ],
+  { last: "Capulet" }
+));
