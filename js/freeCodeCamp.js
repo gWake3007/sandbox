@@ -2432,18 +2432,82 @@
 // }
 
 // console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
-//!============================= Example
-function whatIsInAName(collection, source) {
-   collection.map(item => item);
-}
+//!============================================== First Example (Double Cycle for && for in) ===============================================
+//?Задача на співпадіння ключа та значення в source з масиву об'єктів source і якщо всі ключі та значення є в масиві то повертає масив з цим
+//?об'єктом навіть якщо в ньому є ще якісь додаткові значення.
+// function whatIsInAName(collection, source) {
+//   const collectionMatches = [];//?Створюємо змінну з масивом щоб якщо не буде співпадіння поверне його або буде пушити співпадіння в нього.
+//   for (let i = 0; i < collection.length; i++) { //?За допомогою for перебираємо колекцію масив об'єктів.
+//     let foundMismatch = false; //?Тут початкове значення співпадіння є false.
+//     // console.log(collection[i]); - Тут можемо побачити всі об'єкти.
+//     for (const sourceProp in source) { //?За допомогою циклу for in перебираємо об'єкт що знахожиться в source.
+//       // console.log(source[sourceProp]); //?Таким чином ми добераємось до самого значення об'єкта в sourse.
+//       // console.log(source); //? Тут об'єкт {last: "Capulet"} або любий інший.
+//       // console.log(sourceProp); //? Тут три рази в нас показує індекс last(Якщо б в масиві об'єктів було б більше об'єктів то ту б кількисть)
+//       // console.log(collection[i][sourceProp]); //?Тут в нас одразу значення всіх елементів з об'єктів з ключом last:
+//       if (collection[i][sourceProp] !== source[sourceProp]) {  //?Далі робимо якщо не дорівнює то змінюємо це значення на true.
+//         foundMismatch = true;
+//       }
+//     }
+//     if (!foundMismatch) {   //?Тут при протилежності цього значення пушим до масиву саме ту колекцію де співпадіння.Перед виходом с 1 циклу
+//       collectionMatches.push(collection[i]);
+//     }
+// //?Це ми робимо для того що в нас подвійний цикл.І якщо би в другому циклі в умові ми просто поставили дорівнює то інколи в результаті
+// //?де по два співпадіння і ключа і значення цей об'єкт пушився би по 2 рази. Так як цикл в циклі повторював би перевірку.
+//   }
+//   return collectionMatches;
+// }
+//?Цю функцію написати через for та for of не можливо. Тому що тут ми перебираємо об'єкти
 
+//!======================================== Second Example ( filter() && Cycle for and Object.keys) ===========================================
+// function whatIsInAName(collection, source) {
+//   const sourceKeys = Object.keys(source);  //?Створюємо змінну зі значенням індексу об'єкта з яким порівнюємо значення.
+// // console.log(sourceKeys);
+//   return collection.filter(obj => { //?Фільтром перебираємо масив об'єктів.
+//     for (let i = 0; i < sourceKeys.length; i++) { //?Циклом for перебираємо індекси об'єкта в source з яким порівнюємо індекси та значення
+//       // console.log(source[sourceKeys[i]]); //?Самі значення.
+//       // console.log(obj[sourceKeys[i]]);
+//       if (obj[sourceKeys[i]] !== source[sourceKeys[i]]) {  //?Порівняння значень кожного об'єкта в масиві зі значеннями в об'єкті.
+//         return false;
+//       }
+//     }
+//     return true;
+//   });
+// }
+//?Метод filter() повертає масив з тим значенням яке true якщо таке є або ж пустий масив. В if ставимо умову строге нерівно для того щоб 
+//?повернути false але якщо все ж таки ми знайшли збіги в значеннях то true. Бо якщо в подвійному циклі (в нашому випадку filter() та for)
+//?Одразу повернути дорівнює та true то там де true по два ключа та два значення будуть будлюватися об'єкти.Тобто буде не коректно працювати.
+//!================================== Third Example ( Methods Object.keys && filter() && every() ) ===================================
+// function whatIsInAName(collection, source) {
+//   const sourceKeys = Object.keys(source);
+//   return collection
+//     .filter(obj => sourceKeys
+//       .every(key => obj[key] === source[key]));
+// }
+//?Самий короткий але і складний в розумінні спосіб. Метод filter() якщо true поверне з колекції ті об'єкти чи об'єкт який підходить.
+//?Методом every() перевіряємо в умові ті об'єкти що підходять. ВАЖЛИВО every() - повертає true або false що і потрібно для filter() !!!
 
+// console.log(
+//   whatIsInAName(
+//     [{ apple: 1, bat: 2 }, { bat: 2 }, { apple: 1, bat: 2, cookie: 2 }],
+//     { apple: 1, bat: 2 }
+//   )
+// );
 
-console.log(whatIsInAName(
-  [
-    { first: "Romeo", last: "Montague" },
-    { first: "Mercutio", last: null },
-    { first: "Tybalt", last: "Capulet" },
-  ],
-  { last: "Capulet" }
-));
+// console.log(
+//   whatIsInAName([{ apple: 1 }, { apple: 1 }, { apple: 1, bat: 2 }], {
+//     apple: 1,
+//   })
+// );
+
+// console.log(
+//   whatIsInAName(
+//     [
+//       { first: "Romeo", last: "Montague" },
+//       { first: "Mercutio", last: null },
+//       { first: "Tybalt", last: "Capulet" },
+//     ],
+//     { last: "Capulet" }
+//   )
+// );
+//!======================================== Example 
