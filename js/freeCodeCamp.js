@@ -2622,7 +2622,6 @@
 //       ? str + 'ay'
 //       : translatePigLatin(str.slice(1) + str[0], charPos + 1);
 // }
-
 //!=============================================== Example ( toUpper || LowerCase() && slice() && replace() ) =============================
 //?Функція для заміни слів. Але якщо слово в реченні з великої букви то і замінювати його потрібно х великої і навпаки.
 // function myReplace(str, before, after) {
@@ -2638,11 +2637,39 @@
 // console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));
 // console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
 // console.log(myReplace("I think we should look up there", "up", "Down"));
-
 //!================================================== Example 
-//?
+//?Задача в якій треба до кожної літери рядка додати пару AT & CG та помістити їх в масив а той масив в ще один основний масив.
+//?Виглядати має так str = "GCG" result = [[G,C], [C,G],[G,C]];
 function pairElement(str) {
-  return str;
+  const result = [];
+  const arr = str.split("");
+  console.log(arr);
+  for(let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+    let array = [];
+    if(arr[i] === "A") {
+      array.push(arr[i]);
+      array = arr.push("T");
+      result.push(array);
+    } else if (arr[i] === "T") {
+      array.push(arr[i]);
+      array.push("A");
+      result.push(array);
+    } else if(arr[i] === "C") {
+      array.push(arr[i]);
+      array.push("G");
+      result.push(array);
+    } else {
+      array.push(arr[i]);
+      array.push("C");
+      result.push(array);
+    }
+  }
+  return result;
 }
 
-pairElement("GCG");
+console.log(pairElement("CTCTA"));
+// console.log(pairElement("TTGAG"));
+// console.log(pairElement("ATCGA"));
+// console.log(pairElement("GCG"));
+
