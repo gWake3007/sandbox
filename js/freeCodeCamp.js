@@ -2562,9 +2562,87 @@
 //   i++
 // }
 // console.timeEnd("timer_2");
-//!==================================== Example ( ) =======================================
-function translatePigLatin(str) {
+//!=========================== Example ( Math, replace() , indexOf() , includes() , slice, concat() ) ===================================
+//?Задача в якій потрібно якщо рядок починається з голосних в кінці додати "way" а якщо з приголосних то початок приголосних(до першої голосної)
+//? додати в кінець та потім додати закінчення "ay".
+//! First Example: 
+// function translatePigLatin(str) {
+//   let consonantRegex = /^[^aeiou]+/; //?Дві змінних для збереження значень голосних.
+//   let myConsonants = str.match(consonantRegex); //?Та приголосних від початку до першої голосної.
+//   return myConsonants !== null   //?За допомогою тернарного оператора і змінних повертаємо результат.
+//     ? str
+//         .replace(consonantRegex, "")
+//         .concat(myConsonants)
+//         .concat("ay")
+//     : str.concat("way");
+// }
+
+// console.log(translatePigLatin("consonats"));
+//! Second Example:
+// function translatePigLatin(str) {
+//   // Create variables to be used
+//   let pigLatin = "";
+//   let regex = /[aeiou]/gi;
+
+//   // Check if the first character is a vowel
+//   if (str[0].match(regex)) {
+//     pigLatin = str + "way";
+//   } else if (str.match(regex) === null) {
+//     // Check if the string contains only consonants
+//     pigLatin = str + "ay";
+//   } else {
+//     // Find how many consonants before the first vowel.
+//     let vowelIndice = str.indexOf(str.match(regex)[0]);
+
+//     // Take the string from the first vowel to the last char
+//     // then add the consonants that were previously omitted and add the ending.
+//     pigLatin = str.substr(vowelIndice) + str.substr(0, vowelIndice) + "ay";
+//   }
+
+//   return pigLatin;
+// }
+//! Third Example:
+// function translatePigLatin(str) {
+//   if (str.match(/^[aeiou]/)) return str + "way";
+
+//   const consonantCluster = str.match(/^[^aeiou]+/)[0];
+//   return str.substring(consonantCluster.length) + consonantCluster + "ay";
+// }
+//! Fourth Example:
+// function translatePigLatin(str) {
+//   return str
+//     .replace(/^[aeiou]\w*/, "$&way")
+//     .replace(/(^[^aeiou]+)(\w*)/, "$2$1ay");
+// }
+//! Fifth Example:
+// function translatePigLatin(str, charPos = 0) {
+//   return ['a', 'e', 'i', 'o', 'u'].includes(str[0])
+//     ? str + (charPos === 0 ? 'way' : 'ay')
+//     : charPos === str.length
+//       ? str + 'ay'
+//       : translatePigLatin(str.slice(1) + str[0], charPos + 1);
+// }
+
+//!=============================================== Example ( toUpper || LowerCase() && slice() && replace() ) =============================
+//?Функція для заміни слів. Але якщо слово в реченні з великої букви то і замінювати його потрібно х великої і навпаки.
+// function myReplace(str, before, after) {
+//   if(before[0] === before[0].toUpperCase()){
+//     const toUpperAfter = after[0].toUpperCase() + after.slice(1);
+//     return str.replace(before, toUpperAfter);
+//   } else {
+//     const toLowerAfter = after[0].toLowerCase() + after.slice(1);
+//     return str.replace(before, toLowerAfter);
+//   }
+// }
+
+// console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));
+// console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
+// console.log(myReplace("I think we should look up there", "up", "Down"));
+
+//!================================================== Example 
+//?
+function pairElement(str) {
   return str;
 }
 
-translatePigLatin("consonant");
+pairElement("GCG");
