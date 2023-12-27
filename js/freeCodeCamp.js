@@ -2510,9 +2510,61 @@
 //     { last: "Capulet" }
 //   )
 // );
-//!======================================== Example 
-function spinalCase(str) {
+//!======================================== Example ( replace() && split() && join() toLowerCase() ) ==================================
+//?Умова задачі треба розділити всі слова тире та прибрати зайві розділові знаки та перевести в нижній регістр(десь не було пробілів між словами)
+// function spinalCase(str) {
+//   const result = str.replace(/([a-z])([A-Z])/g, '$1 $2');  //?Перший replace() - ставить пробіли між словами без пробілів таких як AllThe
+//   return result.replace(/[_ -\s]/g, "-").toLowerCase();  //?Другий прибирає розділові знаки та ставить між ними тире.Та в нижній регістр.
+// }
+
+// function spinalCase(str) {
+//   return str
+//     .split(/\s|_|(?=[A-Z])/)//?Переводимо рядок в масив прибираючі всі розділові знаки та розділяючи слова що з великої літери
+//     .join("-")  //?Розділюємо слова тире(-) та переводимо їх в рядок а потім і в нижній регістр.
+//     .toLowerCase();
+// }
+
+// function spinalCase(str) {
+//   str = str.replace(/([a-z])([A-Z])/g, "$1 $2"); //? replace() додає пробіли між словами такими як AllThe тобто між двома словами без пробілу
+//   return str
+//     .toLowerCase() //?переводимо рядок в нижній регістр.
+//     .split(/(?:_| )+/)  //? переводимо рядок в масив та прибираємо розділові знаки(пробіли включно)
+//     .join("-");         //? Та повертаємо масив в рядок та розділюємо елементи рядка тире(-)
+// }
+
+// console.log(spinalCase('This Is Spinal Tap'));
+// console.log(spinalCase("thisIsSpinalTap"));
+// console.log(spinalCase("The_Andy_Griffith_Show"));
+// console.log(spinalCase("Teletubbies say Eh-oh"));
+// console.log(spinalCase("AllThe-small Things"));
+//!======================================== Example (Recursive function of Fibonacci numbers ) =============================================
+//?Рекурсивна функція чисел Фінабачі.Числа Фібаначі це кожне число починаючі з третього дорівнює сумі двух попередніх.
+//?Тобто: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233 і так далі.
+//?Тут використовується стрілочна функція з рекурсією(функція яка викликає сама ж себе)
+// const fib = (e) => {
+//   if(e <= 1) {
+//     return e;
+//   } else {
+//     return fib(e - 1) + fib(e - 2);
+//   }
+// };
+// console.log(fib(11));
+//!======================================= Example ( How function is fasts? ) ========================================================
+//?Яка функція швидше? Як перевірити? Так можна тестувати різні частини коду але результат кожен раз буде різний.
+// console.time("timer_1");
+// for (let i = 0; i < 10000; i++) {
+// }
+// console.timeEnd("timer_1");
+
+// console.time("timer_2");
+// let i = 0;
+// while (i < 10000) {
+//   i++
+// }
+// console.timeEnd("timer_2");
+//!==================================== Example ( ) =======================================
+function translatePigLatin(str) {
   return str;
 }
 
-spinalCase('This Is Spinal Tap');
+translatePigLatin("consonant");
