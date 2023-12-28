@@ -2474,7 +2474,7 @@
 //     return true;
 //   });
 // }
-//?Метод filter() повертає масив з тим значенням яке true якщо таке є або ж пустий масив. В if ставимо умову строге нерівно для того щоб 
+//?Метод filter() повертає масив з тим значенням яке true якщо таке є або ж пустий масив. В if ставимо умову строге нерівно для того щоб
 //?повернути false але якщо все ж таки ми знайшли збіги в значеннях то true. Бо якщо в подвійному циклі (в нашому випадку filter() та for)
 //?Одразу повернути дорівнює та true то там де true по два ключа та два значення будуть будлюватися об'єкти.Тобто буде не коректно працювати.
 //!================================== Third Example ( Methods Object.keys && filter() && every() ) ===================================
@@ -2565,7 +2565,7 @@
 //!=========================== Example ( Math, replace() , indexOf() , includes() , slice, concat() ) ===================================
 //?Задача в якій потрібно якщо рядок починається з голосних в кінці додати "way" а якщо з приголосних то початок приголосних(до першої голосної)
 //? додати в кінець та потім додати закінчення "ay".
-//! First Example: 
+//! First Example:
 // function translatePigLatin(str) {
 //   let consonantRegex = /^[^aeiou]+/; //?Дві змінних для збереження значень голосних.
 //   let myConsonants = str.match(consonantRegex); //?Та приголосних від початку до першої голосної.
@@ -2637,39 +2637,138 @@
 // console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));
 // console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
 // console.log(myReplace("I think we should look up there", "up", "Down"));
-//!================================================== Example 
+//!================================================== Example ===========================================================================
 //?Задача в якій треба до кожної літери рядка додати пару AT & CG та помістити їх в масив а той масив в ще один основний масив.
 //?Виглядати має так str = "GCG" result = [[G,C], [C,G],[G,C]];
-function pairElement(str) {
-  const result = [];
-  const arr = str.split("");
-  console.log(arr);
-  for(let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
-    let array = [];
-    if(arr[i] === "A") {
-      array.push(arr[i]);
-      array = arr.push("T");
-      result.push(array);
-    } else if (arr[i] === "T") {
-      array.push(arr[i]);
-      array.push("A");
-      result.push(array);
-    } else if(arr[i] === "C") {
-      array.push(arr[i]);
-      array.push("G");
-      result.push(array);
-    } else {
-      array.push(arr[i]);
-      array.push("C");
-      result.push(array);
-    }
-  }
-  return result;
-}
+//!First Example: з if та if else умовами та циклом for.
+// function pairElement(str) {
+//   const result = [];
+//   const arr = str.split("");
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === "A") {
+//       const arrA = ["A", "T"];
+//       result.push(arrA);
+//     } else if (arr[i] === "T") {
+//       const arrT = ["T", "A"];
+//       result.push(arrT);
+//     } else if (arr[i] === "C") {
+//       const arrC = ["C", "G"];
+//       result.push(arrC);
+//     } else if (arr[i] === "G") {
+//       const arrG = ["G", "C"];
+//       result.push(arrG);
+//     }
+//   }
+//   return result;
+// }
+//!Second Example: Тут в змінній робимо фонкцію зі свіч кейсом яка створює при різних значеннях відповідні масиви.Та проходимо циклом for.
+//!Замість char в світч кейс в циклі значення str[i] і від відповідного значення пушиться потрібний масив.Функція в функції.
+// function pairElement(str) {
+//   const matchWithBasePair = function(char) {
+//     switch (char) {
+//       case "A":
+//         return ["A", "T"];
+//       case "T":
+//         return ["T", "A"];
+//       case "C":
+//         return ["C", "G"];
+//       case "G":
+//         return ["G", "C"];
+//     }
+//   };
+//   const pairs = [];
+//   for (let i = 0; i < str.length; i++) {
+//     pairs.push(matchWithBasePair(str[i]));
+//   }
+//   return pairs;
+// }
+//!Third Example:Створюємо об'єкт pairs з індексами протилежними значенням.Далі колбек функція split("") для переведення в масив для map()
+//!Через map додаємо масив з протилежним значенням.І також map повертає колбек в вигляді масиву тому всі масиви ідуть в другий масив.
+// function pairElement(str) {
+//   const pairs = {
+//     A: "T",
+//     T: "A",
+//     C: "G",
+//     G: "C"
+//   };
+//   return str
+//     .split("")
+//     .map(x => [x, pairs[x]]);
+// }
 
-console.log(pairElement("CTCTA"));
+// console.log(pairElement("CTCTA"));
 // console.log(pairElement("TTGAG"));
 // console.log(pairElement("ATCGA"));
 // console.log(pairElement("GCG"));
+//!=================================== Example (Cycle for and if else || split() and forEach && if else) ==================================
+//?Команда charCodeAt() повертає юні код.Який потрібен для порівняння в умові.String.fromCharCode() перетворює юні код в букву.
+// function fearNotLetter(str) {
+//   for (let i = 0; i < str.length; i++) {
+//     const charCode = str.charCodeAt(i);
+//     if (charCode !== str.charCodeAt(0) + i) {
+//       return String.fromCharCode(charCode - 1);
+//     }
+//   }
+//   return undefined;
+// }
+//?Другий приклад випішується через forEach з порівняннями перед цим str переводимо в масив для методу.
+// function fearNotLetter(str) {
+//   let currCharCode = str.charCodeAt(0);
+//   let missing = undefined;
+//   str
+//     .split("")
+//     .forEach(letter => {
+//       if (letter.charCodeAt(0) === currCharCode) {
+//         currCharCode++;
+//       } else {
+//         missing = String.fromCharCode(currCharCode);
+//       }
+//     });
+//   return missing;
+// }
 
+// console.log(fearNotLetter("abce"));
+// console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz"));
+//!====================================== Example (Cycle for && includes() && push() && concat() ) ======================================
+//?Одразу за дапомогою деструкроризації та методу concat() вне залежності від того скільки масивів об'єднуємо масиви в один масив.
+//?А далі проходимо циклом по масиву і пушимо унікальні масиви в пустий масив та повертаємо його.
+// function uniteUnique(item,...arr) {
+//   const mass = item.concat(...arr);
+//   const uniqueItem = [];
+//   for(let i = 0; i < mass.length; i++) {
+//     const currentItem = mass[i];
+//     if(!uniqueItem.includes(currentItem)){
+//       uniqueItem.push(currentItem);
+//     }
+//   }
+//   return uniqueItem;
+// }
+// console.log(uniteUnique([1, 2, 3], [5, 2, 1]));
+// console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+// console.log(uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]));
+// console.log([1,2,3,4,5,6]);
+//!======================================== Example 
+function convertHTML(str) {
+  if(str.includes("&")) {
+    str.replace("&", "&amp;");
+  } else if(str.includes("<")) {
+    str.replace("<", "&lt;");
+  } else if(str.includes(">")) {
+    str.replace(">", "&gt;")
+  } else {
+    str.replace("'", "&apos;");
+  }
+  return str;
+}
+
+console.log(convertHTML("Dolce & Gabbana"));
+
+
+// const str = "Dolce & Gabbana<";
+// console.log(str);
+// const arr = str.replace("&", "&amp;");
+// console.log(arr);
+// arr.replace("<", "&lt;");
+// console.log(arr);
+
+//   str.replace(/["]/g, "");
