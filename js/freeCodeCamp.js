@@ -2637,7 +2637,7 @@
 // console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));
 // console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
 // console.log(myReplace("I think we should look up there", "up", "Down"));
-//!================================================== Example ===========================================================================
+//!======================================================= Example ===========================================================================
 //?Задача в якій треба до кожної літери рядка додати пару AT & CG та помістити їх в масив а той масив в ще один основний масив.
 //?Виглядати має так str = "GCG" result = [[G,C], [C,G],[G,C]];
 //!First Example: з if та if else умовами та циклом for.
@@ -2747,28 +2747,129 @@
 // console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
 // console.log(uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]));
 // console.log([1,2,3,4,5,6]);
-//!======================================== Example 
-function convertHTML(str) {
-  if(str.includes("&")) {
-    str.replace("&", "&amp;");
-  } else if(str.includes("<")) {
-    str.replace("<", "&lt;");
-  } else if(str.includes(">")) {
-    str.replace(">", "&gt;")
-  } else {
-    str.replace("'", "&apos;");
-  }
-  return str;
-}
+//!===================== Example ( replace() || replaceAll() && split() & join() & Cycle for & switch case & map() ) =======================
+//?Задача з заміною символів на альтернативні які є в HTML файлі.Тобто & на &amp; < на &lt; > на &gt; ' на &apos; " на &quot;.
+//? First Example: Це мій костильний варіант коду.
+// function convertHTML(str) {
+//   return str.replaceAll("&", "&amp;")
+//   .replaceAll("<", "&lt;")
+//   .replaceAll(">", "&gt;")
+//   .replaceAll("'", "&apos;")
+//   .replaceAll('"', "&quot;");
+// }
+//? Second Example: Альтернатива моєму варіантові.
+// function convertHTML(str) {
+//   const htmlEntities = {      //?Створюємо об'єкт з ключами тих елементів які треба замінити зі значеннями на які треба замінити.
+//     "&": "&amp;",
+//     "<": "&lt;",
+//     ">": "&gt;",
+//     '"': "&quot;",
+//     "'": "&apos;"
+//   };
+//   return str.replace(/([&<>\"'])/g, match => htmlEntities[match]);//?повертаємо стрілочну функцію в середині replace() яка вказує на те
+//   //? що заміна елементів буде по ключам значень об'єкта на їх значень.
+// }
+//? Third Example: Так само створюємо об'єкт значень. Потім колбеком переводимо в масив для map() фільтруємо через нього та повертаємо у рядок
+// function convertHTML(str) {
+//   const htmlEntities = {
+//     "&": "&amp;",
+//     "<": "&lt;",
+//     ">": "&gt;",
+//     '"': "&quot;",
+//     "'": "&apos;"
+//   };
+//   return str
+//     .split("")
+//     .map(entity => htmlEntities[entity] || entity)
+//     .join("");
+// }
+//? Fourth Example: Один з найпростіших способів переведення в масив, далі цикл for та switch case і повертаємо назад в рядок.
+// function convertHTML(str) {
+//   let temp = str.split("");
+//   for (var i = 0; i < temp.length; i++) {
+//     switch (temp[i]) {
+//       case "<":
+//         temp[i] = "&lt;";
+//         break;
+//       case "&":
+//         temp[i] = "&amp;";
+//         break;
+//       case ">":
+//         temp[i] = "&gt;";
+//         break;
+//       case '"':
+//         temp[i] = "&quot;";
+//         break;
+//       case "'":
+//         temp[i] = "&apos;";
+//         break;
+//     }
+//   }
+//   temp = temp.join("");
+//   return temp;
+// } 
+// console.log(convertHTML("Dolce & Gabbana"));
+// console.log(convertHTML('Stuff in "quotation marks"'));
+// console.log(convertHTML("Hamburgers < Pizza < Tacos"));
+// console.log(convertHTML("<>"));
+//!============================================= Example ( Fibonacci numbers summ ) ========================================================
+//? Задача на сумму всіх непарних чисел фібоначі.Вирішення циклом while та порівнянням.
+// function sumFibs(num) {
+//   let prevNumber = 0;
+//   let currNumber = 1;
+//   let result = 0;
+//   while (currNumber <= num) {
+//     if (currNumber % 2 !== 0) {  //?Умова для чисел які непарні.
+//       result += currNumber;
+//     }
+//     currNumber += prevNumber;
+//     prevNumber = currNumber - prevNumber;
+//   }
+//   return result;
+// }
+// console.log(sumFibs(4));
+//!============================================ Example (Cycle for & Double function & every() & reduce() ) ===============================
+//? Задача в якій треба повернути сумму всіх простих чисел від любого данного аргумента!!!
+//?Подвійний цикл for та функція в функції з порівняннями.
+// function sumPrimes(num) {
+//   function isPrime(num) {     //? Функція є формулою альтернативного підрахунку сумми натуральних чисел.ПО ФОРМУЛІ З КВАДРАТНИМ КОРЕНЕМ.
+//     const sqrt = Math.sqrt(num);  //? Math.sqrt - повертає квадратний корень із num.
+//     for (let i = 2; i <= sqrt; i++) {
+//       console.log(i);
+//       if (num % i === 0)
+//         return false;
+//     }
+//     return true;
+//   }
+//   let sum = 0;
+//   for (let i = 2; i <= num; i++) {
+//     if (isPrime(i))
+//       sum += i;
+//   }
+//   return sum;
+// }
+//?Цикл for та метод every() для виведення сумми чисел в масив та потім підсумування через метод reduce().
+// function sumPrimes(num) {
+//   let primes = [];
+//   for (let i = 2; i <= num; i++) {   //?Вирішення по іншій формулі.
+//     if (primes.every((prime) => i % prime !== 0))
+//       primes.push(i);
+//     console.log(i);
+//     console.log(primes);
+//   }
+//   return primes.reduce((sum, prime) => sum + prime, 0);   //?Підсумування всіх чисел.
+// }
+// console.log(sumPrimes(977));
+// console.log(sumPrimes(10));
+//!================================================= Example 
+// function smallestCommons(arr) {
+//   let min = Math.min(arr[0], arr[1]);
+//   let max = Math.max(arr[0], arr[1]);
+//   function arrAllNumbers(min,max){
+//     for(let i = min; i <= max; i++) {
+//       const num = i;
+//     }
+//   }
+//   }
 
-console.log(convertHTML("Dolce & Gabbana"));
-
-
-// const str = "Dolce & Gabbana<";
-// console.log(str);
-// const arr = str.replace("&", "&amp;");
-// console.log(arr);
-// arr.replace("<", "&lt;");
-// console.log(arr);
-
-//   str.replace(/["]/g, "");
+// console.log(smallestCommons([1,5]));
