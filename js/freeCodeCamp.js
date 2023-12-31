@@ -2807,7 +2807,7 @@
 //   }
 //   temp = temp.join("");
 //   return temp;
-// } 
+// }
 // console.log(convertHTML("Dolce & Gabbana"));
 // console.log(convertHTML('Stuff in "quotation marks"'));
 // console.log(convertHTML("Hamburgers < Pizza < Tacos"));
@@ -2861,15 +2861,126 @@
 // }
 // console.log(sumPrimes(977));
 // console.log(sumPrimes(10));
-//!================================================= Example 
+//!================================================= Example (sort() && Double Cycle for && Double if else ) ==============================
+//?Задача в якій треба знайти число яке кратне всіх числам в проміжку чисел масиву(Тобто число яке ділиться від найменьшого до найбільшого)
 // function smallestCommons(arr) {
-//   let min = Math.min(arr[0], arr[1]);
-//   let max = Math.max(arr[0], arr[1]);
-//   function arrAllNumbers(min,max){
-//     for(let i = min; i <= max; i++) {
-//       const num = i;
+//   const [min, max] = arr.sort((a, b) => a - b); //?Через метод sort() та деструкторизацію знаходимо найменьше та найбільше число в масиві.
+//   const numberDivisors = max - min + 1; //?Кількість чисел в проміжку яким треба знайти кратне(Для перевірки в подальшому)
+//   let upperBound = 1; //?Властивість яка перемножує всі числа в проміжку далі в циклі.Дане число завжди буде більше за те що нам потрібно.
+//   for (let i = min; i <= max; i++) {
+//     upperBound *= i;
+//   }
+//   for (let multiple = max; multiple <= upperBound; multiple += max) { //? Тут ми використовуємо його для циклу. Щоб знайти наше число.
+//     let divisorCount = 0;
+//     for (let i = min; i <= max; i++) {//?Подвійний цикл та подвійна перевірка щоб точно перевірити що дане число ділиться на всі числа без остачі
+//       if (multiple % i === 0) {
+//         divisorCount += 1;
+//       }
+//     }
+//     if (divisorCount === numberDivisors) {
+//       return multiple;
 //     }
 //   }
-//   }
+// }
 
-// console.log(smallestCommons([1,5]));
+// console.log(smallestCommons([1, 5]));
+// console.log(smallestCommons([2, 10]));
+// console.log(smallestCommons([23, 18]));
+//!=================================================== Example (Cycle for && splice()) ====================================================
+//?Поверни масив з елементами з першого параметру які підходять по перевірці другого параметру(функції як true).
+// function dropElements(arr, func) {
+//   let result = [];
+//   for(let i = 0; i < arr.length; i++) {
+//     if(func(arr[i]) === true) {
+//       result = arr.splice(arr.indexOf(arr[i]));
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
+// console.log(dropElements([0, 1, 0, 1], function(n) {return n === 1;}));
+//!========================= Example (reduce() & concat() & Array.isArray() || forEach & concat() & push() Array.isArray() ) ================
+//?Розгладження масиву різних рівнів вкладеності без використання flat() && flatMap().
+//? Array.isArray - вбудованна функція яка повертає чи елемент є масивом.Якщо так то повертає true.
+//? Через метод reduce() + concat() так як в цьому методі push() НЕ ВИКОРИСТОВУЄТЬСЯ. А також Array.isArray.Функція перезапускає саму себе
+//? Поки не дійде до самого елементу і не помістить його до акумулятору.
+// function steamrollArray(arr) {
+//   return arr.reduce((acc, item) => Array.isArray(item) ? acc.concat(steamrollArray(item)) : acc.concat(item), []);
+// }
+//?Вирішення також рекурсією та forEach.
+// function steamrollArray(arr) {
+//   let result = [];
+//   arr.forEach(element => {
+//     if(Array.isArray(element)) {
+//       result = result.concat(steamrollArray(element));
+//     } else {
+//       result.push(element);
+//     }
+//   });
+//   return result;
+// }
+// console.log(steamrollArray([1, [2], [3, [[4]]]]));
+// console.log(steamrollArray([1, {}, [3, [[4]]]]));
+//!===================================================== Example ========================================================================
+//?Функція для перетворення бінарних рядків в слова.
+//? First Example: Cycle for & split() & join()
+// function binaryAgent(str) {
+//   let biString = str.split(" ");
+//   let uniString = [];
+//   for (var i = 0; i < biString.length; i++) {
+//     uniString.push(String.fromCharCode(parseInt(biString[i], 2)));
+//   }
+//   return uniString.join("");
+// }
+//? Second Example: Double Cycle for & Math.pow() - піднесення до степення & String.fromCharCode() - для повернення символів з юні коду.
+// function binaryAgent(str) {
+//   str = str.split(" ");
+//   let power;
+//   let decValue = 0;
+//   let sentence = "";
+//   for (var s = 0; s < str.length; s++) {
+//     for (var t = 0; t < str[s].length; t++) {
+//       if (str[s][t] == 1) {
+//         power = Math.pow(2, +str[s].length - t - 1);
+//         decValue += power;
+//       }
+//     }
+//     sentence += String.fromCharCode(decValue);
+//     decValue = 0;
+//   }
+//   return sentence;
+// }
+//? Third Example: String.fromCharCode() && split("") && map() && parseInt()
+// function binaryAgent(str) {
+//   return String.fromCharCode(
+//     ...str.split(" ").map(function(char) {
+//       return parseInt(char, 2);
+//     })
+//   );
+// }
+
+// console.log(
+//   binaryAgent(
+//     "01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"
+//   )
+// );
+
+// console.log(
+//   binaryAgent(
+//     "01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001"
+//   )
+// );
+//!================================================= Example
+function truthCheck(collection, pre) {
+  return pre;
+}
+
+truthCheck(
+  [
+    { name: "Quincy", role: "Founder", isBot: false },
+    { name: "Naomi", role: "", isBot: false },
+    { name: "Camperbot", role: "Bot", isBot: true },
+  ],
+  "isBot"
+);
