@@ -2971,34 +2971,60 @@
 //     "01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001"
 //   )
 // );
-//!================================================= Example
-function truthCheck(collection, pre) {
-  for (let i = 0; i < collection.length; i++) {
-    if (collection[i][pre] !== true || !(collection[i][pre].includes(pre))) {
-      return false;
+//!================================ Example ( every() & hasOwnProperty() & Cycle for & Boolean ) =========================================
+//?counter - лічільник який фіксує усі true.Далы в циклі є умова яка перевіряє наявність цієї властивості і чи вона true.
+//?Далі іде результат всіх перевірок. І якщо всі true то повертає true. Якщо хоч одна false то повертає false.
+// function truthCheck(collection, pre) {
+//   let counter = 0;
+//   for (let c in collection) {
+//     if (collection[c].hasOwnProperty(pre) && Boolean(collection[c][pre])) {
+//       counter++;
+//     }
+//   }
+//   return counter == collection.length;
+// }
+//?Також метод every() але більш зрозуміліше написаний завдяки додатковим умовам в другому return!!!
+// function truthCheck(collection, pre) {
+//   return collection.every(function (element) {
+//     return element.hasOwnProperty(pre) && Boolean(element[pre]);
+//   });
+// }
+//?Метод every() повертає true якщо всі елементи колбек функції відповідають умові. Або false якщо хоча б один елемент не відповідає умові.
+// function truthCheck(collection, pre) {
+//   return collection.every(obj => obj[pre]);
+// }
+// console.log(
+//   truthCheck(
+//     [
+//       { name: "Quincy", role: "Founder", isBot: false },
+//       { name: "Naomi", role: "", isBot: false },
+//       { name: "Camperbot", role: "Bot", isBot: true },
+//     ],
+//     "isBot"
+//   )
+// );
+// console.log(truthCheck(
+//   [
+//     { name: "Quincy", role: "Founder", isBot: false },
+//     { name: "Naomi", role: "", isBot: false },
+//     { name: "Camperbot", role: "Bot", isBot: true },
+//   ],
+//   "name"
+// ));
+//!==================================================== Example 
+function addTogether(...args) {
+  const numberIs = (num) => isNumber(num) ? true : false;
+  if(numberIs([...args])) {
+    return undefined;
+  } else {
+    if([...args].includes(args[1])) {
+      return args[0] + args[1];
+    } else {
+      return addTogether(...args);
     }
   }
-  return true;
 }
 
-console.log(
-  truthCheck(
-    [
-      { name: "Quincy", role: "Founder", isBot: false },
-      { name: "Naomi", role: "", isBot: false },
-      { name: "Camperbot", role: "Bot", isBot: true },
-    ],
-    "isBot"
-  )
-);
-
-console.log(
-  truthCheck(
-    [
-      { name: "Quincy", role: "Founder", isBot: false },
-      { name: "Naomi", role: "", isBot: false },
-      { name: "Camperbot", role: "Bot", isBot: true },
-    ],
-    "name"
-  )
-);
+console.log(addTogether(2,3));
+console.log(addTogether(5));
+console.log(addTogether("2", 3));
