@@ -3011,20 +3011,166 @@
 //   ],
 //   "name"
 // ));
+//!========================================================== Example =====================================================================
+//?Функція яка додає два аргументи. Якщо вказано лише один аргумент, то повернітаємо функцію, яка очікує один аргумент і повертає суму.
+//?Firts Example: Розбивання аргументів. Та тільки if з return.
+// function addTogether() {
+//   const [first, second] = arguments;
+//   if (typeof (first) === "number") {
+//     if (typeof (second) === "number") return first + second;
+//     if (arguments.length === 1) return (second) => addTogether(first, second);
+//   }
+// }
+//? Second Example: Так же розбивають деструкторизацією аргументи. І в більш зрозуміліший спосіб розписані всі умови.
+// function addTogether() {
+//   const [first, second] = arguments;
+//   if (typeof(first) !== "number") {
+//     return undefined;
+//   }
+//   else if (arguments.length === 1) {
+//     function addSecond(second) {
+//       if (typeof(second) !== "number") {
+//         return undefined;
+//       }
+//       else {
+//         return first + second;
+//       }
+//     }
+//     return addSecond;
+//   }
+//   else if (typeof(second) !== "number") {
+//     return undefined;
+//   }
+//   else {
+//     return first + second;
+//   }
+// }
+//? Third Example: Більш зрозуміліший приклад за перший. Але робить фактично те ж саме.
+// function addTogether() {
+//   const [first, second] = arguments;
+//   function addSecond(second) {
+//     if (typeof (second) === "number") return first + second;
+//   }
+//   if (typeof (first) === "number") {
+//     if (arguments.length === 1) return addSecond;
+//     if (arguments.length === 2) return addSecond(second);
+//   }
+// }
+
+// console.log(addTogether(2,3));
+// console.log(addTogether(5));
+// console.log(addTogether("2", 3));
+//!======================================================== Example (Create Class(Object)) =================================================
+// const Person = function(first, last) {
+//   let firstName = first;
+//   let lastName = last;
+//   this.getFullName = function() {
+//     return `${firstName} ${lastName}`;
+//   };
+//   this.setFullName = function(first, last) {
+//     firstName = first;
+//     lastName = last;
+//   };
+//   this.getFirstName = function() {
+//     return `${firstName}`;
+//   };
+//   this.setFirstName = function(first) {
+//     firstName = first;
+//   };
+//   this.getLastName = function() {
+//     return `${lastName}`;
+//   };
+//   this.setLastName = function(last) {
+//     lastName = last;
+//   };
+// };
+
+// const person = new Person('Haskell', 'Curry');
+// console.log(person.getFullName());
+//!======================================================= Example ======================================================================
+//?Поверніть новий масив, який трансформує середню висоту елементів у їхні орбітальні періоди (у секундах).
+// function orbitalPeriod(arr) {
+//   const GM = 398600.4418;
+//   const earthRadius = 6367.4447;
+//   const a = 2 * Math.PI;
+//   const newArr = [];
+
+//   const getOrbPeriod = function(obj) {
+//     const c = Math.pow(earthRadius + obj.avgAlt, 3);
+//     const b = Math.sqrt(c / GM);
+//     const orbPeriod = Math.round(a * b);
+//     return {name: obj.name, orbitalPeriod: orbPeriod};
+//   };
+//   for (let elem in arr) {
+//     newArr.push(getOrbPeriod(arr[elem]));
+//   }
+//   return newArr;
+// }
+
+// console.log(orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]));
+// console.log(orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]));
+//!=============================== Example ( replace() & toLOwerCase() & split() & join() & reverse() ) =====================================
+//?Перевірка чи строка читається в дві сторони без абетко-цифрових символів.
+// function palindrome(str) {
+//   const replaceStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase().split("").reverse().join("");
+//   if(str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === replaceStr) {
+//     return true;
+//   }
+//   return false;
+// }
+
+// console.log(palindrome("eye"));
+// console.log(palindrome("A man, a plan, a canal. Panama"));
+// console.log(palindrome("0_0 (: /-\ :) 0-0"));
+// console.log(palindrome("five|\_/|four"));
 //!==================================================== Example 
-function addTogether(...args) {
-  const numberIs = (num) => isNumber(num) ? true : false;
-  if(numberIs([...args])) {
-    return undefined;
-  } else {
-    if([...args].includes(args[1])) {
-      return args[0] + args[1];
-    } else {
-      return addTogether(...args);
+function convertToRoman(num) {
+  let haveNum = 0;
+  let result = "";
+  while(haveNum === num) {
+    if(num === 1000) {
+      result = result + "M";
+      haveNum += 1000;
+    } else if (num === 900) {
+      result = result + "CM";
+      haveNum += 900;
+    } else if (num === 500) {
+      result = result + "D";
+      haveNum += 500;
+    } else if (num === 400) {
+      result = result + "CD";
+      haveNum += 400;
+    } else if (num === 100) {
+      result = result + "C";
+      haveNum += 100;
+    } else if (num === 90) {
+      result = result + "XC";
+      haveNum += 90;
+    } else if(num === 50) {
+      result = result + "L";
+      haveNum += 50;
+    } else if(num === 40) {
+      result = result + "XL";
+      haveNum += 40;
+    } else if(num === 10) {
+      result = result + "X";
+      haveNum += 10;
+    } else if(num === 9) {
+      result = result + "IX";
+      haveNum += 9;
+    } else if(num === 5) {
+      result = result + "V";
+      haveNum += 5;
+    } else if(num === 4) {
+      result = result + "IV";
+      haveNum += 4;
+    } else if(num === 1) {
+      result = result + "I";
+      haveNum += 1;
     }
   }
-}
-
-console.log(addTogether(2,3));
-console.log(addTogether(5));
-console.log(addTogether("2", 3));
+  return result;
+ }
+ 
+//  console.log(convertToRoman(1000));
+ console.log(convertToRoman(36));
