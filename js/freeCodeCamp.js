@@ -2786,7 +2786,7 @@
 //? Fourth Example: Один з найпростіших способів переведення в масив, далі цикл for та switch case і повертаємо назад в рядок.
 // function convertHTML(str) {
 //   let temp = str.split("");
-//   for (var i = 0; i < temp.length; i++) {
+//   for (let i = 0; i < temp.length; i++) {
 //     switch (temp[i]) {
 //       case "<":
 //         temp[i] = "&lt;";
@@ -3123,54 +3123,166 @@
 // console.log(palindrome("A man, a plan, a canal. Panama"));
 // console.log(palindrome("0_0 (: /-\ :) 0-0"));
 // console.log(palindrome("five|\_/|four"));
+//!====================================== Example (Cycle for && Object && Math.pow || Switch case) ===========================================
+//? Функція для переведення звичайних цифр в Римські числа.Math.pow(піднесення до степеня)
+// function convertToRoman(num) {
+// 	const arabicToRoman = {1: "I", 2: "II", 3: "III",  4 : "IV", 5: "V", 6: "VI", 7 : "VII", 8 : "VIII", 9 : "IX",
+// 10 : "X", 20 : "XX", 30 : "XXX", 40 : "XL", 50 : "L", 60 : "LX", 70 : "LXX", 80 : "LXXX", 90 : "XC",
+// 100 : "C", 200 : "CC", 300 : "CCC", 400 : "CD", 500 : "D", 600 : "DC", 700 : "DCC", 800 : "DCCC", 900 : "CM",
+// 1000: "M", 2000: "MM", 3000: "MMM"};
+
+//   const digits = String(+num).split("");  //?Розділення числа в масив на різні числа.
+//   console.log(digits);
+//   let result = '';
+//   for(let i = 0; i < digits.length; i++){
+//     let lookupKey = digits[i]*Math.pow(10,digits.length-i-1); //? Розділення числа на десятки та одиниці(сотні та тисячі якщо є)
+//     console.log(lookupKey);
+//     if(arabicToRoman[lookupKey]){    //?Умова яка шукає потрібний нам результат в об'єкті та додає його в результат.
+//       result +=  arabicToRoman[lookupKey];
+//     }
+//   }
+//   return result;
+// }
+//? Вирішення switch case. Тут прохожимось абсолютно по всіх варіантах рішення.
+// function convertToRoman(num) {
+//   let str = "";
+//   str += num;
+//   let result = [];
+//   let res1 = "";
+//   let res2 = "";
+//   let res3 = "";
+//   let res4 = "";
+//   if (str.length == 0) {
+//     result = [];
+//   } else if (str.length > 0) {
+//     switch (str[str.length - 1]) {
+//       case "1":
+//         res1 = "I";
+//         break;
+//       case "2":
+//         res1 = "II";
+//         break;
+//       case "3":
+//         res1 = "III";
+//         break;
+//       case "4":
+//         res1 = "IV";
+//         break;
+//       case "5":
+//         res1 = "V";
+//         break;
+//       case "6":
+//         res1 = "VI";
+//         break;
+//       case "7":
+//         res1 = "VII";
+//         break;
+//       case "8":
+//         res1 = "VIII";
+//         break;
+//       case "9":
+//         res1 = "IX";
+//         break;
+//     }
+//     switch (str[str.length - 2]) {
+//       case "1":
+//         res2 = "X";
+//         break;
+//       case "2":
+//         res2 = "XX";
+//         break;
+//       case "3":
+//         res2 = "XXX";
+//         break;
+//       case "4":
+//         res2 = "XL";
+//         break;
+//       case "5":
+//         res2 = "L";
+//         break;
+//       case "6":
+//         res2 = "LX";
+//         break;
+//       case "7":
+//         res2 = "LXX";
+//         break;
+//       case "8":
+//         res2 = "LXXX";
+//         break;
+//       case "9":
+//         res2 = "XC";
+//         break;
+//     }
+//     switch (str[str.length - 3]) {
+//       case "1":
+//         res3 = "C";
+//         break;
+//       case "2":
+//         res3 = "CC";
+//         break;
+//       case "3":
+//         res3 = "CCC";
+//         break;
+//       case "4":
+//         res3 = "CD";
+//         break;
+//       case "5":
+//         res3 = "D";
+//         break;
+//       case "6":
+//         res3 = "DC";
+//         break;
+//       case "7":
+//         res3 = "DCC";
+//         break;
+//       case "8":
+//         res3 = "DCCC";
+//         break;
+//       case "9":
+//         res3 = "CM";
+//         break;
+//     }
+//     switch (str[str.length - 4]) {
+//       case "1":
+//         res4 = "M";
+//         break;
+//       case "2":
+//         res4 = "MM";
+//         break;
+//       case "3":
+//         res4 = "MMM";
+//         break;
+//     }
+//   }
+//   result.push(res4, res3, res2, res1);
+//   return result.join("");
+// }
+
+// console.log(convertToRoman(39999));
+// console.log(convertToRoman(1000));
+// console.log(convertToRoman(36));
 //!==================================================== Example 
-function convertToRoman(num) {
-  let haveNum = 0;
-  let result = "";
-  while(haveNum === num) {
-    if(num === 1000) {
-      result = result + "M";
-      haveNum += 1000;
-    } else if (num === 900) {
-      result = result + "CM";
-      haveNum += 900;
-    } else if (num === 500) {
-      result = result + "D";
-      haveNum += 500;
-    } else if (num === 400) {
-      result = result + "CD";
-      haveNum += 400;
-    } else if (num === 100) {
-      result = result + "C";
-      haveNum += 100;
-    } else if (num === 90) {
-      result = result + "XC";
-      haveNum += 90;
-    } else if(num === 50) {
-      result = result + "L";
-      haveNum += 50;
-    } else if(num === 40) {
-      result = result + "XL";
-      haveNum += 40;
-    } else if(num === 10) {
-      result = result + "X";
-      haveNum += 10;
-    } else if(num === 9) {
-      result = result + "IX";
-      haveNum += 9;
-    } else if(num === 5) {
-      result = result + "V";
-      haveNum += 5;
-    } else if(num === 4) {
-      result = result + "IV";
-      haveNum += 4;
-    } else if(num === 1) {
-      result = result + "I";
-      haveNum += 1;
-    }
-  }
-  return result;
- }
- 
-//  console.log(convertToRoman(1000));
- console.log(convertToRoman(36));
+//?Функція яка використовує шифр цезаря ROT13 - тобто зміщує всі букви на 13 місць вперед.Але не чіпає розділові знаки.
+// function rot13(str) {
+//   let result = "";
+//   const originalAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+//   const shiftedAlphabet = 'NOPQRSTUVWXYZABCDEFGHIJKLM';
+//   for(let i = 0; i < str.length; i++) {
+//     if(originalAlphabet.indexOf(str[i]) === -1) {
+//       result = result + str[i];
+//     } else {
+
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(rot13("SERR CVMMN!"));
+// console.log(rot13("SERR YBIR?"));
+// console.log(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT."));
+// console.log(rot13("SERR PBQR PNZC"));
+
+
+
+const originalAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+console.log(originalAlphabet.indexOf("S"));
