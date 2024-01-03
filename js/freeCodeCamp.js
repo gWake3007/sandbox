@@ -3261,20 +3261,26 @@
 // console.log(convertToRoman(39999));
 // console.log(convertToRoman(1000));
 // console.log(convertToRoman(36));
-//!==================================================== Example 
+//!===================== Example ( Cycle for & .charCodeAt() & String.fromCharCode|() & branches & replace() ) ===========================
 //?Функція яка використовує шифр цезаря ROT13 - тобто зміщує всі букви на 13 місць вперед.Але не чіпає розділові знаки.
 // function rot13(str) {
-//   let result = "";
-//   const originalAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-//   const shiftedAlphabet = 'NOPQRSTUVWXYZABCDEFGHIJKLM';
-//   for(let i = 0; i < str.length; i++) {
-//     if(originalAlphabet.indexOf(str[i]) === -1) {
-//       result = result + str[i];
+//   let newstrarray = [];
+//   for (let i = 0; i < str.length; i++) {
+//     if (str.charCodeAt(i) >= 65 && str.charCodeAt(i) + 13 <= 90) { //?Ці умови використовуються для того щоб перевірити чи символи є буквами.
+//       newstrarray = newstrarray + String.fromCharCode(str.charCodeAt(i) + 13);
+//     } else if (str.charCodeAt(i) + 13 > 90) {
+//       let newchar = str.charCodeAt(i) + 13 - 90 + 64;
+//       newstrarray = newstrarray + String.fromCharCode(newchar);
 //     } else {
-
+//       newstrarray = newstrarray + str[i];
 //     }
 //   }
-//   return result;
+//   str = newstrarray;
+//   return str;
+// }
+//?Цей приклад треба зрозуміти!!! replace() зі своїми розрахунками.
+// function rot13(str) { // LBH QVQ VG!
+//   return str.replace(/[A-Z]/g, L => String.fromCharCode((L.charCodeAt(0) % 26) + 65));
 // }
 
 // console.log(rot13("SERR CVMMN!"));
@@ -3282,7 +3288,11 @@
 // console.log(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT."));
 // console.log(rot13("SERR PBQR PNZC"));
 
+// const originalAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+// console.log(originalAlphabet.charCodeAt(26));   //?Принцип роботи команди .charCodeAt() всередині індекс елемента!!!
+//!=============================================== Example 
+function telephoneCheck(str) {
+  
+}
 
-
-const originalAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-console.log(originalAlphabet.indexOf("S"));
+console.log(telephoneCheck("555-555-5555"));
