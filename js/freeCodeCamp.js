@@ -3290,90 +3290,35 @@
 
 // const originalAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 // console.log(originalAlphabet.charCodeAt(26));   //?Принцип роботи команди .charCodeAt() всередині індекс елемента!!!
-//!=============================================== Example
+//!======================================================= Example ==========================================================================
+//?Приклад валідатора мобільних номерів телефону за допомогою патернів.
 // function telephoneCheck(str) {
-//   const phoneNumbers = [
-//     "555-555-5555",
-//     "(555)555-5555",
-//     "(555) 555-5555",
-//     "555 555 5555",
-//     "5555555555",
-//   ];
-//   const phoneNumbersOne = [
-//     "1 555 555 5555",
-//     "1 555-555-5555",
-//     "1 (555) 555-5555",
-//     "1(555)555-5555",
-//   ]; 
-//   if(str.length >= 14 && str[0].includes(1)) {
-//     return "phoneNumbersOne";
-//   } else {
-//     return "phoneNumbers";
-//   }
+//   let rex1 = /^(1\s?)?\d{3}([-\s]?)\d{3}\2\d{4}$/,
+//     rex2 = /^(1\s?)?\(\d{3}\)\s?\d{3}[-\s]?\d{4}$/;
 
-//   return str;
+//   if (rex1.test(str)) {
+//     return true;
+//   } else {
+//     return rex2.test(str) ? true : false;
+//   }
 // }
 
 // console.log(telephoneCheck("555-555-5555"));
-// console.log(telephoneCheck("1(555)555-5555"));
+//!======================================================= Example
+//?Задача касовий апарат:
+function checkCashRegister(price, cash, cid) {
+  let change;
+  return change;
+}
 
-//   const phoneNumbersOne = [   //! На все воно вказує що це string.Це треба поправити!!!!Перетворишви в Number!!!
-//     "1 555 555 5555",
-//     "1 555-555-5555",
-//     "1 (555) 555-5555",
-//     "1(555)555-5555",
-//   ]; 
-
-// console.log(typeof phoneNumbersOne[0][0]);
-// console.log(phoneNumbersOne[0][0]);
-
-// let oneNumber = "1 555 555 5555";
-// console.log(typeof oneNumber);
-// // console.log(typeof Number(oneNumber));
-// oneNumber = Number(oneNumber);
-// console.log(typeof oneNumber);
-// console.log(oneNumber);   //! Почитай тут чому воно саме так? За лапок чи ще чогось
-
-// let twoNumber = 1 555 555 5555;
-// let threeNumber = 1(555)555-5555;  сразу цифрой не пойдёт.Нужно искать способ поменять стрингу на номер!!
-
-
-// function arr(arrr) {
-//   for(let i = 0; i < arrr.length; i++) {
-//     console.log(phoneNumbersOne[i]);
-//     for(let k = 0; k < phoneNumbersOne[i].length; k++) {
-//       console.log(k);
-//       //?Умова що перший елемент САМЕ В ЦЬОМУ МАСИВІ 1. далі або пробіл або дужка. далі три numbers далі пробіл тире або дужка(якщо дужка то )
-//       //?мож бути і пробіл і набер і тд. ПОДУМАЙ ЯК ЗАДАЧУ РОЗДІЛИТИ????
-//     }
-//   }
-// }
-
-// console.log(arr(phoneNumbersOne));
-
-
-
-
-
-
-
-
-// typeOf з кожною цифрою можна зробити.
-// const phoneNumbersOne = [
-//   "1 555 555 5555",
-//   "1 555-555-5555",
-//   "1 (555) 555-5555",
-//   "1(555)555-5555",
-// ]; 
-
-// console.log(phoneNumbersOne[3].length);  //14 14 16 14
-
-  // const phoneNumbers = [
-  //   "555-555-5555",
-  //   "(555)555-5555",
-  //   "(555) 555-5555",
-  //   "555 555 5555",
-  //   "5555555555",
-  // ];
-
-  // console.log(phoneNumbers[4].length);   // 12 13 14 12 10
+checkCashRegister(19.5, 20, [
+  ["PENNY", 1.01],
+  ["NICKEL", 2.05],
+  ["DIME", 3.1],
+  ["QUARTER", 4.25],
+  ["ONE", 90],
+  ["FIVE", 55],
+  ["TEN", 20],
+  ["TWENTY", 60],
+  ["ONE HUNDRED", 100],
+]);
