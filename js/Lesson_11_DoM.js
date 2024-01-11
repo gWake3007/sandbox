@@ -55,6 +55,7 @@ const technologies = ["HTML", "CSS", "JavaScript", "React", "Node"];
 
 // document.body.insertAdjacentHTML("beforeend", `<ul>${markup}</ul>`); //? Можна одразу тут додати ul і в нього всі li елементи.
 //!==================================================== Second Task ============================================================
+//?Створення кнопок за шаблоном масиву об'єктів.
 const colors = [
   { label: "red", color: "#FF0000" },
   { label: "green", color: "#00FF00" },
@@ -62,3 +63,15 @@ const colors = [
   { label: "yellow", color: "#FFFF00" },
 ];
 
+const fragment = document.createDocumentFragment(); //?Замість ul або div для сбирання всіх елементів DOM і додавання за один раз!
+//? fragment не є пустою оболочкою. Він є елементом DOM дерева але є нічим.Не є вузлом чи фізичним елементом як div.
+for(const {label, color} of colors) {         //?Тут для зручності використали деструкторизацію
+    const buttonEl = document.createElement("button");
+    buttonEl.textContent = label;
+    buttonEl.style.backgroundColor = color;
+    buttonEl.type = "button"
+    fragment.appendChild(buttonEl);
+}
+
+// document.body.prepend(fragment);   //? На початку DOM
+document.body.appendChild(fragment);    //?В кінці DOM
