@@ -62,7 +62,7 @@
 //   console.log("click event listener was removed from btn");
 // });
 //!=================================================== Example ( bind() ) ===================================================================
-//? Приклад в якій концепції працює слухач з концепцією this. Для того щоб this працював зі слухачем чи якоюсь другою функцією 
+//? Приклад в якій концепції працює слухач з концепцією this. Для того щоб this працював зі слухачем чи якоюсь другою функцією
 //?використовуємо метод bind().
 // const mango = {
 //     username: "Mango",
@@ -71,15 +71,15 @@
 //       console.log(`My username is: ${this.username}`);
 //     },
 //   };
-  
+
 //   const btn = document.querySelector(".js-btn");
-  
+
 //   // ✅ Працює
 //   mango.showUsername();
-  
+
 //   // ❌ this буде посилатися на button, якщо використовувати showUsername як callback
 //   btn.addEventListener("click", mango.showUsername); // не працює  //Тут буде undefined!!!
-  
+
 //   // ✅ Не забувайте прив'язувати контекст методів об'єкта
 //   btn.addEventListener("click", mango.showUsername.bind(mango));
 //!============================================== Example( event, event type , currentTarget ) ===============================================
@@ -140,4 +140,39 @@
 // function incrementKeypressCounter() {
 //   keypressCounter += 1;
 // }
-//!======================================================== Example 
+//!======================================================== Example ( preventDefault && submit ) =====================================
+//? submit - перезавантажує сторінку для того ми і використовуємо preventDefault() щоб скасувати цю дію.
+// const registerForm = document.querySelector(".form");
+
+// registerForm.addEventListener("submit", handleSubmit);
+
+// function handleSubmit(event) {
+//   event.preventDefault();
+//   const form = event.target;
+//   const login = form.elements.login.value;   //? Властивість elements містить посилання на всі властивості form що мають names(elements.login)
+//   const password = form.elements.password.value; //? Тут приклад є elements.password. ВАЖЛИВО!!!
+
+//   if (login === "" || password === "") {
+//     return console.log("Please fill in all the fields!");
+//   }
+
+//   console.log(`Login: ${login}, Password: ${password}`);
+//   form.reset();            //? reset() - для очищення полів input що знаходяться в form після натискання і відправлення їх до консолі.
+// }
+//!===================================================== Example
+//?
+const select = document.querySelector(".pizza-select");
+const textOutput = document.querySelector(".text-output");
+const valueOutput = document.querySelector(".value-output");
+
+select.addEventListener("change", setOutput);
+
+function setOutput(event) {
+  const selectedOptionValue = event.currentTarget.value;
+  const selectedOptionIndex = event.currentTarget.selectedIndex;
+  const selectedOptionText =
+    event.currentTarget.options[selectedOptionIndex].text;
+
+  textOutput.textContent = selectedOptionText;
+  valueOutput.textContent = selectedOptionValue;
+}
