@@ -159,20 +159,53 @@
 //   console.log(`Login: ${login}, Password: ${password}`);
 //   form.reset();            //? reset() - для очищення полів input що знаходяться в form після натискання і відправлення їх до консолі.
 // }
-//!===================================================== Example
+//!===================================================== Example ( select ) ==============================================================
+//?Функція для призначення тексту (або данних) з select до інших текстових тегів(в данному випадку!) або ж іншиї тегів не повязаних з ним.
+// const select = document.querySelector(".pizza-select");
+// const textOutput = document.querySelector(".text-output");
+// const valueOutput = document.querySelector(".value-output");
+
+// select.addEventListener("change", setOutput);
+
+// function setOutput(event) {
+//   //?В функції ми добираємось до value - змінна в select в options. selectedIndex - її інденс.
+//   const selectedOptionValue = event.currentTarget.value;
+//   const selectedOptionIndex = event.currentTarget.selectedIndex;
+//   const selectedOptionText =
+//     event.currentTarget.options[selectedOptionIndex].text; //?Ця змінна бере текс з option який знаходиться в данній value за її індексом.
+
+//   // console.log(selectedOptionValue);
+//   // console.log(selectedOptionIndex);
+//   // console.log(selectedOptionText);
+//   textOutput.textContent = selectedOptionText;        //?Тут до параграфів призначається text & value!!!
+//   valueOutput.textContent = selectedOptionValue;
+// }
+//!=============================================== Example ( addEventListener && "input" ) =================================================
+//? event "input" для зміни тексту в output в данному прикладі це класс тегу span. 
+// const textInput = document.querySelector(".text-input");
+// const output = document.querySelector(".output");
+
+// textInput.addEventListener("input", (event) => {
+//   output.textContent = event.currentTarget.value;
+// });
+//!=============================================== Example 
 //?
-const select = document.querySelector(".pizza-select");
-const textOutput = document.querySelector(".text-output");
-const valueOutput = document.querySelector(".value-output");
+const textInput = document.querySelector(".text-input");
+const setFocusBtn = document.querySelector('[data-action="set"]');
+const removeFocusBtn = document.querySelector('[data-action="remove"]');
 
-select.addEventListener("change", setOutput);
+setFocusBtn.addEventListener("click", () => {
+  textInput.focus();
+});
 
-function setOutput(event) {
-  const selectedOptionValue = event.currentTarget.value;
-  const selectedOptionIndex = event.currentTarget.selectedIndex;
-  const selectedOptionText =
-    event.currentTarget.options[selectedOptionIndex].text;
+removeFocusBtn.addEventListener("click", () => {
+  textInput.blur();
+});
 
-  textOutput.textContent = selectedOptionText;
-  valueOutput.textContent = selectedOptionValue;
-}
+textInput.addEventListener("focus", () => {
+  textInput.value = "This input has focus";
+});
+
+textInput.addEventListener("blur", () => {
+  textInput.value = "";
+});
