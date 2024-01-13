@@ -188,24 +188,27 @@
 // textInput.addEventListener("input", (event) => {
 //   output.textContent = event.currentTarget.value;
 // });
-//!=============================================== Example 
-//?
-const textInput = document.querySelector(".text-input");
-const setFocusBtn = document.querySelector('[data-action="set"]');
-const removeFocusBtn = document.querySelector('[data-action="remove"]');
+//!=============================================== Example ( "focus" && "blur" ) ==========================================================
+//?Концепція focus та blur пов'язана з data-action="set" & "remove".
+// const textInput = document.querySelector(".text-input");
+// const setFocusBtn = document.querySelector('[data-action="set"]');
+// const removeFocusBtn = document.querySelector('[data-action="remove"]');
 
-setFocusBtn.addEventListener("click", () => {
-  textInput.focus();
-});
+// //?Команди focus та blur .
+// setFocusBtn.addEventListener("click", () => {
+//   textInput.focus();
+// });
 
-removeFocusBtn.addEventListener("click", () => {
-  textInput.blur();
-});
+// removeFocusBtn.addEventListener("click", () => {
+//   textInput.blur();
+// });
 
-textInput.addEventListener("focus", () => {
-  textInput.value = "This input has focus";
-});
+// //? Зміни в input які виконуються при focus та blur.
+// textInput.addEventListener("focus", () => {
+//   textInput.value = "This input has focus";
+// });
 
-textInput.addEventListener("blur", () => {
-  textInput.value = "";
-});
+// textInput.addEventListener("blur", () => {
+//   textInput.value = "";
+// });
+//!================================================ Example
