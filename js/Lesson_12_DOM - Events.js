@@ -275,4 +275,72 @@
 // }
 //!==================================================== Task
 //?Створити модалку яка по натисканню на кнопку "Open modal" відкривається та по натисканню на крестик, "Escape",
-//? та в пусте місце(overlay) закривається.
+//? та в пусте місце(overlay) закривається. css стилі зроблені так щоб коли на body є класс open вона відкривається.
+//?Мій спосіб(Простий)
+// const overlay = document.getElementById("overlay");
+// const openModal = document.getElementById("openModalBtn");
+// const closeModal = document.getElementById("modalCloseBtn");
+
+// openModal.addEventListener("click", openWindowModal);
+
+// function openWindowModal(){
+//   document.body.classList.add("open");
+// }
+
+// closeModal.addEventListener("click", closeModalWindow);
+
+// function closeModalWindow() {
+//   document.body.classList.remove("open");
+// }
+
+// overlay.addEventListener("click", overlayClickClose);
+
+// function overlayClickClose() {
+//   document.body.classList.remove("open");
+// }
+//?Другий спосіб (більш коротший та сучайсний)
+// const refs = {
+//   overlay: document.getElementById("overlay"),
+//   openModal: document.getElementById("openModalBtn"),
+//   closeModal: document.getElementById("modalCloseBtn"),
+// };
+
+// const openClass = "open";
+
+// refs.openModal.addEventListener("click", openWindowModal);
+// refs.closeModal.addEventListener("click", closeModalWindow);
+// refs.overlay.addEventListener("click", closeModalWindow);
+
+// function openWindowModal(){
+//   document.body.classList.add(openClass);
+//   window.addEventListener("keydown", closeOnEsc);  //?Додаємо event на window в самих функціях.
+// }
+
+// function closeModalWindow() {
+//   document.body.classList.remove(openClass);
+//   window.removeEventListener("keydown", closeOnEsc);   //?Тут прибираємо щоб зайвий раз не працював слухач.
+// }
+
+// function closeOnEsc(event) {
+//   // console.log(event);
+//   if(event.code === "Escape") {       //?Порівняння коду Escape з самою клавішою.Якщо так то модалка закривається.
+//     console.log("Esc натиснуто")
+//     closeModalWindow();
+//   }
+// }
+//!======================================================= Example ( blur ) ===============================================================
+//? blur спрацьовує коли вже знятий фокус.
+const form = document.getElementById("form");
+
+form.elements.pass.addEventListener("blur", blurInput);
+
+function blurInput(event) {
+  const length = event.target.value.length;
+  if(length >= 8 && 15 >= length) {
+    form.classList.add("correct");
+    form.classList.remove("wrong");
+  } else {
+    form.classList.add("wrong");
+    form.classList.remove("correct");
+  }
+}

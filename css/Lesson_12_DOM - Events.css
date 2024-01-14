@@ -68,3 +68,13 @@ body.open > .overlay {
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
 }
+
+
+
+#form.wrong > input{
+    border: 3px solid red;
+}
+
+#form.correct > input{
+    border: 3px solid green;
+}
