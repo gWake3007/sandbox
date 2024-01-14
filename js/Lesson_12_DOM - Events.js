@@ -142,6 +142,7 @@
 // }
 //!======================================================== Example ( preventDefault && submit ) =====================================
 //? submit - перезавантажує сторінку для того ми і використовуємо preventDefault() щоб скасувати цю дію.
+//? На form пряцює ТІЛЬКИ подія "submit"!!!
 // const registerForm = document.querySelector(".form");
 
 // registerForm.addEventListener("submit", handleSubmit);
@@ -161,6 +162,7 @@
 // }
 //!===================================================== Example ( select ) ==============================================================
 //?Функція для призначення тексту (або данних) з select до інших текстових тегів(в данному випадку!) або ж іншиї тегів не повязаних з ним.
+//? "change" - існує лише для роботи з input!!!
 // const select = document.querySelector(".pizza-select");
 // const textOutput = document.querySelector(".text-output");
 // const valueOutput = document.querySelector(".value-output");
@@ -211,4 +213,65 @@
 // textInput.addEventListener("blur", () => {
 //   textInput.value = "";
 // });
-//!================================================ Example
+//!==================================== Example ( addEventListener() & preventDefault & options || onCapture (true or false)) ================
+//? options || onCapture - третя властивість в addEventListener() - там завжди булеві значення.
+// const btn = document.getElementById("btn");
+// const link = document.getElementById("link");
+
+// btn.addEventListener("click", () => {     //?Два альтернативних способи.
+//   console.log("Hello!");
+// });
+
+// btn.addEventListener("click", clickButton);
+
+// function clickButton() {
+//   console.log("Hello!!!");
+// }
+
+// link.addEventListener("click", clickLink, {
+//   capture: true,    //? true - спливаюча подія. false - подія на занурення.
+//   once: true,       //? true - подія відбудеться тільки один раз. false - багато разів. ЗА ЗАМОВЧЕННЯМ ЗАВЖДИ FALSE.
+//   passive: true,    //? true - заборона використання preventDefault(). false - дозвіл на використання. Також за замовченням false.
+// });
+
+// function clickLink(event) {//?Робимо так щоб при натисканні на посилання ми не переходили по ньому.event пишему тільки коли він нам потрібен.
+//   event.preventDefault();
+//   console.log(event);           //?Виведення в консоль інформацію про event.
+// }
+//!=============================================== Example ( window.addEventListener() ) ===============================================
+//? key: - в залежності від розкладки(мови якою вводять)  && code: - в залежності від розкладки! && keycode: - Юнікод(але тільки з великої)
+// window.addEventListener("keydown", clickWindow);  //?Використовуємо тільки "keydown" - тому що спрацьовує швидше!!!
+
+// function clickWindow(event) {
+//   console.log(event);
+// }
+//!============================ Example (form(preventDefault() & "submit" || "input" || "change") & target) ===============================
+// const form = document.getElementById("form");
+
+//?Робота з form. Та звертання до її елементів.
+// form.addEventListener("submit", clickSubmit);  //? "submit" - перезавантажує сторінку для того і використовуємо preventDefault()
+
+// function clickSubmit(event) {
+//   event.preventDefault();
+//   console.dir(form);
+//   const firstName = form.elements.firstName.value;
+//   const lastNames = form.elements.lastName.value;
+//   const age = form.elements.age.value;
+//   console.log(`Hello ${firstName} ${lastNames} you was born ${2023 - age}.`);
+//   form.reset();
+// }
+
+//?Через form робимо обробник події на input. Спрацьовує на кожну зміну самого input.
+// form.elements.firstName.addEventListener("input", onInput);
+
+// function onInput(eve) {
+//   console.log(eve.target.value);    //?Таким чином виводимо в консоль значення при кожній його змінні (додаванні чи видаленні!)
+// }
+
+// form.elements.firstName.addEventListener("change", onChange);   //?"change" - спрацьовує коли ми розфокусовуємось від input.
+
+// function onChange(eve) {
+//   console.log(eve.target.value);
+// }
+//!=============================================== Example 
+//?
