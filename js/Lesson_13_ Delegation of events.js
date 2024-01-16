@@ -92,4 +92,27 @@
 
 //   return color;
 // }
-//!======================================================= Example 
+//!========================================== Example ( querySelectorAll() & stopPropogation() ) =============================================
+//? Приклад занурення та сплиття в alert! По замочкування всі addEventListener - завжди працюють на сплиття.
+// const allElements = document.querySelectorAll("*");  //? * - пряуює як для css так і для js на всі елементи!
+
+// console.log(allElements);
+
+// for(const element of allElements) {
+//     element.addEventListener("click", () => alert(`Занурення: ${element.tagName}`), true); //?За замовчуванням false.При зміні інший напрямок
+//     element.addEventListener("click", () => alert(`Сплиття: ${element.tagName}`));
+// }
+
+// document.getElementsByTagName("p")[0].addEventListener("click", (event) => {
+//     event.stopPropagation();  //?Тут ми за тегом добираємось до першого параграфу(він в нас один) і зупиняємо сплиття.
+// }); //?Якщо тут ставимо true то зупиняємо занурення.
+//!================================================== Example (target & currentTarget) ===================================================
+// const body = document.querySelector("body");
+
+// body.addEventListener("click", onClick);
+
+// function onClick(event) {
+//     console.log(event.target);  //?Посилання на елемент який викликав функцію.
+//     console.log(event.currentTarget); //?Посилання на елемент який перед .addEventListener(). Тобто body.
+// }
+//!================================================== Example
