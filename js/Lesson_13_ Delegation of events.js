@@ -116,3 +116,22 @@
 //     console.log(event.currentTarget); //?Посилання на елемент який перед .addEventListener(). Тобто body.
 // }
 //!================================================== Example
+const form = document.getElementById("form");
+const price = document.getElementById("price");
+const amount = document.getElementById("amount");
+const quantity = document.getElementById("quantity");
+const total = document.getElementById("total");
+
+quantity.addEventListener("input", changeQuantity);
+
+function changeQuantity(event) {
+    amount.textContent = event.currentTarget.value;
+}
+
+form.addEventListener("input", totalPrice);
+
+function totalPrice(event) {
+    const quantityKG = form.elements.quantity.value;
+    const priceForKG = form.elements.price.value;
+    total.textContent = quantityKG * priceForKG;
+}
