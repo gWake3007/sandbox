@@ -133,5 +133,5 @@ form.addEventListener("input", totalPrice);
 function totalPrice(event) {
     const quantityKG = form.elements.quantity.value;
     const priceForKG = form.elements.price.value;
-    total.textContent = quantityKG * priceForKG;
+    total.textContent = `${quantityKG * priceForKG} грн`;
 }
