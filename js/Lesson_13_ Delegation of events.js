@@ -115,23 +115,67 @@
 //     console.log(event.target);  //?Посилання на елемент який викликав функцію.
 //     console.log(event.currentTarget); //?Посилання на елемент який перед .addEventListener(). Тобто body.
 // }
-//!================================================== Example
-const form = document.getElementById("form");
-const price = document.getElementById("price");
-const amount = document.getElementById("amount");
-const quantity = document.getElementById("quantity");
-const total = document.getElementById("total");
+//!====================================================== Task: two Example ===================================================================
+//?Моє написання.
+// const form = document.getElementById("form");
+// const price = document.getElementById("price");
+// const amount = document.getElementById("amount");
+// const quantity = document.getElementById("quantity");
+// const total = document.getElementById("total");
 
-quantity.addEventListener("input", changeQuantity);
+// quantity.addEventListener("input", changeQuantity);
 
-function changeQuantity(event) {
-    amount.textContent = event.currentTarget.value;
+// function changeQuantity(event) {
+//     amount.textContent = event.currentTarget.value;
+// }
+
+// form.addEventListener("input", totalPrice);
+
+// function totalPrice(event) {
+//     const quantityKG = form.elements.quantity.value;
+//     const priceForKG = form.elements.price.value;
+//     const totalResult = parseFloat((quantityKG * priceForKG).toFixed(2));   //?toFixed(2) робить так щоб після крапки не було більше двуї чисел
+//     total.textContent = `${totalResult} грн`;      //?Але toFixed() переводить число у рядок. А parseFloat() перетворює назад в число.
+// }
+//?Варіант викладача.
+const refs = {
+   form: document.getElementById("form"),
+   amount: document.getElementById("amount"),
+   total: document.getElementById("total"),
+};
+
+const data = {                       //?Тут зберігаємо результат і вилічуємо його.
+    price: 0,
+    amount: 0,
+    calcTotalPrice() {
+        return (this.price * this.amount).toFixed(2);
+    },
 }
 
-form.addEventListener("input", totalPrice);
+setRange();
+fillData();           //?Щоб за замовчкуванням при перезавантаженні був вже результат.Тобто 50 грн!
+displayTotal();
 
-function totalPrice(event) {
-    const quantityKG = form.elements.quantity.value;
-    const priceForKG = form.elements.price.value;
-    total.textContent = `${quantityKG * priceForKG} грн`;
+refs.form.addEventListener("input", onInput);
+
+function onInput({target}) {    //?Робимо деструкторизацію щоб одразу писати target.name а не event.target.name.Так як нам потрібен target!
+    if(target.name === "quantity") {
+        refs.amount.textContent = target.value;
+    }
+    fillData();
+    displayTotal();
 }
+
+function fillData() {
+    data.price = refs.form.elements.price.value;
+    data.amount = refs.form.elements.quantity.value;
+}
+
+function displayTotal() {
+    refs.total.textContent = `${data.calcTotalPrice()} грн.`;
+}
+
+function setRange() {
+    refs.amount.textContent = refs.form.elements.quantity.value;
+}
+//!=========================================================== Example 
