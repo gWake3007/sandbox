@@ -100,8 +100,15 @@
 //     }
 // }
 //!============================================== Task number seven ==========================================================
-const refs = {
-    fontSize: document.getElementById("font-size-control"),
-    span: document.getElementById("text"),
-};
+// const refs = {
+//     fontSizeControl: document.getElementById("font-size-control"),
+//     span: document.getElementById("text"),
+// };
 
+// refs.span.style.fontSize = refs.fontSizeControl.value + `px`;
+// refs.fontSizeControl.addEventListener("input", changeFontSize);
+
+// function changeFontSize() {
+//     refs.span.style.fontSize = refs.fontSizeControl.value + `px`;
+// }
+//!============================================ Task number eight ===========================================================
