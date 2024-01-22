@@ -158,4 +158,15 @@ function getRandomHexColor() {
       .padStart(6, 0)}`;
   }
 
-  
+  const refs = {
+    controls: document.getElementById("controls"),
+    boxes: document.getElementById("boxes"),
+    destroy: document.querySelector("button[data-destroy]"),
+    create: document.querySelector("button[data-create]"),
+  };
+
+console.log(refs.destroy);
+console.log(refs.create);
+console.log(refs.controls);
+
+console.log(refs.boxes);
