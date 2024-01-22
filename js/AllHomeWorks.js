@@ -46,7 +46,7 @@
 //   const ulGallery = document.querySelector(".gallery");
 
 //   const markup = images
-//   .map(({url, alt}) => 
+//   .map(({url, alt}) =>
 //   `<li><img src="${url}" alt="${alt}" width="300px" height="300px"></img></li>`
 //   ).join("");
 
@@ -112,3 +112,50 @@
 //     refs.span.style.fontSize = refs.fontSizeControl.value + `px`;
 // }
 //!============================================ Task number eight ===========================================================
+// const form = document.querySelector(".login-form");
+
+// form.addEventListener("submit", submitForm);
+
+// function submitForm(event) {
+//   event.preventDefault();
+//   const formCurrentTarget = event.currentTarget;
+//   const email = this.elements.email.value;
+//   const password = this.elements.password.value;
+//   if (email === "" || password === "") {
+//     alert(`Всі поля повинні бути заповнені.`);
+//   } else {
+//     const data = {
+//         email: email,
+//         password: password,
+//     };
+//     console.log(data);
+//     formCurrentTarget.reset();
+//   }
+// }
+//!====================================================== Task number nine ==========================================================
+// const refs = {
+//     span: document.querySelector(".color"),
+//     button: document.querySelector(".change-color"),
+//     body: document.querySelector("body"),
+// };
+
+// refs.button.addEventListener("click", clickColor);
+
+// function clickColor(event) {
+//     refs.body.style.backgroundColor = getRandomHexColor();
+//     refs.span.textContent = getRandomHexColor();
+// }
+
+// function getRandomHexColor() {
+//     return `#${Math.floor(Math.random() * 16777215)
+//       .toString(16)
+//       .padStart(6, 0)}`;
+//   }
+//!========================================================== Task number ten =====================================================
+function getRandomHexColor() {
+    return `#${Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(6, 0)}`;
+  }
+
+  

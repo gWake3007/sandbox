@@ -134,8 +134,8 @@
 // function totalPrice(event) {
 //     const quantityKG = form.elements.quantity.value;
 //     const priceForKG = form.elements.price.value;
-//     const totalResult = parseFloat((quantityKG * priceForKG).toFixed(2));   //?toFixed(2) робить так щоб після крапки не було більше двуї чисел
-//     total.textContent = `${totalResult} грн`;      //?Але toFixed() переводить число у рядок. А parseFloat() перетворює назад в число.
+//     const totalResult = parseFloat((quantityKG * priceForKG).toFixed(2));//?toFixed(2) робить так щоб після крапки не було більше двуї чисел
+//     total.textContent = `${totalResult} грн`;   //?Але toFixed() переводить число у рядок. А parseFloat() перетворює назад в число.
 // }
 //?Варіант викладача.
 const refs = {
