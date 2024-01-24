@@ -160,13 +160,40 @@ function getRandomHexColor() {
 
   const refs = {
     controls: document.getElementById("controls"),
+    input: document.querySelector("input[type=number]"),
     boxes: document.getElementById("boxes"),
     destroy: document.querySelector("button[data-destroy]"),
     create: document.querySelector("button[data-create]"),
   };
 
-console.log(refs.destroy);
-console.log(refs.create);
-console.log(refs.controls);
+  refs.create.addEventListener("click", createBoxes);
+  refs.destroy.addEventListener("click", destroyBoxes);
 
-console.log(refs.boxes);
+  function destroyBoxes () {
+    refs.boxes.innerHTML = "";
+  }
+
+  function createBoxes() {
+    const items = [];
+    const inputValue = refs.input.value;
+    const inputStep = refs.input.getAttribute("step");
+    const inputMin = refs.input.getAttribute("min");
+    const inputMax = refs.input.getAttribute("max");
+    if(inputValue <= inputMax) {
+        for(let i = inputMin; i <= inputValue; i++) {
+            const color = getRandomHexColor();
+            const item = document.createElement("div");
+            const size = 10 + (i * inputStep) * 10;
+            item.style.borderRadius = "5px";
+            item.style.width = `${size}px`;
+            item.style.height = `${size}px`;
+            item.dataset.color = color;
+            item.style.backgroundColor = color;
+            items.push(item);
+        }
+    } else {
+        alert("Не може бути більше ста боксів!");
+    }
+    return refs.boxes.append(...items);
+  }
+  //!================================================
