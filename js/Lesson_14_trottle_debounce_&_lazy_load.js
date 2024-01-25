@@ -128,4 +128,31 @@
 //     throttledOutput.textContent = eventCounter.throttled;
 //   }, 300)
 // );
-//!===================================================== 
+//!===================================================== First task from lesson ===================================================
+// const cats = [
+//   "https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=960",
+//   "https://images.pexels.com/photos/2558605/pexels-photo-2558605.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=960",
+//   "https://images.pexels.com/photos/1440403/pexels-photo-1440403.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=960",
+//   "https://images.pexels.com/photos/2817421/pexels-photo-2817421.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=960",
+//   "https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=960",
+//   "https://images.pexels.com/photos/3635550/pexels-photo-3635550.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=960",
+//   "https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=960",
+// ];
+
+// const ulList = document.querySelector(".js-cats");
+
+//? map() + join("");
+// const markup = cats.map(url =>
+//  `<li><img src="${url}" alt="cat" loading="lazy" width="300">
+//  <p>This is a cat!</p></li>`
+// ).join("");
+
+//? reduce();
+// const markup = cats.reduce(
+//   (acc, url) => acc + `<li><img src="${url}" alt="cat" loading="lazy" width="300">
+// <p>This is a cat!</p></li>`,
+//   ""
+// );
+
+// ulList.insertAdjacentHTML("beforeend", markup);
+//!================================================== Second task from lesson =====================================================
