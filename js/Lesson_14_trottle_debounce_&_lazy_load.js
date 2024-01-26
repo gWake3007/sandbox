@@ -156,3 +156,12 @@
 
 // ulList.insertAdjacentHTML("beforeend", markup);
 //!================================================== Second task from lesson =====================================================
+const input = document.querySelector(".js-search");
+
+// input.addEventListener("input", eventInput);
+//? Throttle. ВАЖЛИВО!!! Бібліотека Lodash - з методами throttle & debounce в event погано реагує на currentTarget.Краще target!!!
+input.addEventListener("input", _.throttle(eventInput, 1000));
+
+function eventInput(event) {
+    console.log(event.target.value);
+}
