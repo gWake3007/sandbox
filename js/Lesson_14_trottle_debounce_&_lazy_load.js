@@ -94,7 +94,7 @@
 //   leading: 0
 // };
 
-// // Trailing debounce
+// //? Trailing debounce
 // document.addEventListener(
 //   "scroll",
 //   _.debounce(() => {
@@ -103,7 +103,7 @@
 //   }, 300)
 // );
 
-// // Leading debounce
+// //? Leading debounce
 // document.addEventListener(
 //   "scroll",
 //   _.debounce(
@@ -156,12 +156,17 @@
 
 // ulList.insertAdjacentHTML("beforeend", markup);
 //!================================================== Second task from lesson =====================================================
-const input = document.querySelector(".js-search");
+// const input = document.querySelector(".js-search");
 
 // input.addEventListener("input", eventInput);
 //? Throttle. ВАЖЛИВО!!! Бібліотека Lodash - з методами throttle & debounce в event погано реагує на currentTarget.Краще target!!!
-input.addEventListener("input", _.throttle(eventInput, 1000));
+// input.addEventListener("input", _.throttle(eventInput, 1000, {traling: true, leading: false,}));//?traling - виклик на початку.
+//? leading - виклик в кінці по закінченню таймінгу в опції.
 
-function eventInput(event) {
-    console.log(event.target.value);
-}
+//? Debounce. 
+// input.addEventListener("input", _.debounce(eventInput, 1000, {traling: true, leading: true,}));
+
+// function eventInput(event) {
+//     console.log(event.target.value);
+// }
+//!================================================ Three task from lesson(Practical) ==============================================
