@@ -235,6 +235,7 @@ function handleClick(event) {
 
 //?Метод some() - перебирає масив масивів і знаходить ті комбінації в яких хоч один елемент є в усторії X || O.
 //?Метод every() & includes() - перебирає із тих варіантів що залишились і порівнює всі id(тобто номери клітинок). 
+//? some() & every() - працює в данному випадку як два цикли for. Тобто цикл в циклі.
 function checkWinner(history) {
     return combination.some(item => item.every(id => history.includes(id)));
 }
