@@ -163,10 +163,86 @@
 // input.addEventListener("input", _.throttle(eventInput, 1000, {traling: true, leading: false,}));//?traling - виклик на початку.
 //? leading - виклик в кінці по закінченню таймінгу в опції.
 
-//? Debounce. 
+//? Debounce.
 // input.addEventListener("input", _.debounce(eventInput, 1000, {traling: true, leading: true,}));
 
 // function eventInput(event) {
 //     console.log(event.target.value);
 // }
 //!================================================ Three task from lesson(Practical) ==============================================
+const combination = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [1, 4, 7],
+  [2, 5, 8],
+  [3, 6, 9],
+  [1, 5, 9],
+  [3, 5, 7],
+];
+
+const historyX = [];   //?Історія гравців X та O.
+const historyO = [];
+let player = "X";    //?Поточний гравець.
+
+const content = document.querySelector(".content");
+
+content.addEventListener("click", handleClick);
+
+createMarkup();
+
+function createMarkup() {
+  let markup = "";
+  for (let i = 1; i <= 9; i++) {
+    markup += `<div class="item" data-id="${i}"></div>`;
+  }
+  content.innerHTML = markup;
+}
+
+function handleClick(event) {
+    if(event.target.textContent || event.target === event.currentTarget){ //?Умова в якій якщо textContent - не пустий або ми клікнули
+        //? не по бордеру сомого content - тобто div в якому квадрати(промазали) то ми виходимо з функції! Miss click!
+        return;
+    }
+    const id = Number(event.target.dataset.id);  //?dataset - завжди зберігає строку(str).Тому перетворюємо в Number!
+    let isWinner = false;
+
+    if(player === "X") {
+        historyX.push(id);
+        isWinner = historyX.length >= 3 ? checkWinner(historyX) : false; //?Перевірка на переможця починається коли є 3 крестика або нулика
+    } else {
+        historyO.push(id);
+        isWinner = historyO.length >= 3 ? checkWinner(historyO) : false;
+    }
+
+    if(isWinner) {
+        const instance = basicLightbox.create(`<div class="box"><h1>Player ${player} - is winner!</h1></box>`);
+        instance.show();   //?Вище ми за допомогою бібліотеки створюємо модалку. А тут в рядку показуємо її.
+        resetGame();   //?Після модалки у нас функція reset!
+        return;
+    }
+
+    if(historyX.length === 5){  //?Модалка нічьї!
+        const instance = basicLightbox.create(`<div class="box"><h1>No winner!</h1></box>`);
+        instance.show();
+        resetGame();
+        return;
+    }
+
+    event.target.textContent = player;    //?Для заповненя поля div текст контентом зі змінної player тобто або крестиком або нуликом.
+    player = player === "X" ? "O" : "X";  //?Тернарний оператор для зміни крестика на нулик і навпаки.
+}
+
+//?Метод some() - перебирає масив масивів і знаходить ті комбінації в яких хоч один елемент є в усторії X || O.
+//?Метод every() & includes() - перебирає із тих варіантів що залишились і порівнює всі id(тобто номери клітинок). 
+function checkWinner(history) {
+    return combination.some(item => item.every(id => history.includes(id)));
+}
+
+function resetGame() {
+    createMarkup();  //?Заново створюємо розмітку.
+    player = "X";    //?Робимо X першим гравцем щоб наступня гра не починалася з O!!!
+    historyX.splice(0);  //?Очищаємо мотодом splice(0) - всю історію(Так цей метод видаляє всі елементи з масиву).
+    historyO.splice(0);
+}
+
