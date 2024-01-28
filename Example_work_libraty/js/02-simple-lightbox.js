@@ -1,5 +1,4 @@
 import { galleryItems } from "./gallery-items.js";
-// Change code below this line
 
 const gallery = document.querySelector(".gallery");
 
@@ -25,5 +24,6 @@ function handleClick(event) {
         captionDelay: 250,
         captionPosition: 'bottom',
         captionsData: 'alt',
+        close: true,
     });
 }
