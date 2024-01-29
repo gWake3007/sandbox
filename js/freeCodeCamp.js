@@ -3406,3 +3406,16 @@ console.log(
     ["ONE HUNDRED", 0],
   ])
 );
+
+//!============================================= Example ============================================================
+//?Функція геометричної прогресії.
+function math(num, repet) {
+  let result = [];
+  result.push(num);
+  for(let i = 1; i < repet; i++) {
+      result.push(result[result.length -1] * 2);
+  }
+  return result;
+}
+
+console.log(math(2, 10));
