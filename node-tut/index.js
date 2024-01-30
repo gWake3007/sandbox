@@ -6,3 +6,5 @@ console.log(greatingMessage);
 
 // export const hello = () => helloMessage;
 // export const greating = () => greatingMessage;
+
+const mach = (a,b) => a + b;
