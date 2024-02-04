@@ -1,41 +1,57 @@
-[{"id":1,
-"img": "https://static.dnipro-m.ua/cache/products/4878/catalog_origin_269592.jpg",
-"name": "Шуруповерт",
-"price": 150,
-"description": "Мережевий дриль-Шуруповерт"},
+[
+  {
+    "id": 1,
+    "img": "https://static.dnipro-m.ua/cache/products/4878/catalog_origin_269592.jpg",
+    "name": "Шурупокрут",
+    "price": 150,
+    "description": "Мережевий дриль-Шурупокрут"
+  },
 
-{"id":3,
-"img": "https://static.dnipro-m.ua/cache/products/1248/catalog_origin_257336.jpg",
-"name": "Шліфмашина",
-"price": 1299,
-"description": "Кутова Шліфмашина"},
+  {
+    "id": 3,
+    "img": "https://static.dnipro-m.ua/cache/products/1248/catalog_origin_257336.jpg",
+    "name": "Шліфмашина",
+    "price": 1299,
+    "description": "Кутова Шліфмашина"
+  },
 
-{"id":4,
-"img": "https://static.dnipro-m.ua/cache/products/5596/catalog_origin_191105.jpg",
-"name": "Пила",
-"price": 1149,
-"description": "Мобільна акумуляторна Пила"},
+  {
+    "id": 4,
+    "img": "https://static.dnipro-m.ua/cache/products/5596/catalog_origin_191105.jpg",
+    "name": "Пила",
+    "price": 1149,
+    "description": "Мобільна акумуляторна Пила"
+  },
 
-{"id":5,
-"img": "https://static.dnipro-m.ua/cache/products/2300/catalog_origin_261037.jpg",
-"name": "Рівень",
-"price": 897,
-"description": "Рівень серії ProVision"},
+  {
+    "id": 5,
+    "img": "https://static.dnipro-m.ua/cache/products/2300/catalog_origin_261037.jpg",
+    "name": "Рівень",
+    "price": 897,
+    "description": "Рівень серії ProVision"
+  },
 
-{"id":6,
-"img": "https://static.dnipro-m.ua/cache/products/6566/catalog_origin_270253.jpg",
-"name": "Тример",
-"price": 3699,
-"description": "Тример електричний"},
+  {
+    "id": 6,
+    "img": "https://static.dnipro-m.ua/cache/products/6566/catalog_origin_270253.jpg",
+    "name": "Тример",
+    "price": 3699,
+    "description": "Тример електричний"
+  },
 
-{"id":7,
-"img": "https://static.dnipro-m.ua/cache/products/6483/catalog_origin_270227.jpg",
-"name": "Мотокоса",
-"price": 11049,
-"description": "Мотокоса Dnipro-m"},
+  {
+    "id": 7,
+    "img": "https://static.dnipro-m.ua/cache/products/6483/catalog_origin_270227.jpg",
+    "name": "Мотокоса",
+    "price": 11049,
+    "description": "Мотокоса Dnipro-m"
+  },
 
-{"id":8,
-"img": "https://static.dnipro-m.ua/cache/products/2741/catalog_origin_271775.jpg",
-"name": "Генератор",
-"price": 10890,
-"description": "Бензиновий генератор"}]
+  {
+    "id": 8,
+    "img": "https://static.dnipro-m.ua/cache/products/2741/catalog_origin_271775.jpg",
+    "name": "Генератор",
+    "price": 10890,
+    "description": "Бензиновий генератор"
+  }
+]
