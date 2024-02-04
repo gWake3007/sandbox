@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "img": "https://static.dnipro-m.ua/cache/products/4878/catalog_origin_269592.jpg",
+    "img": "https://static.dnipro-m.ua/cache/products/5591/catalog_origin_190906.jpg",
     "name": "Шурупокрут",
     "price": 150,
     "description": "Мережевий дриль-Шурупокрут"
@@ -9,7 +9,7 @@
 
   {
     "id": 3,
-    "img": "https://static.dnipro-m.ua/cache/products/1248/catalog_origin_257336.jpg",
+    "img": "https://static.dnipro-m.ua/cache/products/5885/catalog_origin_301952.jpg",
     "name": "Шліфмашина",
     "price": 1299,
     "description": "Кутова Шліфмашина"
@@ -25,7 +25,7 @@
 
   {
     "id": 5,
-    "img": "https://static.dnipro-m.ua/cache/products/2300/catalog_origin_261037.jpg",
+    "img": "https://static.dnipro-m.ua/cache/products/4601/catalog_origin_299741.jpg",
     "name": "Рівень",
     "price": 897,
     "description": "Рівень серії ProVision"
@@ -33,7 +33,7 @@
 
   {
     "id": 6,
-    "img": "https://static.dnipro-m.ua/cache/products/6566/catalog_origin_270253.jpg",
+    "img": "https://static.dnipro-m.ua/cache/products/6564/catalog_origin_310485.jpg",
     "name": "Тример",
     "price": 3699,
     "description": "Тример електричний"
@@ -41,7 +41,7 @@
 
   {
     "id": 7,
-    "img": "https://static.dnipro-m.ua/cache/products/6483/catalog_origin_270227.jpg",
+    "img": "https://static.dnipro-m.ua/cache/products/6483/catalog_origin_308965.jpg",
     "name": "Мотокоса",
     "price": 11049,
     "description": "Мотокоса Dnipro-m"
@@ -49,7 +49,7 @@
 
   {
     "id": 8,
-    "img": "https://static.dnipro-m.ua/cache/products/2741/catalog_origin_271775.jpg",
+    "img": "https://static.dnipro-m.ua/cache/products/2741/catalog_origin_299922.jpg",
     "name": "Генератор",
     "price": 10890,
     "description": "Бензиновий генератор"
