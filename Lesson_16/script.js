@@ -5,8 +5,6 @@ import instruments from "./products.json" assert { type: "json" };
 
 const refs = {
     productsList: document.getElementById("products-container-id"),
-    product: document.getElementById("js-product"),
-    button: document.getElementById("js-add"),
 };
 
 const PRODUCTS_LS_KEY = "checkout";
@@ -16,5 +14,21 @@ refs.productsList.insertAdjacentHTML("beforeend", createMarkup(instruments));
 refs.productsList.addEventListener("click", onClick);
 
 function onClick(event) {
-    console.log(event.target.id);
+    if(event.target.id !== "js-add"){
+        return;
+    } 
+    const product = event.target.closest("#js-product");//? closest("") - шукає найблищий елементвищого рівня.
+    const productId = Number(product.dataset.id);
+    const currentProduct = instruments.find(({id}) => id === productId);
+    const productsLocal = JSON.parse(localStorage.getItem(PRODUCTS_LS_KEY)) ?? []; 
+    //?Для читання з localStorage данних(якщо null то нічого немає) то оператором нулевого злиття ?? створюємо пустий масив.
+    const checkOutProductId = productsLocal.findIndex(({id}) => id === productId);
+    //?Зробленно для того щоб не додаватии один і той самий товар багато разів. А тільки змінювалась кількість.
+    if(checkOutProductId === -1) {   //?Умова якщо цього товару немає.
+        currentProduct.quantity = 1; //?В самому продукті(так як ми стукаємось до нього по айді додаємо властивість кількість)
+        productsLocal.push(currentProduct);  //?То до масива пушимо поточний продукт.
+    } else {
+        productsLocal[checkOutProductId].quantity += 1;  //?Якщо вже є цей товар то тільки додаємо кількість.
+    }
+    localStorage.setItem(PRODUCTS_LS_KEY, JSON.stringify(productsLocal));
 }

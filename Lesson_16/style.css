@@ -84,7 +84,7 @@
     transition: background-color 0.3s ease;
 }
 
-.clear-cart-btn:hove{
+.clear-cart-btn:hover{
     background-color: #cc0000;
 }
 
