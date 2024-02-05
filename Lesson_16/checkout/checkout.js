@@ -24,8 +24,10 @@ refs.clearBtn.addEventListener("click", clearCard);
 
 function clearCard() {
     localStorage.removeItem(PRODUCTS_LS_KEY);  //?Видаляємо товари із localeStorage.
-    refs.totalPrice.textContent = "Your card is empty!";  //?Повертаємо строку що товарів немає.
-    refs.clearBtn.hidden = true;    //?Ховаємо кнопку.
-    refs.checkOutList.innerHTML = "";   //?Видаляємо картки.
+
+    // refs.totalPrice.textContent = "Your card is empty!";  //?Повертаємо строку що товарів немає.
+    // refs.clearBtn.hidden = true;    //?Ховаємо кнопку.
+    // refs.checkOutList.innerHTML = "";   //?Видаляємо картки.
+
     window.location.href = "../index.html";  //?Переходимо за посиланням на головну сторінку.
 }
