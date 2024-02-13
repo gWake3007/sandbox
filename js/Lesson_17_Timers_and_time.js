@@ -65,5 +65,96 @@
 
 // const date = new Date();
 // console.log(date.getTime());   //?Кількість мілісекунд від 1970 року.
-//!=============================================== Example 
+//!=============================================== Example ( Create current date ) ========================================
+//?Дату можна встановлювати в ручну.
+// const teamMeetingDate = new Date("March 16, 2030");
+// console.log(teamMeetingDate);
+
+// const preciseTeamMeetingDate = new Date("March 16, 2030 14:25:00");
+// console.log(preciseTeamMeetingDate);
+
+// const date = new Date(2030, 2, 16, 14, 25, 0, 0);
+// console.log(date);
+//!======================================= Example ( Methods Date getters & setters ) =====================================
+//?Методи для роботи з датами. Геттери для читання та Сеттери для записування.
+//?Адаптований час дол часового поясу користувача.
+// const date = new Date();
+// console.log("Date: ", date);
+
+// // Повертає день місяця від 1 до 31
+// console.log("getDate(): ", date.getDate());
+
+// // Повертає день тижня від 0 до 6
+// console.log("getDay(): ", date.getDay());
+
+// // Повертає місяць від 0 до 11
+// console.log("getMonth(): ", date.getMonth());
+
+// // Повертає рік з 4 цифр
+// console.log("getFullYear(): ", date.getFullYear());
+
+// // Повертає години
+// console.log("getHours(): ", date.getHours());
+
+// // Повертає хвилини
+// console.log("getMinutes(): ", date.getMinutes());
+
+// // Повертає секунди
+// console.log("getSeconds(): ", date.getSeconds());
+
+// // Повертає мілісекунди
+// console.log("getMilliseconds(): ", date.getMilliseconds());
+//?Геттери в форматі UTC(Coordinated Universal Time).Не адаптований час до часового поясу користувача.
+// const date = new Date();
+// console.log("Date: ", date);
+
+// // Повертає день місяця від 1 до 31
+// console.log("getUTCDate(): ", date.getUTCDate());
+
+// // Повертає день тижня від 0 до 6
+// console.log("getUTCDay(): ", date.getUTCDay());
+
+// // Повертає місяць від 0 до 11
+// console.log("getUTCMonth(): ", date.getUTCMonth());
+
+// // Повертає рік з 4 цифр
+// console.log("getUTCFullYear(): ", date.getUTCFullYear());
+
+// // Повертає години
+// console.log("getUTCHours(): ", date.getUTCHours());
+
+// // Повертає хвилини
+// console.log("getUTCMinutes(): ", date.getUTCMinutes());
+
+// // Повертає секунди
+// console.log("getUTCSeconds(): ", date.getUTCSeconds());
+
+// // Повертає мілісекунди
+// console.log("getUTCMilliseconds(): ", date.getUTCMilliseconds());
+//?Всі ті ж самі методи що і вище але починаються із set.
+// const date = new Date("March 16, 2030 14:25:00");
+
+// date.setMinutes(50);
+
+// date.setFullYear(2040, 4, 8);
+//!=================================== Example ( Methods toString() & toDateString() & toTimeString() ) ====================
+//?Приклади методів для переводу часу або тільки дати в рядок. Або ж повної дати.
+const date = new Date("March 16, 2030 14:25:00");
+
+date.toString();
+
+date.toTimeString();
+
+date.toLocaleTimeString();
+
+date.toUTCString();
+
+date.toDateString();
+
+date.toISOString();
+
+date.toLocaleString();
+
+date.getTime();
+//!====================================== Example 
 //?
