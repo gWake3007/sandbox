@@ -95,6 +95,30 @@ const translations = [
   { original: "apple", translation: "яблуко" },
 ];
 
-function getTranslationWord(word) {
+const refs = {
+  list: document.querySelector(".list"),
+  English: document.querySelector(".js-English"),
+  Ukrainian: document.querySelector(".js-Ukrainian"),
+};
 
+function getEnglishVersion() {
+  //?forEach() - перебираємо дітей ul(list) та підставляємо значення оригінальних назв.
+  [...refs.list.children].forEach((item, index) => {
+    item.textContent = translations[index].original;
+    item.classList.remove("active");//?Погана практика додавання чогось на кожній ітерації а не за один раз(для завдання треба)
+  });
+  refs.English.disabled = true;    //?Вимикаємо кнопку яку натиснули і вмикаємо протилежну і навпаки.Щоб обидві не були активні
+  refs.Ukrainian.disabled = false;
 }
+
+function getTranslationWord() {
+    [...refs.list.children].forEach((item, index) => {
+        item.textContent = translations[index].translation;
+        item.classList.add("active");
+    });
+    refs.Ukrainian.disabled = true;
+    refs.English.disabled = false;
+}
+
+refs.English.addEventListener("click", getEnglishVersion);
+refs.Ukrainian.addEventListener("click", getTranslationWord);

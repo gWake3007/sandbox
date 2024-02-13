@@ -43,4 +43,10 @@
 
 .word.active {
     background-color: rgb(250, 255, 156);
+    transition: 250ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+
+body {
+    margin: 16px;
+    text-align: center;
+  }
