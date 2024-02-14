@@ -139,22 +139,22 @@
 // date.setFullYear(2040, 4, 8);
 //!=================================== Example ( Methods toString() & toDateString() & toTimeString() ) ====================
 //?Приклади методів для переводу часу або тільки дати в рядок. Або ж повної дати.
-const date = new Date("March 16, 2030 14:25:00");
+// const date = new Date("March 16, 2030 14:25:00");
 
-date.toString();
+// console.log(date.toString());
 
-date.toTimeString();
+// console.log(date.toTimeString());
 
-date.toLocaleTimeString();
+// console.log(date.toLocaleTimeString());
 
-date.toUTCString();
+// console.log(date.toUTCString());
 
-date.toDateString();
+// console.log(date.toDateString());
 
-date.toISOString();
+// console.log(date.toISOString());
 
-date.toLocaleString();
+// console.log(date.toLocaleString());
 
-date.getTime();
+// console.log(date.getTime());
 //!====================================== Example 
 //?
