@@ -27,37 +27,36 @@
 // const greet = () => {
 //     console.log("Hello!");
 //   };
-  
+
 //   const timerId = setTimeout(greet, 3000);
 
 //   timerId;            //?Тут функція викличется через 3 секунди!
-  
+
 //   clearTimeout(timerId);   //?В данному випадку відкладена функція не викличется.
-  //!===================================== Example ( setInterval() & clearInterval() ) ======================================
-  //?setInterval() - інтервал з яким виконується функція(багато разів).clearInterval() - зупиняємо виконання інтервалу.
+//!===================================== Example ( setInterval() & clearInterval() ) ======================================
+//?setInterval() - інтервал з яким виконується функція(багато разів).clearInterval() - зупиняємо виконання інтервалу.
 //   const startBtn = document.querySelector(".js-start");
 //   const stopBtn = document.querySelector(".js-stop");
 //   let timerId = null;
-  
+
 //   startBtn.addEventListener("click", () => {
 //     timerId = setInterval(() => {
 //       console.log(`I love async JS!  ${Math.random()}`); //?Запуск інтервального в 1 секунду консоля функції.
 //     }, 1000);
 //   });
-  
-  
+
 //   stopBtn.addEventListener("click", () => {
 //     clearInterval(timerId);
 //     console.log(`Interval with id ${timerId} has stopped!`);   //?Зупинення цього консолю і вивід тексту про це!
 //   });
-  //!======================================== Example ( Method Date ) =================================================
-  //?new Date() - встроєна функція створення класу дати в рядковому форматі(поточний час і дата на момент створення)
+//!======================================== Example ( Method Date ) =================================================
+//?new Date() - встроєна функція створення класу дати в рядковому форматі(поточний час і дата на момент створення)
 //   const date = new Date();
 
 //   console.log(date);
-  
+
 //   console.log(date.toString());
-//!=========================================== Example ( Method getTime() ) =========================================== 
+//!=========================================== Example ( Method getTime() ) ===========================================
 //?getTime() - повертає число в мілісекундах від 1970 року!
 // console.log(new Date(0));  //?Дата з 1970 року.
 
@@ -156,5 +155,32 @@
 // console.log(date.toLocaleString());
 
 // console.log(date.getTime());
-//!====================================== Example 
+//!===================================================== Example =========================================================
+//?Синхронний та асинхронний код.
+//?Асинхронний код ділиться на: Мікрозадачі та Макрозадачі.Спочатку виконуються Мікрозадачі. А тільки після Макрозадачі!
+// console.log("A");  //?1. Синхронний код(Завжди виконується першим!)
+
+// setTimeout(() => console.log("B"), 0);  //?4.Макрозадача!
+
+// Promise.resolve("C").then((value) => console.log(value));   //?3.Мікрозадача!
+
+// console.log("D");  //?2.
+//?Приклади мікрозадач: Promise, Observer, addEventListener.
+//?Приклади макрозадач: setTimeOut, setInterval, setImmediate, requestAnimationFrame.
+//!=================================================== Example ==============================================================
+//?Спочатку синхронний код, потім асинхронний:мікрозадачі(проміси),перший успішний а другим не успішний,далі макрозадачі.
+// console.log("A"); //?1.
+
+// setTimeout(() => console.log("B"), 0); //?5.
+
+// Promise.reject("C")                       //?4.Тому що проміс D який нижче успішний.Тому він попереду.
+//   .then((value) => console.log(value))
+//   .catch((err) => console.log(err));
+
+// Promise.resolve("D").then((value) => console.log(value));     //?3.
+
+// setTimeout(() => console.log("E"), 0);      //?6.
+
+// console.log("F");      //?2.
+//!====================================================== Example 
 //?
