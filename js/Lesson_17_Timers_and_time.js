@@ -184,24 +184,72 @@
 // console.log("F");      //?2.
 //!=============================================== Example ( Promise ) ===================================================
 //?Приклад звичайного промусу.
-const promise = new Promise((res, rej) => {
-  const rand = Math.random();
-  setTimeout(() => {
-    console.log(rand);
-    if (rand > 0.5) {
-      res("Виконано!");
-    } else {
-      rej("Відхилено!");
-    }
-  }, 1000);
-});
+// const promise = new Promise((res, rej) => {
+//   const rand = Math.random();
+//   setTimeout(() => {
+//     console.log(rand);
+//     if (rand > 0.5) {
+//       res("Виконано!");
+//     } else {
+//       rej("Відхилено!");
+//     }
+//   }, 1000);
+// });
 
-console.log(promise); //?Завжди буде статус pending.Так як проміс не оброблений.
-//?Обробка промісу.
-promise
-  .then((res) => console.log("then: ", res))
-  .catch((err) => console.log("catch: ", err))
-  .finally(() => console.log("FINALLY!"));  //?Потрібен для того щоб по завершенню якоїсь дії зробити ще одну дії.
-  //?Наприклад: очищення полів тощо.
-//!================================================== Example 
+// console.log(promise); //?Завжди буде статус pending.Так як проміс не оброблений.
+// //?Обробка промісу.
+// promise
+//   .then((res) => console.log("then: ", res))
+//   .catch((err) => console.log("catch: ", err))
+//   .finally(() => console.log("FINALLY!"));  //?Потрібен для того щоб по завершенню якоїсь дії зробити ще одну дії.
+//?Наприклад: очищення полів тощо.
+//!============================================ Example ( event loop ) =====================================================
+//?Цикл подій.Перевіряємо код на сайті loupe для того щоб зрозуміти послідовність дій.Що за чим іде.
+//?Сайт loupe - працює корректно коли пишеш код в ручну а не копіюєш!!!
+// console.log("Start");
+
+// function foo() {
+//   boo();
+//   console.log("foo");
+// }
+
+// function boo() {
+//   console.log("boo");
+// }
+
+// console.log("End");
+
+// foo();
+//?Інший приклад з setTimeout().
+// const foo = () => console.log("First");
+// const bar = () => setTimeout(() => console.log("Second"), 1500);
+// const baz = () => console.log("Third");
+
+// bar();
+// foo();
+// baz();
+//!=================================================== ( Task game ) ======================================================
 //?
+const refs = {
+  button: document.querySelector(".js-start"),
+  container: document.querySelector(".js-container"),
+};
+
+refs.button.addEventListener("click", startGame);
+
+function startGame(event) {
+  const promise = [...refs.container.children].map(() => createPromise()); //?Робимо масив з item Div та через map створюємо
+  //?масив промісів. Функцію опишемо окремо!
+  console.log(promise);
+}
+
+function createPromise() {
+  return new Promise((res, rej) => {
+    const rand = Math.random();
+    if (rand > 0.5) {
+      res("🤑");
+    } else {
+      rej("😈");
+    }
+  });
+}
