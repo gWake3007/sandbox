@@ -240,7 +240,15 @@ refs.button.addEventListener("click", startGame);
 function startGame(event) {
   const promise = [...refs.container.children].map(() => createPromise()); //?Робимо масив з item Div та через map створюємо
   //?масив промісів. Функцію опишемо окремо!
-  console.log(promise);
+  Promise.allSettled(promise).then((items) => {
+    console.log(items);
+    const isWinner =
+      items.every((item) => item.status === "fulfilled") ||
+      items.every((item) => item.status === "rejected");
+      console.log(isWinner);
+  });
+  //?Promise.allSettled - приймає масив промісів та повертає
+  //?масив їх результатів.value - fulfilled || reason - reject.
 }
 
 function createPromise() {
