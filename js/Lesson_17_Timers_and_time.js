@@ -237,7 +237,7 @@
 
 // console.log(targetDate - currentDate); //?В кончолі буде результат в мілісекундах.Тому що JS перетворює цей класс в число.
 //!=================================================== Task clock ========================================================
-//?
+//?Задача (Створення годинника механічного і цифрового з поточною датою)
 const refs = {
   day: document.querySelector(".date-day"),
   date: document.querySelector(".date"),
@@ -273,4 +273,31 @@ const namesOfMonth = [
   "Листопад",
   "Грудень",
 ];
+
+setInterval(() => {
+  const currentDate = new Date();                       //?Створюємо змінну з поточною датою.
+  const day = currentDate.getDay();                     //?День тижня(від 0 до 6).
+  const date = currentDate.getDate();                   //?День місяця(Число від 1 до 31).
+  const month = currentDate.getMonth();                 //?Місяць(від 0 до 11).
+  const year = currentDate.getFullYear();               //?Поточний рік.
+  const time = currentDate.toLocaleTimeString("uk-UA"); //?Поточний час в любій місцевості по коду(В форматі рядка).
+
+  refs.day.textContent = arrDay[day];
+  refs.date.textContent = date;
+  refs.month.textContent = namesOfMonth[month];
+  refs.year.textContent = year;
+  refs.clock.textContent = `Поточний час: ${time}`;
+
+  const hours = currentDate.getHours();                 //?Поточна година.
+  const minutes = currentDate.getMinutes();             //?Поточна хвилина.
+  const seconds = currentDate.getSeconds();             //?Поточна секунда.
+
+  const secondsDeg = (360/60) * seconds;                        //?Вираховуємо стрілочку секунд.
+  const minutesDeg = (360/60) * minutes;                        //?Вираховуємо стрілочку хвилин.
+  const hoursDeg = (360/30) * hours + (360 / 12 / 60) * minutes;//?Вираховуємо стрілочку годин(корректно в залежності від хв)
+
+  refs.seconds.style.transform = `rotate(${secondsDeg}deg)`;  //?В стилі додаємо зміни.
+  refs.minutes.style.transform = `rotate(${minutesDeg}deg)`;
+  refs.hours.style.transform = `rotate(${hoursDeg}deg)`;
+}, 1000);
 
