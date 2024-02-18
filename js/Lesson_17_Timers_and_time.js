@@ -229,7 +229,7 @@
 // foo();
 // baz();
 //!=================================================== ( Task game ) ======================================================
-//?
+//?Ігровий автомат)
 const refs = {
   button: document.querySelector(".js-start"),
   container: document.querySelector(".js-container"),
@@ -241,11 +241,27 @@ function startGame(event) {
   const promise = [...refs.container.children].map(() => createPromise()); //?Робимо масив з item Div та через map створюємо
   //?масив промісів. Функцію опишемо окремо!
   Promise.allSettled(promise).then((items) => {
-    console.log(items);
-    const isWinner =
+    //?Весь функціонал в одному then робимо.
+
+    const isWinner = //?Виграшна комбанація всі однакові смайлики.Або чортики або з доларами.
       items.every((item) => item.status === "fulfilled") ||
       items.every((item) => item.status === "rejected");
-      console.log(isWinner);
+
+    items.forEach((item, index) => {
+      refs.container.children[index].textContent = ""; //?Очищаємо поля щоб при новому натисканні спочатку все почати.
+      setTimeout(() => {
+        refs.container.children[index].textContent = item.value || item.reason; //?В дітей контейнера(тобто в div) в їх
+        //?контент записуємо або item.value - значення промісу fulfilled або item.reason - значення промісу rejected.
+
+        if (index === items.length - 1) {
+          //?Коли інденс дорівнює довжині всіх item тобто цикл дійшов до кінця.
+          const instance = basicLightbox.create(    //?Використання бібліотеки для відкриття модалки з результатом.
+            `<h1>${isWinner ? "Winner!" : "Lose!"}</h1>`
+          );
+          instance.show();   //?Команда для показу результату!
+        }
+      }, 1000 * (index + 1)); //?Щоб смайлик в першому квадраті з'явився через секунду а всі інші по черзі теж через секунду.
+    });
   });
   //?Promise.allSettled - приймає масив промісів та повертає
   //?масив їх результатів.value - fulfilled || reason - reject.
