@@ -1,7 +1,16 @@
-/* body{
+body{
     display: flex;
     flex-direction: column;
     margin: 16px;
+    text-align: center;
+    font-size: 50px;
+    /* For_lesson_17 */
+    background-image: url(../icons/background_for_lesson_17.jpg);  
+    background-size: cover;
+    }
+
+    .title{
+      font-size: 30px;
     }
 
 .feedback-form{
@@ -10,7 +19,7 @@
     flex-direction: row;
     align-items: center;
     gap: 20px;
-} */
+}
 
 /* Third Task Study_for_Mentor_Lesson_4 */
 .list {
@@ -46,11 +55,6 @@
   transition: 250ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-body {
-  margin: 16px;
-  text-align: center;
-}
-
 /* An example with advertising */
 .content {
   background-image: url(https://ireland.apollo.olxcdn.com:443/v1/files/nwz6elazpp6q2-UA/image;s=1481x594);
@@ -63,6 +67,16 @@ body {
   font-size: 50px;
   font-weight: 700;
   color: #000;
+}
+/* Lesson_17 Task clock */
+.calendar{
+  display: flex;
+  flex-direction: row;
+  gap: 210px;
+}
+
+.clock{
+  
 }
 
 /* Lesson_18 Task game */
