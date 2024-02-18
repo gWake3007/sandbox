@@ -51,6 +51,20 @@ body {
   text-align: center;
 }
 
+/* An example with advertising */
+.content {
+  background-image: url(https://ireland.apollo.olxcdn.com:443/v1/files/nwz6elazpp6q2-UA/image;s=1481x594);
+  width: 1000px;
+  height: 400px;
+  background-size: cover;
+}
+
+.js-text{
+  font-size: 50px;
+  font-weight: 700;
+  color: #000;
+}
+
 /* Lesson_18 Task game */
 .js-container {
   display: flex;
@@ -59,27 +73,27 @@ body {
   gap: 20px;
 }
 
-.item{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid #000;
-    border-radius: 5px;
-    width: 80px;
-    height: 80px;
-    font-size: 40px;
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #000;
+  border-radius: 5px;
+  width: 80px;
+  height: 80px;
+  font-size: 40px;
 }
 
-.js-start{
-    padding: 20px;
-    background-color: cadetblue;
-    border: 2px solid #000;
-    border-radius: 8px;
-    color: chartreuse;
-    font-size: 40px;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    display: flex;
-    text-align: center;
-    justify-content: center;
+.js-start {
+  padding: 20px;
+  background-color: cadetblue;
+  border: 2px solid #000;
+  border-radius: 8px;
+  color: chartreuse;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }

@@ -155,6 +155,122 @@
 // console.log(date.toLocaleString());
 
 // console.log(date.getTime());
-//!================================================ Example
+//!============================ Example ( setInterval() && clearInterval() && setTimeout() ) ===============================
+//?setInterval() && clearInterval() && setTimeout()- приклад як ці методи працюють разом!
+//?В данному прикладі в консолі будуть два виводи Tick! Тому що інтервал спрацьовує кожні 2 секунди.
+//?А тайм аут спрацьовує через 5 секунд та видаляє інтервал. Тому йому вдається спрацьовати 2 рази.
+// const timerID = setInterval(() => {
+//   console.log("Tick!");
+// }, 2000);
+
+// setTimeout(() => {
+//   clearInterval(timerID);
+// }, 5000);
+//!===================================== Example ( Cycle for && setTimeout() ) ===========================================
+//?Приклад асинхронного коду в циклі for. Вивід буде 1 > 2 > 3.
+// for(let i = 3; i > 0; i--) {
+//   const delay = i * 1000;
+//   setTimeout(() => console.log(i), delay);
+// }
+//!================================= Example ( setTimeout() && clearTimeout() ) =========================================
+//?setTimeout() - Функція яка спрацьовує через 2 секунди.
+//?clearTimeout() - Очещення цієї функції.
+// const id = setTimeout(() => {
+//   console.log("TimeIsOver!");
+// }, 2000);
+
+// clearTimeout(id);   //?Якщо ця команда не закоментована то і функція вище не спрацьовує!
+//!====================================== Example ( setTimeout() parametrs ) =============================================
+//?setTimeout() - ця функція може приймати не тільки параметр часу через який треба спрацювати а і інші параметри.
+// const id = setTimeout(
+//   (name, country) => {
+//     console.log(`Hello my name is ${name}, I'm from ${country}!`);
+//   },
+//   3000,
+//   "Sergey",
+//   "Ukraine"
+// );
+//?Може приймати будь яку кількість параметрів.
+//!================================= Example ( setInterval() && clearInterval() ) ========================================
+//?setInterval() - Спрацьовує через вказаний інтервал часу!
+//?clearInterval() - Очещує функцію інтервал з данним аргументом.
+// const id = setInterval(() => {
+//   console.log("setInterval");
+// }, 2000);
+
+// clearInterval(id); //?Як і в попередньому прикладі якщо ця функція розкоментована то інтервал не працює!
+//!========================== Example ( setInterval() && clearInterval() && parametrs ) =================================
+//?setInterval() - Так само як і випадку вище в Інтервалі теж є параметри.
+//?І також можна видалити інтервал.(При бажанні через якийсь проміжок часу).
+// const id = setInterval(
+//   (name, country) => {
+//     console.log(`Hello my name is ${name}, I'm from ${country}!`);
+//   },
+//   3000,
+//   "Sergey",
+//   "Ukraine"
+// );
+
+// clearInterval(id);
+//!==================================== Example ( An example with advertising ) =========================================
+//?Приклад з рекламою.
+// const refs = {
+//   content: document.querySelector(".js-content"),
+//   text: document.querySelector(".js-text"),
+// };
+
+// let count = 10;
+// refs.text.textContent = `Залишилось ${count} секунд!`;  //?Щоб відлік почало показувати з 10 секунд!
+// const id = setInterval(() => {
+//   count -= 1;
+//   refs.text.textContent = `Залишилось ${count} секунд!`;  //?Тут працює антервал який показує відлік до зникання реклами.
+// }, 1000);
+
+// setTimeout(() => {
+//   clearInterval(id);
+//   refs.content.style.display = "none";
+// }, 1000 * count);
+//!=========================================== Example ( Class Date ) ==================================================
+//?Клас дата - для створення дати.
+// const currentDate = new Date();
+// const targetDate = new Date("Sep 05 2024");
+
+// console.log(targetDate - currentDate); //?В кончолі буде результат в мілісекундах.Тому що JS перетворює цей класс в число.
+//!=========================================== Task ( )
 //?
+const refs = {
+  day: document.querySelector(".date-day"),
+  date: document.querySelector(".date"),
+  month: document.querySelector(".date-month"),
+  year: document.querySelector(".date-year"),
+  clock: document.querySelector(".digital-clock"),
+  seconds: document.querySelector(".clock-seconds_arrow"),
+  minutes: document.querySelector(".clock-minutes_arrow"),
+  hours: document.querySelector(".clock-hours_arrow"),
+};
+
+const arrDay = [
+  "Неділя",
+  "Понеділок",
+  "Вівторок",
+  "Середа",
+  "Четвер",
+  "П'ятниця",
+  "Субота",
+];
+
+const namesOfMonth = [
+  "Січень",
+  "Лютий",
+  "Березень",
+  "Квітень",
+  "Травень",
+  "Червень",
+  "Липень",
+  "Серпень",
+  "Вересень",
+  "Жовтень",
+  "Листопад",
+  "Грудень",
+];
 
