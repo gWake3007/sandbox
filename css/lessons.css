@@ -3,11 +3,15 @@ body {
   flex-direction: column;
   margin: 16px;
   text-align: center;
-  font-size: 50px;
   /* For_lesson_17 */
+  /* font-size: 50px;
   background-image: url(../icons/background_for_lesson_17.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+}
+
+ul{
+  list-style: none;
 }
 
 .title {
@@ -162,5 +166,12 @@ body {
   letter-spacing: 0.03em;
   display: flex;
   text-align: center;
+  justify-content: center;
+}
+/* Study_for_mentor 5 */
+.js-form{
+  display: flex;
+  flex-direction: column;
+  width: 700px;
   justify-content: center;
 }
