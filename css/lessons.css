@@ -174,16 +174,16 @@ ul{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
 }
 
 .cart {
-  border: 1px solid #000;
+  border: 2px solid #000;
   border-radius: 5px;
 }
 
 .titleMarkup {
-  color: green;
+  color: rgb(110, 248, 110);
   letter-spacing: 0.03em;
   font-size: 50px;
   font-weight: 700;
@@ -218,4 +218,8 @@ ul{
 
 .form-text {
   width: 80%;
+}
+
+.complite {
+  background-color: green;
 }

@@ -23,6 +23,7 @@
 const form = document.querySelector(".js-form");
 const list = document.querySelector(".js-list");
 const arr = JSON.parse(localStorage.getItem("CardKey")) ?? [];
+const id = Math.random().toString(36).substring(2);
 
 form.addEventListener("submit", submitList);
 
@@ -37,9 +38,9 @@ function submitList(event) {
   const titleH = event.target.elements.title.value; //?Розіб'ємо в такий спосіб щоб
   const textP = event.target.elements.text.value;
 
-  const markup = `<li class="cart">
+  const markup = `<li data-id="${id}" class="cart">
   <h3 class="titleMarkup">${titleH}</h3>
-  <p class="textMarkup">${textP}</p>
+  <p class="textMarkup">${textP}</p><button type="button" class="js-remove">Remove</button>
   </li>`;
 
   list.insertAdjacentHTML("afterbegin", markup);
@@ -47,6 +48,7 @@ function submitList(event) {
   const obj = {
     titleH,
     textP,
+    id,
   };
 
   arr.push(obj);
@@ -60,10 +62,12 @@ function submitList(event) {
 function markup(array) {
   return array
     .map(
-      ({ titleH, textP }) =>
-        `<li class="cart">
+      (
+        { titleH, textP, id, completed } //?Тут тернарним оператором додаємо клас з CSS("complite")
+      ) =>
+        `<li data-id="${id}" class="cart ${completed ? "complite" : ""}">
   <h3 class="titleMarkup">${titleH}</h3>
-  <p class="textMarkup">${textP}</p>
+  <p class="textMarkup">${textP}</p><button type="button" class="js-remove">Remove</button>
   </li>`
     )
     .join("");
@@ -71,3 +75,19 @@ function markup(array) {
 
 list.insertAdjacentHTML("afterbegin", markup(arr));
 
+list.addEventListener("click", onClick);
+
+function onClick(event) {
+  if (event.target === event.currentTarget) return; //?Якщо таргет кліку дорівнює форма то виходимо з функції.
+  const item = event.target.closest("li"); //?Добераємося до дітей ul list через команду closest().
+  if (event.target.classList.contains("js-remove")) {//?Метод contains() - перевіряє чи містить таргер цей класс.
+    item.remove();                                   //?Якщо так то видаляє цей item тобто li(картку) та виходить із функції
+    return;
+  }
+  item.classList.add("complite"); //?Додаємо класс .complite стилі на який вже написані.7
+  const findItem = arr.find(({ id }) => id === item.dataset.id); //?знаходимо саме той id картки на яку клікнули(виконана)
+  findItem.completed = true; //?Позначаємо що вона виконана(Самойстійно створенна властивість БУЛЕВУ!)
+  localStorage.setItem("CardKey", JSON.stringify(arr)); //?Та переписуємо значення картки в якій змінене значення на виконана.
+}
+
+// const randomId = Math.random().toString(36).substring(2);  //?Змінна для рандомного ID.
