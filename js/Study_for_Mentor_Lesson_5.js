@@ -80,11 +80,15 @@ list.addEventListener("click", onClick);
 function onClick(event) {
   if (event.target === event.currentTarget) return; //?Якщо таргет кліку дорівнює форма то виходимо з функції.
   const item = event.target.closest("li"); //?Добераємося до дітей ul list через команду closest().
-  if (event.target.classList.contains("js-remove")) {//?Метод contains() - перевіряє чи містить таргер цей класс.
-    item.remove();                                   //?Якщо так то видаляє цей item тобто li(картку) та виходить із функції
+  if (event.target.classList.contains("js-remove")) {
+    //?Метод contains() - перевіряє чи містить таргер цей класс.
+    const idx = arr.findIndex(({ id }) => id === item.dataset.id);
+    arr.splice(idx, 1); //?Видаляємо елемент з масиву localStorage.
+    localStorage.setItem("CardKey", JSON.stringify(arr)); //?Та перезаписуємо localStorage без видаленої картки.
+    item.remove(); //?Якщо так то видаляє цей item тобто li(картку) та виходить із функції.
     return;
   }
-  item.classList.add("complite"); //?Додаємо класс .complite стилі на який вже написані.7
+  item.classList.add("complite"); //?Додаємо класс .complite стилі на який вже написані.
   const findItem = arr.find(({ id }) => id === item.dataset.id); //?знаходимо саме той id картки на яку клікнули(виконана)
   findItem.completed = true; //?Позначаємо що вона виконана(Самойстійно створенна властивість БУЛЕВУ!)
   localStorage.setItem("CardKey", JSON.stringify(arr)); //?Та переписуємо значення картки в якій змінене значення на виконана.
