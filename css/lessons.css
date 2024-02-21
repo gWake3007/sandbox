@@ -172,6 +172,49 @@ ul{
 .js-form{
   display: flex;
   flex-direction: column;
-  width: 700px;
   justify-content: center;
+  align-items: center;
+}
+
+.cart {
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.titleMarkup {
+  color: green;
+  letter-spacing: 0.03em;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.textMarkup {
+  color: blue;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.button-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 200px;
+  background-color: red;
+  color: brown;
+  border-radius: 5px;
+}
+
+.button-form:hover {
+  background-color: green;
+  color: yellow;
+}
+
+.form-input {
+  width: 80%;
+}
+
+.form-text {
+  width: 80%;
 }
