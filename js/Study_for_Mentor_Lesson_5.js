@@ -34,32 +34,40 @@ function submitList(event) {
   //   <h3 class="titleMarkup">${title.value}</h3>
   //   <p class="textMarkup">${text.value}</p>
   //   </li>`;
-  const titleH = event.currentTarget.elements.title.value; //?Розіб'ємо в такий спосіб щоб
-  const textP = event.currentTarget.elements.text.value;
+  const titleH = event.target.elements.title.value; //?Розіб'ємо в такий спосіб щоб
+  const textP = event.target.elements.text.value;
+
   const markup = `<li class="cart">
   <h3 class="titleMarkup">${titleH}</h3>
   <p class="textMarkup">${textP}</p>
   </li>`;
-  list.insertAdjacentHTML("beforeend", markup);
+
+  list.insertAdjacentHTML("afterbegin", markup);
+
   const obj = {
     titleH,
     textP,
   };
+
   arr.push(obj);
+
   localStorage.setItem("CardKey", JSON.stringify(arr));
-  event.currentTarget.elements.title.value = "";
-  event.currentTarget.elements.text.value = "";
+
+  event.target.elements.title.value = "";
+  event.target.elements.text.value = "";
 }
 
-function markup(arr) {
-  return arr
-    .map(({ titleH, textP }) => {
-      `<li class="cart">
+function markup(array) {
+  return array
+    .map(
+      ({ titleH, textP }) =>
+        `<li class="cart">
   <h3 class="titleMarkup">${titleH}</h3>
   <p class="textMarkup">${textP}</p>
-  </li>`;
-    })
+  </li>`
+    )
     .join("");
 }
 
-list.insertAdjacentHTML("beforeend", markup(arr));
+list.insertAdjacentHTML("afterbegin", markup(arr));
+
