@@ -3,6 +3,9 @@ body {
   flex-direction: column;
   margin: 16px;
   text-align: center;
+  line-height: 1.5;
+  color: #212121;
+  font-family: sans-serif;
   /* For_lesson_17 */
   /* font-size: 50px;
   background-image: url(../icons/background_for_lesson_17.jpg);
@@ -222,4 +225,19 @@ ul{
 
 .complite {
   background-color: green;
+}
+
+/* Lesson 19 */
+p {
+  margin: 0;
+}
+
+.user-list {
+  margin: 0;
+  list-style: none;
+  padding: 24px;
+}
+
+.user-list li:not(:last-child) {
+  margin-bottom: 16px;
 }
