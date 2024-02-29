@@ -142,6 +142,31 @@
 //?Приклад fetch по нашому посиланню з бек-Енду.
 // const promiseFetch = fetch("https://rickandmortyapi.com/api/character");
 // console.log(promiseFetch); //?fetch() - завжди передає проміс(асинхронна операція)Тут статус pending(очікування)
-fetch("https://rickandmortyapi.com/api/character")
-  .then((Response) => Response.json())
-  .then((Response) => console.log(Response)); //?В данному прикладі в консолі вже буде результат промісу з яким вже можна працювати.Також дуже важливий момент ми на об'єкті Response викликали МЕТОД json().Не плутати з форматом JSON!!!
+// fetch("https://rickandmortyapi.com/api/character")
+//   .then((Response) => Response.json())
+//   .then((Response) => console.log(Response)); //?В данному прикладі в консолі вже буде результат промісу з яким вже можна працювати.Також дуже важливий момент ми на об'єкті Response викликали МЕТОД json().Не плутати з форматом JSON!!!
+// fetch("https://rickandmortyapi.com/api/character1") //?тут спеціально зробленна помилка в шляху(в кінці 1)
+//   .then((Response) => {
+//     console.log(Response);
+//     if (!Response.ok) {
+//       //?ok це значення що відповідає за успішне чи не успішне виконання промісу(булеве значення)
+//       throw new Error("Примусово закидуємо значення у catch"); //?throw - потрібен для того щоб програма одразу перейшла до обробників try... catch.(САМОСТІЙНО СТВОРЮЄМО ПОМИЛКУ!)
+//     }
+//     return Response.json();
+//   })
+//   .then((Response) => console.log(Response))
+//   .catch((error) => console.error(error, "1"));
+//!============================================= Task Practical ===========================================================
+//?Програма для відображення прогнозу погоди.
+// https://www.weatherapi.com/docs/
+function serviceWeather(city, days) {
+  const FORECAST_URL = "http://api.weatherapi.com/v1/forecast.json";
+  const API_KEY = "66f9e81543404d02beb160521230808";
+  const params = new URLSearchParams({   //?Об'єкт параметрів.
+    key: API_KEY,                        //?Ключ.
+    q: city,                             //?q - це місто в якому ми хочемо дізнатись погоду.
+    days,                                //?Скороченна властивість.Тобто параметр одразу береться з аргементу функції!
+    lang: "uk",                          //?Мова Українська.
+    
+  })
+}

@@ -19,7 +19,25 @@
     <!-- <button type="button" class="btn">Fetch users</button>
     <ul class="user-list"></ul> -->
 
-    <!--  -->
+    <!-- Task Practical -->
+    <form action="submit" class="js-search-form search-form">
+      <div class="form-group">
+        <label for="city" class="label">Виберіть назву міста:</label>
+        <input type="text" name="city" class="search-input" required />
+      </div>
+      <div class="form-group">
+        <label for="days" class="label">Виберіть кількість днів:</label>
+        <div class="input-group">
+          <select name="days" class="days-select">
+            <opions value="3">3</opions>
+            <opions value="5">5</opions>
+            <opions value="7">7</opions>
+          </select>
+          <button class="search-button">Пошук</button>
+        </div>
+      </div>
+    </form>
+    <ul class="js-list weather-cards"></ul>
     <script src="./js/Lesson_19_HTTP-requests.js"></script>
   </body>
 </html>
