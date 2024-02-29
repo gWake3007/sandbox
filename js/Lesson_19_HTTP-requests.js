@@ -162,11 +162,21 @@
 function serviceWeather(city, days) {
   const FORECAST_URL = "http://api.weatherapi.com/v1/forecast.json";
   const API_KEY = "66f9e81543404d02beb160521230808";
-  const params = new URLSearchParams({   //?Об'єкт параметрів.
-    key: API_KEY,                        //?Ключ.
-    q: city,                             //?q - це місто в якому ми хочемо дізнатись погоду.
-    days,                                //?Скороченна властивість.Тобто параметр одразу береться з аргементу функції!
-    lang: "uk",                          //?Мова Українська.
-    
-  })
+  const params = new URLSearchParams({
+    //?Об'єкт параметрів.
+    key: API_KEY, //?Ключ.
+    q: city, //?q - це місто в якому ми хочемо дізнатись погоду.
+    days, //?Скороченна властивість.Тобто параметр одразу береться з аргементу функції!
+    lang: "uk", //?Мова Українська.
+  });
+  return fetch(`${FORECAST_URL}?${params}`).then((res) => {
+    if (!res.ok) {
+      throw new Error(res.statusText); //?statusText - Описує статус якщо викликається якась помилка.
+    }
+    return res.json();
+  }); //?До URL додаємо параметри і між ними ? який ставлять перед параметрами.
 }
+
+serviceWeather("Kiev", 3)
+  .then((data) => console.log(data))
+  .catch((err) => console.error(err));

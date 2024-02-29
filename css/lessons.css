@@ -241,3 +241,23 @@ p {
 .user-list li:not(:last-child) {
   margin-bottom: 16px;
 }
+/* Lesson_19_Task_Practical */
+.days-select {
+  -webkit-appearance: none; /* Приховання стандартного стилю в Chrome та Safari */
+  -moz-appearance: none; /* Приховання стандартного стилю в Firefox */
+  appearance: none; /* Приховання стандартного стилю в багатьох браузерах */
+  -ms-appearance: none; /* Додатковий префікс для Microsoft Edge */
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100px; /* Ширина елементу */
+}
+
+/* Стилізація для опцій */
+.days-select option {
+  background-color: #fff;
+  color: #333;
+}
+
