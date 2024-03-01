@@ -158,6 +158,21 @@
 //   .catch((error) => console.error(error, "1"));
 //!============================================= Task Practical ===========================================================
 //?Програма для відображення прогнозу погоди.
+const refs = {
+  form: document.querySelector(".js-search-form"),
+  list: document.querySelector(".js-list"),
+};
+
+refs.form.addEventListener("submit", serchWether);
+
+function serchWether(event) {
+    event.preventDefault();
+    const {city, days} = refs.form.elements;   //?Деструкторизацією дістаємо через name до полів city & days!
+    //?const city = refs.form.elements.city || const days = refs.form.elements.days; Це теж саме!
+    // console.log(city.value, days.value);  //?Так показуємо в консоль самі value цих полів форми!!!
+    
+}
+
 // https://www.weatherapi.com/docs/
 function serviceWeather(city, days) {
   const FORECAST_URL = "http://api.weatherapi.com/v1/forecast.json";
@@ -177,6 +192,6 @@ function serviceWeather(city, days) {
   }); //?До URL додаємо параметри і між ними ? який ставлять перед параметрами.
 }
 
-serviceWeather("Kiev", 3)
-  .then((data) => console.log(data))
+serviceWeather("Kiev", 3) //?Запит відбувається тут(при виклику функції).Там де запит відбувається там його і оброблюємо!
+  .then((data) => console.log(data)) //?data - вільна назва(ЦЕ ВІДПОВІДЬ ВІД СЕРВЕРА!)
   .catch((err) => console.error(err));
