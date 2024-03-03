@@ -157,7 +157,9 @@
 //   .then((Response) => console.log(Response))
 //   .catch((error) => console.error(error, "1"));
 //!============================================= Task Practical ===========================================================
-//?Програма для відображення прогнозу погоди.
+//?Програма для відображення прогнозу погоди.(Реального прогнозу погоди)
+//?НЕ НАДАЄ ІНФОРМАЦІЇ З БЕК ЕНДУ БІЛЬШЕ НІЖ НА ТРИ ДНІ.ЯКЩО ХОЧЕШ БІЛЬШЕ ТО ПО ПЛАТНІЙ ПІДПИСЦІ!!!
+// https://www.weatherapi.com/docs/
 const refs = {
   form: document.querySelector(".js-search-form"),
   list: document.querySelector(".js-list"),
@@ -166,14 +168,23 @@ const refs = {
 refs.form.addEventListener("submit", serchWether);
 
 function serchWether(event) {
-    event.preventDefault();
-    const {city, days} = refs.form.elements;   //?Деструкторизацією дістаємо через name до полів city & days!
-    //?const city = refs.form.elements.city || const days = refs.form.elements.days; Це теж саме!
-    // console.log(city.value, days.value);  //?Так показуємо в консоль самі value цих полів форми!!!
-    
+  event.preventDefault();
+  const { city, days } = refs.form.elements; //?Деструкторизацією дістаємо через name до полів city & days!
+  // const { city, days } = event.currentTarget.elements; //?Альтернапива тому що вище.
+  //?const city = refs.form.elements.city || const days = refs.form.elements.days; Це теж саме!
+  console.log(city.value, days.value); //?Так показуємо в консоль самі value цих полів форми!!!
+  serviceWeather(city.value, days.value)
+    .then((data) => {
+      console.log(data);
+      console.log(data.forecast.forecastday); //?Пернвірка чи дана властивість показує нам масив в данними.
+      console.log(createMarkup(data.forecast.forecastday)); //?Перевірка роботи функції.
+      refs.list.innerHTML = createMarkup(data.forecast.forecastday);
+    }) //?Оброблюємо проміс який прийшов з функції serviceWeather().
+    .catch((err) => console.error(err));
+  city.value = "";
+  days.value = "";
 }
 
-// https://www.weatherapi.com/docs/
 function serviceWeather(city, days) {
   const FORECAST_URL = "http://api.weatherapi.com/v1/forecast.json";
   const API_KEY = "66f9e81543404d02beb160521230808";
@@ -192,6 +203,27 @@ function serviceWeather(city, days) {
   }); //?До URL додаємо параметри і між ними ? який ставлять перед параметрами.
 }
 
-serviceWeather("Kiev", 3) //?Запит відбувається тут(при виклику функції).Там де запит відбувається там його і оброблюємо!
+//?Глибока деструкторизація(Коли об'єкт знаходиться в об'єкті і треба дістатися на один або декилька рівнів глибше!)
+function createMarkup(arr) {
+  return arr
+    .map(
+      ({
+        date,
+        day: {
+          avgtemp_c,
+          condition: { text, icon },
+        },
+      }) =>
+        `<li class="weather-card">
+    <img class="weather-icon" src="${icon}" alt="${text}" />
+    <h2 class="date">${date}</h2>
+    <h3 class="weather-text">${text}</h3>
+    <h3 class="temperature">${avgtemp_c} °C</h3>
+    </li>`
+    )
+    .join("");
+}
+
+serviceWeather("Kiev", 7) //?Запит відбувається тут(при виклику функції).Там де запит відбувається там його і оброблюємо!
   .then((data) => console.log(data)) //?data - вільна назва(ЦЕ ВІДПОВІДЬ ВІД СЕРВЕРА!)
   .catch((err) => console.error(err));

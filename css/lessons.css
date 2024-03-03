@@ -280,3 +280,10 @@ p {
 .search-button {
   margin-top: 30px;
 }
+
+.weather-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+}
