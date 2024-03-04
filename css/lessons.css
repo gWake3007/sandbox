@@ -287,3 +287,25 @@ p {
   flex-wrap: wrap;
   gap: 30px;
 }
+/* Lesson_20 */
+.posts {
+  margin: 0;
+  margin-top: 24px;
+  list-style: none;
+}
+
+.posts li:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.post-title {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.post-title:first-letter {
+  text-transform: uppercase;
+}
+/* Lesson_20_Practical_task */

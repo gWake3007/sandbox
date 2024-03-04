@@ -176,7 +176,7 @@ function serchWether(event) {
   serviceWeather(city.value, days.value)
     .then((data) => {
       console.log(data);
-      console.log(data.forecast.forecastday); //?Пернвірка чи дана властивість показує нам масив в данними.
+      console.log(data.forecast.forecastday); //?Перевірка чи дана властивість показує нам масив в данними.
       console.log(createMarkup(data.forecast.forecastday)); //?Перевірка роботи функції.
       refs.list.innerHTML = createMarkup(data.forecast.forecastday);
     }) //?Оброблюємо проміс який прийшов з функції serviceWeather().
