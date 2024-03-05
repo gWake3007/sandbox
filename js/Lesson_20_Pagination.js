@@ -129,19 +129,54 @@
 //!================================================= Practical_task =====================================================
 //?Фільмотека.
 //?Перші три константи це все посилання на API з ключем. Перше це базове посилання.Друге це саме найпопулярніші за останній тиждень.Та третє це ключ.
+//?Можна отримувати доступ до данних через API_KEY або є за допомогою хедера(headers).
 //?https://developer.themoviedb.org/reference/trending-movies
+const refs = {
+  list: document.querySelector(".js-movie-list"),
+  button: document.querySelector(".js-load-more"),
+};
+let page = 1;
 
-function serviceMovies() {
+refs.button.addEventListener("click", fetchMore);
+
+serviceMovies().then((data) => {
+  refs.list.insertAdjacentHTML("beforeend", createMarkup(data.results));
+  if (data.page < data.total_pages) {
+    refs.button.style.display = "inline";
+    refs.button.disabled = false;
+  }
+}).catch(error => console.log(error));
+
+function fetchMore() {
+    page += 1;
+    refs.button.disabled = true;
+    serviceMovies(page).then((data) => {
+      refs.list.insertAdjacentHTML("beforeend", createMarkup(data.results));
+      refs.button.disabled = false;
+
+      if(data.page >= 4) {
+        refs.button.style.display = "none";
+      }
+    }).catch(error => console.log(error));
+}
+
+function serviceMovies(page = 1) {
   const BASE_URL = "https://api.themoviedb.org/3";
   const END_POINT = "/trending/movie/week";
-  const API_KEY = "855f3dbd969e0d1c7572829bc43de5d4";
+//   const API_KEY = "855f3dbd969e0d1c7572829bc43de5d4";
 
   const params = new URLSearchParams({
-    api_key: API_KEY,
-    page: 1,
+    // api_key: API_KEY,
+    page,
   });
 
-  return fetch(`${BASE_URL}${END_POINT}?${params}`).then((resp) => {
+  const options = {
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NTVmM2RiZDk2OWUwZDFjNzU3MjgyOWJjNDNkZTVkNCIsInN1YiI6IjY1ZTVjM2NlYTY3MjU0MDE0OWE4YzFmNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.n3fIsnjgr1zLa3OWcsY09BW4LEm_q-AejvLC80BOkRE",
+    },
+  };
+  return fetch(`${BASE_URL}${END_POINT}?${params}`, options).then((resp) => {
     if (!resp.ok) {
       throw new Error(resp.statusText);
     }
@@ -149,4 +184,23 @@ function serviceMovies() {
   });
 }
 
-serviceMovies().then(data => console.log(data));
+function createMarkup(arr) {
+  const imageURL = "https://image.tmdb.org/t/p/w300";
+  return arr
+    .map(
+      ({
+        poster_path,
+        original_title,
+        release_date,
+        vote_average,
+      }) => `<li class="movie-cart">
+    <img class="movie-img" src="${imageURL}${poster_path}" alt="${original_title}" width="300px" height="500px"/>
+    <div class="movie-text-box">
+    <h2 class="movie-title">${original_title}</h2>
+    <h3 class="movie-reliase">${release_date}</h3>
+    <h3 class="movie-average">${vote_average}</h3>
+    </div>
+  </li>`
+    )
+    .join("");
+}
