@@ -197,8 +197,8 @@ function createMarkup(arr) {
     <img class="movie-img" src="${imageURL}${poster_path}" alt="${original_title}" width="300px" height="500px"/>
     <div class="movie-text-box">
     <h2 class="movie-title">${original_title}</h2>
-    <h3 class="movie-reliase">${release_date}</h3>
-    <h3 class="movie-average">${vote_average}</h3>
+    <h3 class="movie-reliase">Release_date:${release_date}</h3>
+    <h3 class="movie-average">Vote_average:${vote_average}</h3>
     </div>
   </li>`
     )

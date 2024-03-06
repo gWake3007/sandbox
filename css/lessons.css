@@ -337,6 +337,7 @@ p {
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
   border-radius: 10px;
   object-fit: cover;
+  max-width: 333px;
   transition: transform var(--animation-duration) var(--timing-function);
   filter: grayscale(1);
 }
