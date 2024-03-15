@@ -145,7 +145,7 @@ ul {
   gap: 20px;
 }
 
-.item {
+/* .item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -154,7 +154,7 @@ ul {
   width: 80px;
   height: 80px;
   font-size: 40px;
-}
+} */
 
 .js-start {
   padding: 20px;
