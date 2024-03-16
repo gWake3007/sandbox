@@ -30,7 +30,7 @@ ul {
 }
 
 /* Third Task Study_for_Mentor_Lesson_4 */
-.list {
+/* .list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -39,7 +39,7 @@ ul {
   list-style: none;
   border: 3px solid black;
   border-radius: 20px;
-}
+} */
 
 .word {
   display: flex;

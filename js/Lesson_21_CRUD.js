@@ -18,7 +18,7 @@
 //     author: "Mango",
 //     body: "CRUD is awesome",
 //   };
-  
+
 //   const options = {
 //     method: "POST",
 //     body: JSON.stringify(postToAdd),
@@ -26,7 +26,7 @@
 //       "Content-Type": "application/json; charset=UTF-8",
 //     },
 //   };
-  
+
 //   fetch("https://jsonplaceholder.typicode.com/posts", options)
 //     .then(response => response.json())
 //     .then(post => console.log(post))
@@ -38,7 +38,7 @@
 //     id: 1,
 //     body: "CRUD is really awesome",
 //   };
-  
+
 //   const options = {
 //     method: "PATCH",
 //     body: JSON.stringify(postToUpdate),
@@ -46,7 +46,7 @@
 //       "Content-Type": "application/json; charset=UTF-8",
 //     },
 //   };
-  
+
 //   fetch(`https://jsonplaceholder.typicode.com/posts/${postToUpdate.id}`, options)
 //     .then(response => response.json())
 //     .then(post => console.log(post))
@@ -60,5 +60,57 @@
 // })
 //   .then(() => console.log("Post deleted"))
 //   .catch(error => console.log("Error:", error));
-//!================================================= Example 
-//?
+//!================================================= Practic ==============================================================
+//?Діставання інформації про юзерів зі своєго бек-Енду(серверу).
+const refs = {
+  fetchBtn: document.querySelector(".fetch"),
+  loader: document.querySelector(".loader"),
+  list: document.querySelector(".list"),
+  addUserBtn: document.querySelector(".add"),
+  formWrapper: document.querySelector(".form-wrapper"),
+};
+
+refs.addUserBtn.style.display = "none";
+refs.loader.style.display = "none";
+
+const BASE_URL = "http://localhost:8080";
+
+refs.fetchBtn.addEventListener("click", getUsers);
+
+function getUsers(event) {
+  refs.loader.style.display = "block";         //?Лоадер стиль block тому що заголовок та текс блокові елементи.
+  fetch(`${BASE_URL}/users`)
+    .then((response) => response.json())
+    .then((users) => {
+      const markup = users
+        .map(
+          ({ name, email, id }) => `
+        <li id="${id}">
+        <p>Name:<span class="name">${name}</span></p>
+        <p>Email:<span class="email">${email}</span></p>
+        <button type="button" class="delete">Delete</button>
+        <button type="button" class="edit">Edit</button>
+        </li>
+        `
+        )
+        .join("");
+      refs.list.innerHTML = "";
+      refs.list.insertAdjacentHTML("afterbegin", markup);
+      refs.fetchBtn.style.display = "none";
+      refs.addUserBtn.style.display = "inline";       //?Кнопка inline так як вона є блочним елементом.
+      const delBtns = document.querySelectorAll(".delete");
+      delBtns.forEach(btn => btn.addEventListener("click", deleteUser));
+      const editBtns = document.querySelectorAll(".edit");
+      editBtns.forEach(btn => btn.addEventListener("click", editUser));
+    })
+    .catch((error) => console.log(error))
+    .finally(())
+}
+
+function deleteUser(event) {
+
+}
+
+function editUser(event) {
+
+}
