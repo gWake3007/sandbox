@@ -124,3 +124,41 @@ function deleteUser(event) {
 }
 
 function editUser(event) {}
+
+refs.addUserBtn.addEventListener("click", addUser);
+
+function createFormMarkup() {
+  return `<form type="submit">
+    <label>Name: <input type="text" name="name"></label>
+    <label>Email: <input type="email" name="email"></label>
+    <button type="button" class="save">Save</button>
+    </form>`;
+}
+
+function addUser(event) { //?Функція для додавання юзера(На цьому бек-Енді не працює але код працюючий!)
+  refs.formWrapper.innerHTML = createFormMarkup();
+  const saveBtn = document.querySelector(".save");
+  const form = document.querySelector("form"); //?Так як на сторінці одна форма то добираємось по тегу до неї.
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const user = {
+      name: event.currentTarget.elements.name.value,
+      email: event.currentTarget.elements.email.value,
+    };
+
+    const options = {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+    };
+    saveBtn.textContent = "Saving...";
+    fetch(`${BASE_URL}/posts`, options)
+      .then(() => {
+        getUsers();
+        refs.formWrapper.innerHTML = "";
+      })
+      .catch((error) => console.log(error));
+    });
+}
