@@ -123,19 +123,57 @@ function deleteUser(event) {
     .catch((error) => console.log(error));
 }
 
-function editUser(event) {}
+function editUser(event) {
+  //?Функція для виведення форми з данними li які можна змінювати!
+  const id = event.currentTarget.parentNode.id;
+  //?Добираємось по значенню id li елемента до селектора name & email текстового контенту щоб пізніше його використати.
+  const name =
+    event.currentTarget.parentNode.querySelector(".name").textContent;
+  const email =
+    event.currentTarget.parentNode.querySelector(".email").textContent;
+  refs.formWrapper.innerHTML = createFormMarkup(name, email);
+  const form = document.querySelector("form");
+  const editBtn = event.target;
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const user = {
+      name: event.currentTarget.elements.name.value,
+      email: event.currentTarget.elements.email.value,
+    };
+
+    const options = {
+      method: "PUT",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+    };
+    editBtn.textContent = "Editing...";
+    fetch(`${BASE_URL}/posts/${id}`, options)
+      .then(() => {
+        getUsers();
+        refs.formWrapper.innerHTML = "";
+      })
+      .catch((error) => console.log(error))
+      .finally(() => {
+        editBtn.textContent = "Edit";
+      });
+  });
+}
 
 refs.addUserBtn.addEventListener("click", addUser);
 
-function createFormMarkup() {
+function createFormMarkup(name = "", email = "") {
+  //?Дефолтні значення пусті рядки. Для додавання і для редагування.
   return `<form type="submit">
-    <label>Name: <input type="text" name="name"></label>
-    <label>Email: <input type="email" name="email"></label>
+    <label>Name: <input type="text" name="name" value="${name}"></label>
+    <label>Email: <input type="email" name="email" value="${email}"></label>
     <button type="button" class="save">Save</button>
     </form>`;
 }
 
-function addUser(event) { //?Функція для додавання юзера(На цьому бек-Енді не працює але код працюючий!)
+function addUser(event) {
+  //?Функція для додавання юзера(На цьому бек-Енді не працює але код працюючий!)
   refs.formWrapper.innerHTML = createFormMarkup();
   const saveBtn = document.querySelector(".save");
   const form = document.querySelector("form"); //?Так як на сторінці одна форма то добираємось по тегу до неї.
@@ -160,5 +198,5 @@ function addUser(event) { //?Функція для додавання юзера
         refs.formWrapper.innerHTML = "";
       })
       .catch((error) => console.log(error));
-    });
+  });
 }
