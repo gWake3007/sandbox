@@ -73,21 +73,21 @@ const refs = {
 refs.addUserBtn.style.display = "none";
 refs.loader.style.display = "none";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://jsonplaceholder.typicode.com";
 
 refs.fetchBtn.addEventListener("click", getUsers);
 
-function getUsers(event) {
-  refs.loader.style.display = "block";         //?Лоадер стиль block тому що заголовок та текс блокові елементи.
-  fetch(`${BASE_URL}/users`)
+function getUsers() {
+  refs.loader.style.display = "block"; //?Лоадер стиль block тому що заголовок та текс блокові елементи.
+  fetch(`${BASE_URL}/posts`)
     .then((response) => response.json())
     .then((users) => {
       const markup = users
         .map(
-          ({ name, email, id }) => `
+          ({ title, body, id }) => `
         <li id="${id}">
-        <p>Name:<span class="name">${name}</span></p>
-        <p>Email:<span class="email">${email}</span></p>
+        <p>Name:<span class="name">${title}</span></p>
+        <p>Email:<span class="email">${body}</span></p>
         <button type="button" class="delete">Delete</button>
         <button type="button" class="edit">Edit</button>
         </li>
@@ -97,20 +97,30 @@ function getUsers(event) {
       refs.list.innerHTML = "";
       refs.list.insertAdjacentHTML("afterbegin", markup);
       refs.fetchBtn.style.display = "none";
-      refs.addUserBtn.style.display = "inline";       //?Кнопка inline так як вона є блочним елементом.
+      refs.addUserBtn.style.display = "inline"; //?Кнопка inline так як вона є блочним елементом.
       const delBtns = document.querySelectorAll(".delete");
-      delBtns.forEach(btn => btn.addEventListener("click", deleteUser));
+      delBtns.forEach((btn) => btn.addEventListener("click", deleteUser));
       const editBtns = document.querySelectorAll(".edit");
-      editBtns.forEach(btn => btn.addEventListener("click", editUser));
+      editBtns.forEach((btn) => btn.addEventListener("click", editUser));
     })
     .catch((error) => console.log(error))
-    .finally(())
+    .finally(() => {
+      refs.loader.style.display = "none"; //?По завершенню приховуємо лоадер!
+    });
 }
 
 function deleteUser(event) {
-
+  const id = event.target.parentNode.id; //?Добираємось через кнопку Delete до id батьківського елементу li.
+  const options = {
+    method: "DELETE",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  };
+  event.target.textContent = "Deliting";
+  fetch(`${BASE_URL}/posts/${id}`, options)
+    .then(() => getUsers()) //?Заново викликаємо функцію getUserts() - щоб оновити дані з бек енду без видаленного юзеру.
+    .catch((error) => console.log(error));
 }
 
-function editUser(event) {
-
-}
+function editUser(event) {}
