@@ -162,6 +162,7 @@
 //   userList.innerHTML = markup;
 // }
 //!===================================== Example (Construction async/await) ============================================
+//?Послідовні запити.
 //?Конструкція async/await. Приклади через звичайний fetch в порівнянні з async/await.
 // function serviceCountry() {
 //   const URL = "https://restcountries.com/v3.1/name/Ukraine";
@@ -177,11 +178,71 @@
 
 // serviceCountry().catch(console.log);
 //?Приклад через AXIOS libraty.
-function serviceCountry() {
-  const URL = "https://restcountries.com/v3.1/name/Ukraine";
-  return axios.get(URL);
-}
+// function serviceCountry() {
+//   const URL = "https://restcountries.com/v3.1/name/Ukraine";
+//   return axios.get(URL);
+// }
 
-serviceCountry()
-  .then(({ data }) => console.log(data))
-  .catch((error) => console.log("AXIOS ERROR:", error));
+// serviceCountry()
+//   .then(({ data }) => console.log(data))
+//   .catch((error) => console.log("AXIOS ERROR:", error));
+//?ASYNC FETCH Example!
+// async function serviceCountry() {
+//   //?Вказуємо що функція асинхронна.
+//   const URL = "https://restcountries.com/v3.1/name/Ukraine";
+//   try {      //?Коректна обробка промісу з async/await через try/catch!
+//     const resp = await fetch(URL); //?await - завжди повертає результат промісу.
+//     if (!resp.ok) {
+//       throw new Error(resp.statusText);
+//     }
+//     const data = await resp.json(); //?Для більш корректної роботи треба дочекатися цей проміс тому ставимо await!!!
+//     console.log(data);
+//     return data;
+//   } catch (error) {
+//     console.log("TRY_CATCH:", error);
+//   }
+// }
+
+// serviceCountry();
+//?ASYNC AXIOS Example!
+// async function serviceCountry() {
+//   const URL = "https://restcountries.com/v3.1/name/Ukraine";
+//   try {
+//     const { data } = await axios.get(URL); //?Тут також деструкторизуємо одразу щоб не отримувати зайвої інформації.А одразу дату!
+//     console.log(data);
+//     return data;
+//   } catch (error) {
+//     console.log("TRY_CATACH_AXIOS:", error);
+//   }
+// }
+
+// serviceCountry();
+//!===================================== Example ( sequential and parallel queries ) ======================================
+//?Послідовні та паралельні запити приклади!!!
+//?Послідовні!
+// async function serviceCountry() {
+//   const rest1 = await axios.get("https://restcountries.com/v3.1/name/Ukraine");
+//   const rest2 = await axios.get("https://restcountries.com/v3.1/name/France");
+//   const rest3 = await axios.get("https://restcountries.com/v3.1/name/Poland");
+//   console.log(rest1);
+//   console.log(rest2);
+//   console.log(rest3);
+// }
+
+// serviceCountry();
+//?Паралельні!
+// async function serviceCountry() {
+//   const countries = ["Ukraine", "France", "Poland"];
+//   const respPromises = countries.map(async (country) => {
+//     const response = await axios(
+//       `https://restcountries.com/v3.1/name/${country}`
+//     );
+//     console.log(response);
+//     return response;
+//   });
+//   console.log(respPromises);
+// }
+
+// serviceCountry();
+//!====================================================== Practical Task ===============================================
+//?
