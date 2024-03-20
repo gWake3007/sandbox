@@ -246,3 +246,46 @@
 // serviceCountry();
 //!====================================================== Practical Task ===============================================
 //?
+// const bek = "https://restcountries.com/";
+// const bekWeather = "https://weatherapi.com/docs/";
+const countries = ["Ukraine", "Poland", "Spain", "Canada", "France", "Italia"];
+const capitals = serviceCountry(countries);
+
+//?Функція для створення масиву столиць тих країн що у нас в масиві.
+async function serviceCountry(countries) {
+  const respPromises = countries.map(async (country) => {
+    const { data } = await axios(
+      `https://restcountries.com/v3.1/name/${country}`
+    );
+    // console.log(data[0].capital[0]); //?Показуємо столиці країн.
+    return data[0].capital[0];
+  });
+  // console.log(respPromises); //?Масив промісів fulfilled.Вже видно результат але це масив промісів.
+  const data = await Promise.allSettled(respPromises);
+  // console.log(data); //?Отримуємо масив промісів.
+  return data
+    .filter(({ status }) => status === "fulfilled")
+    .map(({ value }) => value);
+}
+
+// serviceCountry(countries).then(console.log);
+//?
+async function serviceWeather(capitals) {
+  const API_KEY = "77b507ce40a34620ab9105443242003";
+  const BASE_URL = "http://api.weatherapi.com/v1";
+  const END_POINT = "/current.json";
+
+  const response = capitals.map(async (country) => {
+    const { data } = await axios(
+      `${BASE_URL}${END_POINT}?key=${API_KEY}&q=${country}`
+    );
+    console.log(data);
+    return data;
+  });
+
+  const data = await Promise.allSettled(response);
+  console.log(data);
+  return data.filter(({ status }) => status === "fulfilled");
+}
+
+serviceWeather(capitals);
