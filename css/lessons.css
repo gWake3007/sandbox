@@ -1,6 +1,8 @@
 body {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 16px;
   text-align: center;
   line-height: 1.5;
@@ -371,4 +373,31 @@ p {
 
 .movie-average {
   font-weight: 30px;
+}
+/* Lesson_22 Practical Task */
+.js-form-country {
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.js-form-container {
+  width: 1500px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-serch-country {
+  max-width: 200px;
+}
+
+.js-btn-add-country {
+  max-width: 200px;
 }

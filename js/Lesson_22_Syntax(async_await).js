@@ -245,11 +245,46 @@
 
 // serviceCountry();
 //!====================================================== Practical Task ===============================================
-//?
-// const bek = "https://restcountries.com/";
-// const bekWeather = "https://weatherapi.com/docs/";
-const countries = ["Ukraine", "Poland", "Spain", "Canada", "France", "Italia"];
-const capitals = serviceCountry(countries);
+//?Завдання для пошуку країни.І далі відмальовування прогнозу погоди столиці цієї країни!!!
+const refs = {
+  form: document.querySelector(".js-form-country"),
+  container: document.querySelector(".js-form-container"),
+  btnAdd: document.querySelector(".js-btn-add-country"),
+  list: document.querySelector(".js-list"),
+};
+
+refs.form.addEventListener("submit", serchCountry);
+refs.btnAdd.addEventListener("click", addField);
+
+async function serchCountry(event) {
+  event.preventDefault();
+
+  const formData = new FormData(event.currentTarget); //?Внутрішній клас в Java Script для роботи з формами.
+  //?Тут ми отримуємо масив усіх країн введених в усіх інпутах.
+  const countries = formData
+    .getAll("country")
+    .map((country) => country.trim()) //?trim - прибирає пробіли с початку і вкінці.
+    .filter((country) => country); //?filter - відфільтровує масиви.Фультер автоматично приводить до булевого типу тому пусті інпути або з пробілами автоматично будуть false.
+  console.log(countries);
+  try {
+    const capitals = await serviceCountry(countries);
+    const weather = await serviceWeather(capitals);
+    console.log(weather);
+    refs.list.innerHTML = createMarkup(weather);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    event.target.reset();
+    refs.form.innerHTML = '<input type="text" name="country" />';
+  }
+}
+
+function addField() {
+  refs.container.insertAdjacentHTML(
+    "beforeend",
+    '<input type="text" name="country" />'
+  );
+}
 
 //?Функція для створення масиву столиць тих країн що у нас в масиві.
 async function serviceCountry(countries) {
@@ -269,7 +304,7 @@ async function serviceCountry(countries) {
 }
 
 // serviceCountry(countries).then(console.log);
-//?
+//?Функція яка приймає столицю і повертає дані по погоді цього міста.
 async function serviceWeather(capitals) {
   const API_KEY = "77b507ce40a34620ab9105443242003";
   const BASE_URL = "http://api.weatherapi.com/v1";
@@ -279,13 +314,46 @@ async function serviceWeather(capitals) {
     const { data } = await axios(
       `${BASE_URL}${END_POINT}?key=${API_KEY}&q=${country}`
     );
-    console.log(data);
+    // console.log(data);
     return data;
   });
 
   const data = await Promise.allSettled(response);
-  console.log(data);
-  return data.filter(({ status }) => status === "fulfilled");
+  // console.log(data);
+  return data
+    .filter(({ status }) => status === "fulfilled")
+    .map(({ value: { current, location } }) => {
+      const {
+        temp_c,
+        condition: { icon, text },
+      } = current;
+      const { name, country } = location;
+      return {
+        temp_c,
+        icon,
+        text,
+        name,
+        country,
+      };
+    });
 }
 
-serviceWeather(capitals);
+// const countries = ["Ukraine", "Poland", "Spain", "Canada", "France", "Italia"];
+// const capitals = serviceCountry(countries).then(console.log);
+// const capitals = ["Kyiv", "Warsaw", "Madrid", "Ottawa", "Paris", "Rome"];
+
+// serviceWeather(capitals).then(console.log);
+
+function createMarkup(weather) {
+  return weather
+    .map(
+      ({ temp_c, icon, text, name, country }) => `<li>
+  <img src="${icon}" alt="${text}">
+  <h2>${country}</h2>
+  <h2>${name}</h2>
+  <p>${text}</p>
+  <p>${temp_c}</p>
+</li>`
+    )
+    .join("");
+}
