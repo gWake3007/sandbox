@@ -14,7 +14,13 @@ function serviceCharacter() {
 }
 
 serviceCharacter()
-  .then((data) => createMarkup(data.results))
+  .then((data) => {
+    console.log(data);
+    createMarkup(data.results);
+    if (data.info.pages > 1) {
+      btn_loadMore.hidden = false;
+    }
+  })
   .catch((err) => console.log(err));
 
 function createMarkup(data) {
@@ -34,6 +40,11 @@ btn_loadMore.addEventListener("click", loadMore);
 function loadMore() {
   page += 1;
   serviceCharacter()
-    .then((data) => createMarkup(data.results))
+    .then((data) => {
+      createMarkup(data.results);
+      if(data.info.pages === page) {
+        btn_loadMore.hidden = true;
+      }
+    })
     .catch((err) => console.log(err));
 }
