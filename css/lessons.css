@@ -401,3 +401,38 @@ p {
 .js-btn-add-country {
   max-width: 200px;
 }
+/* Study_for_Mentor_Lesson_6 */
+.list-rik-morty {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.item-rik-morty {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  padding: 15px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rga(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.img-rik-morty {
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+.title-rik-morty {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.loan-more-js {
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: #7e9bbd;
+  background-color: #212121;
+}
