@@ -54,14 +54,14 @@
 const URL = "https://rickandmortyapi.com/api/character/";
 
 const list = document.querySelector(".list-rik-morty");
-let page = 40;
+let page = 1;
 
 //?Intersection Observer API.
 //?Якщо слідкуємо за всім viewport.
 //?За яку відстань до кінця контенту завантажувати наступній з бек-Енду.
 let options = {
   root: null,
-  rootMargin: "200px",
+  rootMargin: "300px",
 };
 
 const guard = document.querySelector(".js-guard"); //?Контроллер для Intersection Observer API.Коли закінчується pages з бек-Енду.
