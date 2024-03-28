@@ -1,0 +1,32 @@
+/* body {
+    color: #2E2F42;
+    background-color: #4D5AE5;
+} */
+
+.svg-list {
+    list-style: none;
+}
+
+.item {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 88px;
+}
+
+.svg-item {
+    width: 64px;
+    height: 64px;
+    fill: red;
+    color: brown;
+    background-color: aqua;
+    cursor: pointer;
+}
+
+.svg-item:hover {
+    fill: black;
+}
+
+body {
+    background-color: white;
+}
