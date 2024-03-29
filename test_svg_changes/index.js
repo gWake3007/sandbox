@@ -1,4 +1,3 @@
-const first = document.querySelector("#path-first");
-console.log(first);
+const use = document.querySelector("#use-first path");
 
-first.style.fill = "black";
+console.log(use);

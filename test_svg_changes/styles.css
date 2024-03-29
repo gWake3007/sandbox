@@ -18,7 +18,6 @@
     width: 64px;
     height: 64px;
     fill: red;
-    color: brown;
     background-color: aqua;
     cursor: pointer;
 }
@@ -30,3 +29,13 @@
 body {
     background-color: white;
 }
+
+/* Якщо svg всередині html документа!!! */
+
+/* #firs-icon:hover #path-first{
+    fill: aqua;
+}
+
+#firs-icon:hover #path-second{
+    fill:blue;
+} */
