@@ -17,14 +17,13 @@
 .svg-item {
     width: 64px;
     height: 64px;
-    fill: red;
     background-color: aqua;
     cursor: pointer;
 }
 
-.svg-item:hover {
+/* .svg-item:hover {
     fill: black;
-}
+} */
 
 body {
     background-color: white;
