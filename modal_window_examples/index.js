@@ -34,9 +34,11 @@ fetchCarts()
   .then((resp) => {
     list.insertAdjacentHTML("beforeend", createMarcup(resp.results));
     const links = document.querySelectorAll(".cart-a");
+
     links.forEach((link) => {
       link.addEventListener("click", (event) => {
         const id = Number(event.currentTarget.id);
+
         for (let i = 0; i < resp.results.length; i++) {
           if (id === resp.results[i].id) {
             console.log(resp.results[i]);
@@ -44,25 +46,25 @@ fetchCarts()
               "afterbegin",
               createModalWindow(resp.results[i])
             );
+            // const backdrop = document.querySelector(".backdrop");
+            // console.log(backdrop);
+            // backdrop.classlist.add("is-open");
           }
+
         }
-        const backdrop = document.querySelector(".backdrop");
-        console.log(backdrop);
-        backdrop.classlist.add("is-open");
-        body.classList.add("modal-open");
+
+        // body.classList.add("modal-open");
       });
+
+
     });
+
+
   })
   .catch((err) => console.log(err));
 
 function createModalWindow(obj) {
-  const {
-    id,
-    image,
-    name,
-    status,
-    gender ,
-  } = obj;
+  const { id, image, name, status, gender } = obj;
   const markup = `<div class="backdrop is-open">
     <div class="modal " id="${id}">
 <img class="modal-img" src="${image}" alt="${name}">

@@ -46,16 +46,17 @@
 }
 
 .modal {
+  border: 1px solid black;
   position: absolute;
   width: 335px;
   border-radius: 20px;
   z-index: 100;
   padding: 20px;
-  background-color: var(--white);
+  background-color: white;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(0) scale(1);
   scroll-behavior: smooth;
   overflow-y: scroll;
-  height: 100vh;
+  height: 50vh;
 }
