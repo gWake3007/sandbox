@@ -65,7 +65,7 @@ fetchCarts()
 
 function createModalWindow(obj) {
   const { id, image, name, status, gender } = obj;
-  const markup = `<div class="backdrop is-open">
+  const markup = `<div class="backdrop">
     <div class="modal " id="${id}">
 <img class="modal-img" src="${image}" alt="${name}">
 <h2 class="modal-title">${name}</h2>
@@ -74,4 +74,10 @@ function createModalWindow(obj) {
 </div>
 </div>`;
   return markup;
+
 }
+
+
+const backdrop = document.querySelector(".backdrop");
+console.log(backdrop);
+backdrop.classlist.add("is-open");
