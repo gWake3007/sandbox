@@ -46,9 +46,14 @@ fetchCarts()
               "afterbegin",
               createModalWindow(resp.results[i])
             );
-            // const backdrop = document.querySelector(".backdrop");
-            // console.log(backdrop);
-            // backdrop.classlist.add("is-open");
+            const backdrop = document.querySelector(".backdrop");
+            console.log(backdrop);
+            if(backdrop.classList.contains("backdrop")) {
+                console.log(backdrop.classList.contains("backdrop"));
+                backdrop.classlist.toggle("is-open");
+            }
+
+           
           }
 
         }
@@ -76,8 +81,3 @@ function createModalWindow(obj) {
   return markup;
 
 }
-
-
-const backdrop = document.querySelector(".backdrop");
-console.log(backdrop);
-backdrop.classlist.add("is-open");
