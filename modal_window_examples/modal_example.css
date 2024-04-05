@@ -20,6 +20,7 @@ body {
   background-color: #383838;
 }
 
+/* Для Js скрипта */
 body.lock {
   overflow: hidden;
 }

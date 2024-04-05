@@ -128,14 +128,15 @@
     </div>
     <!-- Написання самих попап -->
     <div class="popup" id="popup">
-        <!-- Для закриття модалки по натисканню не по модалці -->
-        <!-- <a href="#header" class="popup-area"></a> -->
+      <!-- Для закриття модалки по натисканню не по модалці -->
+      <!-- <a href="#header" class="popup-area"></a> -->
       <div class="popup-body">
         <div class="popup-content">
-            <!-- Для закриття модалки хрестиком -->
-          <a href="#header" class="popup-close">X</a>
+          <!-- Для закриття модалки хрестиком -->
+          <a href="#header" class="popup-close close-popup">X</a>
           <div class="popup-title">Это модальное окно №1</div>
           <div class="popup-text">
+            <a href="#popup_2" class="popup-link">Попап№2</a>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae
             facere non quibusdam veniam, est atque deleniti, ut adipisci
             necessitatibus quos labore corporis distinctio pariatur fuga. Qui
@@ -144,6 +145,24 @@
         </div>
       </div>
     </div>
+    <!-- Другий попап для скрипта -->
+    <div class="popup" id="popup_2">
+        <!-- Для закриття модалки по натисканню не по модалці -->
+        <!-- <a href="#header" class="popup-area"></a> -->
+        <div class="popup-body">
+          <div class="popup-content">
+            <!-- Для закриття модалки хрестиком -->
+            <a href="#header" class="popup-close close-popup">X</a>
+            <div class="popup-title">Это модальное окно №2</div>
+            <div class="popup-text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae
+              facere non quibusdam veniam, est atque deleniti, ut adipisci
+              necessitatibus quos labore corporis distinctio pariatur fuga. Qui
+              dignissimos impedit repellat temporibus?
+            </div>
+          </div>
+        </div>
+      </div>
     <script src="./modal_example.js"></script>
   </body>
 </html>
