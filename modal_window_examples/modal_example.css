@@ -153,12 +153,12 @@ p {
 } */
 
 /* Відкриття модалки за допомогою JS */
-.popup.is-open {
+.popup.open {
   opacity: 1;
   visibility: visible;
 }
 
-.popup.is-open .popup-content {
+.popup.open .popup-content {
   /* transform: translate(0, 0); */
   transform: perspective(600px) translate(0px, 0%) rotateX(0deg);
   opacity: 1;
@@ -173,13 +173,14 @@ p {
   left: 0;
 }
 
+/* Тіло модалки на яке даємо транзитион для того щоб було плавне закриття з поверненням скролу і без зміщення контенту. */
 .popup-body {
   min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 30px 10px;
-  /* transition: all 0.8s ease 0s; */
+  transition: all 0.8s ease 0s;
 }
 
 /* Два різних трансформа */
