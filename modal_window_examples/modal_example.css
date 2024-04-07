@@ -21,6 +21,7 @@ body {
 }
 
 /* Для Js скрипта */
+
 body.lock {
   overflow: hidden;
 }
@@ -196,6 +197,18 @@ p {
   opacity: 0;
   /* transform: translate(0px, -100%); */
   transform: perspective(600px) translate(0px, -100%) rotateX(120deg);
+}
+
+/* Клас для стилізації модального вікна з картинкою.Тут overflow:hidden - робить так щоб гострі кути img не вилазили з картки*/
+.popup-content-img {
+  padding: 0;
+  overflow: hidden;
+}
+
+/* vertical-align - для того щоб картинка була по середині в модалці без нижнього відступу */
+.popup-image img {
+  max-width: 100%;
+  vertical-align: top;
 }
 
 .popup-close {
