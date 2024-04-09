@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modal_Window</title>
     <link
       rel="stylesheet"
@@ -11,19 +11,23 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./styles.css"></li>
-</head>
-<body>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
     <ul class="list"></ul>
 
-    <div class="backdrop">
-    <div class="modal">
-      <img  class="modal-img"src="" alt="">
-      <h2 class="modal-title"></h2>
-      <p class="modal-text"></p>
-      <p class="modal-info"></p>
+    <div class="backdrop close-modal">
+      <div class="modal" id="">
+        <div class="modal-body">
+          <button type="button" class="close-modal button-close">X</button>
+          <img class="modal-img" src="" alt="" />
+          <h2 class="modal-title"></h2>
+          <p class="modal-text"></p>
+          <p class="modal-info"></p>
+        </div>
+      </div>
     </div>
-  </div>
+    <div class="js-guard"></div>
     <script src="./index.js"></script>
-</body>
+  </body>
 </html>

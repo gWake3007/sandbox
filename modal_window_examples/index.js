@@ -2,6 +2,7 @@ const refs = {
   body: document.querySelector("body"),
   list: document.querySelector(".list"),
   backdrop: document.querySelector(".backdrop"),
+  closeModal: document.querySelector(".close-modal"),
   modal: document.querySelector(".modal"),
   modalImg: document.querySelector(".modal-img"),
   modalTitle: document.querySelector(".modal-title"),
@@ -9,10 +10,21 @@ const refs = {
   modalInfo: document.querySelector(".modal-info"),
 };
 
-const URL = "https://rickandmortyapi.com/api/character";
+const guard = document.querySelector(".js-guard");
+
+let options = {
+  root: null,
+  rootMargin: "100px",
+};
+
+let observer = new IntersectionObserver(callback, options);
+
+let page = 1;
+
+const URL = "https://rickandmortyapi.com/api/character/";
 
 async function fetchCarts() {
-  return await fetch(URL);
+  return await fetch(`${URL}?page=${page}`).then((resp) => resp.json());
 }
 
 // fetch(URL)
@@ -33,26 +45,69 @@ function createMarcup(arr) {
 }
 
 fetchCarts()
-  .then((resp) => resp.json())
   .then((resp) => {
     refs.list.insertAdjacentHTML("beforeend", createMarcup(resp.results));
+    if (resp.info.pages > page) {
+      observer.observe(guard);
+    }
+    openModal();
+  })
+  .catch((err) => console.log(err));
+
+  refs.closeModal.addEventListener("click", closeModal);
+
+  function closeModal() {
+    refs.backdrop.classList.remove("is-open");
+    refs.body.style.overflow = "visible";
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if(e.which === 27) {
+      closeModal();
+    }
+  });
+
+  function callback(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log(entry);
+        page += 1;
+        fetchCarts()
+          .then((resp) => {
+            refs.list.insertAdjacentHTML("beforeend", createMarcup(resp.results));
+            openModal(resp.results);
+            if (resp.info.pages === page) {
+              observer.unobserve(guard);
+            }
+           
+          })
+          .catch((err) => console.log(err));
+      }
+    });
+  }
+
+  function openModal(results) {
     const links = document.querySelectorAll(".cart-a");
-    console.log(links);
     links.forEach((link) => {
       link.addEventListener("click", (event) => {
         const id = Number(event.currentTarget.id);
 
-        for (let i = 0; i < resp.results.length; i++) {
+        for (let i = 0; i < results.length; i++) {
           if (id === resp.results[i].id) {
-            console.log(resp.results[i]);
-            refs.modalImg.src = 
+            const { id, image, name, status, gender } = resp.results[i];
+            refs.modal.id = id;
+            refs.modalImg.src = image;
+            refs.modalTitle.textContent = name;
+            refs.modalText.textContent = gender;
+            refs.modalInfo.textContent = status;
+            refs.backdrop.classList.add("is-open");
+            refs.body.style.overflow = "hidden";
+            return;
           }
         }
       });
     });
-  })
-  .catch((err) => console.log(err));
-
+  }
 //!========================================= ( Dont work ) ===========================================
 // const URL = "https://rickandmortyapi.com/api/character";
 
