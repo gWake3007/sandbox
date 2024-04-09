@@ -90,6 +90,7 @@ fetchCarts()
     const links = document.querySelectorAll(".cart-a");
     links.forEach((link) => {
       link.addEventListener("click", (event) => {
+        event.preventDefault();
         const id = Number(event.currentTarget.id);
         for (let i = 0; i < results.length; i++) {
           if (id === results[i].id) {
@@ -99,10 +100,10 @@ fetchCarts()
             refs.modalTitle.textContent = name;
             refs.modalText.textContent = gender;
             refs.modalInfo.textContent = status;
-
+//?Заборона на прокручування при відкритті та закритті модального вікна.
             const scrollPosition = window.pageYOffset;
             window.scrollTo(0, scrollPosition);
-            
+
             refs.backdrop.classList.add("is-open");
             refs.body.style.overflow = "hidden";
 
