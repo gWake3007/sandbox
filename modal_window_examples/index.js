@@ -99,8 +99,13 @@ fetchCarts()
             refs.modalTitle.textContent = name;
             refs.modalText.textContent = gender;
             refs.modalInfo.textContent = status;
+
+            const scrollPosition = window.pageYOffset;
+            window.scrollTo(0, scrollPosition);
+            
             refs.backdrop.classList.add("is-open");
             refs.body.style.overflow = "hidden";
+
             return;
           }
         }
