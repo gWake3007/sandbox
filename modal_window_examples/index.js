@@ -50,7 +50,7 @@ fetchCarts()
     if (resp.info.pages > page) {
       observer.observe(guard);
     }
-    openModal();
+    openModal(resp.results);
   })
   .catch((err) => console.log(err));
 
@@ -91,10 +91,9 @@ fetchCarts()
     links.forEach((link) => {
       link.addEventListener("click", (event) => {
         const id = Number(event.currentTarget.id);
-
         for (let i = 0; i < results.length; i++) {
-          if (id === resp.results[i].id) {
-            const { id, image, name, status, gender } = resp.results[i];
+          if (id === results[i].id) {
+            const { id, image, name, status, gender } = results[i];
             refs.modal.id = id;
             refs.modalImg.src = image;
             refs.modalTitle.textContent = name;
