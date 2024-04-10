@@ -59,6 +59,7 @@ fetchCarts()
   function closeModal() {
     refs.backdrop.classList.remove("is-open");
     refs.body.style.overflow = "visible";
+    unlook = false;
   }
 
   document.addEventListener("keydown", function (e) {
@@ -106,7 +107,7 @@ fetchCarts()
 
             refs.backdrop.classList.add("is-open");
             refs.body.style.overflow = "hidden";
-
+            unlook = true;
             return;
           }
         }
