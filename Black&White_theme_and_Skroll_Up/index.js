@@ -19,18 +19,10 @@ const textAll = document.querySelectorAll(".text");
 
 textAll.forEach((text) => {
   themeToggle.addEventListener("change", () => {
-    text.classList.add("black");
+    if (text.classList.contains("black")) {
+      text.classList.remove("black");
+    } else {
+      text.classList.add("black");
+    }
   });
 });
-
-
-
-
-
-
-
-
-
-// themeToggle.addEventListener("change", () => {
-//   text.classList.add("black");
-// });
