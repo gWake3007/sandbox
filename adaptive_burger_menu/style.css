@@ -159,6 +159,18 @@ body.touch .menu-arrow {
   border-right: 5px solid transparent;
   border-top: 10px solid #fff;
 }
+
+/* Ця частина коду CSS відповідає за клік по бургер меню на мобільному пристрої(тільки тут через js додадється клас active) */
+body.touch .menu-list > li.active .menu-sub-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0px, 0px);
+  pointer-events: all;
+}
+
+body.touch .menu-list > li.active .menu-arrow {
+  transform: rotate(-180deg);
+}
 /* -------------------------------------------------------------------------------------------------- */
 /* Медіа запити hedder */
 @media (min-width: 767px) {

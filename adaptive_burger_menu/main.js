@@ -28,8 +28,50 @@ const isMobile = {
   },
 };
 
-if(isMobile.any()) {
-    document.body.classList.add("touch");
+//?Перевіряє чи це мобільний пристрій чи ПК та при клікі якщо це мобільний пристрій додає класс active для css.
+if (isMobile.any()) {
+  document.body.classList.add("touch");
+  let menuArrows = document.querySelectorAll(".menu-arrow");
+  if (menuArrows.length > 0) {
+    for (let i = 0; menuArrows.length > i; i++) {
+      const menuArrow = menuArrows[i];
+      menuArrow.addEventListener("click", function (event) {
+        menuArrow.parentElement.classList.toggle("active");
+      });
+    }
+  }
 } else {
-    document.body.classList.add("pc");
+  document.body.classList.add("pc");
+}
+
+//?Всі лінки з классом і дата атрибутом.
+const menuLinks = document.querySelectorAll(".menu-link[data-goto]");
+
+if (menuLinks.length > 0) {
+  menuLinks.forEach((menuLink) => {
+    menuLink.addEventListener("click", onMenuLinkClick);
+  });
+
+  function onMenuLinkClick(event) {
+    const menuLink = event.target;
+    if (
+      menuLink.dataset.goto &&
+      document.querySelector(menuLink.dataset.goto)
+    ) {
+      //?Отримуємо селектор лінка на який натиснуто.
+      const gotoBlock = document.querySelector(menuLink.dataset.goto);
+      //?Отримуємо висоту елемента мінус висота хедера(Тому що хеддер в нас fixed та пересувається з контентом).
+      const gotoBlockValue =
+        gotoBlock.getBoundingClientRect().top +
+        pageYOffset -
+        document.querySelector("header").offsetHeight;
+
+      window.scrollTo({
+        top: gotoBlockValue,
+        behavior: "smooth",
+      });
+      //?Для відключення роботи посилання та корректної роботи скрипта!ВАЖЛИВО!!!
+      event.preventDefault();
+    }
+  }
 }
