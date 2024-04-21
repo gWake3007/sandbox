@@ -1,0 +1,122 @@
+ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  background-color: aliceblue;
+}
+
+.hedder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 0;
+  width: 100%;
+  background-color: grey;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+  padding-left: 20px;
+}
+
+.nav-link {
+  color: burlywood;
+}
+
+.account {
+  padding-right: 20px;
+  color: black;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 0;
+  width: 100%;
+  background-color: grey;
+}
+
+.hero {
+  background-color: aquamarine;
+  width: 60%;
+  margin: 0 auto;
+  padding: 0 100px;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
+}
+
+.hero-title {
+  font-size: 30px;
+  text-align: center;
+}
+
+.hero-description {
+  text-align: center;
+}
+
+.contact {
+  width: 60%;
+  margin: 0 auto;
+  padding: 0 100px;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.list li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list span {
+    text-align: center;
+}
+
+/* Як працює псевдоелемент :is (Потрібен для зручнішої стилізації, зрозумілішого коду та зменшення коду) */
+/* Звичайний код */
+/* Тобто щоб не дублювати div та hedder. А в псевдокласів is: та :where потребують тому що группуються */
+/* div hedder .nav-link {
+    color: white;
+} */
+
+/* div hedder .account{
+    color: white;
+} */
+
+/* Різниця між :is та :where */
+/* Код через псевдоелемент :is специфіка селектору(ВАЖЛИВІСТЬ) 0 1 2 */
+/* div hedder :is(.nav-link, .account) {
+    color: black;
+} */
+/* Код через псевдоелемент :where специфіка селектору(ВАЖЛИВІСТЬ) 0 0 2 */
+/* div hedder :where(.nav-link, .account) {
+    color: black;
+} */
+
+/* До всіх секцій які мають параграф буде така стилізація  специфіка селектору(ВАЖЛИВІСТЬ) 0 0 2*/
+/* section:has(p) {
+    color: blue;
+} */
