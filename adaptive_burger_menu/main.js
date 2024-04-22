@@ -43,9 +43,21 @@ if (isMobile.any()) {
 } else {
   document.body.classList.add("pc");
 }
+//?Меню бургер
+const iconMenu = document.querySelector(".menu-icon");
+const menuBody = document.querySelector(".menu-body");
+if (iconMenu) {
+  iconMenu.addEventListener("click", function (e) {
+    //?Клас lock відповідає за скрол сторінки при відкритому меню.Два класа active нижче за саме бургер меню.
+    document.body.classList.toggle("lock");
+    iconMenu.classList.toggle("active");
+    menuBody.classList.toggle("active");
+  });
+}
 
 //?Всі лінки з классом і дата атрибутом.
 const menuLinks = document.querySelectorAll(".menu-link[data-goto]");
+const menuSubLinks = document.querySelectorAll(".menu-sub-link[data-goto]");
 
 if (menuLinks.length > 0) {
   menuLinks.forEach((menuLink) => {
@@ -54,6 +66,7 @@ if (menuLinks.length > 0) {
 
   function onMenuLinkClick(event) {
     const menuLink = event.target;
+    //?Перевіряємо чи є такий селектор з dataset-goto та потрібним нам класом.
     if (
       menuLink.dataset.goto &&
       document.querySelector(menuLink.dataset.goto)
@@ -65,6 +78,12 @@ if (menuLinks.length > 0) {
         gotoBlock.getBoundingClientRect().top +
         pageYOffset -
         document.querySelector("header").offsetHeight;
+      //?Перевіряємо чи натиснуто в бургер меню по навігації.Якщо так то закриваємо бургер меню і проскролює до цієї частини сторінки.
+      if (iconMenu.classList.contains("active")) {
+        document.body.classList.remove("lock");
+        iconMenu.classList.remove("active");
+        menuBody.classList.remove("active");
+      }
 
       window.scrollTo({
         top: gotoBlockValue,
