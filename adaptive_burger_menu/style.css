@@ -177,6 +177,17 @@ body.touch .menu-list > li.active .menu-sub-list {
 body.touch .menu-list > li.active .menu-arrow {
   transform: rotate(-180deg);
 }
+/* Виріши проблему з бургер підменю можливо через JS */
+/* body.touch .menu-list > li .menu-sub-list {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(0px, 10%);
+    pointer-events: none;
+  }
+  
+  body.touch .menu-list > li .menu-arrow {
+    transform: rotate(180deg);
+  } */
 /* -------------------------------------------------------------------------------------------------- */
 /* Медіа запити hedder (Не для мобільний пристроїв!)*/
 @media (min-width: 767px) {

@@ -93,4 +93,37 @@ if (menuLinks.length > 0) {
       event.preventDefault();
     }
   }
+  if (menuSubLinks.length > 0) {
+    menuSubLinks.forEach((menuSubLink) => {
+      menuSubLink.addEventListener("click", onMenuSubLinkClick);
+    });
+//?Функція для навігації по вкладкі в бургер меню.ВАЖЛИВО!!!
+    function onMenuSubLinkClick(event) {
+      const menuSubLink = event.target;
+      if (
+        menuSubLink.dataset.goto &&
+        document.querySelector(menuSubLink.dataset.goto)
+      ) {
+              //?Отримуємо селектор лінка на який натиснуто.
+      const gotoBlockSub = document.querySelector(menuSubLink.dataset.goto);
+      //?Отримуємо висоту елемента мінус висота хедера(Тому що хеддер в нас fixed та пересувається з контентом).
+      const gotoBlockValue =
+      gotoBlockSub.getBoundingClientRect().top +
+        pageYOffset -
+        document.querySelector("header").offsetHeight;
+        if (iconMenu.classList.contains("active")) {
+          document.body.classList.remove("lock");
+          iconMenu.classList.remove("active");
+          menuBody.classList.remove("active");
+        }
+
+        window.scrollTo({
+          top: gotoBlockValue,
+          behavior: "smooth",
+        });
+        //?Для відключення роботи посилання та корректної роботи скрипта!ВАЖЛИВО!!!
+        event.preventDefault();
+      }
+    }
+  }
 }
