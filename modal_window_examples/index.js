@@ -27,9 +27,9 @@ async function fetchCarts() {
   return await fetch(`${URL}?page=${page}`).then((resp) => resp.json());
 }
 
-// fetch(URL)
-//   .then((resp) => resp.json())
-//   .then((resp) => console.log(resp.results));
+fetch(URL)
+  .then((resp) => resp.json())
+  .then((resp) => console.log(resp.results));
 
 function createMarcup(arr) {
   return arr
@@ -95,7 +95,8 @@ fetchCarts()
         const id = Number(event.currentTarget.id);
         for (let i = 0; i < results.length; i++) {
           if (id === results[i].id) {
-            const { id, image, name, status, gender } = results[i];
+            //?Зверни увагу. Із за циклу фор ми можемо зробити поглиблену деструкторизацію!!!
+            const { id, image, location: {name}, status, gender } = results[i];
             refs.modal.id = id;
             refs.modalImg.src = image;
             refs.modalTitle.textContent = name;
