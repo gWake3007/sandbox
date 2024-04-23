@@ -80,21 +80,21 @@ body.lock {
   height: 40px;
 }
 
-.header-menu {
+.menu-icon {
+  display: none;
+}
+/* .header-menu {
 }
 
 .menu {
 }
 
-.menu-icon {
-  display: none;
-}
 
 .menu-body {
 }
 
 .menu-list {
-}
+} */
 
 .menu-list > li {
   position: relative;
@@ -178,15 +178,16 @@ body.touch .menu-list > li.active .menu-arrow {
   transform: rotate(-180deg);
 }
 /* Виріши проблему з бургер підменю можливо через JS */
-/* body.touch .menu-list > li .menu-sub-list {
+ 
+body.touch .menu-list > li .menu-sub-list {
     opacity: 0;
     visibility: hidden;
     transform: translate(0px, 10%);
     pointer-events: none;
   }
   
-  body.touch .menu-list > li .menu-arrow {
-    transform: rotate(180deg);
+  /* body.touch .menu-list  li .menu-arrow {
+    transform: rotate(0deg);
   } */
 /* -------------------------------------------------------------------------------------------------- */
 /* Медіа запити hedder (Не для мобільний пристроїв!)*/
