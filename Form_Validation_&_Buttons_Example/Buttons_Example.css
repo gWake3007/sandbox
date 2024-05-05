@@ -1,0 +1,46 @@
+body {
+  background-color: aliceblue;
+}
+
+.container {
+  width: 190px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.btn {
+  width: 150px;
+  height: 50px;
+  color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+  scale: 1;
+}
+
+.btn-1 {
+  background-color: brown;
+}
+
+.btn-2 {
+  background-color: crimson;
+}
+
+.btn-3 {
+  background-color: chocolate;
+}
+
+.buttons .btn:hover {
+  transform: scale(1.1, 1.1);
+  transition: transform 0.5s;
+}
+
+.buttons:hover > .btn:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}
