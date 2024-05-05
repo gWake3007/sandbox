@@ -17,9 +17,30 @@
     <div class="container">
       <h1>Валідація форми</h1>
       <form action="" class="form">
-        <input type="text" class="input-form" placeholder="Ім'я" />
-        <input type="text" class="input-form" placeholder="Прізвище" />
-        <input type="text" class="input-form" placeholder="По батькові" />
+        <div class="input-container">
+          <input
+            type="text"
+            class="input-form"
+            name="firstName"
+            placeholder="Ім'я"
+          />
+        </div>
+        <div class="input-container">
+          <input
+            type="text"
+            class="input-form"
+            name="lastName"
+            placeholder="Прізвище"
+          />
+        </div>
+        <div class="input-container">
+          <input
+            type="text"
+            class="input-form"
+            name="surName"
+            placeholder="По батькові"
+          />
+        </div>
         <button type="submit" class="btn-form">Відправити</button>
       </form>
     </div>
