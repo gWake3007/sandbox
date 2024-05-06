@@ -12,6 +12,7 @@ function validation(form) {
       parent.classList.remove("erorr");
     }
   }
+
   function createError(input, text) {
     const parent = input.parentNode;
     parent.classList.add("erorr");
@@ -23,6 +24,7 @@ function validation(form) {
     }
     parent.append(erorrLabel);
   }
+
   let result = true;
   //?За допомогою forEach перебираємо всі inputs.
   // inputs.forEach((input) => {
@@ -32,9 +34,34 @@ function validation(form) {
   const inputs = form.querySelectorAll("input");
   inputs.forEach((input) => {
     removeErorr(input);
-    if (input.value == "") {
-      createError(input, "Поле пусте");
-      result = false;
+    if (input.dataset.minLength) {
+      if (input.value.length < input.dataset.minLength) {
+        removeErorr(input);
+        createError(
+          input,
+          `Мінімальна кількість символів ${input.dataset.minLength}`
+        );
+        result = false;
+      }
+    }
+
+    if (input.dataset.maxLength) {
+      if (input.value.length > input.dataset.maxLength) {
+        removeErorr(input);
+        createError(
+          input,
+          `Максимальна кількість символів ${input.dataset.maxLength}`
+        );
+        result = false;
+      }
+    }
+
+    if (input.dataset.required === "true") {
+      if (input.value == "") {
+        removeErorr(input);
+        createError(input, "Поле не заповнене");
+        result = false;
+      }
     }
   });
   //?Третій спосіб якщо в інпутах форми є властивість name то через деструкторизацію!

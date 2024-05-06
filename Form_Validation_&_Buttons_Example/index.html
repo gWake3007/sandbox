@@ -19,6 +19,7 @@
       <form action="" class="form">
         <div class="input-container">
           <input
+            data-required="true"
             type="text"
             class="input-form"
             name="firstName"
@@ -27,6 +28,7 @@
         </div>
         <div class="input-container">
           <input
+            data-max-length="6"
             type="text"
             class="input-form"
             name="lastName"
@@ -35,6 +37,9 @@
         </div>
         <div class="input-container">
           <input
+            data-min-length="2"
+            data-max-length="6"
+            data-required="true"
             type="text"
             class="input-form"
             name="surName"
