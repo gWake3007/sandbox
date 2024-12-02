@@ -1,0 +1,21 @@
+body {
+  margin: 0 auto;
+  background-image: url(./img/background.jpg);
+  display: grid;
+  place-items: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+.form {
+  display: grid;
+  place-items: center;
+  border: 1px solid black;
+}
+
+.form > form {
+  display: flex;
+  flex-direction: column;
+}
