@@ -1,8 +1,10 @@
 body {
   margin: 0 auto;
   background-image: url(./img/background.jpg);
+  height: 100vh;
   display: grid;
   place-items: center;
+  color: white;
 }
 
 button {
@@ -10,12 +12,49 @@ button {
 }
 
 .form {
-  display: grid;
-  place-items: center;
-  border: 1px solid black;
+  border: 1px solid white;
+  border-radius: 7px;
+  padding: 30px;
 }
 
-.form > form {
+form {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.form-part-box {
+  height: 45px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form-part-box > label {
+  font-size: 20px;
+  letter-spacing: 0.03em;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box > input {
+  width: 250px;
+  height: 20px;
+  border: 2px solid blueviolet;
+  border-radius: 5px;
+}
+
+.btn-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-box > button {
+  display: grid;
+  place-items: center;
 }
