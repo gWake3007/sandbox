@@ -51,6 +51,10 @@ form {
   border-radius: 5px;
 }
 
+.input-box > input:hover {
+  height: 30px;
+}
+
 .btn-box {
   display: flex;
   justify-content: center;
@@ -64,4 +68,7 @@ form {
   background-color: cornflowerblue;
   color: darkblue;
   font-size: 18px;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+  box-shadow: 0 0 5px #03e9f4, 0 0 15px #03e9f4, 0 0 25px #03e9f4,
+    0 0 100px #03e9f4;
 }
