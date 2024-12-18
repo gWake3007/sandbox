@@ -14,7 +14,7 @@ button {
 .form {
   border: 1px solid rebeccapurple;
   border-radius: 7px;
-  padding: 30px;
+  padding: 40px;
   backdrop-filter: blur(10px);
   box-shadow: 0px 0px 30px rgba(28, 35, 91, 0.1);
 }
@@ -47,12 +47,15 @@ form {
 .input-box > input {
   width: 250px;
   height: 20px;
+  font-size: 16px;
   border: 2px solid blueviolet;
   border-radius: 5px;
+  outline: none;
+  transition: transform 0.4s ease;
 }
 
 .input-box > input:hover {
-  height: 30px;
+  transform: scaleY(1.13);
 }
 
 .btn-box {
@@ -71,4 +74,9 @@ form {
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
   box-shadow: 0 0 5px #03e9f4, 0 0 15px #03e9f4, 0 0 25px #03e9f4,
     0 0 100px #03e9f4;
+  transition: transform 0.4s ease;
+}
+
+.btn-box > button:hover {
+  transform: scale(1.1);
 }
