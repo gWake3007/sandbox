@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle, #1b2735, #090a0f);
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+#spinnerBtn {
+  padding: 10px;
+  font-size: 1.8em;
+  background-color: #1d1d1d;
+  border: 0.02em solid #292929;
+  border-radius: 0.2em;
+  color: #d9d9d9;
+  cursor: pointer;
+  position: relative;
+}
+
+#spinnerBtn:hover {
+  color: #fff;
+}
+
+#spinnerBtn:hover {
+  border-color: #535353;
+}
+
+#spinnerBtn:active {
+  color: #d9d9d9;
+}
+
+#spinnerBtn:focus {
+  color: transparent;
+}
+
+#spinnerBtn:focus::after {
+  position: absolute;
+  content: " ";
+  border: 0.2 em solid #fff;
+  width: 1em;
+  height: 1em;
+  top: 0.15em;
+  border-radius: 1em;
+  left: 84px;
+  border-top-color: #424242;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
