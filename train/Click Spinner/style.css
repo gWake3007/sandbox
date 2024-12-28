@@ -40,7 +40,7 @@ body {
 #spinnerBtn:focus::after {
   position: absolute;
   content: " ";
-  border: 0.2 em solid #fff;
+  border: 0.2em solid #fff;
   width: 1em;
   height: 1em;
   top: 0.15em;
