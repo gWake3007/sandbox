@@ -1,0 +1,32 @@
+.notificationBtn {
+  margin: 3em;
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.2em;
+  background-color: #5783db;
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+.notificationBtn:hover {
+  background-color: #4681f4;
+}
+
+.notificationBtn::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  content: attr(data-count);
+  right: -0.75em;
+  top: -0.75em;
+  background-color: #dd7973;
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.notificationBtn[data-count=""]::before {
+  display: none;
+}
