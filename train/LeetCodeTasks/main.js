@@ -71,3 +71,17 @@
 // console.log(findNumbers(nums));
 
 //?======================================================= Task 3 ===============================================================
+//? My answer first time is so good!
+// const nums = [-4, -1, 0, 3, 10];
+// const nums = [-7, -3, 2, 3, 11];
+
+// function sortedSquares(nums) {
+//   return nums.map((num) => num * num).sort((a, b) => a - b);
+// }
+
+// console.log(sortedSquares(nums));
+
+//?======================================================== Task 4 ===============================================================
+const arr = [1, 0, 2, 3, 0, 4, 5, 0];
+
+function duplicateZeros(arr) {}
