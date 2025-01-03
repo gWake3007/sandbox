@@ -82,6 +82,34 @@
 // console.log(sortedSquares(nums));
 
 //?======================================================== Task 4 ===============================================================
-const arr = [1, 0, 2, 3, 0, 4, 5, 0];
+// const arr = [1, 0, 2, 3, 0, 4, 5, 0];
 
-function duplicateZeros(arr) {}
+//?Second my answer. This is good result!Greeting you!
+// function duplicateZeros(arr) {
+//   for (let i = 0; arr.length > i; i++) {
+//     if (arr[i] === 0) {
+//       arr.splice(i + 1, 0, 0);
+//       i++;
+//       arr.pop();
+//     }
+//   }
+//   return arr;
+// }
+
+//?My answer not good. Because needed return arr. Not new variable result...
+// function duplicateZeros(arr) {
+//   let iteration = arr.length;
+//   const result = [];
+//   for (let i = 0; iteration > i; i++) {
+//     if (arr[i] === 0) {
+//       result.push(0, 0);
+//       iteration--;
+//     } else {
+//       result.push(arr[i]);
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(duplicateZeros(arr));
+//?============================================== Task 5 ======================================================================
