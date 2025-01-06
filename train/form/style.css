@@ -64,6 +64,17 @@ button {
   transform: scaleY(1.13);
 }
 
+input::placeholder {
+  color: teal;
+  font-size: 14px;
+  font-weight: 1.5;
+  transition: color 0.4s ease;
+}
+
+input:hover::placeholder {
+  color: lightblue;
+}
+
 .btn-box {
   display: flex;
   justify-content: center;
