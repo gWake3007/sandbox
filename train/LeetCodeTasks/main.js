@@ -167,5 +167,44 @@
 // }
 // console.log(removeElement(nums, val));
 
-//?========================================================== Task 7 ===================================================
-function removeDuplicates(nums) {}
+//?========================================================== Task 7 =====================================================
+// const nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+// const nums = [1, 1, 2];
+
+// function removeDuplicates(nums) {
+//   for (let i = 0; i < nums.length; i++) {
+//     // Перевіряємо, чи поточний елемент вже зустрічався
+//     if (nums.indexOf(nums[i]) !== i) {
+//       nums.splice(i, 1); // Видаляємо дубль
+//       i--; // Повертаємо індекс назад після видалення
+//     }
+//   }
+//   return nums.length;
+// }
+
+// console.log(removeDuplicates(nums));
+
+//?====================================================== Task 8 ==========================================================
+// const arr = [10, 2, 5, 3];
+// const arr = [3, 1, 7, 11];
+
+// //?Not my resolve.
+// function checkIfExist(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length; j++) {
+//       if (i !== j && arr[i] === 2 * arr[j]) {
+//         return true;
+//       }
+//     }
+//   }
+//   return false;
+// }
+
+// console.log(checkIfExist(arr));
+
+//?===================================================== Task 9 =============================================================
+// const arr = [2, 1];
+// const arr = [3, 5, 5];
+// const arr = [0, 3, 2, 1];
+
+function validMountainArray(arr) {}
