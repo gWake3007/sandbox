@@ -207,4 +207,53 @@
 // const arr = [3, 5, 5];
 // const arr = [0, 3, 2, 1];
 
-function validMountainArray(arr) {}
+//?Use to cycle while
+// function validMountainArray(arr) {
+//   if (arr.length < 3) return false;
+
+//   let i = 0;
+
+//   // Рухаємося вгору
+//   while (i + 1 < arr.length && arr[i] < arr[i + 1]) {
+//     i++;
+//   }
+
+//   // Перевіряємо, чи вершина не знаходиться на початку або в кінці
+//   if (i === 0 || i === arr.length - 1) {
+//     return false;
+//   }
+
+//   // Рухаємося вниз
+//   while (i + 1 < arr.length && arr[i] > arr[i + 1]) {
+//     i++;
+//   }
+
+//   // Якщо ми дійшли до кінця масиву, то це гірський масив
+//   return i === arr.length - 1;
+// }
+
+//?Use to cycle for
+// function validMountainArray(arr) {
+//   if (arr.length < 3) return false;
+
+//   let increasing = false;
+//   let decreasing = false;
+
+//   for (let i = 1; i < arr.length; i++) {
+//     if (arr[i] === arr[i - 1]) return false; // Рівні значення
+
+//     if (arr[i] > arr[i - 1]) {
+//       if (decreasing) return false; // Якщо спуск почався, а потім знову підйом
+//       increasing = true;
+//     } else if (arr[i] < arr[i - 1]) {
+//       if (!increasing) return false; // Якщо спуск почався без підйому
+//       decreasing = true;
+//     }
+//   }
+
+//   return increasing && decreasing; // Потрібно, щоб був і підйом, і спуск
+// }
+
+// console.log(validMountainArray(arr));
+
+//?======================================================= Task 10 ========================================================
