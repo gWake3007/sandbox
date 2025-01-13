@@ -257,3 +257,7 @@
 // console.log(validMountainArray(arr));
 
 //?======================================================= Task 10 ========================================================
+const arr = [17, 18, 5, 4, 6, 1];
+// const arr = [400];
+
+function replaceElements(arr) {}
