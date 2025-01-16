@@ -257,7 +257,35 @@
 // console.log(validMountainArray(arr));
 
 //?======================================================= Task 10 ========================================================
-const arr = [17, 18, 5, 4, 6, 1];
+// const arr = [17, 18, 5, 4, 6, 1];
 // const arr = [400];
 
-function replaceElements(arr) {}
+// function replaceElements(arr) {
+//   let length = arr.length;
+//   let maxSoFar = -1; // Максимальне значення справа, початково -1
+
+//   for (let i = length - 1; i >= 0; i--) {
+//     let currentNumber = arr[i]; // Поточний елемент
+//     arr[i] = maxSoFar; // Замінюємо його на максимальне значення
+//     maxSoFar = Math.max(maxSoFar, currentNumber); // Оновлюємо максимальне значення
+//   }
+//   return arr;
+// }
+
+// function replaceElements(arr) {
+//     let n = arr.length;
+//     let rightMax = new Array(n).fill(-1);
+
+//     for (let i = n - 2; i >= 0; i--) {
+//         rightMax[i] = Math.max(rightMax[i + 1], arr[i + 1]);
+//     }
+
+//     return rightMax;
+// }
+
+// function replaceElements(arr) {
+//     return arr.map((_, i) => i < arr.length - 1 ? Math.max(...arr.slice(i + 1)) : -1);
+// }
+// console.log(replaceElements(arr));
+
+//?=================================================== Task 11 =============================================================
